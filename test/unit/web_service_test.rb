@@ -38,7 +38,7 @@ class WebServiceTest < ActiveSupport::TestCase
     @title_author_genre_search_params = {:title => "Travels with My Aunt", :author => "Graham Greene", :genre => "Book"}
   end
   
-  def test_bogus_response
+  test "bogus_response" do
     assert_raise(SOAP::HTTPStreamError) {
       ws = Exlibris::Primo::WebService::GetRecord.new(@primo_test_doc_id, @bogus_404_url)
     }
@@ -48,7 +48,7 @@ class WebServiceTest < ActiveSupport::TestCase
   end
   
   # Test GetRecord for a single Primo document.
-  def test_get_record
+  test "get_record" do
     ws = Exlibris::Primo::WebService::GetRecord.new(@primo_test_doc_id, @base_url)
     assert_not_nil(ws, "#{ws.class} returned nil when instantiated.")
     assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")
@@ -56,17 +56,17 @@ class WebServiceTest < ActiveSupport::TestCase
     assert_equal(@primo_test_doc_id, ws.response.at("//pnx:control/pnx:recordid", PNX_NS).inner_text, "#{ws.class} returned an unexpected record: #{ws.response.to_xml(:indent => 5, :encoding => 'UTF-8')}")
   end
   
-  def test_count_get_record
+  test "get_record_count" do
     ws = Exlibris::Primo::WebService::GetRecord.new(@primo_test_doc_id, @base_url)
     assert_equal("1", ws.response.at("//search:DOCSET", SEARCH_NS)["TOTALHITS"])
   end
   
-  def test_count_search_brief
+  test "search_brief_count" do
     ws = Exlibris::Primo::WebService::SearchBrief.new(@isbn_search_params, @base_url)
     assert_equal("1", ws.response.at("//search:DOCSET", SEARCH_NS)["TOTALHITS"])
   end
   
-  def test_get_genre_discrepancy
+  test "get_genre_discrepancy" do
     ws = Exlibris::Primo::WebService::GetRecord.new(@primo_test_problem_doc_id, @base_url)
     assert_not_nil(ws, "#{ws.class} returned nil when instantiated.")
     assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")
@@ -76,14 +76,14 @@ class WebServiceTest < ActiveSupport::TestCase
   end
   
   # Test GetRecord with invalid Primo doc id.
-  def test_get_bogus_record
+  test "get_bogus_record" do
     assert_raise(RuntimeError) {
       ws = Exlibris::Primo::WebService::GetRecord.new(@primo_invalid_doc_id, @base_url)
     }
   end
   
   # Test SearchBrief by isbn.
-  def test_isbn_search
+  test "isbn_search" do
     ws = Exlibris::Primo::WebService::SearchBrief.new(@isbn_search_params, @base_url)
     assert_not_nil(ws, "#{ws.class} returned nil when instantiated.")
     assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")
@@ -91,7 +91,7 @@ class WebServiceTest < ActiveSupport::TestCase
   end
   
   # Test SearchBrief by issn.
-  def test_issn_search
+  test "issn_search" do
     ws = Exlibris::Primo::WebService::SearchBrief.new(@issn_search_params, @base_url)
     assert_not_nil(ws, "#{ws.class} returned nil when instantiated.")
     assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")
@@ -99,7 +99,7 @@ class WebServiceTest < ActiveSupport::TestCase
   end
   
   # Test SearchBrief by title.
-  def test_title_search
+  test "title_search" do
     ws = Exlibris::Primo::WebService::SearchBrief.new(@title_search_params, @base_url)
     assert_not_nil(ws, "#{ws.class} returned nil when instantiated.")
     assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")
@@ -107,7 +107,7 @@ class WebServiceTest < ActiveSupport::TestCase
   end
   
   # Test SearchBrief by author.
-  def test_author_search
+  test "author_search" do
     ws = Exlibris::Primo::WebService::SearchBrief.new(@author_search_params, @base_url)
     assert_not_nil(ws, "#{ws.class} returned nil when instantiated.")
     assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")
@@ -115,7 +115,7 @@ class WebServiceTest < ActiveSupport::TestCase
   end
   
   # Test SearchBrief by title/author/genre.
-  def test_title_author_genre_search
+  test "title_author_genre_search" do
     ws = Exlibris::Primo::WebService::SearchBrief.new(@title_author_genre_search_params, @base_url)
     assert_not_nil(ws, "#{ws.class} returned nil when instantiated.")
     assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")

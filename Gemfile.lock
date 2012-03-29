@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    exlibris-primo (0.0.1)
+    exlibris-primo (0.0.3)
       nokogiri
       rails (~> 3.2.0)
       soap4r-ruby1.9
