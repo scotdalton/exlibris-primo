@@ -5,7 +5,8 @@ PATH = File.dirname(__FILE__) + "/exlibris/primo/"
   'related_link',
   'rsrc',
   'toc',
-  'searcher'
+  'searcher',
+  'source/aleph'
 ].each do |library|
   require PATH + library
 end
