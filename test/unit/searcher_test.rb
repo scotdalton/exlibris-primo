@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'test_helper'
 class SearcherTest < ActiveSupport::TestCase
   PNX_NS = {'pnx' => 'http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib'}
@@ -331,53 +332,46 @@ class SearcherTest < ActiveSupport::TestCase
     }
   end
 
-  # test "holdings_diacritics1" do
+  test "holdings_diacritics1" do
+     searcher = Exlibris::Primo::Searcher.new(
+       @searcher_setup, 
+       { :primo_id => @primo_test_diacritics1_doc_id })
+     assert_equal(
+       "Rubāʻīyāt-i Bābā Ṭāhir", 
+       searcher.btitle, 
+       "#{searcher.class} has an unexpected btitle: #{searcher.btitle}")
+     assert_equal(
+       "Bābā-Ṭāhir, 11th cent", 
+       searcher.au, 
+       "#{searcher.class} has an unexpected author: #{searcher.au}")
+   end
+   
+#   This test fails but I don't know why!
+  # test "holdings_diacritics2" do
   #   searcher = Exlibris::Primo::Searcher.new(
   #     @searcher_setup, 
-  #     { :primo_id => @primo_test_diacritics1_doc_id })
+  #     { :primo_id => @primo_test_diacritics2_doc_id })
   #   assert_equal(
-  #     "Rubāʻīyāt-i Bābā Ṭāhir", 
-  #     searcher.btitle, 
-  #     "#{searcher.class} has an unexpected btitle: #{searcher.btitle}")
-  #   assert_equal(
-  #     "Bābā-Ṭāhir, 11th cent", 
+  #     "Faraj, Faraj Maḥmūd", 
   #     searcher.au, 
   #     "#{searcher.class} has an unexpected author: #{searcher.au}")
+  #   assert_equal(
+  #     "Iqlīm Tuwāt khilāl al-qarnayn al-thāmin ʻashar wa-al-tāsiʻ ʻashar al-mīlādīyīn : dirāsah li-awḍāʻ al-iqlīm al-siyāsīyah wa-al-ijtimāʻīyah wa-al-iqtiṣādīyah wa-al-thaqāfīyah, maʻa taḥqīq kitāb al-Qawl al-basīṭ fī akhbār Tamanṭīṭ (li-Muḥammad ibn Bābā Ḥaydah)",
+  #     searcher.btitle, 
+  #     "#{searcher.class} has an unexpected btitle: #{searcher.btitle}")
   # end
   
-#   # This test fails but I don't know why!
-#   test "holdings_diacritics2" do
-#     searcher = Exlibris::Primo::Searcher.new(
-#       @searcher_setup, 
-#       { :primo_id => @primo_test_diacritics2_doc_id })
-#     assert_equal(
-#       "أقليم توات خلال القرنين الثامن عشر والتاسع عشر الميلاديين : دراسة لأوضاع الأقليم السياسية والأجتماعية والأقتصادية والثقافية، مع تحقيق كتاب القول البسيط في أخبار تمنطيط (لمحمد بن بابا حيده)", 
-#       searcher.btitle, 
-#       "#{searcher.class} has an unexpected btitle: #{searcher.btitle}")
-# puts ("\n")
-# puts searcher.au.bytes.collect.inspect
-# faraj = "Faraj, Faraj Maḥmūd"
-# puts ("\n»")
-# puts "»".bytes.collect.inspect
-# puts faraj.bytes.collect.inspect
-#     assert_equal(
-#       "Faraj, Faraj Maḥmūd", 
-#       searcher.au, 
-#       "#{searcher.class} has an unexpected author: #{searcher.au}")
-#     assert_equal("(DT299.T88 F373 2007)", first_holding.call_number, "#{searcher.class} first holding has an unexpected call number: #{first_holding.call_number}")
-#   end
-#   
-#   test "holdings_diacritics3" do
-#     searcher = Exlibris::Primo::Searcher.new(
-#       @searcher_setup, 
-#       { :primo_id => @primo_test_diacritics3_doc_id })
-#     assert_equal(
-#       "Mul har ha-gaʻash : ḥoḳre toldot Yiśraʼel le-nokhaḥ ha-Shoʼah", 
-#       searcher.btitle, 
-#       "#{searcher.class} has an unexpected btitle: #{searcher.btitle}")
-#     assert_equal(
-#       "Engel, David", 
-#       searcher.au, 
-#       "#{searcher.class} has an unexpected author: #{searcher.au}")
-#   end
+  test "holdings_diacritics3" do
+    searcher = Exlibris::Primo::Searcher.new(
+      @searcher_setup, 
+      { :primo_id => @primo_test_diacritics3_doc_id })
+    assert_equal(
+      "Mul har ha-gaʻash : ḥoḳre toldot Yiśraʼel le-nokhaḥ ha-Shoʼah", 
+      searcher.btitle, 
+      "#{searcher.class} has an unexpected btitle: #{searcher.btitle}")
+    assert_equal(
+      "Engel, David", 
+      searcher.au, 
+      "#{searcher.class} has an unexpected author: #{searcher.au}")
+  end
 end
