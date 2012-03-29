@@ -173,10 +173,6 @@ module Exlibris
       end
  
       private
-      # def self.add_attr_reader(reader)
-      #   attr_reader reader.to_sym
-      # end
-      # 
       def raise_required_parameter_error(parameter)
         raise "Initialization error in #{self.class}. Missing required parameter: #{parameter}."
       end

@@ -133,8 +133,8 @@ module Exlibris
           # Just take the first element for record level elements 
           # (should only be one, except sourceid which will be handled later)
           record_id = record.xpath("pnx:control/pnx:recordid", PNX_NS).inner_text
-          title = record.xpath("pnx:display/pnx:title", PNX_NS).inner_text
-          author = record.xpath("pnx:display/pnx:creator", PNX_NS).inner_text
+          record_title = record.xpath("pnx:display/pnx:title", PNX_NS).inner_text
+          record_author = record.xpath("pnx:display/pnx:creator", PNX_NS).inner_text
           display_type = record.xpath("pnx:display/pnx:type", PNX_NS).inner_text
           original_source_id = record.xpath("pnx:control/pnx:originalsourceid", PNX_NS).inner_text unless record.xpath("pnx:control/pnx:originalsourceid", PNX_NS).nil?
           original_source_ids = process_control_hash(record, "pnx:control/pnx:originalsourceid", PNX_NS)
@@ -153,7 +153,7 @@ module Exlibris
             holding_source_record_id =  source_record_id if holding_source_record_id.nil?
             holding_parameters = {
               :base_url => @base_url, :vid => @vid, :config => @config,
-              :record_id => record_id, :title => title, :author => author, 
+              :record_id => record_id, :title => record_title, :author => record_author, 
               :original_source_id => holding_original_source_id, :source_id => holding_source_id, 
               :source_record_id => holding_source_record_id, :origin => origin, 
               :availlibrary => availlibrary, :institution_code => institution_code, 

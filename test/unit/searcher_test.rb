@@ -179,6 +179,8 @@ class SearcherTest < ActiveSupport::TestCase
       "#{searcher.class} first holding is an unexpected object: #{first_holding.class}")
     test_data = { 
       :record_id => "nyu_aleph000062856", 
+      :title => "Travels with my aunt", 
+      :author => "Graham  Greene  1904-1991.", 
       :source_id => "nyu_aleph", 
       :original_source_id => "NYU01", 
       :source_record_id => "000062856",
@@ -281,6 +283,8 @@ class SearcherTest < ActiveSupport::TestCase
       "#{searcher.class} first holding is an unexpected object: #{first_holding.class}")
     test_data = { 
       :record_id => "dedupmrg17343091", 
+      :title => "The New York times", 
+      :author => "", 
       :source_id => "nyu_aleph", 
       :original_source_id => "NYU01", 
       :source_record_id => "000932393",
