@@ -1,5 +1,5 @@
 require 'test_helper'
-class SearcherTest < Test::Unit::TestCase
+class SearcherTest < ActiveSupport::TestCase
   PNX_NS = {'pnx' => 'http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib'}
   SEARCH_NS = {'search' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
 
