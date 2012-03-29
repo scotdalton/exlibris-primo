@@ -133,6 +133,8 @@ module Exlibris
           # Just take the first element for record level elements 
           # (should only be one, except sourceid which will be handled later)
           record_id = record.xpath("pnx:control/pnx:recordid", PNX_NS).inner_text
+          title = record.xpath("pnx:display/pnx:title", PNX_NS).inner_text
+          author = record.xpath("pnx:display/pnx:creator", PNX_NS).inner_text
           display_type = record.xpath("pnx:display/pnx:type", PNX_NS).inner_text
           original_source_id = record.xpath("pnx:control/pnx:originalsourceid", PNX_NS).inner_text unless record.xpath("pnx:control/pnx:originalsourceid", PNX_NS).nil?
           original_source_ids = process_control_hash(record, "pnx:control/pnx:originalsourceid", PNX_NS)
@@ -151,15 +153,12 @@ module Exlibris
             holding_source_record_id =  source_record_id if holding_source_record_id.nil?
             holding_parameters = {
               :base_url => @base_url, :vid => @vid, :config => @config,
-              :record_id => record_id, :original_source_id => holding_original_source_id,
-              :source_id => holding_source_id, :source_record_id => holding_source_record_id,
-              :origin => origin, :availlibrary => availlibrary, :institution_code => institution_code, 
+              :record_id => record_id, :title => title, :author => author, 
+              :original_source_id => holding_original_source_id, :source_id => holding_source_id, 
+              :source_record_id => holding_source_record_id, :origin => origin, 
+              :availlibrary => availlibrary, :institution_code => institution_code, 
               :library_code => library_code, :id_one => id_one, :id_two => id_two, 
-              :status_code => status_code, :origin => origin, :display_type => display_type, :notes => ""# ,
-              # :match_reliability => 
-              #   (record.xpath("pnx:display/pnx:title", PNX_NS) and record.xpath("pnx:display/pnx:creator", PNX_NS)) ? 
-              #     (reliable_match?(:title => record.xpath("pnx:display/pnx:title", PNX_NS).inner_text, :author => record.xpath("pnx:display/pnx:creator", PNX_NS).inner_text)) ? 
-              #       ServiceResponse::MatchExact : ServiceResponse::MatchUnsure : ServiceResponse::MatchExact
+              :status_code => status_code, :origin => origin, :display_type => display_type, :notes => ""
             }
             holding = Exlibris::Primo::Holding.new(holding_parameters)
             @holdings.push(holding) unless holding.nil?
@@ -212,22 +211,6 @@ module Exlibris
           h[o] = v unless (o.nil? or v.nil?)
         end
         return h
-      end
-    
-      # Determine how sure we are that this is a match.
-      # Dynamically compares record metadata to input values 
-      # based on the values passed in.
-      # Minimum requirement is to check title.
-      def reliable_match?(record_metadata)
-        return true unless (@primo_id.nil? or @primo_id.empty?)
-        return true unless (@issn.nil? or @issn.empty?) and (@isbn.nil? or @isbn.empty?)
-        return false if (record_metadata.nil? or record_metadata.empty? or record_metadata[:title].nil? or record_metadata[:title].empty?)
-        # Titles must be equal
-        return false unless record_metadata[:title].downcase.eql?(@title.downcase)
-        # Compare record metadata with metadata that was passed in.  
-        # Only check if the record metadata value contains the input value since we can't be too strict.
-        record_metadata.each { |type, value| return false if value.downcase.match("#{self.method(type).call}".downcase).nil?}
-        return true
       end
     
       def process_availlibrary(input)

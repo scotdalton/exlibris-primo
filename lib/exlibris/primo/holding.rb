@@ -36,10 +36,10 @@
 module Exlibris
   module Primo
     class Holding
-      @base_attributes = [ :record_id, :source_id, :original_source_id, :source_record_id,
-        :availlibrary, :institution_code, :institution, :library_code, :library,
-        :status_code, :status, :id_one, :id_two, :origin, :display_type, :coverage, :notes,
-        :url, :request_url, :source_data ]
+      @base_attributes = [ :record_id, :title, :author, :source_id, :original_source_id, 
+        :source_record_id, :availlibrary, :institution_code, :institution, :library_code, 
+        :library, :status_code, :status, :id_one, :id_two, :origin, :display_type, :coverage,
+        :notes, :url, :request_url, :source_data ]
       # Make sure attribute you're aliasing in in base_attributes
       @attribute_aliases = { :collection => :id_one, :call_number => :id_two }
       @required_parameters = [ :base_url, :record_id, :source_id, 
