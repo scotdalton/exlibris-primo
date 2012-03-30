@@ -2,11 +2,11 @@
 
 Exlibris::Primo offers a set of libraries for interacting with the ExLibris Primo APIs.
 
-== Searcher
+== Exlibris::Primo::Searcher
 The Exlibris::Primo::Searcher class performs a search against Primo for given parameters
 and exposes the set of holdings (availibrary elements), rsrcs, tocs, and related links (addlink elements).
 
-== Example of Searcher in action
+== Example of Exlibris::Primo::Searcher in action
 	setup = {
 	  :base_url => "http://primo.institution.edu", :vid => "VID", :institution => "INSTITUTION",
 	  :config => {
