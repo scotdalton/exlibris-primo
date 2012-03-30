@@ -11,7 +11,7 @@ module Exlibris
     # will log a warning in the Rails log.
     # Exlibris::Primo::Searcher will populate the following instance variables
     # accessible through readers:
-    #   :count, :cover_image, :titles, :author, :holdings, :rsrcs, :tocs, :related_links
+    #   :count, :holdings, :rsrcs, :tocs, :related_links
     # The reader :response makes the full xml result available as a Nokogiri::XML::Document.
     class Searcher
       #@required_setup = [ :base_url ]
@@ -24,9 +24,11 @@ module Exlibris
       SEARCH_NS = {'search' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
     
       # Instantiates the object and performs the search for based on the input search criteria.
-      # setup parameter requires { :base_url => http://primo.server.institution.edu }
+      # :setup parameter requires { :base_url => http://primo.institution.edu }
       # Other optional parameters are :vid => "view_id", :config => { Hash of primo config settings}
-      # search_params are a sufficient combination of 
+      # Hash of config settings are of the form:
+      #   {"libraries" => {"library_code1" => "library_display_1", "library_code2" => "library_display_1"}, "statuses" => {"status_code1" => "status_display_1", "status_code2" => "status_display_2"}}
+      # :search_params are a sufficient combination of 
       #   { :primo_id => "primo_1", :isbn => "ISBN", :issn => "ISSN", :title => "Title", :author => "Author", :genre => "Genre" }
       def initialize(setup, search_params)
         @holdings = []

@@ -14,7 +14,7 @@ module Exlibris
     # of the form 
     #   {"libraries" => {"library_code1" => "library_display_1", "library_code2" => "library_display_1"}, "statuses" => {"status_code1" => "status_display_1", "status_code2" => "status_display_2"}}
     # The config can also include information about Primo::Source classes in the form:
-    #   {"sources" => {"source_id1" => {"class_name" => "SourceKlassName", "source_config1" => "source_config_one"}}}
+    #   "sources" => {"source_id1" => {"class_name" => "SourceKlassName", "source_config1" => "source_config_one"}}
     # Primo::Source classes can be used to represent a Primo source for expanding holdings 
     # information, linking to Primo sources, and storing additional metadata based on those sources.  
     # In order to create a source class, implementations should extend Exlibris::Primo::Holding.
