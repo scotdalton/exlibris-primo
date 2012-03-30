@@ -1,5 +1,6 @@
 module Exlibris
   module Primo
+    # == Overview
     # Class for handling Primo related links from links/addlink
     class RelatedLink
       @base_attributes = [ :record_id, :addlink, :url, :display,  :notes ]

@@ -1,5 +1,6 @@
 module Exlibris
   module Primo
+    # == Overview
     # Class for handling Primo Rsrcs from links/linktorsrc
     class Rsrc
       @base_attributes = [ :record_id, :linktorsrc, :v, :url, :display, :institution_code, :origin, :notes ]

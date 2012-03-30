@@ -1,15 +1,18 @@
-# == Overview
-# Searcher searches Primo for records.
-# Searcher must have sufficient metadata to make 
-# the request. Sufficient means either:
-#     * We have a Primo doc id
-#     * We have either an isbn OR an issn
-#     * We have a title AND an author AND a genre
-# If none of these criteria are met, Searcher.search
-# will raise a RuntimeException. 
-
 module Exlibris
   module Primo
+    # == Overview
+    # Exlibris::Primo::Searcher searches Primo for records.
+    # Exlibris::Primo::Searcher must have sufficient metadata to make 
+    # the request. Sufficient means either:
+    #     * We have a Primo doc id
+    #     * We have either an isbn OR an issn
+    #     * We have a title AND an author AND a genre
+    # If none of these criteria are met, Exlibris::Primo::Searcher.search
+    # will log a warning in the Rails log.
+    # Exlibris::Primo::Searcher will populate the following instance variables
+    # accessible through readers:
+    #   :count, :cover_image, :titles, :author, :holdings, :rsrcs, :tocs, :related_links
+    # The reader :response makes the full xml result available as a Nokogiri::XML::Document.
     class Searcher
       #@required_setup = [ :base_url ]
       #@setup_default_values = { :vid => "DEFAULT", :config => {} }
@@ -24,8 +27,7 @@ module Exlibris
       # setup parameter requires { :base_url => http://primo.server.institution.edu }
       # Other optional parameters are :vid => "view_id", :config => { Hash of primo config settings}
       # search_params are a sufficient combination of 
-      # { :primo_id => "primo_1", :isbn => "ISBN", :issn => "ISSN", 
-      #   :title => "=Title", :author => "Author", :genre => "Genre" }
+      #   { :primo_id => "primo_1", :isbn => "ISBN", :issn => "ISSN", :title => "Title", :author => "Author", :genre => "Genre" }
       def initialize(setup, search_params)
         @holdings = []
         @rsrcs = []

@@ -1,5 +1,6 @@
 module Exlibris
   module Primo
+    # == Overview
     # Class for handling Primo TOCs from links/linktotoc
     class Toc
       @base_attributes = [ :record_id, :linktotoc, :url, :display,  :notes ]

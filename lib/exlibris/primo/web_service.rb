@@ -1,16 +1,18 @@
-# Module for calling Primo Web Services
-# Please note the following:
-# * Be sure to configure the Primo Back Office with the relevant IPs to enable interaction via the Web Services
-# * This module does not parse the response but instead stores it as an Nokogiri::XML::Document for the calling classes to parse
 module Exlibris
   module Primo
+    # == Overview
+    # Module for calling Primo Web Services
+    # Please note the following:
+    # * Be sure to configure the Primo Back Office with the relevant IPs to enable interaction via the Web Services
+    # * This module does not parse the response but instead stores it as an Nokogiri::XML::Document for the calling classes to parse
     module WebService
       require 'nokogiri'
       require 'rexml/document'
 
       # WebServiceBase is the base class for all Primo Web Services
       # It can be extended but is not intended for use by itself
-      # To call a PrimoWebService must explicity call the method make_call.
+      # To call a PrimoWebService implementing classes must explicity 
+      # call the method make_call.
       class WebServiceBase
         attr_reader :response, :error
 
@@ -113,14 +115,10 @@ module Exlibris
       end
 
       # SearchBrief does a brief result search through the Primo APIs
-      # Not all options are currently supported
+      # Not all Primo API options are currently supported
       # Supported search params are
-      #   :isbn
-      #   :issn
-      #   :title
-      #   :author
-      #   :genre
-      # e.g. {:isbn => "0143039008", :title => "Travels with My Aunt"}
+      #   :isbn, :issn, :title :author, :genre
+      #   e.g. {:isbn => "0143039008", :title => "Travels with My Aunt"}
       # Invalid params will raise an exception
       class SearchBrief < Search
         def initialize(search_params, base_url, options={})
@@ -130,8 +128,8 @@ module Exlibris
         end
       end
 
-      # GetRecord get a primo record based on doc id
-      # Not all options are currently supported
+      # GetRecord get a Primo record based on doc id
+      # Not all Primo API options are currently supported
       class GetRecord < Search
         def initialize(doc_id, base_url, options={})
           additional_input=[]

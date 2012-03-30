@@ -1,40 +1,46 @@
-# == Overview
-# Exlibris::Primo::Holding represents a Primo holding.
-# This class should be extended to create Primo source objects for 
-# expanding holdings information, linking to Primo sources, and storing 
-# additional metadata based on those sources.
-#
-# == Tips on Extending
-# When extending the class, a few basics guidelines should be observed.
-# 1.  A Exlibris::Primo::Holding is initialized from random Hash of parameters.
-#     Instance variables are created from these parameters for use in the class.
-#
-# 2.  A Exlibris::Primo::Holding can be initialized from an input 
-#     Exlibris::Primo::Holding by specifying the reserved
-#     parameter name :holding, i.e. :holding => input_holding.
-#     If the input holding has instance variables that are also specified in
-#     the random Hash, the value in the Hash takes precedence.
-#
-# 3.  The following methods are available for overriding:
-#     expand -    expand holdings information based on data source. default: [self]
-#     dedup? -    does this data source contain duplicate holdings that need to be deduped? default: false
-#
-# 4.  The following instance variables will be saved in the view_data and will be available
-#     to a local holding partial:
-#     @record_id, @source_id, @original_source_id, @source_record_id,
-#     @availlibrary, @institution_code, @institution, @library_code, @library,
-#     @status_code, @status, @id_one, @id_two, @origin, @display_type, @coverage, @notes,
-#     @url, @request_url, @source_data
-#
-# 5.  Additional source data should be saved in the @source_data instance variable.
-#     @source_data is a hash that can contain any number of string elements,
-#     perfect for storing local source information.
-#
-# == Examples
-# Example of Primo source implementations are:
-# * Exlibris::Primo::Source::Aleph
 module Exlibris
   module Primo
+    # == Overview
+    # Exlibris::Primo::Holding represents a Primo availibrary entry.
+    # An instance of Exlibris::Primo::Holding can be created by passing
+    # in a set of parameters containing the data for the holding.
+    # Valid parameters include:
+    #   :record_id, :title, :author, :source_id, :original_source_id, :source_record_id, 
+    #   :availlibrary,:institution_code, :library_code,  :status_code, :id_one, :id_two, 
+    #   :origin, :display_type, :coverage, :notes, :url, :request_url, :source_data
+    # When creating an instance of Exlibris::Primo::Holding, calling
+    # classes may send in a :config hash that contains config mappings
+    # for decoding libraries and statuses. The :config hash should be
+    # of the form 
+    #   {"libraries" => {"library_code1" => "library_display_1", "library_code2" => "library_display_1"}, "statuses" => {"status_code1" => "status_display_1", "status_code2" => "status_display_2"}}
+    # The config can also include information about Primo::Source classes in the form:
+    #   {"sources" => {"source_id1" => {"class_name" => "SourceKlassName", "source_config1" => "source_config_one"}}}
+    # Primo::Source classes can be used to represent a Primo source for expanding holdings 
+    # information, linking to Primo sources, and storing additional metadata based on those sources.  
+    # In order to create a source class, implementations should extend Exlibris::Primo::Holding.
+    #
+    # == Tips on Extending
+    # When extending the class, a few basics guidelines should be observed.
+    # 1.  A Exlibris::Primo::Holding is initialized from random Hash of parameters.
+    #     Instance variables are created from these parameters for use in the class.
+    #
+    # 2.  A Exlibris::Primo::Holding can also be initialized from an input 
+    #     Exlibris::Primo::Holding by specifying the reserved
+    #     parameter name :holding, i.e. :holding => input_holding.
+    #     If the input holding has instance variables that are also specified in
+    #     the random Hash, the value in the Hash takes precedence.
+    #
+    # 3.  The following methods are available for overriding:
+    #     expand -    expand holdings information based on data source. default: [self]
+    #     dedup? -    does this data source contain duplicate holdings that need to be deduped? default: false
+    #
+    # 4.  Additional source data should be saved in the @source_data instance variable.
+    #     @source_data is a hash that can contain any number of string elements,
+    #     perfect for storing local source information.
+    #
+    # == Examples
+    # Example of Primo source implementations are:
+    # * Exlibris::Primo::Source::Aleph
     class Holding
       @base_attributes = [ :record_id, :title, :author, :source_id, :original_source_id, 
         :source_record_id, :availlibrary, :institution_code, :institution, :library_code, 
@@ -149,12 +155,14 @@ module Exlibris
         end
       end
 
+      # Convenience method for making base attributes accessible via Hash-like syntax.
       def [](key)
         raise "Error in #{self.class}. #{key} doesn't exist or is restricted." unless self.class.base_attributes.include?(key)
         method(key).call
       end
 
       protected
+      # Decode based on the pased in config
       def decode(var, decode_params={}, refresh=false)
         return instance_variable_get("@#{var}") unless (not instance_variable_defined?("@#{var}")) or refresh
         code_sym = (decode_params[:code].nil?) ? "#{var}_code".to_sym : decode_params[:code]

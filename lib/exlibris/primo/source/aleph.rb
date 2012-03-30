@@ -1,9 +1,9 @@
-# == Overview
-# Aleph is an Exlibris::Primo::Holding that provides a link to Aleph
-# and a request button based on config settings in the primo_config file.
 module Exlibris
   module Primo
     module Source
+      # == Overview
+      # Exlibris::Primo::Source::Aleph is an Exlibris::Primo::Holding that provides a link to Aleph
+      # and a request button based on config settings in the Primo config file.
       class Aleph < Exlibris::Primo::Holding
         @attribute_aliases = Exlibris::Primo::Holding.attribute_aliases.merge({
           :aleph_doc_library => :original_source_id, :aleph_sub_library => :library,

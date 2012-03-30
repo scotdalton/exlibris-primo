@@ -1,3 +1,9 @@
 = Exlibris::Primo
 
-This project rocks and uses MIT-LICENSE.
+Exlibris::Primo offers a set of libraries for interacting with the ExLibris Primo APIs.
+
+== Searcher
+The Exlibris::Primo::Searcher class performs a search against Primo for the given parameters
+and can return the set of holdings (availibrary entries), rsrcs, tocs, and related links(addlink).
+
+== 
