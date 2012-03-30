@@ -10,8 +10,10 @@ and exposes the set of holdings (availibrary elements), rsrcs, tocs, and related
   setup = {
     :base_url => "http://primo.institution.edu", :vid => "VID", :institution => "INSTITUTION",
     :config => {
-  			"libraries" => {"library_code1" => "library_display_1", "library_code2" => "library_display_1"}, 
-  			"statuses" => {"status_code1" => "status_display_1", "status_code2" => "status_display_2"}}
+      "libraries" => 
+        {"library_code1" => "library_display_1", "library_code2" => "library_display_1"}, 
+      "statuses" => 
+        {"status_code1" => "status_display_1", "status_code2" => "status_display_2"}}
   }
   params = {
      :primo_id => primo_id,
