@@ -1,5 +1,7 @@
 PATH = File.dirname(__FILE__) + "/exlibris/primo/"
 [ 
+  'record',
+  'eshelf',
   'web_service',
   'holding',
   'related_link',

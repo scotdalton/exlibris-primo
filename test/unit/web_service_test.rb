@@ -3,6 +3,8 @@ require 'test_helper'
 class WebServiceTest < ActiveSupport::TestCase
   PNX_NS = {'pnx' => 'http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib'}
   SEARCH_NS = {'search' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
+  SEAR_NS = {'sear' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
+  PRIM_NS = {'prim' => 'http://www.exlibris.com/primo/xsd/primoeshelffolder'}
   
   def setup
     @primo_definition = YAML.load( %{
@@ -25,6 +27,9 @@ class WebServiceTest < ActiveSupport::TestCase
           - cover_image
       })
     
+    @valid_user_id = "N18158418"
+    @invalid_user_id = "INVALID_USER"
+    @default_institution = "NYU"
     @base_url = @primo_definition["base_url"]
     @bogus_404_url = "http://library.nyu.edu/bogus"
     @bogus_200_url = "http://library.nyu.edu"
@@ -121,4 +126,21 @@ class WebServiceTest < ActiveSupport::TestCase
     assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")
     assert_equal([], ws.error, "#{ws.class} encountered errors: #{ws.error}")
   end 
+  
+  test "get_new_eshelf" do
+    ws = Exlibris::Primo::WebService::GetEShelf.new(@valid_user_id, @default_institution, @base_url)
+    assert_not_nil(ws, "#{ws.class} returned nil when instantiated.")
+    assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")
+    assert_equal([], ws.error, "#{ws.class} encountered errors: #{ws.error}")
+    assert_not_nil(ws.response.at("//sear:DOC", SEAR_NS), "#{ws.class} response returned a nil document")
+  end
+  
+  test "get_new_eshelf_structure" do
+    ws = Exlibris::Primo::WebService::GetEShelfStructure.new(@valid_user_id, @default_institution, @base_url)
+    assert_not_nil(ws, "#{ws.class} returned nil when instantiated.")
+    assert_instance_of( Nokogiri::XML::Document, ws.response, "#{ws.class} response is an unexpected object: #{ws.response.class}")
+    assert_equal([], ws.error, "#{ws.class} encountered errors: #{ws.error}")
+    assert_not_nil(ws.response.at("//prim:eshelf_folders", PRIM_NS), "#{ws.class} response returned a nil document")
+  end
+
 end

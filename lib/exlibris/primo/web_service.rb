@@ -27,9 +27,17 @@ module Exlibris
           raise "Error making call to Primo web service.  Response from web service is #{@response}." if @response.nil?
           @error = []
           response.search("ERROR").each do |e|
-            @error.push(e.attributes["MESSAGE"]) unless e.nil?
+            # Primo Web Service calls will return an <ERROR MESSAGE="{MESSAGE}" CODE="{CODE}" />
+            # tag even when it succeeds. Key off CODE == 0 which is a successful call.
+            #debugger
+            @error.push(e.attributes["MESSAGE"]) unless e.nil? or e.attributes["CODE"].value.to_i == 0
           end
           raise "Error making call to Primo web service.  #{@error.inspect}" unless @error.empty?
+        end
+        
+        private
+        def tag!(name, value)
+          REXML::Element.new(name).add_text(value)
         end
       end
 
@@ -108,10 +116,6 @@ module Exlibris
         def genre_query_term(genre)
           return query_term(genre, "any", "exact")
         end
-
-        def tag!(name, value)
-          REXML::Element.new(name).add_text(value)
-        end
       end
 
       # SearchBrief does a brief result search through the Primo APIs
@@ -136,6 +140,62 @@ module Exlibris
           additional_input.push(tag!("docId", doc_id))
           additional_input.push(tag!("institution", options.delete(:institution))) if options.has_key?(:institution)
           super("getRecord", "getRecordRequest", "fullViewRequest", primo_search_request, additional_input, base_url, options)
+        end
+      end
+      
+      # EShelf is the base class for EShelf web services
+      # It can be extended but is not intended for use by itself
+      # Known implementations are GetEShelf, AddToEShelf, RemoveFromEShelf, GetEShelfStructure
+      class EShelf < WebServiceBase
+        def initialize(method_name, param_name, input_root, user_id, institution, additional_input, base_url, options, service_name = nil)
+          input = REXML::Element.new(input_root)
+          input.add_namespace("http://www.exlibris.com/primo/xsd/wsRequest")
+          input.add_element(tag!("userId", user_id)) if !user_id.nil?
+          input.add_element(tag!("institution", institution)) if !institution.nil?
+          additional_input.each do |e|  
+            input.add_element(e)
+          end
+          service_name = "eshelf" if service_name.nil?
+          make_call(base_url, service_name, method_name, param_name, input)
+        end
+
+        private
+        def docs(doc_ids=[], folder_id=nil, folder_name=nil)
+          additional_input = []
+          doc_ids.each { |doc_id| additional_input.push(tag!("docId", doc_id)) }
+          additional_input.push(tag!("folderId", folder_id)) unless folder_id.nil?
+          additional_input.push(tag!("folderName", folder_name)) unless folder_name.nil?
+          return additional_input
+        end
+      end
+
+      # Get EShelf based on user_id and institution
+      class GetEShelf < EShelf
+        def initialize(user_id, institution, base_url, options={})
+          super("getEshelf", "getEshelfRequest", "getEshelfRequest", user_id, institution, [], base_url, options)
+          raise "Error making call to Primo web service.  #{@error.inspect}" unless @error.empty? or @error.attribe
+        end
+      end
+
+      # Get EShelf structure based on user_id and institution
+      class GetEShelfStructure < EShelf
+        def initialize(user_id, institution, base_url, options={})
+          super("getEshelfStructure", "getEshelfStructureRequest", "getEshelfStructureRequest", user_id, institution, [tag!("includeBasketItems","false")], base_url, options, "eshelfstructure")
+          raise "Error making call to Primo web service.  #{@error.inspect}" unless @error.empty? or @error.attribe
+        end
+      end
+
+      # Add document to EShelf based on user_id and institution
+      class AddToEShelf < EShelf
+        def initialize(doc_ids, folder_id, user_id, institution, base_url, options={})
+          super("addToEshelf", "addToEshelfRequest", "addToEshelfRequest", user_id, institution, docs(doc_ids, folder_id), base_url, options)
+        end
+      end
+
+      # Remove document from EShelf based on user_id and institution
+      class RemoveFromEShelf < EShelf
+        def initialize(doc_ids, folder_id, user_id, institution, base_url, options={})
+          super("removeFromEshelf", "removeFromEshelfRequest", "removeFromEshelfRequest", user_id, institution, docs(doc_ids, folder_id), base_url, options)
         end
       end
     end

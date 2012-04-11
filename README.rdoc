@@ -29,3 +29,11 @@ and exposes the set of holdings (availibrary elements), rsrcs, tocs, and related
   rsrcs = searcher.rsrcs
   tocs = searcher.tocs
   related_links = searcher.related_links
+
+== Exlibris::Primo::Record
+The Exlibris::Primo::Record class creates an object representation of a Primo record for given parameters
+and exposes the record's primary attributes (format, title, author, url, openurl) and full record Xml (raw_xml)
+as instance variables.
+
+== Exlibris::Primo::EShelf
+The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf and eshelf structure as well as adding and removing records.
