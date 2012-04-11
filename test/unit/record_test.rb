@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'nokogiri'
+
 class RecordTest < ActiveSupport::TestCase
   
   SEAR_NS = {'sear' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
