@@ -36,13 +36,13 @@ and exposes the record's primary attributes (format, title, author, url, openurl
 as instance variables.
 
 == Example of Exlibris::Primo::Record in action
-	setup = { 
-    	:base_url => "http://primo.institution.edu", 
-    	:resolver_base_url => "http://sfx.institution.edu", 
-    	:vid => "VID", 
-    	:institution => "DEFAULT", 
-    	:record_id => "PrimoRecordId" 
-  	}
+  setup = { 
+    :base_url => "http://primo.institution.edu", 
+    :resolver_base_url => "http://sfx.institution.edu", 
+    :vid => "VID", 
+    :institution => "DEFAULT", 
+    :record_id => "PrimoRecordId" 
+  }
 	record = Exlibris::Primo::Record.new(setup)
 	raw_xml = record.instance_variable_get(:@raw_xml)
 	record_hash = record.to_h
@@ -52,8 +52,8 @@ as instance variables.
 The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf and eshelf structure as well as adding and removing records.
 
 == Example of Exlibris::Primo::EShelf in action
-	setup = { :base_url => "http://primo.institution.edu", :vid => "VID", :resolver_base_url => "http://sfx.institution.edu"}
-	eshelf = Exlibris::Primo::EShelf.new(setup, "USER_ID", "PRIMO")
+  setup = { :base_url => "http://primo.institution.edu", :vid => "VID", :resolver_base_url => "http://sfx.institution.edu"}
+  eshelf = Exlibris::Primo::EShelf.new(setup, "USER_ID", "PRIMO")
 	records = eshelf.records
 	p records.first.class
 	record_count = eshelf.count
