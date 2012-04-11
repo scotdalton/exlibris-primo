@@ -1,4 +1,4 @@
-PATH = File.dirname(__FILE__) + "/exlibris/primo/"
+PRIMO_PATH = File.dirname(__FILE__) + "/exlibris/primo/"
 [ 
   'record',
   'eshelf',
@@ -10,5 +10,5 @@ PATH = File.dirname(__FILE__) + "/exlibris/primo/"
   'searcher',
   'source/aleph'
 ].each do |library|
-  require PATH + library
+  require PRIMO_PATH + library
 end

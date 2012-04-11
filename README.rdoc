@@ -6,7 +6,7 @@ Exlibris::Primo offers a set of libraries for interacting with the ExLibris Prim
 The Exlibris::Primo::Searcher class performs a search against Primo for given parameters
 and exposes the set of holdings (availibrary elements), rsrcs, tocs, and related links (addlink elements).
 
-== Example of Exlibris::Primo::Searcher in action
+=== Example of Exlibris::Primo::Searcher in action
   setup = {
     :base_url => "http://primo.institution.edu", :vid => "VID", :institution => "INSTITUTION",
     :config => {
@@ -35,7 +35,7 @@ The Exlibris::Primo::Record class creates an object representation of a Primo re
 and exposes the record's primary attributes (format, title, author, url, openurl) and full record Xml (raw_xml)
 as instance variables.
 
-== Example of Exlibris::Primo::Record in action
+=== Example of Exlibris::Primo::Record in action
   setup = { 
     :base_url => "http://primo.institution.edu", 
     :resolver_base_url => "http://sfx.institution.edu", 
@@ -51,7 +51,7 @@ as instance variables.
 == Exlibris::Primo::EShelf
 The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf and eshelf structure as well as adding and removing records.
 
-== Example of Exlibris::Primo::EShelf in action
+=== Example of Exlibris::Primo::EShelf in action
   setup = { 
     :base_url => "http://primo.institution.edu", 
     :vid => "VID", 
