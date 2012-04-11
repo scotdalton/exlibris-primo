@@ -52,7 +52,11 @@ as instance variables.
 The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf and eshelf structure as well as adding and removing records.
 
 == Example of Exlibris::Primo::EShelf in action
-  setup = { :base_url => "http://primo.institution.edu", :vid => "VID", :resolver_base_url => "http://sfx.institution.edu"}
+  setup = { 
+    :base_url => "http://primo.institution.edu", 
+    :vid => "VID", 
+    :resolver_base_url => "http://sfx.institution.edu"
+  }
   eshelf = Exlibris::Primo::EShelf.new(setup, "USER_ID", "PRIMO")
   records = eshelf.records
   p records.first.class
