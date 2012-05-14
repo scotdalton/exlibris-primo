@@ -142,5 +142,4 @@ class WebServiceTest < Test::Unit::TestCase
     assert_equal([], ws.error, "#{ws.class} encountered errors: #{ws.error}")
     assert_not_nil(ws.response.at("//prim:eshelf_folders", PRIM_NS), "#{ws.class} response returned a nil document")
   end
-
 end

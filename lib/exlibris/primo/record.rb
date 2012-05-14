@@ -23,8 +23,9 @@ module Exlibris
     # == Examples of usage
     #   Record.new({ :base_url => @base_url, :vid => @vid, :record => doc.at("//record") })
     class Record
-      require 'json'      
+      # Leverage ActiveSupport's Hash#from_xml method to transform PNX to JSON.
       require 'active_support/core_ext'
+      require 'json'      
 
       SEAR_NS = {'sear' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
       attr_reader :record_id, :type, :title, :url, :openurl, :creator, :raw_xml
@@ -69,6 +70,7 @@ module Exlibris
       
       # Return a JSON representation of the PNX record
       def to_json
+        # Leverage ActiveSupport's Hash#from_xml method to transform PNX to JSON.
         Hash.from_xml(raw_xml).to_json
       end
       

@@ -49,13 +49,7 @@ class SearcherTest < Test::Unit::TestCase
       :base_url => @base_url,
       :institution => @institution,
       :vid => @vid,
-      :config => @primo_config
-    }
-
-    @searcher_setup_without_config = {
-      :base_url => @base_url,
-      :institution => @institution,
-      :vid => @vid
+      :config => @primo_definition
     }
   end
   
