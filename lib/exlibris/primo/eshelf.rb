@@ -8,7 +8,7 @@ module Exlibris
     #   :base_url, :resolver_base_url, :vid, :config
     #
     # == Examples of usage
-    #   Exlibris::Primo::EShelf.new({ :base_url => "http://primo.institution.edu", :vid => "VID", :resolver_base_url => "http://sfx.institution.edu"} , "USER_ID", "PRIMO").count
+    #   Exlibris::Primo::EShelf.new({ :base_url => "http://primo.institution.edu", :vid => "VID", :resolver_base_url => "http://resolver.institution.edu"} , "USER_ID", "PRIMO").count
     #   Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute).basket_id
     class EShelf
       

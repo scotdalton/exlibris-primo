@@ -38,7 +38,7 @@ as instance variables.
 === Example of Exlibris::Primo::Record in action
   setup = { 
     :base_url => "http://primo.institution.edu", 
-    :resolver_base_url => "http://sfx.institution.edu", 
+    :resolver_base_url => "http://resolver.institution.edu", 
     :vid => "VID", 
     :institution => "DEFAULT", 
     :record_id => "PrimoRecordId" 
