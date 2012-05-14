@@ -49,6 +49,16 @@ class RecordTest < ActiveSupport::TestCase
   test "to_hash_function" do
     record = Exlibris::Primo::Record.new(@setup_args)
     assert((record.to_h.is_a? Hash), "#{record.class} was expected to be a Hash, was #{record.to_h.class}")
+    assert(record.to_h["format"], "BOOK")
+    assert(record.to_h["title"], "Travels with my aunt")
+    assert(record.to_h["author"], "Graham  Greene  1904-1991.")
+    assert(record.to_h["url"], "#{@base_url}/primo_library/libweb/action/dlDisplay.do?dym=false&onCampus=false&docId=nyu_aleph000062856&institution=#{@institution}&vid=#{@vid}")
+  end
+  
+  test "to_json_function" do
+    record = Exlibris::Primo::Record.new(@setup_args)
+    assert((record.to_json.is_a? String), "#{record.class} was expected to be a Hash, was #{record.to_json.class}")
+    assert(record.to_json.starts_with? '{"record":{"control":{"sourcerecordid":"000062856","sourceid":"nyu_aleph","recordid":"nyu_aleph000062856","originalsourceid":"NYU01","ilsapiid":"NYU01000062856","sourceformat":"MARC21","sourcesystem":"Aleph"}')
   end
   
   test "sub_class" do
