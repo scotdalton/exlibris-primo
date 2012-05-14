@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WebServiceBenchmarks < ActiveSupport::TestCase
+class WebServiceBenchmarks < Test::Unit::TestCase
   PNX_NS = {'pnx' => 'http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib'}
   SEARCH_NS = {'search' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
   
@@ -38,7 +38,7 @@ class WebServiceBenchmarks < ActiveSupport::TestCase
     @title_author_genre_search_params = {:title => "Travels with My Aunt", :author => "Graham Greene", :genre => "Book"}
   end
   
-  test "benchmarks" do
+  def testbenchmarks
     Benchmark.bmbm do |results|
       results.report("Get Record:") { 
         (1..10).each {

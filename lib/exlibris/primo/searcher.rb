@@ -8,7 +8,7 @@ module Exlibris
     #     * We have either an isbn OR an issn
     #     * We have a title AND an author AND a genre
     # If none of these criteria are met, Exlibris::Primo::Searcher.search
-    # will log a warning in the Rails log.
+    # will not perform the search.
     # Exlibris::Primo::Searcher will populate the following instance variables
     # accessible through readers:
     #   :count, :holdings, :rsrcs, :tocs, :related_links
@@ -59,9 +59,7 @@ module Exlibris
       # Process URLs based on links/linktorsrc
       # Process TOCs based on links/linktotoc
       def search
-        Rails.logger.warn("Insufficient search terms for #{self.class}. "+
-          "Please refer to #{self.class}'s documentation to determine how to structure "+
-          "a sufficient query.") and return if insufficient_query?
+        return if insufficient_query?
         # Call Primo Web Services
         unless @primo_id.nil? or @primo_id.empty?
           get_record = Exlibris::Primo::WebService::GetRecord.new(@primo_id, @base_url, {:institution => @institution}) 

@@ -1,9 +1,15 @@
 require 'test_helper'
 
-class RecordTest < ActiveSupport::TestCase
+class RecordTest < Test::Unit::TestCase
   
   SEAR_NS = {'sear' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
   
+  class SubRecord < Exlibris::Primo::Record
+    def initialize(parameters={})
+      super(parameters)
+    end
+  end
+
   def setup
     @record_definition = YAML.load( %{
         base_url: http://bobcat.library.nyu.edu
@@ -28,7 +34,7 @@ class RecordTest < ActiveSupport::TestCase
       }
   end
   
-  test "new" do
+  def testnew
     record = nil
     assert_nothing_raised(){ record = Exlibris::Primo::Record.new(@setup_args) }
     assert_not_nil(record)
@@ -46,7 +52,7 @@ class RecordTest < ActiveSupport::TestCase
     assert_raise(RuntimeError){ Exlibris::Primo::Record.new(@setup_args.merge({:record_id => @invalid_record_id})) }
   end
   
-  test "to_hash_function" do
+  def testto_hash_function
     record = Exlibris::Primo::Record.new(@setup_args)
     assert((record.to_h.is_a? Hash), "#{record.class} was expected to be a Hash, was #{record.to_h.class}")
     assert(record.to_h["format"], "BOOK")
@@ -55,25 +61,20 @@ class RecordTest < ActiveSupport::TestCase
     assert(record.to_h["url"], "#{@base_url}/primo_library/libweb/action/dlDisplay.do?dym=false&onCampus=false&docId=nyu_aleph000062856&institution=#{@institution}&vid=#{@vid}")
   end
   
-  test "to_json_function" do
+  def testto_json_function
     record = Exlibris::Primo::Record.new(@setup_args)
     assert((record.to_json.is_a? String), "#{record.class} was expected to be a Hash, was #{record.to_json.class}")
     assert(record.to_json.starts_with? '{"record":{"control":{"sourcerecordid":"000062856","sourceid":"nyu_aleph","recordid":"nyu_aleph000062856","originalsourceid":"NYU01","ilsapiid":"NYU01000062856","sourceformat":"MARC21","sourcesystem":"Aleph"}')
   end
   
-  test "sub_class" do
-    class SubRecord < Exlibris::Primo::Record
-      def initialize(parameters={})
-        super(parameters)
-      end
-    end
+  def testsub_class
     record = nil
     assert_nothing_raised(){ record = SubRecord.new(@setup_args) }    
     assert_not_nil(record)
     assert_raise(ArgumentError){ record = SubRecord.new() }
   end
   
-  test "raw_xml" do
+  def testraw_xml
     record = Exlibris::Primo::Record.new(@setup_args)
     raw_xml = record.instance_variable_get(:@raw_xml)
     assert_not_nil(raw_xml)  

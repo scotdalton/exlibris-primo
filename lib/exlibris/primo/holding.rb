@@ -143,16 +143,8 @@ module Exlibris
       # Return this holding as a new holdings subclass instance based on source
       def to_source
         return self if @source_class.nil?
-        begin
-          # Get source class in Primo::Source module
-           return Exlibris::Primo::Source.const_get(@source_class).new(:holding => self)
-        rescue Exception => e
-          Rails.logger.error("#{e.message}")
-          Rails.logger.error("Class #{@source_class} can't be found in Exlibris::Primo::Source.  
-            Please check primo.yml to ensure the class_name is defined correctly.  
-            Not converting to source.")
-          return self
-        end
+        # Get source class in Primo::Source module
+        return Exlibris::Primo::Source.const_get(@source_class).new(:holding => self)
       end
 
       # Convenience method for making base attributes accessible via Hash-like syntax.

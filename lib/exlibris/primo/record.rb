@@ -24,6 +24,7 @@ module Exlibris
     #   Record.new({ :base_url => @base_url, :vid => @vid, :record => doc.at("//record") })
     class Record
       require 'json'      
+      require 'active_support/core_ext'
 
       SEAR_NS = {'sear' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
       attr_reader :record_id, :type, :title, :url, :openurl, :creator, :raw_xml

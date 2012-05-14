@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'test_helper'
-class SearcherTest < ActiveSupport::TestCase
+class SearcherTest < Test::Unit::TestCase
   PNX_NS = {'pnx' => 'http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib'}
   SEARCH_NS = {'search' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
 
@@ -61,7 +61,7 @@ class SearcherTest < ActiveSupport::TestCase
   end
   
   # Test search for a single Primo document.
-  test "search_by_doc_id" do
+  def testsearch_by_doc_id
     searcher = Exlibris::Primo::Searcher.new(@searcher_setup, {:primo_id => @primo_holdings_doc_id})
     assert_not_nil(searcher, "#{searcher.class} returned nil when instantiated.")
     search_results = searcher.response
@@ -71,7 +71,7 @@ class SearcherTest < ActiveSupport::TestCase
   end
 
   # Test search for a Primo problem record
-  test "search_by_genre_discrepancy" do
+  def testsearch_by_genre_discrepancy
     searcher = Exlibris::Primo::Searcher.new(@searcher_setup, {:primo_id => @primo_test_problem_doc_id})
     assert_not_nil(searcher, "#{searcher.class} returned nil when instantiated.")
     search_results = searcher.response
@@ -81,7 +81,7 @@ class SearcherTest < ActiveSupport::TestCase
     assert_equal(1, searcher.holdings.length, "#{searcher.class} returned unexpected holdings")
   end
   
-  test "search_by_bug1361" do
+  def testsearch_by_bug1361
     searcher = Exlibris::Primo::Searcher.new(@searcher_setup, {:primo_id => @primo_test_bug1361_id})
     assert_not_nil(searcher, "#{searcher.class} returned nil when instantiated.")
     search_results = searcher.response
@@ -93,28 +93,28 @@ class SearcherTest < ActiveSupport::TestCase
   end
 
   # Test search for an invalid Primo document.
-  test "search_by_invalid_doc_id" do
+  def testsearch_by_invalid_doc_id
     assert_raise(RuntimeError) { 
       searcher = Exlibris::Primo::Searcher.new(@searcher_setup, {:primo_id => @primo_invalid_doc_id})
     }
   end
   
   # Test invalid setup.
-  test "search_by_invalid_setup1" do
+  def testsearch_by_invalid_setup1
     assert_raise(RuntimeError) {
       searcher = Exlibris::Primo::Searcher.new({}, {:primo_id => @primo_invalid_doc_id})
     }
   end
   
   # Test invalid setup.
-  test "search_by_invalid_setup2" do
+  def testsearch_by_invalid_setup2
     assert_raise(RuntimeError) {
       searcher = Exlibris::Primo::Searcher.new({:base_url => @base_url, :config => nil}, {:primo_id => @primo_invalid_doc_id})
     }
   end
   
   # Test base setup search for a single Primo document.
-  test "search_base_setup_record_id" do
+  def testsearch_base_setup_record_id
     searcher = Exlibris::Primo::Searcher.new({:base_url => @base_url, :institution => @institution}, {:primo_id => @primo_holdings_doc_id})
     holdings = searcher.holdings
     assert_instance_of(Array, holdings, "#{searcher.class} holdings is an unexpected object: #{holdings.class}")
@@ -129,7 +129,7 @@ class SearcherTest < ActiveSupport::TestCase
   end
   
   # Test search by isbn.
-  test "search_by_isbn" do
+  def testsearch_by_isbn
     searcher = Exlibris::Primo::Searcher.new(@searcher_setup, {:isbn => @primo_test_isbn})
     assert_not_nil(searcher, "#{searcher.class} returned nil when instantiated.")
     search_results = searcher.response
@@ -141,7 +141,7 @@ class SearcherTest < ActiveSupport::TestCase
   end
   
   # Test search by isbn.
-  test "search_by_issn" do
+  def testsearch_by_issn
     searcher = Exlibris::Primo::Searcher.new(@searcher_setup_without_config, {:issn => "0002-8614"})
     assert_not_nil(searcher, "#{searcher.class} returned nil when instantiated.")
     search_results = searcher.response
@@ -153,7 +153,7 @@ class SearcherTest < ActiveSupport::TestCase
   end
   
   # Test search by title/author/genre.
-  test "search_by_title_author_genre" do
+  def testsearch_by_title_author_genre
     searcher = Exlibris::Primo::Searcher.new(@searcher_setup, {:title => @primo_test_title, :author => @primo_test_author, :genre => @primo_test_genre})
     assert_not_nil(searcher, "#{searcher.class} returned nil when instantiated.")
     search_results = searcher.response
@@ -165,7 +165,7 @@ class SearcherTest < ActiveSupport::TestCase
   end
   
   # Test search for a single Primo document w/ holdings.
-  test "holdings" do
+  def testholdings
     searcher = Exlibris::Primo::Searcher.new(@searcher_setup, {:primo_id => @primo_holdings_doc_id})
     holdings = searcher.holdings
     assert_instance_of(Array, holdings, 
@@ -209,7 +209,7 @@ class SearcherTest < ActiveSupport::TestCase
   end
 
   # Test search for a single Primo document w/ rsrcs.
-  test "rsrcs" do
+  def testrsrcs
     searcher = Exlibris::Primo::Searcher.new(
       @searcher_setup, 
       { :primo_id => @primo_rsrcs_doc_id })
@@ -240,7 +240,7 @@ class SearcherTest < ActiveSupport::TestCase
   end
 
   # Test search for a single Primo document w/ tocs.
-  test "tocs" do
+  def testtocs
     searcher = Exlibris::Primo::Searcher.new(
       @searcher_setup, 
       { :primo_id => @primo_tocs_doc_id })
@@ -267,7 +267,7 @@ class SearcherTest < ActiveSupport::TestCase
   }
   end
   
-  test "dedupmrg" do
+  def testdedupmrg
     searcher = Exlibris::Primo::Searcher.new(
       @searcher_setup, 
       { :primo_id => @primo_dedupmrg_doc_id })
@@ -336,7 +336,7 @@ class SearcherTest < ActiveSupport::TestCase
     }
   end
 
-  test "holdings_diacritics1" do
+  def testholdings_diacritics1
      searcher = Exlibris::Primo::Searcher.new(
        @searcher_setup, 
        { :primo_id => @primo_test_diacritics1_doc_id })
@@ -351,7 +351,7 @@ class SearcherTest < ActiveSupport::TestCase
    end
    
 #   This test fails but I don't know why!
-  # test "holdings_diacritics2" do
+  # def testholdings_diacritics2
   #   searcher = Exlibris::Primo::Searcher.new(
   #     @searcher_setup, 
   #     { :primo_id => @primo_test_diacritics2_doc_id })
@@ -365,7 +365,7 @@ class SearcherTest < ActiveSupport::TestCase
   #     "#{searcher.class} has an unexpected btitle: #{searcher.btitle}")
   # end
   
-  test "holdings_diacritics3" do
+  def testholdings_diacritics3
     searcher = Exlibris::Primo::Searcher.new(
       @searcher_setup, 
       { :primo_id => @primo_test_diacritics3_doc_id })

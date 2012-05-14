@@ -1,5 +1,5 @@
 require 'test_helper'
-class SearcherTest < ActiveSupport::TestCase
+class SearcherTest < Test::Unit::TestCase
   PNX_NS = {'pnx' => 'http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib'}
   SEARCH_NS = {'search' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
 
@@ -59,7 +59,7 @@ class SearcherTest < ActiveSupport::TestCase
     }
   end
   
-  test "benchmarks" do
+  def testbenchmarks
     Benchmark.bmbm do |results|
       results.report("Primo Searcher:") {
         (1..10).each {

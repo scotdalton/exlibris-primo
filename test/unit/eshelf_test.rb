@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EShelfTest < ActiveSupport::TestCase
+class EShelfTest < Test::Unit::TestCase
   PNX_NS = {'pnx' => 'http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib'}
   SEARCH_NS = {'search' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
   SEAR_NS = {'sear' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
@@ -46,7 +46,7 @@ class EShelfTest < ActiveSupport::TestCase
       @invalid_basket = "INVALID_BASKET"
   end
 
-  test "new" do
+  def test_new
       eshelf = Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute)
       assert_not_nil(eshelf, "#{eshelf.class} returned nil when instantiated.")
    
@@ -65,25 +65,25 @@ class EShelfTest < ActiveSupport::TestCase
 
   end
 
-  test "valid_eshelf" do
+  def test_valid_eshelf
       eshelf = nil
       assert_nothing_raised{eshelf = Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute).eshelf}
       assert_not_nil(eshelf)
       assert_instance_of(Nokogiri::XML::Document, eshelf)
   end
 
-  test "valid_eshelf_structure" do
+  def test_valid_eshelf_structure
       eshelfStructure = nil
       assert_nothing_raised{eshelfStructure = Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute).eshelfStructure}
       assert_not_nil(eshelfStructure)
       assert(eshelfStructure.is_a? Nokogiri::XML::Document)
   end
   
-  test "basket_id" do
+  def test_basket_id
       assert_equal(@valid_basket, Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute).basket_id)
   end
 
-  test "invalid_user_eshelf" do
+  def test_invalid_user_eshelf
       ws = nil
       assert_nothing_raised(){ws = Exlibris::Primo::EShelf.new(@eshelf_setup, @invalid_user_id, @valid_institute)}
       assert_not_nil(ws)
@@ -94,7 +94,7 @@ class EShelfTest < ActiveSupport::TestCase
       assert_equal(0, ws.count)
   end
   
-  test "invalid_institution_eshelf" do
+  def test_invalid_institution_eshelf
       ws = nil
       assert_nothing_raised(){ws = Exlibris::Primo::EShelf.new(@eshelf_setup, @invalid_user_id, @valid_institute)}
       assert_not_nil(ws)
@@ -105,7 +105,7 @@ class EShelfTest < ActiveSupport::TestCase
       assert_equal(0, ws.count)
   end
 
-  test "records" do
+  def test_records
       records = nil
       assert_nothing_raised(){records = Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute).records}
       assert_not_nil(records)
@@ -113,7 +113,7 @@ class EShelfTest < ActiveSupport::TestCase
       assert(!records.empty?, "Eshelf records returned empty")
   end
 
-  test "cant_add_same_record_twice" do
+  def test_cant_add_same_record_twice
       eshelf = Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute)
       assert_not_nil(eshelf)
       # Add record
@@ -124,7 +124,7 @@ class EShelfTest < ActiveSupport::TestCase
       assert_nothing_raised(){ eshelf.remove_records(@valid_doc_ids, @valid_basket) }
   end
   
-  test "cant_add_invalid_records" do
+  def test_cant_add_invalid_records
       eshelf = Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute)
       assert_not_nil(eshelf)
       # Attempt to add record
@@ -133,14 +133,14 @@ class EShelfTest < ActiveSupport::TestCase
       assert_raise(RuntimeError){ eshelf.remove_records(@invalid_doc_ids, @valid_basket) }
   end
   
-  test "cant_add_to_invalid_basket" do
+  def test_cant_add_to_invalid_basket
       eshelf = Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute)
       assert_not_nil(eshelf)
       # Attempt to add record to basket with invalid folder name
       assert_raise(RuntimeError){ eshelf.add_records(@valid_doc_ids, @invalid_basket) }
   end
   
-  test "can_add_to_empty_folder" do
+  def test_can_add_to_empty_folder
       eshelf = Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute)
       assert_not_nil(eshelf)
       # Add record to basket with no folder id
@@ -148,5 +148,4 @@ class EShelfTest < ActiveSupport::TestCase
       # Remove record from basket with no folder id
       assert_nothing_raised(){ eshelf.remove_records(@valid_doc_ids, @valid_basket) }
   end
-  
 end
