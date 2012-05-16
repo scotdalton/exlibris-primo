@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency "nokogiri"
   s.add_dependency "json"
   s.add_dependency "soap4r-ruby1.9"
+  # s.add_dependency "savon"
 end

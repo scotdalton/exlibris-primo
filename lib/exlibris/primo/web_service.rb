@@ -18,11 +18,33 @@ module Exlibris
 
         # Call to web service is made through make_call
         # Raise a method not found exception if the method name is not valid
+        # def make_call(base_url, service, method_name, param_name, input)
+        #   require 'savon'
+        #   client = Savon::Client.new do |wsdl|
+        #     wsdl.document = "#{base_url}/PrimoWebServices/services/primo/#{service}?wsdl"
+        #     wsdl.namespace = "http://www.exlibris.com/primo/xsd/wsRequest"
+        #   end
+        #   response = client.request :wsdl, method_name do
+        #     soap.version = 1
+        #     soap.body = input.to_s
+        #   end
+        #   @response = Nokogiri::XML(response.to_xml)
+        #   raise "Error making call to Primo web service.  Response from web service is #{@response}." if @response.nil?
+        #   @error = []
+        #   response.search("ERROR").each do |e|
+        #     # Primo Web Service calls will return an <ERROR MESSAGE="{MESSAGE}" CODE="{CODE}" />
+        #     # tag even when it succeeds. Key off CODE == 0 which is a successful call.
+        #     #debugger
+        #     @error.push(e.attributes["MESSAGE"]) unless e.nil? or e.attributes["CODE"].value.to_i == 0
+        #   end
+        #   raise "Error making call to Primo web service.  #{@error.inspect}" unless @error.empty?
+        # end
         def make_call(base_url, service, method_name, param_name, input)
           require 'soap/rpc/driver'
           endpoint_url = base_url + "/PrimoWebServices/services/primo/" + service
           soap_client = SOAP::RPC::Driver.new(endpoint_url, "http://www.exlibris.com/primo/xsd/wsRequest", "")
           soap_client.add_method(method_name, param_name) unless (respond_to? method_name)
+          puts input.to_s
           @response = Nokogiri::XML(soap_client.method(method_name).call(input.to_s))
           raise "Error making call to Primo web service.  Response from web service is #{@response}." if @response.nil?
           @error = []
