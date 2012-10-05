@@ -1,5 +1,5 @@
 = Exlibris::Primo
-
+{<img src="https://secure.travis-ci.org/scotdalton/exlibris-primo.png" alt="Build Status" />}[https://secure.travis-ci.org/scotdalton/exlibris-primo]
 {<img src="https://gemnasium.com/scotdalton/exlibris-primo.png" alt="Dependency Status" />}[https://gemnasium.com/scotdalton/exlibris-primo]
 {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/scotdalton/exlibris-primo]
 
