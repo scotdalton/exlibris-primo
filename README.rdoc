@@ -1,5 +1,8 @@
 = Exlibris::Primo
 
+{<img src="https://gemnasium.com/scotdalton/exlibris-primo.png" alt="Dependency Status" />}[https://gemnasium.com/scotdalton/exlibris-primo]
+{<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/scotdalton/exlibris-primo]
+
 Exlibris::Primo offers a set of libraries for interacting with the ExLibris Primo APIs.
 
 == Exlibris::Primo::Searcher
