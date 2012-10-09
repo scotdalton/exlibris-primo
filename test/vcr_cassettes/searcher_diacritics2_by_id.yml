@@ -1,0 +1,180 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://bobcat.library.nyu.edu/PrimoWebServices/services/primo/searcher
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<env:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n
+        \   xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n    xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\">\n
+        \ <env:Body>\n    <n1:getRecord env:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        \       xmlns:n1=\"http://www.exlibris.com/primo/xsd/wsRequest\">\n      <getRecordRequest
+        xsi:type=\"xsd:string\">&lt;fullViewRequest xmlns=&apos;http://www.exlibris.com/primo/xsd/wsRequest&apos;&gt;&lt;PrimoSearchRequest
+        xmlns=&apos;http://www.exlibris.com/primo/xsd/search/request&apos;&gt;&lt;QueryTerms&gt;&lt;BoolOpeator&gt;AND&lt;/BoolOpeator&gt;&lt;/QueryTerms&gt;&lt;StartIndex&gt;1&lt;/StartIndex&gt;&lt;BulkSize&gt;5&lt;/BulkSize&gt;&lt;DidUMeanEnabled&gt;false&lt;/DidUMeanEnabled&gt;&lt;HighlightingEnabled&gt;false&lt;/HighlightingEnabled&gt;&lt;/PrimoSearchRequest&gt;&lt;docId&gt;nyu_aleph003365921&lt;/docId&gt;&lt;institution&gt;NYU&lt;/institution&gt;&lt;/fullViewRequest&gt;</getRecordRequest>\n
+        \   </n1:getRecord>\n  </env:Body>\n</env:Envelope>"
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Soapaction:
+      - ! '""'
+      User-Agent:
+      - SOAP4R/1.6.1-SNAPSHOT
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - ! 'Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1 (build: CVSTag=JBoss_4_0_1 date=200412230944)'
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 09 Oct 2012 17:25:56 GMT
+      Server:
+      - Apache-Coyote/1.1
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><ns1:getRecordResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns1=\"http://www.exlibris.com/primo/xsd/wsRequest\"><getRecordReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;SEGMENTS
+        xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n  &lt;JAGROOT&gt;\n
+        \   &lt;RESULT&gt;\n      &lt;DOCSET TOTALHITS=&quot;1&quot;&gt;\n        &lt;sear:DOC
+        LOCAL=&quot;true&quot; xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;
+        xmlns:sear=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n
+        \         &lt;PrimoNMBib&gt;\n            &lt;record&gt;\n              &lt;control&gt;\n
+        \               &lt;sourcerecordid&gt;003365921&lt;/sourcerecordid&gt;\n                &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;nyu_aleph003365921&lt;/recordid&gt;\n                &lt;originalsourceid&gt;NYU01&lt;/originalsourceid&gt;\n
+        \               &lt;ilsapiid&gt;NYU01003365921&lt;/ilsapiid&gt;\n                &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;\n
+        \               &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;\n              &lt;/control&gt;\n
+        \             &lt;display&gt;\n                &lt;type&gt;book&lt;/type&gt;\n
+        \               &lt;title&gt;Mul har ha-ga&#x2BB;ash : &#x1E25;o&#x1E33;re
+        toldot Yi&#x15B;ra&#x2BC;el le-nokha&#x1E25; ha-Sho&#x2BC;ah&lt;/title&gt;\n
+        \               &lt;creator&gt;&#x5D0;&#x5E0;&#x5D2;&#x5DC;, &#x5D3;&#x5D5;&#x5D3;.&lt;/creator&gt;\n
+        \               &lt;creator&gt;David  Engel&lt;/creator&gt;\n                &lt;publisher&gt;&#x5D9;&#x5E8;&#x5D5;&#x5E9;&#x5DC;&#x5D9;&#x5DD;
+        : &#x5DE;&#x5E8;&#x5DB;&#x5D6; &#x5D6;&#x5DC;&#x5DE;&#x5DF; &#x5E9;&#x5D6;&#x5E8;
+        &#x5DC;&#x5EA;&#x5D5;&#x5DC;&#x5D3;&#x5D5;&#x5EA; &#x5D9;&#x5E9;&#x5E8;&#x5D0;&#x5DC;;
+        Yerushalayim : Merkaz Zalman Shazar le-toldot Yis&#x301;ra&#x2BC;el&lt;/publisher&gt;\n
+        \               &lt;creationdate&gt;2009&lt;/creationdate&gt;\n                &lt;format&gt;296
+        p. ; 24 cm.&lt;/format&gt;\n                &lt;identifier&gt;$$Cisbn$$V9789652272614;
+        $$Cisbn$$V9652272612&lt;/identifier&gt;\n                &lt;subject&gt;Holocaust,
+        Jewish (1939-1945) -- Historiography; Jews -- Europe -- Historiography; Historiography
+        -- Europe -- History -- 20th century; Jewish historians&lt;/subject&gt;\n
+        \               &lt;language&gt;heb&lt;/language&gt;\n                &lt;source&gt;nyu_aleph&lt;/source&gt;\n
+        \               &lt;availlibrary&gt;$$INYU$$LBOBST$$1Main Collection$$2(D804.348
+        .E544 2009 )$$Savailable$$31$$40$$5N$$60$$XNYU50$$YBOBST$$ZMAIN&lt;/availlibrary&gt;\n
+        \               &lt;lds02&gt;nyu_aleph003365921&lt;/lds02&gt;\n                &lt;lds01&gt;NYU&lt;/lds01&gt;\n
+        \               &lt;availinstitution&gt;$$INYU$$Savailable&lt;/availinstitution&gt;\n
+        \               &lt;availpnx&gt;available&lt;/availpnx&gt;\n              &lt;/display&gt;\n
+        \             &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;\n
+        \               &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;\n
+        \               &lt;thumbnail&gt;$$Tamazon_thumb&lt;/thumbnail&gt;\n                &lt;linktotoc&gt;$$Tamazon_toc$$DCheck
+        for Amazon Search Inside&lt;/linktotoc&gt;\n                &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;\n
+        \               &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;\n
+        \               &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;\n
+        \               &lt;linktouc&gt;$$Tamazon_uc$$DCheck Amazon&lt;/linktouc&gt;\n
+        \               &lt;linktouc&gt;$$Tworldcat_isbn$$DCheck other libraries (WorldCat&#xAE;)&lt;/linktouc&gt;\n
+        \               &lt;linktoexcerpt&gt;$$Tsyndetics_excerpt$$DExcerpt from item&lt;/linktoexcerpt&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;creatorcontrib&gt;David
+        \ Engel&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Engel,
+        David&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Engel,
+        D&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x5D0;&#x5E0;&#x5D2;&#x5DC;,
+        &#x5D3;&#x5D5;&#x5D3;.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x5D3;&#x5D5;&#x5D3;
+        &#x5D0;&#x5E0;&#x5D2;&#x5DC;.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Da&#x1E7F;id
+        Engel.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x5D3;&#x5D5;&#x5D3;
+        &#x5D0;&#x5E0;&#x5D2;&#x5DC;&lt;/creatorcontrib&gt;\n                &lt;title&gt;Mul
+        har ha-ga&#x2BB;ash : &#x1E25;o&#x1E33;re toldot Yi&#x15B;ra&#x2BC;el le-nokha&#x1E25;
+        ha-Sho&#x2BC;ah /&lt;/title&gt;\n                &lt;subject&gt;Holocaust,
+        Jewish (1939-1945)  Historiography&lt;/subject&gt;\n                &lt;subject&gt;Jews
+        \ Europe Historiography&lt;/subject&gt;\n                &lt;subject&gt;Historiography
+        \ Europe History 20th century&lt;/subject&gt;\n                &lt;subject&gt;Jewish
+        historians&lt;/subject&gt;\n                &lt;subject&gt;Historians, Jewish&lt;/subject&gt;\n
+        \               &lt;subject&gt;Catastrophe, Jewish (1939-1945)&lt;/subject&gt;\n
+        \               &lt;subject&gt;Jews Nazi persecution&lt;/subject&gt;\n                &lt;subject&gt;Destruction
+        of the Jews (1939-1945)&lt;/subject&gt;\n                &lt;subject&gt;Nazi
+        persecution of Jews&lt;/subject&gt;\n                &lt;subject&gt;&#x1E24;urbn
+        (1939-1945)&lt;/subject&gt;\n                &lt;subject&gt;&#x1E24;urban
+        (1939-1945)&lt;/subject&gt;\n                &lt;subject&gt;Jewish Catastrophe
+        (1939-1945)&lt;/subject&gt;\n                &lt;subject&gt;Sho&#x2BC;ah (1939-1945)&lt;/subject&gt;\n
+        \               &lt;subject&gt;Jewish Holocaust (1939-1945)&lt;/subject&gt;\n
+        \               &lt;subject&gt;Extermination, Jewish (1939-1945)&lt;/subject&gt;\n
+        \               &lt;subject&gt;History Criticism&lt;/subject&gt;\n                &lt;subject&gt;History
+        Historiography&lt;/subject&gt;\n                &lt;subject&gt;History Authorship&lt;/subject&gt;\n
+        \               &lt;subject&gt;Historical criticism&lt;/subject&gt;\n                &lt;subject&gt;Judaists&lt;/subject&gt;\n
+        \               &lt;subject&gt;Israelites&lt;/subject&gt;\n                &lt;subject&gt;Jewry&lt;/subject&gt;\n
+        \               &lt;subject&gt;Judaic people&lt;/subject&gt;\n                &lt;subject&gt;Hebrews&lt;/subject&gt;\n
+        \               &lt;subject&gt;Jewish people&lt;/subject&gt;\n                &lt;general&gt;Merkaz
+        Zalman Shazar le-toldot Yis&#x301;ra&#x2BC;el,&lt;/general&gt;\n                &lt;general&gt;&#x5DE;&#x5E8;&#x5DB;&#x5D6;
+        &#x5D6;&#x5DC;&#x5DE;&#x5DF; &#x5E9;&#x5D6;&#x5E8; &#x5DC;&#x5EA;&#x5D5;&#x5DC;&#x5D3;&#x5D5;&#x5EA;
+        &#x5D9;&#x5E9;&#x5E8;&#x5D0;&#x5DC;,&lt;/general&gt;\n                &lt;general&gt;0018500005845&lt;/general&gt;\n
+        \               &lt;general&gt;185584&lt;/general&gt;\n                &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;nyu_aleph003365921&lt;/recordid&gt;\n                &lt;isbn&gt;9789652272614&lt;/isbn&gt;\n
+        \               &lt;isbn&gt;9652272612&lt;/isbn&gt;\n                &lt;rsrctype&gt;book&lt;/rsrctype&gt;\n
+        \               &lt;creationdate&gt;2009&lt;/creationdate&gt;\n                &lt;searchscope&gt;BOBST&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;BOBST Main Collection&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;\n                &lt;searchscope&gt;NYU&lt;/searchscope&gt;\n
+        \               &lt;scope&gt;BOBST&lt;/scope&gt;\n                &lt;scope&gt;BOBST
+        Main Collection&lt;/scope&gt;\n                &lt;scope&gt;nyu_aleph&lt;/scope&gt;\n
+        \               &lt;scope&gt;NYU&lt;/scope&gt;\n                &lt;alttitle&gt;Facing
+        the volcano : historians of the Jews and the Holocaust&lt;/alttitle&gt;\n
+        \               &lt;lsr01&gt;D804.348 .E544 2009&lt;/lsr01&gt;\n                &lt;lsr01&gt;D804.348.E544
+        2009&lt;/lsr01&gt;\n                &lt;lsr02&gt;Merkaz Zalman Shazar le-toldot
+        Yis&#x301;ra&#x2BC;el,&lt;/lsr02&gt;\n              &lt;/search&gt;\n              &lt;sort&gt;\n
+        \               &lt;title&gt;&#x5DE;&#x5D5;&#x5DC; &#x5D4;&#x5E8; &#x5D4;&#x5D2;&#x5E2;&#x5E9;
+        : &#x5D7;&#x5D5;&#x5E7;&#x5E8;&#x5D9; &#x5EA;&#x5D5;&#x5DC;&#x5D3;&#x5D5;&#x5EA;
+        &#x5D9;&#x5E9;&#x5E8;&#x5D0;&#x5DC; &#x5DC;&#x5E0;&#x5D5;&#x5DB;&#x5D7; &#x5D4;&#x5E9;&#x5D5;&#x5D0;&#x5D4;
+        /&lt;/title&gt;\n                &lt;creationdate&gt;2009&lt;/creationdate&gt;\n
+        \               &lt;author&gt;&#x5D0;&#x5E0;&#x5D2;&#x5DC;, &#x5D3;&#x5D5;&#x5D3;.&lt;/author&gt;\n
+        \               &lt;lso01&gt;2009&lt;/lso01&gt;\n              &lt;/sort&gt;\n
+        \             &lt;facets&gt;\n                &lt;language&gt;heb&lt;/language&gt;\n
+        \               &lt;creationdate&gt;2009&lt;/creationdate&gt;\n                &lt;topic&gt;Holocaust,
+        Jewish (1939-1945)&#x2013;Historiography&lt;/topic&gt;\n                &lt;topic&gt;Jews&#x2013;Europe&#x2013;Historiography&lt;/topic&gt;\n
+        \               &lt;topic&gt;Historiography&#x2013;Europe&#x2013;History&#x2013;20th
+        century&lt;/topic&gt;\n                &lt;topic&gt;Jewish historians&lt;/topic&gt;\n
+        \               &lt;collection&gt;BOBST&lt;/collection&gt;\n                &lt;toplevel&gt;available&lt;/toplevel&gt;\n
+        \               &lt;prefilter&gt;books&lt;/prefilter&gt;\n                &lt;rsrctype&gt;books&lt;/rsrctype&gt;\n
+        \               &lt;creatorcontrib&gt;Engel, D&lt;/creatorcontrib&gt;\n                &lt;library&gt;BOBST&lt;/library&gt;\n
+        \               &lt;lfc01&gt;Main Collection&lt;/lfc01&gt;\n                &lt;classificationlcc&gt;D
+        - History (general) and history of europe.&#x2013;History (General)&#x2013;World
+        War II (1939-1945)&lt;/classificationlcc&gt;\n                &lt;frbrgroupid&gt;65244835&lt;/frbrgroupid&gt;\n
+        \               &lt;frbrtype&gt;6&lt;/frbrtype&gt;\n              &lt;/facets&gt;\n
+        \             &lt;dedup&gt;\n                &lt;t&gt;1&lt;/t&gt;\n                &lt;c2&gt;9789652272614;9652272612&lt;/c2&gt;\n
+        \               &lt;c3&gt;mulharhaga&#x2BB;ashhokretahhasho&#x2BC;ah&lt;/c3&gt;\n
+        \               &lt;c4&gt;2009&lt;/c4&gt;\n                &lt;f3&gt;9789652272614;9652272612&lt;/f3&gt;\n
+        \               &lt;f5&gt;mulharhaga&#x2BB;ashhokretoldotyisra&#x2BC;ellenokhahhasho&#x2BC;ah&lt;/f5&gt;\n
+        \               &lt;f6&gt;2009&lt;/f6&gt;\n                &lt;f7&gt;mul har
+        ha ga&#x2BB;ash hokre toldot yisra&#x2BC;el le nokhah ha sho&#x2BC;ah&lt;/f7&gt;\n
+        \               &lt;f8&gt;is&lt;/f8&gt;\n                &lt;f9&gt;296 p.
+        ;&lt;/f9&gt;\n                &lt;f10&gt;merkaz zalman shazar le toldot yisra&#x2BC;el&lt;/f10&gt;\n
+        \               &lt;f11&gt;engel david&lt;/f11&gt;\n              &lt;/dedup&gt;\n
+        \             &lt;frbr&gt;\n                &lt;t&gt;1&lt;/t&gt;\n                &lt;k1&gt;$$Kengel
+        david$$AA&lt;/k1&gt;\n                &lt;k3&gt;$$Kbookmul har ha ga&#x2BB;ash
+        hokre toldot yisra&#x2BC;el le nokhah ha sho&#x2BC;ah$$AT&lt;/k3&gt;\n              &lt;/frbr&gt;\n
+        \             &lt;delivery&gt;\n                &lt;institution&gt;NYU&lt;/institution&gt;\n
+        \               &lt;delcategory&gt;Physical Item&lt;/delcategory&gt;\n              &lt;/delivery&gt;\n
+        \             &lt;enrichment&gt;\n                &lt;classificationlcc&gt;D804.348&lt;/classificationlcc&gt;\n
+        \             &lt;/enrichment&gt;\n              &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n              &lt;/ranking&gt;\n
+        \             &lt;addata&gt;\n                &lt;aulast&gt;Engel&lt;/aulast&gt;\n
+        \               &lt;aufirst&gt;David&lt;/aufirst&gt;\n                &lt;au&gt;Engel,
+        David&lt;/au&gt;\n                &lt;btitle&gt;Mul har ha-ga&#x2BB;ash :
+        &#x1E25;o&#x1E33;re toldot Yi&#x15B;ra&#x2BC;el le-nokha&#x1E25; ha-Sho&#x2BC;ah&lt;/btitle&gt;\n
+        \               &lt;addtitle&gt;Facing the volcano : historians of the Jews
+        and the Holocaust&lt;/addtitle&gt;\n                &lt;date&gt;2009&lt;/date&gt;\n
+        \               &lt;risdate&gt;2009.&lt;/risdate&gt;\n                &lt;isbn&gt;9789652272614&lt;/isbn&gt;\n
+        \               &lt;isbn&gt;9652272612&lt;/isbn&gt;\n                &lt;format&gt;book&lt;/format&gt;\n
+        \               &lt;genre&gt;book&lt;/genre&gt;\n                &lt;ristype&gt;BOOK&lt;/ristype&gt;\n
+        \               &lt;notes&gt;Includes bibliographical references (p. 261-288)
+        and index.&lt;/notes&gt;\n                &lt;cop&gt;Yerushalayim&lt;/cop&gt;\n
+        \               &lt;pub&gt;Merkaz Zalman Shazar le-toldot Yis&#x301;ra&#x2BC;el&lt;/pub&gt;\n
+        \               &lt;oclcid&gt;604961309&lt;/oclcid&gt;\n                &lt;lad01&gt;BOBST&lt;/lad01&gt;\n
+        \               &lt;lad01&gt;Physical Item&lt;/lad01&gt;\n              &lt;/addata&gt;\n
+        \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n        &lt;/sear:DOC&gt;\n
+        \     &lt;/DOCSET&gt;\n    &lt;/RESULT&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;\n</getRecordReturn></ns1:getRecordResponse></soapenv:Body></soapenv:Envelope>"
+    http_version: 
+  recorded_at: Tue, 09 Oct 2012 17:25:57 GMT
+recorded_with: VCR 2.2.5

@@ -1,0 +1,154 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://bobcat.library.nyu.edu/PrimoWebServices/services/primo/searcher
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<env:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n
+        \   xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n    xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\">\n
+        \ <env:Body>\n    <n1:getRecord env:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        \       xmlns:n1=\"http://www.exlibris.com/primo/xsd/wsRequest\">\n      <getRecordRequest
+        xsi:type=\"xsd:string\">&lt;fullViewRequest xmlns=&apos;http://www.exlibris.com/primo/xsd/wsRequest&apos;&gt;&lt;PrimoSearchRequest
+        xmlns=&apos;http://www.exlibris.com/primo/xsd/search/request&apos;&gt;&lt;QueryTerms&gt;&lt;BoolOpeator&gt;AND&lt;/BoolOpeator&gt;&lt;/QueryTerms&gt;&lt;StartIndex&gt;1&lt;/StartIndex&gt;&lt;BulkSize&gt;5&lt;/BulkSize&gt;&lt;DidUMeanEnabled&gt;false&lt;/DidUMeanEnabled&gt;&lt;HighlightingEnabled&gt;false&lt;/HighlightingEnabled&gt;&lt;/PrimoSearchRequest&gt;&lt;docId&gt;nyu_aleph000509288&lt;/docId&gt;&lt;institution&gt;NYU&lt;/institution&gt;&lt;/fullViewRequest&gt;</getRecordRequest>\n
+        \   </n1:getRecord>\n  </env:Body>\n</env:Envelope>"
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Soapaction:
+      - ! '""'
+      User-Agent:
+      - SOAP4R/1.6.1-SNAPSHOT
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - ! 'Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1 (build: CVSTag=JBoss_4_0_1 date=200412230944)'
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 09 Oct 2012 17:25:56 GMT
+      Server:
+      - Apache-Coyote/1.1
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><ns1:getRecordResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns1=\"http://www.exlibris.com/primo/xsd/wsRequest\"><getRecordReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;SEGMENTS
+        xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n  &lt;JAGROOT&gt;\n
+        \   &lt;RESULT&gt;\n      &lt;DOCSET TOTALHITS=&quot;1&quot;&gt;\n        &lt;sear:DOC
+        LOCAL=&quot;true&quot; xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;
+        xmlns:sear=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n
+        \         &lt;PrimoNMBib&gt;\n            &lt;record&gt;\n              &lt;control&gt;\n
+        \               &lt;sourcerecordid&gt;000509288&lt;/sourcerecordid&gt;\n                &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;nyu_aleph000509288&lt;/recordid&gt;\n                &lt;originalsourceid&gt;NYU01&lt;/originalsourceid&gt;\n
+        \               &lt;ilsapiid&gt;NYU01000509288&lt;/ilsapiid&gt;\n                &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;\n
+        \               &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;\n              &lt;/control&gt;\n
+        \             &lt;display&gt;\n                &lt;type&gt;book&lt;/type&gt;\n
+        \               &lt;title&gt;Jan&#xE1;&#x10D;ek's interconnected world : with
+        a closer look at The cunning little vixen ; Evocations of an earthly nature
+        : for orchestra&lt;/title&gt;\n                &lt;creator&gt;Gregory  Mertl&lt;/creator&gt;\n
+        \               &lt;publisher&gt;Thesis (Ph. D.)--University of Rochester,
+        2005.&lt;/publisher&gt;\n                &lt;creationdate&gt;2005&lt;/creationdate&gt;\n
+        \               &lt;format&gt;vi, 40 leaves : music ; 28 cm. + 1 miniature
+        score (60 p. ; 38 cm.)&lt;/format&gt;\n                &lt;subject&gt;Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928 -- Criticism and interpretation; Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928. P&#x159;&#xED;hody li&#x161;ky Bystrou&#x161;ky; Orchestral
+        music -- Scores&lt;/subject&gt;\n                &lt;description&gt;Mertl,
+        Gregory. Evocations of an earthly nature.&lt;/description&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;relation&gt;Mertl, Gregory. Evocations of an earthly nature.&lt;/relation&gt;\n
+        \               &lt;source&gt;nyu_aleph&lt;/source&gt;\n                &lt;availlibrary&gt;$$INYU$$LBOBST$$1Main
+        Collection$$2(ML410.J33 M47 2005a )$$Savailable$$31$$40$$5N$$62$$XNYU50$$YBOBST$$ZMAIN&lt;/availlibrary&gt;\n
+        \               &lt;lds02&gt;nyu_aleph000509288&lt;/lds02&gt;\n                &lt;lds01&gt;NYU&lt;/lds01&gt;\n
+        \               &lt;availinstitution&gt;$$INYU$$Savailable&lt;/availinstitution&gt;\n
+        \               &lt;availpnx&gt;available&lt;/availpnx&gt;\n              &lt;/display&gt;\n
+        \             &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;\n
+        \               &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;\n
+        \               &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;\n
+        \               &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;\n
+        \               &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;creatorcontrib&gt;Gregory
+        \ Mertl&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Mertl,
+        Gregory.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Mertl,
+        G&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;by Gregory
+        Mertl.&lt;/creatorcontrib&gt;\n                &lt;title&gt;Jan&#xE1;&#x10D;ek's
+        interconnected world : with a closer look at The cunning little vixen ; Evocations
+        of an earthly nature : for orchestra /&lt;/title&gt;\n                &lt;subject&gt;Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928  Criticism and interpretation&lt;/subject&gt;\n                &lt;subject&gt;Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928. P&#x159;&#xED;hody li&#x161;ky Bystrou&#x161;ky&lt;/subject&gt;\n
+        \               &lt;subject&gt;Orchestral music  Scores&lt;/subject&gt;\n
+        \               &lt;subject&gt;Jan&#xE1;&#x10D;ek, Leo&#x161;, 1854-1928.
+        Prikli&#x361;uchenii&#x361;a Lisichki-plutovki&lt;/subject&gt;\n                &lt;subject&gt;Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928. Schlaue F&#xFC;chslein&lt;/subject&gt;\n                &lt;subject&gt;Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928. Adventures of Bystrou&#x161;ka the vixen&lt;/subject&gt;\n
+        \               &lt;subject&gt;Jan&#xE1;&#x10D;ek, Leo&#x161;, 1854-1928.
+        Petite renarde rus&#xE9;e&lt;/subject&gt;\n                &lt;subject&gt;Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928. Adventures of Fox Sharp-Ears&lt;/subject&gt;\n                &lt;subject&gt;Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928. Sly little fox&lt;/subject&gt;\n                &lt;subject&gt;Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928. Cunning little vixen&lt;/subject&gt;\n                &lt;subject&gt;Orchestra
+        music&lt;/subject&gt;\n                &lt;general&gt;Includes abstract and
+        vita.&lt;/general&gt;\n                &lt;general&gt;Thesis (Ph. D.)--University
+        of Rochester, 2005.&lt;/general&gt;\n                &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;nyu_aleph000509288&lt;/recordid&gt;\n                &lt;rsrctype&gt;book&lt;/rsrctype&gt;\n
+        \               &lt;creationdate&gt;2005&lt;/creationdate&gt;\n                &lt;addtitle&gt;Evocations
+        of an earthly nature.&lt;/addtitle&gt;\n                &lt;searchscope&gt;BOBST&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;BOBST Main Collection&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;\n                &lt;searchscope&gt;NYU&lt;/searchscope&gt;\n
+        \               &lt;scope&gt;BOBST&lt;/scope&gt;\n                &lt;scope&gt;BOBST
+        Main Collection&lt;/scope&gt;\n                &lt;scope&gt;nyu_aleph&lt;/scope&gt;\n
+        \               &lt;scope&gt;NYU&lt;/scope&gt;\n                &lt;lsr01&gt;ML410.J33
+        M47 2005a&lt;/lsr01&gt;\n                &lt;lsr01&gt;ML410 .J33 M47 2005a&lt;/lsr01&gt;\n
+        \             &lt;/search&gt;\n              &lt;sort&gt;\n                &lt;title&gt;Jan&#xE1;&#x10D;ek's
+        interconnected world : with a closer look at The cunning little vixen ; Evocations
+        of an earthly nature : for orchestra /&lt;/title&gt;\n                &lt;creationdate&gt;2005&lt;/creationdate&gt;\n
+        \               &lt;author&gt;Mertl, Gregory.&lt;/author&gt;\n                &lt;lso01&gt;2005&lt;/lso01&gt;\n
+        \             &lt;/sort&gt;\n              &lt;facets&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;creationdate&gt;2005&lt;/creationdate&gt;\n                &lt;topic&gt;Jan&#xE1;&#x10D;ek,
+        Leo&#x161;, 1854-1928&#x2013;Criticism and interpretation&lt;/topic&gt;\n
+        \               &lt;topic&gt;Jan&#xE1;&#x10D;ek, Leo&#x161;, 1854-1928. P&#x159;&#xED;hody
+        li&#x161;ky Bystrou&#x161;ky&lt;/topic&gt;\n                &lt;topic&gt;Orchestral
+        music&#x2013;Scores&lt;/topic&gt;\n                &lt;collection&gt;BOBST&lt;/collection&gt;\n
+        \               &lt;toplevel&gt;available&lt;/toplevel&gt;\n                &lt;prefilter&gt;books&lt;/prefilter&gt;\n
+        \               &lt;rsrctype&gt;books&lt;/rsrctype&gt;\n                &lt;creatorcontrib&gt;Mertl,
+        G&lt;/creatorcontrib&gt;\n                &lt;genre&gt;Scores&lt;/genre&gt;\n
+        \               &lt;library&gt;BOBST&lt;/library&gt;\n                &lt;lfc01&gt;Main
+        Collection&lt;/lfc01&gt;\n                &lt;frbrgroupid&gt;59923993&lt;/frbrgroupid&gt;\n
+        \               &lt;frbrtype&gt;6&lt;/frbrtype&gt;\n              &lt;/facets&gt;\n
+        \             &lt;dedup&gt;\n                &lt;t&gt;1&lt;/t&gt;\n                &lt;c3&gt;janaceksinterconnectrorchestra&lt;/c3&gt;\n
+        \               &lt;c4&gt;2005&lt;/c4&gt;\n                &lt;f5&gt;janaceksinterconnectrorchestra&lt;/f5&gt;\n
+        \               &lt;f6&gt;2005&lt;/f6&gt;\n                &lt;f7&gt;janaceks
+        interconnected world with a closer look at the cunning little vixen evocations
+        of an earthly nature for orchestra&lt;/f7&gt;\n                &lt;f8&gt;xx&lt;/f8&gt;\n
+        \               &lt;f9&gt;vi, 40 leaves :&lt;/f9&gt;\n                &lt;f11&gt;mertl
+        gregory&lt;/f11&gt;\n              &lt;/dedup&gt;\n              &lt;frbr&gt;\n
+        \               &lt;t&gt;1&lt;/t&gt;\n                &lt;k1&gt;$$Kmertl gregory$$AA&lt;/k1&gt;\n
+        \               &lt;k3&gt;$$Kbookjanacek's interconnected world with a closer
+        look at the cunning little vixen evocations of an earthly nature for orchestra$$AT&lt;/k3&gt;\n
+        \             &lt;/frbr&gt;\n              &lt;delivery&gt;\n                &lt;institution&gt;NYU&lt;/institution&gt;\n
+        \               &lt;delcategory&gt;Physical Item&lt;/delcategory&gt;\n              &lt;/delivery&gt;\n
+        \             &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n              &lt;/ranking&gt;\n
+        \             &lt;addata&gt;\n                &lt;aulast&gt;Mertl&lt;/aulast&gt;\n
+        \               &lt;aufirst&gt;Gregory&lt;/aufirst&gt;\n                &lt;au&gt;Mertl,
+        Gregory&lt;/au&gt;\n                &lt;addau&gt;Mertl, Gregory&lt;/addau&gt;\n
+        \               &lt;btitle&gt;Jan&#xE1;&#x10D;ek's interconnected world :
+        with a closer look at The cunning little vixen ; Evocations of an earthly
+        nature : for orchestra&lt;/btitle&gt;\n                &lt;date&gt;2005&lt;/date&gt;\n
+        \               &lt;risdate&gt;2005.&lt;/risdate&gt;\n                &lt;format&gt;dissertation&lt;/format&gt;\n
+        \               &lt;genre&gt;dissertation&lt;/genre&gt;\n                &lt;genre&gt;book&lt;/genre&gt;\n
+        \               &lt;ristype&gt;THES&lt;/ristype&gt;\n                &lt;notes&gt;Thesis
+        (Ph. D.)--University of Rochester, 2005. ; Includes bibliographical references.&lt;/notes&gt;\n
+        \               &lt;lad01&gt;BOBST&lt;/lad01&gt;\n                &lt;lad01&gt;Physical
+        Item&lt;/lad01&gt;\n              &lt;/addata&gt;\n            &lt;/record&gt;\n
+        \         &lt;/PrimoNMBib&gt;\n        &lt;/sear:DOC&gt;\n      &lt;/DOCSET&gt;\n
+        \   &lt;/RESULT&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;\n</getRecordReturn></ns1:getRecordResponse></soapenv:Body></soapenv:Envelope>"
+    http_version: 
+  recorded_at: Tue, 09 Oct 2012 17:25:57 GMT
+recorded_with: VCR 2.2.5

@@ -1,0 +1,165 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://bobcat.library.nyu.edu/PrimoWebServices/services/primo/searcher
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<env:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n
+        \   xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n    xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\">\n
+        \ <env:Body>\n    <n1:getRecord env:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        \       xmlns:n1=\"http://www.exlibris.com/primo/xsd/wsRequest\">\n      <getRecordRequest
+        xsi:type=\"xsd:string\">&lt;fullViewRequest xmlns=&apos;http://www.exlibris.com/primo/xsd/wsRequest&apos;&gt;&lt;PrimoSearchRequest
+        xmlns=&apos;http://www.exlibris.com/primo/xsd/search/request&apos;&gt;&lt;QueryTerms&gt;&lt;BoolOpeator&gt;AND&lt;/BoolOpeator&gt;&lt;/QueryTerms&gt;&lt;StartIndex&gt;1&lt;/StartIndex&gt;&lt;BulkSize&gt;5&lt;/BulkSize&gt;&lt;DidUMeanEnabled&gt;false&lt;/DidUMeanEnabled&gt;&lt;HighlightingEnabled&gt;false&lt;/HighlightingEnabled&gt;&lt;/PrimoSearchRequest&gt;&lt;docId&gt;nyu_aleph002975583&lt;/docId&gt;&lt;institution&gt;NYU&lt;/institution&gt;&lt;/fullViewRequest&gt;</getRecordRequest>\n
+        \   </n1:getRecord>\n  </env:Body>\n</env:Envelope>"
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Soapaction:
+      - ! '""'
+      User-Agent:
+      - SOAP4R/1.6.1-SNAPSHOT
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - ! 'Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1 (build: CVSTag=JBoss_4_0_1 date=200412230944)'
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 09 Oct 2012 17:25:56 GMT
+      Server:
+      - Apache-Coyote/1.1
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><ns1:getRecordResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns1=\"http://www.exlibris.com/primo/xsd/wsRequest\"><getRecordReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;SEGMENTS
+        xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n  &lt;JAGROOT&gt;\n
+        \   &lt;RESULT&gt;\n      &lt;DOCSET TOTALHITS=&quot;1&quot;&gt;\n        &lt;sear:DOC
+        LOCAL=&quot;true&quot; xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;
+        xmlns:sear=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n
+        \         &lt;PrimoNMBib&gt;\n            &lt;record&gt;\n              &lt;control&gt;\n
+        \               &lt;sourcerecordid&gt;002975583&lt;/sourcerecordid&gt;\n                &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;nyu_aleph002975583&lt;/recordid&gt;\n                &lt;originalsourceid&gt;NYU01&lt;/originalsourceid&gt;\n
+        \               &lt;ilsapiid&gt;NYU01002975583&lt;/ilsapiid&gt;\n                &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;\n
+        \               &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;\n              &lt;/control&gt;\n
+        \             &lt;display&gt;\n                &lt;type&gt;book&lt;/type&gt;\n
+        \               &lt;title&gt;Rub&#x101;&#x2BB;&#x12B;y&#x101;t-i B&#x101;b&#x101;
+        &#x1E6C;&#x101;hir&lt;/title&gt;\n                &lt;creator&gt;B&#x101;b&#x101;-&#x1E6C;&#x101;hir,
+        11th cent.&lt;/creator&gt;\n                &lt;contributor&gt;Mahd&#x12B;
+        Il&#x101;h&#x12B; Qumshah&#x2B9;&#x12B;&lt;/contributor&gt;\n                &lt;edition&gt;Ch&#x101;p-i
+        1.&lt;/edition&gt;\n                &lt;publisher&gt;Tehran : Nashr-i Mu&#x1E25;ammad&lt;/publisher&gt;\n
+        \               &lt;creationdate&gt;13]64 [1985&lt;/creationdate&gt;\n                &lt;format&gt;14,
+        99 p., [3] leaves of plates : col. ports ; 30 cm.&lt;/format&gt;\n                &lt;language&gt;per&lt;/language&gt;\n
+        \               &lt;source&gt;nyu_aleph&lt;/source&gt;\n                &lt;availlibrary&gt;$$INYU$$LBOBST$$1Main
+        Collection$$2(PK6451.B25 A17 1985 )$$Savailable$$32$$41$$5N$$60$$XNYU50$$YBOBST$$ZMAIN&lt;/availlibrary&gt;\n
+        \               &lt;lds02&gt;nyu_aleph002975583&lt;/lds02&gt;\n                &lt;lds01&gt;NYU&lt;/lds01&gt;\n
+        \               &lt;availinstitution&gt;$$INYU$$Savailable&lt;/availinstitution&gt;\n
+        \               &lt;availpnx&gt;available&lt;/availpnx&gt;\n              &lt;/display&gt;\n
+        \             &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;\n
+        \               &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;\n
+        \               &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;\n
+        \               &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;\n
+        \               &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;creatorcontrib&gt;B&#x101;b&#x101;-&#x1E6C;&#x101;hir,
+        11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;bih
+        ta&#x1E63;&#x1E25;&#x12B;&#x1E25; va muqaddamah-&#x2BC;i Mahd&#x12B; Il&#x101;h&#x12B;
+        Qumshah&#x2B9;&#x12B;.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Mahd&#x12B;
+        \ Il&#x101;h&#x12B; Qumshah&#x2B9;&#x12B;&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Il&#x101;h&#x12B;
+        Qumshah&#x2B9;&#x12B;, M&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x645;&#x62D;&#x649;
+        &#x627;&#x644;&#x62F;&#x64A;&#x646; &#x645;&#x647;&#x62F;&#x649; &#x627;&#x644;&#x647;&#x649;
+        &#x642;&#x645;&#x634;&#x6C0;&#x649;&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Il&#x101;h&#x12B;
+        Qumshah&#x2B9;&#x12B;, Mu&#x1E25;y&#x12B; al-D&#x12B;n Mahd&#x12B;&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;Qumshah&#x2B9;&#x12B;, Mahd&#x12B; Il&#x101;h&#x12B;&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;&#x627;&#x644;&#x627;&#x647;&#x649;
+        &#x642;&#x645;&#x634;&#x627;&#x647;&#x2113;&#x649;&#x60C; &#x645;&#x647;&#x62F;&#x64A;&#x2113;&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;&#x627;&#x644;&#x647;&#x649; &#x642;&#x645;&#x634;&#x647;
+        &#x627;&#x649;&#x60C; &#x645;&#x647;&#x62F;&#x649;&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;&#x627;&#x644;&#x647;&#x64A; &#x642;&#x645;&#x634;&#x647;&#x2113;&#x2113;&#x627;&#x649;&#x60C;
+        &#x645;&#x647;&#x62F;&#x64A;&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x628;&#x627;&#x628;&#x627;&#x637;&#x627;&#x647;&#x631;&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;&#x628;&#x627;&#x628;&#x627; &#x637;&#x627;&#x647;&#x631;&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;Bobo Tokhir, 11th cent.&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;Hamadan&#xEE;, Baba Tahir, 11th cent.&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;Baba Tahir Hamadan&#xEE;, 11th cent.&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;&#x1E22;amadon&#x12B;, Bobo To&#x1E23;iri
+        Ur&#xEB;ni, 11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Tahir
+        Hamadan&#xEE;, Baba, 11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x1E6C;&#x101;hir,
+        B&#x101;b&#x101;-, 11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Bobo
+        To&#x1E23;ir, 11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;To&#x1E23;ir,
+        Bobo, 11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Tokhir,
+        Bobo, 11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x2BB;Ury&#x101;n,
+        B&#x101;b&#x101; &#x1E6C;&#x101;hir, 11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Bobo
+        To&#x1E23;iri Ur&#xEB;ni &#x1E22;amadon&#x12B;, 11th cent.&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;Bobo To&#x1E23;iri Ur&#x2B9;&#xEB;n,
+        11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x1E6C;&#x101;hir,
+        of Hamad&#x101;n, 11th cent.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x628;&#x627;&#x628;&#x627;
+        &#x637;&#x627;&#x647;&#x631; &#x639;&#x631;&#x64A;&#x627;&#x646; &#x647;&#x645;&#x62F;&#x627;&#x646;&#x64A;&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;&#x628;&#x627;&#x628;&#x627; &#x637;&#x627;&#x647;&#x631;&#x60C;
+        11th cent&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x628;&#x627;&#x628;&#x627;&#x637;&#x627;&#x647;&#x631;&#x60C;
+        11th cent&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;&#x628;&#x627;&#x628;&#x627;
+        &#x637;&#x627;&#x647;&#x631;.&#x629;&#x647;&#x629;&lt;/creatorcontrib&gt;\n
+        \               &lt;title&gt;Rub&#x101;&#x2BB;&#x12B;y&#x101;t-i B&#x101;b&#x101;
+        &#x1E6C;&#x101;hir /&lt;/title&gt;\n                &lt;general&gt;Nashr-i
+        Mu&#x1E25;ammad,&lt;/general&gt;\n                &lt;general&gt;Cover title:
+        D&#x12B;v&#x101;n-i B&#x101;b&#x101; &#x1E6C;&#x101;hir &#x2BB;Ury&#x101;n
+        Hamad&#x101;n&#x12B;.&lt;/general&gt;\n                &lt;general&gt;&quot;B&#x101;
+        iz&#x324;&#x101;f&#x101;t&#x12B; az nuskhah-&#x2BC;i Va&#x1E25;&#x12B;d Dastgird&#x12B;.&quot;&lt;/general&gt;\n
+        \               &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;\n                &lt;recordid&gt;nyu_aleph002975583&lt;/recordid&gt;\n
+        \               &lt;rsrctype&gt;book&lt;/rsrctype&gt;\n                &lt;creationdate&gt;1985&lt;/creationdate&gt;\n
+        \               &lt;addtitle&gt;D&#x12B;v&#x101;n-i B&#x101;b&#x101; &#x1E6C;&#x101;hir
+        &#x2BB;Ury&#x101;n Hamad&#x101;n&#x12B;.&lt;/addtitle&gt;\n                &lt;searchscope&gt;BOBST&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;BOBST Main Collection&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;\n                &lt;searchscope&gt;NYU&lt;/searchscope&gt;\n
+        \               &lt;scope&gt;BOBST&lt;/scope&gt;\n                &lt;scope&gt;BOBST
+        Main Collection&lt;/scope&gt;\n                &lt;scope&gt;nyu_aleph&lt;/scope&gt;\n
+        \               &lt;scope&gt;NYU&lt;/scope&gt;\n                &lt;lsr01&gt;PK6451.B25
+        A17 1985&lt;/lsr01&gt;\n                &lt;lsr01&gt;PK6451 .B25 A17 1985&lt;/lsr01&gt;\n
+        \               &lt;lsr02&gt;Nashr-i Mu&#x1E25;ammad,&lt;/lsr02&gt;\n              &lt;/search&gt;\n
+        \             &lt;sort&gt;\n                &lt;title&gt;Rub&#x101;&#x2BB;&#x12B;y&#x101;t-i
+        B&#x101;b&#x101; &#x1E6C;&#x101;hir /&lt;/title&gt;\n                &lt;creationdate&gt;1985&lt;/creationdate&gt;\n
+        \               &lt;author&gt;B&#x101;b&#x101;-&#x1E6C;&#x101;hir, 11th cent.&lt;/author&gt;\n
+        \               &lt;lso01&gt;1985&lt;/lso01&gt;\n              &lt;/sort&gt;\n
+        \             &lt;facets&gt;\n                &lt;language&gt;per&lt;/language&gt;\n
+        \               &lt;creationdate&gt;1985&lt;/creationdate&gt;\n                &lt;collection&gt;BOBST&lt;/collection&gt;\n
+        \               &lt;toplevel&gt;available&lt;/toplevel&gt;\n                &lt;prefilter&gt;books&lt;/prefilter&gt;\n
+        \               &lt;rsrctype&gt;books&lt;/rsrctype&gt;\n                &lt;creatorcontrib&gt;B&#x101;b&#x101;-&#x1E6C;&#x101;hir&lt;/creatorcontrib&gt;\n
+        \               &lt;creatorcontrib&gt;Il&#x101;h&#x12B; Qumshah&#x2B9;&#x12B;,
+        M&lt;/creatorcontrib&gt;\n                &lt;library&gt;BOBST&lt;/library&gt;\n
+        \               &lt;lfc01&gt;Main Collection&lt;/lfc01&gt;\n                &lt;frbrgroupid&gt;64655964&lt;/frbrgroupid&gt;\n
+        \               &lt;frbrtype&gt;6&lt;/frbrtype&gt;\n              &lt;/facets&gt;\n
+        \             &lt;dedup&gt;\n                &lt;t&gt;1&lt;/t&gt;\n                &lt;c3&gt;ruba&#x2BB;iyatibabatahir&lt;/c3&gt;\n
+        \               &lt;c4&gt;1985&lt;/c4&gt;\n                &lt;f5&gt;ruba&#x2BB;iyatibabatahir&lt;/f5&gt;\n
+        \               &lt;f6&gt;1985&lt;/f6&gt;\n                &lt;f7&gt;ruba&#x2BB;iyat
+        i baba tahir&lt;/f7&gt;\n                &lt;f8&gt;ir&lt;/f8&gt;\n                &lt;f9&gt;14,
+        99 p., [3] leaves of plates :&lt;/f9&gt;\n                &lt;f10&gt;nashr
+        i muhammad&lt;/f10&gt;\n                &lt;f11&gt;baba tahir 11th cent&lt;/f11&gt;\n
+        \             &lt;/dedup&gt;\n              &lt;frbr&gt;\n                &lt;t&gt;1&lt;/t&gt;\n
+        \               &lt;k1&gt;$$Kbaba tahir 11th cent$$AA&lt;/k1&gt;\n                &lt;k3&gt;$$Kbookruba&#x2BB;iyat
+        i baba tahir$$AT&lt;/k3&gt;\n              &lt;/frbr&gt;\n              &lt;delivery&gt;\n
+        \               &lt;institution&gt;NYU&lt;/institution&gt;\n                &lt;delcategory&gt;Physical
+        Item&lt;/delcategory&gt;\n              &lt;/delivery&gt;\n              &lt;ranking&gt;\n
+        \               &lt;booster1&gt;1&lt;/booster1&gt;\n                &lt;booster2&gt;1&lt;/booster2&gt;\n
+        \             &lt;/ranking&gt;\n              &lt;addata&gt;\n                &lt;aulast&gt;Il&#x101;h&#x12B;
+        Qumshah&#x2B9;&#x12B;&lt;/aulast&gt;\n                &lt;aufirst&gt;Mahd&#x12B;&lt;/aufirst&gt;\n
+        \               &lt;au&gt;B&#x101;b&#x101;-&#x1E6C;&#x101;hir, 11th cent&lt;/au&gt;\n
+        \               &lt;addau&gt;Il&#x101;h&#x12B; Qumshah&#x2B9;&#x12B;, Mahd&#x12B;&lt;/addau&gt;\n
+        \               &lt;btitle&gt;Rub&#x101;&#x2BB;&#x12B;y&#x101;t-i B&#x101;b&#x101;
+        &#x1E6C;&#x101;hir&lt;/btitle&gt;\n                &lt;date&gt;1985&lt;/date&gt;\n
+        \               &lt;risdate&gt;[13]64 [1985]&lt;/risdate&gt;\n                &lt;format&gt;book&lt;/format&gt;\n
+        \               &lt;genre&gt;book&lt;/genre&gt;\n                &lt;ristype&gt;BOOK&lt;/ristype&gt;\n
+        \               &lt;cop&gt;Tehran]&lt;/cop&gt;\n                &lt;pub&gt;Nashr-i
+        Mu&#x1E25;ammad&lt;/pub&gt;\n                &lt;lad01&gt;BOBSTBOBST&lt;/lad01&gt;\n
+        \               &lt;lad01&gt;Physical Item&lt;/lad01&gt;\n              &lt;/addata&gt;\n
+        \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n        &lt;/sear:DOC&gt;\n
+        \     &lt;/DOCSET&gt;\n    &lt;/RESULT&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;\n</getRecordReturn></ns1:getRecordResponse></soapenv:Body></soapenv:Envelope>"
+    http_version: 
+  recorded_at: Tue, 09 Oct 2012 17:25:57 GMT
+recorded_with: VCR 2.2.5

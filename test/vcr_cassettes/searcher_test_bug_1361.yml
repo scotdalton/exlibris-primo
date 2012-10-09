@@ -1,0 +1,161 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://bobcat.library.nyu.edu/PrimoWebServices/services/primo/searcher
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<env:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n
+        \   xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n    xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\">\n
+        \ <env:Body>\n    <n1:getRecord env:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
+        \       xmlns:n1=\"http://www.exlibris.com/primo/xsd/wsRequest\">\n      <getRecordRequest
+        xsi:type=\"xsd:string\">&lt;fullViewRequest xmlns=&apos;http://www.exlibris.com/primo/xsd/wsRequest&apos;&gt;&lt;PrimoSearchRequest
+        xmlns=&apos;http://www.exlibris.com/primo/xsd/search/request&apos;&gt;&lt;QueryTerms&gt;&lt;BoolOpeator&gt;AND&lt;/BoolOpeator&gt;&lt;/QueryTerms&gt;&lt;StartIndex&gt;1&lt;/StartIndex&gt;&lt;BulkSize&gt;5&lt;/BulkSize&gt;&lt;DidUMeanEnabled&gt;false&lt;/DidUMeanEnabled&gt;&lt;HighlightingEnabled&gt;false&lt;/HighlightingEnabled&gt;&lt;/PrimoSearchRequest&gt;&lt;docId&gt;ebrroutebr10416506&lt;/docId&gt;&lt;institution&gt;NYU&lt;/institution&gt;&lt;/fullViewRequest&gt;</getRecordRequest>\n
+        \   </n1:getRecord>\n  </env:Body>\n</env:Envelope>"
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Soapaction:
+      - ! '""'
+      User-Agent:
+      - SOAP4R/1.6.1-SNAPSHOT
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - ! 'Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1 (build: CVSTag=JBoss_4_0_1 date=200412230944)'
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 09 Oct 2012 17:25:56 GMT
+      Server:
+      - Apache-Coyote/1.1
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><ns1:getRecordResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns1=\"http://www.exlibris.com/primo/xsd/wsRequest\"><getRecordReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;SEGMENTS
+        xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n  &lt;JAGROOT&gt;\n
+        \   &lt;RESULT&gt;\n      &lt;DOCSET TOTALHITS=&quot;1&quot;&gt;\n        &lt;sear:DOC
+        LOCAL=&quot;true&quot; xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;
+        xmlns:sear=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n
+        \         &lt;PrimoNMBib&gt;\n            &lt;record&gt;\n              &lt;control&gt;\n
+        \               &lt;sourcerecordid&gt;ebr10416506&lt;/sourcerecordid&gt;\n
+        \               &lt;sourceid&gt;ebrrout&lt;/sourceid&gt;\n                &lt;recordid&gt;ebrroutebr10416506&lt;/recordid&gt;\n
+        \               &lt;ilsapiid&gt;ebr10416506&lt;/ilsapiid&gt;\n                &lt;sourceformat&gt;MARC
+        Exchange&lt;/sourceformat&gt;\n                &lt;sourcesystem&gt;Other&lt;/sourcesystem&gt;\n
+        \             &lt;/control&gt;\n              &lt;display&gt;\n                &lt;type&gt;book&lt;/type&gt;\n
+        \               &lt;title&gt;Nationalisms and politics in Turkey political
+        Islam, Kemalism, and the Kurdish issue&lt;/title&gt;\n                &lt;contributor&gt;Marlies
+        Casier; Joost Jongerden&lt;/contributor&gt;\n                &lt;publisher&gt;Milton
+        Park, Abingdon, Oxon ; New York : Routledge&lt;/publisher&gt;\n                &lt;creationdate&gt;2011&lt;/creationdate&gt;\n
+        \               &lt;format&gt;xiii, 221 p. ; 24 cm..&lt;/format&gt;\n                &lt;subject&gt;Kurds
+        -- Turkey -- Social conditions; Nationalism -- Turkey; Islam and politics
+        -- Turkey; Turkey -- Politics and government -- 1980-; Turkey -- Ethnic relations
+        -- Political aspects; Electronic books&lt;/subject&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;relation&gt;$$Cseries $$VRoutledge studies in Middle Eastern
+        politics ; 26&lt;/relation&gt;\n                &lt;source&gt;ebrrout&lt;/source&gt;\n
+        \               &lt;lds02&gt;ebrroutebr10416506&lt;/lds02&gt;\n                &lt;lds01&gt;NYU&lt;/lds01&gt;\n
+        \               &lt;lds01&gt;NYUAD&lt;/lds01&gt;\n              &lt;/display&gt;\n
+        \             &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;\n
+        \               &lt;linktorsrc&gt;$$Uhttps://ezproxy.library.nyu.edu/login?url=http://site.ebrary.com/lib/nyulibrary/Doc?id=10416506$$DAn
+        electronic book accessible through the World Wide Web; click to view$$INYU&lt;/linktorsrc&gt;\n
+        \               &lt;linktorsrc&gt;$$Uhttps://ezproxy.library.nyu.edu/login?url=http://site.ebrary.com/lib/nyulibrary/Doc?id=10416506$$DAn
+        electronic book accessible through the World Wide Web; click to view$$INYUAD&lt;/linktorsrc&gt;\n
+        \               &lt;linktorsrc&gt;$$Uhttps://ezproxy.library.nyu.edu/login?url=http://nyu.etailer.dpsl.net/home/html/moreinfo.asp?isbn=0203847067$$DOnline
+        Version$$INYU&lt;/linktorsrc&gt;\n                &lt;linktorsrc&gt;$$Uhttps://ezproxy.library.nyu.edu/login?url=http://nyu.etailer.dpsl.net/home/html/moreinfo.asp?isbn=0203847067$$DOnline
+        Version$$INYUAD$$DOnline Version&lt;/linktorsrc&gt;\n                &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;\n
+        \               &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;\n
+        \               &lt;linktouc&gt;$$Tworldcat_oclc$$DCheck other libraries (WorldCat&#xAE;)&lt;/linktouc&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;creatorcontrib&gt;edited
+        by Marlies Casier and Joost Jongerden.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Marlies
+        \ Casier&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Joost
+        \ Jongerden&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Casier,
+        M&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Jongerden,
+        J&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;ebrary, Inc.&lt;/creatorcontrib&gt;\n
+        \               &lt;title&gt;Nationalisms and politics in Turkey political
+        Islam, Kemalism, and the Kurdish issue /&lt;/title&gt;\n                &lt;subject&gt;Kurds
+        \ Turkey Social conditions&lt;/subject&gt;\n                &lt;subject&gt;Nationalism
+        \ Turkey&lt;/subject&gt;\n                &lt;subject&gt;Islam and politics
+        \ Turkey&lt;/subject&gt;\n                &lt;subject&gt;Turkey  Politics
+        and government 1980-&lt;/subject&gt;\n                &lt;subject&gt;Turkey
+        \ Ethnic relations Political aspects&lt;/subject&gt;\n                &lt;subject&gt;Electronic
+        books&lt;/subject&gt;\n                &lt;subject&gt;Ebooks&lt;/subject&gt;\n
+        \               &lt;subject&gt;E-books&lt;/subject&gt;\n                &lt;subject&gt;Online
+        books&lt;/subject&gt;\n                &lt;general&gt;Routledge,&lt;/general&gt;\n
+        \               &lt;general&gt;[electronic resource] :&lt;/general&gt;\n                &lt;sourceid&gt;ebrrout&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;ebrroutebr10416506&lt;/recordid&gt;\n                &lt;isbn&gt;9780415583459&lt;/isbn&gt;\n
+        \               &lt;isbn&gt;0415583454&lt;/isbn&gt;\n                &lt;isbn&gt;9780203847060&lt;/isbn&gt;\n
+        \               &lt;isbn&gt;0203847067&lt;/isbn&gt;\n                &lt;rsrctype&gt;book&lt;/rsrctype&gt;\n
+        \               &lt;creationdate&gt;2011&lt;/creationdate&gt;\n                &lt;addtitle&gt;Routledge
+        studies in Middle Eastern politics ; 26&lt;/addtitle&gt;\n                &lt;searchscope&gt;ebrrout&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;NYU&lt;/searchscope&gt;\n                &lt;searchscope&gt;NYUAD&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;BOBST&lt;/searchscope&gt;\n                &lt;searchscope&gt;IFA&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;IFAC&lt;/searchscope&gt;\n                &lt;searchscope&gt;ISAW&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;COUR&lt;/searchscope&gt;\n                &lt;searchscope&gt;REI&lt;/searchscope&gt;\n
+        \               &lt;scope&gt;ebrrout&lt;/scope&gt;\n                &lt;scope&gt;NYU&lt;/scope&gt;\n
+        \               &lt;scope&gt;NYUAD&lt;/scope&gt;\n                &lt;scope&gt;BOBST&lt;/scope&gt;\n
+        \               &lt;scope&gt;IFA&lt;/scope&gt;\n                &lt;scope&gt;IFAC&lt;/scope&gt;\n
+        \               &lt;scope&gt;ISAW&lt;/scope&gt;\n                &lt;scope&gt;COUR&lt;/scope&gt;\n
+        \               &lt;scope&gt;REI&lt;/scope&gt;\n                &lt;lsr02&gt;Routledge,&lt;/lsr02&gt;\n
+        \             &lt;/search&gt;\n              &lt;sort&gt;\n                &lt;title&gt;Nationalisms
+        and politics in Turkey political Islam, Kemalism, and the Kurdish issue /&lt;/title&gt;\n
+        \               &lt;creationdate&gt;2011&lt;/creationdate&gt;\n                &lt;author&gt;Casier,
+        Marlies.&lt;/author&gt;\n              &lt;/sort&gt;\n              &lt;facets&gt;\n
+        \               &lt;language&gt;eng&lt;/language&gt;\n                &lt;creationdate&gt;2011&lt;/creationdate&gt;\n
+        \               &lt;topic&gt;Kurds&#x2013;Turkey&#x2013;Social conditions&lt;/topic&gt;\n
+        \               &lt;topic&gt;Nationalism&#x2013;Turkey&lt;/topic&gt;\n                &lt;topic&gt;Islam
+        and politics&#x2013;Turkey&lt;/topic&gt;\n                &lt;topic&gt;Turkey&#x2013;Politics
+        and government&#x2013;1980-&lt;/topic&gt;\n                &lt;topic&gt;Turkey&#x2013;Ethnic
+        relations&#x2013;Political aspects&lt;/topic&gt;\n                &lt;toplevel&gt;online_resources&lt;/toplevel&gt;\n
+        \               &lt;prefilter&gt;books&lt;/prefilter&gt;\n                &lt;rsrctype&gt;books&lt;/rsrctype&gt;\n
+        \               &lt;creatorcontrib&gt;Casier, M&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;Jongerden,
+        J&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;ebrary, Inc&lt;/creatorcontrib&gt;\n
+        \               &lt;genre&gt;Electronic books&lt;/genre&gt;\n                &lt;library&gt;BOBST&lt;/library&gt;\n
+        \               &lt;library&gt;IFA&lt;/library&gt;\n                &lt;library&gt;IFAC&lt;/library&gt;\n
+        \               &lt;library&gt;ISAW&lt;/library&gt;\n                &lt;library&gt;COUR&lt;/library&gt;\n
+        \               &lt;library&gt;REI&lt;/library&gt;\n                &lt;frbrtype&gt;2&lt;/frbrtype&gt;\n
+        \             &lt;/facets&gt;\n              &lt;dedup&gt;\n                &lt;t&gt;1&lt;/t&gt;\n
+        \               &lt;c1&gt;2010003758&lt;/c1&gt;\n                &lt;c2&gt;9780415583459;0415583454;9780203847060;0203847067&lt;/c2&gt;\n
+        \               &lt;c3&gt;nationalismsandpolitrdishissue&lt;/c3&gt;\n                &lt;c4&gt;2011&lt;/c4&gt;\n
+        \               &lt;f2&gt;2010003758&lt;/f2&gt;\n                &lt;f4&gt;9780415583459;0415583454;9780203847060;0203847067&lt;/f4&gt;\n
+        \               &lt;f5&gt;nationalismsandpolitrdishissue&lt;/f5&gt;\n                &lt;f6&gt;2011&lt;/f6&gt;\n
+        \               &lt;f7&gt;nationalisms and politics in turkey political islam
+        kemalism and the kurdish issue&lt;/f7&gt;\n                &lt;f8&gt;enk&lt;/f8&gt;\n
+        \               &lt;f9&gt;xiii, 221 p. ;&lt;/f9&gt;\n                &lt;f10&gt;routledge&lt;/f10&gt;\n
+        \             &lt;/dedup&gt;\n              &lt;frbr&gt;\n                &lt;t&gt;1&lt;/t&gt;\n
+        \               &lt;k1&gt;$$Kcasier marlies$$AA&lt;/k1&gt;\n                &lt;k1&gt;$$Kjongerden
+        joost$$AA&lt;/k1&gt;\n                &lt;k1&gt;$$Kebrary inc$$AA&lt;/k1&gt;\n
+        \               &lt;k3&gt;$$Kbooknationalisms and politics in turkey political
+        islam kemalism and the kurdish issue$$AT&lt;/k3&gt;\n              &lt;/frbr&gt;\n
+        \             &lt;delivery&gt;\n                &lt;institution&gt;NYU&lt;/institution&gt;\n
+        \               &lt;institution&gt;NYUAD&lt;/institution&gt;\n                &lt;delcategory&gt;Online
+        Resource&lt;/delcategory&gt;\n              &lt;/delivery&gt;\n              &lt;enrichment&gt;\n
+        \               &lt;classificationlcc&gt;JQ1805&lt;/classificationlcc&gt;\n
+        \             &lt;/enrichment&gt;\n              &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n              &lt;/ranking&gt;\n
+        \             &lt;addata&gt;\n                &lt;aulast&gt;Casier&lt;/aulast&gt;\n
+        \               &lt;aufirst&gt;Marlies&lt;/aufirst&gt;\n                &lt;addau&gt;Casier,
+        Marlies&lt;/addau&gt;\n                &lt;addau&gt;Jongerden, Joost&lt;/addau&gt;\n
+        \               &lt;addau&gt;ebrary, Inc&lt;/addau&gt;\n                &lt;btitle&gt;Nationalisms
+        and politics in Turkey political Islam, Kemalism, and the Kurdish issue&lt;/btitle&gt;\n
+        \               &lt;seriestitle&gt;Routledge studies in Middle Eastern politics
+        ; 26&lt;/seriestitle&gt;\n                &lt;date&gt;2011&lt;/date&gt;\n
+        \               &lt;risdate&gt;2011.&lt;/risdate&gt;\n                &lt;format&gt;book&lt;/format&gt;\n
+        \               &lt;genre&gt;book&lt;/genre&gt;\n                &lt;ristype&gt;BOOK&lt;/ristype&gt;\n
+        \               &lt;notes&gt;Includes bibliographical references and index.&lt;/notes&gt;\n
+        \               &lt;cop&gt;Milton Park, Abingdon, Oxon %3B New York&lt;/cop&gt;\n
+        \               &lt;pub&gt;Routledge&lt;/pub&gt;\n                &lt;oclcid&gt;671755896&lt;/oclcid&gt;\n
+        \               &lt;lad01&gt;Online Resource&lt;/lad01&gt;\n              &lt;/addata&gt;\n
+        \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n        &lt;/sear:DOC&gt;\n
+        \     &lt;/DOCSET&gt;\n    &lt;/RESULT&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;\n</getRecordReturn></ns1:getRecordResponse></soapenv:Body></soapenv:Envelope>"
+    http_version: 
+  recorded_at: Tue, 09 Oct 2012 17:25:57 GMT
+recorded_with: VCR 2.2.5

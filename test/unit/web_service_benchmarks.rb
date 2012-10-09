@@ -6,25 +6,23 @@ class WebServiceBenchmarks < Test::Unit::TestCase
   
   def setup
     @primo_definition = YAML.load( %{
-        type: PrimoService
-        priority: 2 # After SFX, to get SFX metadata enhancement
-        status: active
-        base_url: http://bobcat.library.nyu.edu
-        vid: NYU
-        institution: NYU
-        holding_search_institution: NYU
-        holding_search_text: Search for this title in BobCat.
-        suppress_holdings: [ !ruby/regexp '/\$\$LBWEB/', !ruby/regexp '/\$\$LNWEB/', !ruby/regexp '/\$\$LTWEB/', !ruby/regexp '/\$\$LWEB/', !ruby/regexp '/\$\$1Restricted Internet Resources/' ]
-        ez_proxy: !ruby/regexp '/https\:\/\/ezproxy\.library\.nyu\.edu\/login\?url=/'
-        service_types:
-          - primo_source
-          - holding_search
-          - fulltext
-          - table_of_contents
-          - referent_enhance
-          - cover_image
-      })
-    
+      type: PrimoService
+      priority: 2 # After SFX, to get SFX metadata enhancement
+      status: active
+      base_url: http://bobcat.library.nyu.edu
+      vid: NYU
+      institution: NYU
+      holding_search_institution: NYU
+      holding_search_text: Search for this title in BobCat.
+      suppress_holdings: [ !ruby/regexp '/\$\$LBWEB/', !ruby/regexp '/\$\$LNWEB/', !ruby/regexp '/\$\$LTWEB/', !ruby/regexp '/\$\$LWEB/', !ruby/regexp '/\$\$1Restricted Internet Resources/' ]
+      ez_proxy: !ruby/regexp '/https\:\/\/ezproxy\.library\.nyu\.edu\/login\?url=/'
+      service_types:
+        - primo_source
+        - holding_search
+        - fulltext
+        - table_of_contents
+        - referent_enhance
+        - cover_image })
     @base_url = @primo_definition["base_url"]
     @bogus_404_url = "http://library.nyu.edu/bogus"
     @bogus_200_url = "http://library.nyu.edu"
