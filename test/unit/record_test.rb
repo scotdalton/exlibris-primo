@@ -90,7 +90,7 @@ class RecordTest < Test::Unit::TestCase
       doc = nil
       assert_nothing_raised(){ doc = Nokogiri::XML.parse(raw_xml) }
       assert_not_nil(doc)
-      assert_not_empty(doc.xpath("//record", doc.namespaces))
+      assert(doc.xpath("//record", doc.namespaces).size > 0)
     end
   end
 end
