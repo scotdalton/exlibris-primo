@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   # Leverage ActiveSupport's Hash#from_xml method to transform PNX to JSON.
   s.add_dependency "activesupport", "~> 3.2.0"
+  s.add_dependency "magic_encoding"
   s.add_dependency "nokogiri"
   s.add_dependency "json"
   s.add_dependency "soap4r-ruby1.9"
