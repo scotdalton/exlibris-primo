@@ -7,3 +7,7 @@ gemspec
 
 # Add rake dependency for tests
 gem "rake"
+
+platforms :jruby do
+  gem 'jruby-openssl'
+end
