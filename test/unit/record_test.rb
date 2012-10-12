@@ -67,8 +67,15 @@ class RecordTest < Test::Unit::TestCase
   def testto_json_function
     VCR.use_cassette('record valid record') do
       record = Exlibris::Primo::Record.new(@setup_args)
-      assert((record.to_json.is_a? String), "#{record.class} was expected to be a Hash, was #{record.to_json.class}")
-      assert(record.to_json.starts_with? '{"record":{"control":{"sourcerecordid":"000062856","sourceid":"nyu_aleph","recordid":"nyu_aleph000062856","originalsourceid":"NYU01","ilsapiid":"NYU01000062856","sourceformat":"MARC21","sourcesystem":"Aleph"}')
+      assert((record.to_json.is_a? String), "#{record.class} was expected to be a String, was #{record.to_json.class}")
+      control_hash = JSON.parse(record.to_json)["record"]["control"]
+      assert_equal("000062856", control_hash["sourcerecordid"])
+      assert_equal("nyu_aleph", control_hash["sourceid"])
+      assert_equal("nyu_aleph000062856", control_hash["recordid"])
+      assert_equal("NYU01", control_hash["originalsourceid"])
+      assert_equal("NYU01000062856", control_hash["ilsapiid"])
+      assert_equal("MARC21", control_hash["sourceformat"])
+      assert_equal("Aleph", control_hash["sourcesystem"])
     end
   end
 
