@@ -76,11 +76,7 @@ module Exlibris
       
       # Method for cleaning up raw xml from record
       def raw(record)
-          raw = "<record>"
-          # Hack to strip out spacing in record
-          record.children.each{|child| raw << child.to_xml.gsub(/\n\s*/, "").gsub(/\s$/, "")}
-          raw << "</record>"
-          return raw
+        record.to_xml(:indent => 0, :encoding => 'UTF-8')
       end
 
       private

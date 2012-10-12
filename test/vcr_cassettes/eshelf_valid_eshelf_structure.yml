@@ -1,49 +1,47 @@
----
-http_interactions:
-- request:
-    method: post
-    uri: http://bobcat.library.nyu.edu/PrimoWebServices/services/primo/eshelfstructure
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<env:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n
-        \   xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n    xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\">\n
-        \ <env:Body>\n    <n1:getEshelfStructure env:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"\n
-        \       xmlns:n1=\"http://www.exlibris.com/primo/xsd/wsRequest\">\n      <getEshelfStructureRequest
-        xsi:type=\"xsd:string\">&lt;getEshelfStructureRequest xmlns=&apos;http://www.exlibris.com/primo/xsd/wsRequest&apos;&gt;&lt;userId&gt;N18158418&lt;/userId&gt;&lt;institution&gt;NYU&lt;/institution&gt;&lt;includeBasketItems&gt;false&lt;/includeBasketItems&gt;&lt;/getEshelfStructureRequest&gt;</getEshelfStructureRequest>\n
-        \   </n1:getEshelfStructure>\n  </env:Body>\n</env:Envelope>"
-    headers:
-      Content-Type:
-      - text/xml; charset=utf-8
-      Soapaction:
-      - ! '""'
-      User-Agent:
-      - SOAP4R/1.6.1-SNAPSHOT
-      Accept:
-      - ! '*/*'
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      X-Powered-By:
-      - ! 'Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1 (build: CVSTag=JBoss_4_0_1 date=200412230944)'
-      Content-Type:
-      - text/xml;charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Tue, 09 Oct 2012 17:25:52 GMT
-      Server:
-      - Apache-Coyote/1.1
-    body:
-      encoding: US-ASCII
-      string: <?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><ns1:getEshelfStructureResponse
-        soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://www.exlibris.com/primo/xsd/wsRequest"><getEshelfStructureReturn
-        xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;prim:eshelf_folders
-        xmlns:prim=&quot;http://www.exlibris.com/primo/xsd/primoeshelffolder&quot;&gt;&lt;prim:eshelf_folder
-        parent_id=&quot;298560007&quot; folder_id=&quot;298560007&quot;&gt;&lt;prim:folder_name&gt;Basket&lt;/prim:folder_name&gt;&lt;prim:eshelf_folder_set&gt;&lt;prim:eshelf_folder
-        parent_id=&quot;298560007&quot; folder_id=&quot;344619707&quot;&gt;&lt;prim:folder_name&gt;Test&lt;/prim:folder_name&gt;&lt;/prim:eshelf_folder&gt;&lt;/prim:eshelf_folder_set&gt;&lt;/prim:eshelf_folder&gt;&lt;/prim:eshelf_folders&gt;</getEshelfStructureReturn></ns1:getEshelfStructureResponse></soapenv:Body></soapenv:Envelope>
-    http_version: 
-  recorded_at: Tue, 09 Oct 2012 17:25:52 GMT
+--- 
+http_interactions: 
+  - request: 
+      method: post
+      uri: http://bobcat.library.nyu.edu/PrimoWebServices/services/primo/eshelfstructure
+      body: 
+        string: |-
+          <?xml version="1.0" encoding="utf-8" ?>
+          <env:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+            <env:Body>
+              <n1:getEshelfStructure env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:n1="http://www.exlibris.com/primo/xsd/wsRequest">
+                <getEshelfStructureRequest xsi:type="xsd:string">&lt;getEshelfStructureRequest xmlns=&apos;http://www.exlibris.com/primo/xsd/wsRequest&apos;&gt;&lt;userId&gt;N18158418&lt;/userId&gt;&lt;institution&gt;NYU&lt;/institution&gt;&lt;includeBasketItems&gt;false&lt;/includeBasketItems&gt;&lt;/getEshelfStructureRequest&gt;</getEshelfStructureRequest>
+              </n1:getEshelfStructure>
+            </env:Body>
+          </env:Envelope>
+      headers: 
+        Content-Type: 
+          - text/xml; charset=utf-8
+        Soapaction: 
+          - "\"\""
+        User-Agent: 
+          - SOAP4R/1.6.1-SNAPSHOT
+        Accept: 
+          - "*/*"
+    response: 
+      status: 
+        code: 200
+        message: OK
+      headers: 
+        X-Powered-By: 
+          - "Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1 (build: CVSTag=JBoss_4_0_1 date=200412230944)"
+        Content-Type: 
+          - text/xml;charset=utf-8
+        Transfer-Encoding: 
+          - chunked
+        Date: 
+          - Fri, 12 Oct 2012 17:59:05 GMT
+        Server: 
+          - Apache-Coyote/1.1
+      body: 
+        string: <?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><ns1:getEshelfStructureResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://www.exlibris.com/primo/xsd/wsRequest"><getEshelfStructureReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;prim:eshelf_folders xmlns:prim=&quot;http://www.exlibris.com/primo/xsd/primoeshelffolder&quot;&gt;&lt;prim:eshelf_folder parent_id=&quot;298560007&quot; folder_id=&quot;298560007&quot;&gt;&lt;prim:folder_name&gt;Basket&lt;/prim:folder_name&gt;&lt;prim:eshelf_folder_set&gt;&lt;prim:eshelf_folder parent_id=&quot;298560007&quot; folder_id=&quot;344619707&quot;&gt;&lt;prim:folder_name&gt;Test&lt;/prim:folder_name&gt;&lt;/prim:eshelf_folder&gt;&lt;/prim:eshelf_folder_set&gt;&lt;/prim:eshelf_folder&gt;&lt;/prim:eshelf_folders&gt;</getEshelfStructureReturn></ns1:getEshelfStructureResponse></soapenv:Body></soapenv:Envelope>
+      http_version: 
+    recorded_at: Fri, 12 Oct 2012 17:59:05 GMT
 recorded_with: VCR 2.2.5

@@ -15,6 +15,7 @@ module Exlibris
       #Namespaces
       SEAR_NS = {'sear' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
       PRIM_NS = {'prim' => 'http://www.exlibris.com/primo/xsd/primoeshelffolder'}
+      PRIM_BIB_NS = {'bib' => 'http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib'}
       
       def initialize(setup, user_id, institution)
         @base_url = setup[:base_url]
@@ -49,7 +50,7 @@ module Exlibris
       # Fetch all records from user's Eshelf as an array of Primo Record objects
       def records    
         eshelf.search("//sear:DOC", SEAR_NS).each { |doc|
-          @records.push(Record.new({ :base_url => @base_url, :resolver_base_url => @resolver_base_url, :vid => @vid, :record => doc.at("//xmlns:record", doc.namespaces), :institution => @institution }))
+          @records.push(Record.new({ :base_url => @base_url, :resolver_base_url => @resolver_base_url, :vid => @vid, :record => doc.at("//bib:record", PRIM_BIB_NS), :institution => @institution }))
         } if @records.empty?
         return @records
       end
