@@ -25,7 +25,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 16 Nov 2012 19:57:51 GMT
+      - Fri, 16 Nov 2012 21:56:43 GMT
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsdl:definitions targetNamespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
@@ -180,7 +180,7 @@ http_interactions:
         location=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"/>\n\n
         \     </wsdl:port>\n\n   </wsdl:service>\n\n</wsdl:definitions>\n"
     http_version: 
-  recorded_at: Fri, 16 Nov 2012 19:57:52 GMT
+  recorded_at: Fri, 16 Nov 2012 21:56:44 GMT
 - request:
     method: post
     uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags
@@ -215,7 +215,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 16 Nov 2012 19:57:51 GMT
+      - Fri, 16 Nov 2012 21:56:43 GMT
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
@@ -230,5 +230,5 @@ http_interactions:
         \       &lt;userId/&gt;\n        &lt;status/&gt;\n      &lt;/Tag&gt;\n    &lt;/EverybodyTags&gt;\n
         \ &lt;/Tags&gt;\n&lt;/TagsAndReviews&gt;</getTagsReturn></ns1:getTagsResponse></soapenv:Body></soapenv:Envelope>"
     http_version: 
-  recorded_at: Fri, 16 Nov 2012 19:57:52 GMT
+  recorded_at: Fri, 16 Nov 2012 21:56:44 GMT
 recorded_with: VCR 2.3.0

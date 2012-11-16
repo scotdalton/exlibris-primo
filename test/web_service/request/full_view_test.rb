@@ -13,10 +13,9 @@ module WebService
           "xmlns:uic=\"http://www.exlibris.com/primo/xsd/primoview/uicomponents\">"+
           "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
           "<QueryTerms><BoolOpeator>AND</BoolOpeator></QueryTerms>"+
-          "<StartIndex>1</StartIndex><BulkSize>5</BulkSize>"+
+          "<StartIndex>1</StartIndex>"+
+          "<BulkSize>5</BulkSize>"+
           "<DidUMeanEnabled>false</DidUMeanEnabled>"+
-          "<HighlightingEnabled>false</HighlightingEnabled>"+
-          "<InstBoost>true</InstBoost>"+
           "</PrimoSearchRequest>"+
           "<docId>nyu_aleph000062856</docId>"+
           "</fullViewRequest>]]></request>", full_view_request.to_xml

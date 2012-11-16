@@ -21,10 +21,9 @@ module WebService
             "<PrecisionOperator>exact</PrecisionOperator>"+
             "<Value>0090-5720</Value>"+
             "</QueryTerm></QueryTerms>"+
-            "<StartIndex>1</StartIndex><BulkSize>5</BulkSize>"+
+            "<StartIndex>1</StartIndex>"+
+            "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
-            "<HighlightingEnabled>false</HighlightingEnabled>"+
-            "<InstBoost>true</InstBoost>"+
             "</PrimoSearchRequest></searchRequest>]]></request>", search_request.to_xml
       end
 
@@ -39,10 +38,9 @@ module WebService
             "<PrecisionOperator>exact</PrecisionOperator>"+
             "<Value>0143039008</Value>"+
             "</QueryTerm></QueryTerms>"+
-            "<StartIndex>1</StartIndex><BulkSize>5</BulkSize>"+
+            "<StartIndex>1</StartIndex>"+
+            "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
-            "<HighlightingEnabled>false</HighlightingEnabled>"+
-            "<InstBoost>true</InstBoost>"+
             "</PrimoSearchRequest></searchRequest>]]></request>", search_request.to_xml
       end
 
@@ -57,10 +55,9 @@ module WebService
             "<PrecisionOperator>contains</PrecisionOperator>"+
             "<Value>Travels with My Aunt</Value>"+
             "</QueryTerm></QueryTerms>"+
-            "<StartIndex>1</StartIndex><BulkSize>5</BulkSize>"+
+            "<StartIndex>1</StartIndex>"+
+            "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
-            "<HighlightingEnabled>false</HighlightingEnabled>"+
-            "<InstBoost>true</InstBoost>"+
             "</PrimoSearchRequest></searchRequest>]]></request>", search_request.to_xml
       end
 
@@ -75,10 +72,9 @@ module WebService
             "<PrecisionOperator>contains</PrecisionOperator>"+
             "<Value>Graham Greene</Value>"+
             "</QueryTerm></QueryTerms>"+
-            "<StartIndex>1</StartIndex><BulkSize>5</BulkSize>"+
+            "<StartIndex>1</StartIndex>"+
+            "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
-            "<HighlightingEnabled>false</HighlightingEnabled>"+
-            "<InstBoost>true</InstBoost>"+
             "</PrimoSearchRequest></searchRequest>]]></request>", search_request.to_xml
       end
 
@@ -93,10 +89,9 @@ module WebService
             "<PrecisionOperator>exact</PrecisionOperator>"+
             "<Value>Book</Value>"+
             "</QueryTerm></QueryTerms>"+
-            "<StartIndex>1</StartIndex><BulkSize>5</BulkSize>"+
+            "<StartIndex>1</StartIndex>"+
+            "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
-            "<HighlightingEnabled>false</HighlightingEnabled>"+
-            "<InstBoost>true</InstBoost>"+
             "</PrimoSearchRequest></searchRequest>]]></request>", search_request.to_xml
       end
 
@@ -125,10 +120,9 @@ module WebService
             "<Value>Book</Value>"+
             "</QueryTerm>"+
             "</QueryTerms>"+
-            "<StartIndex>1</StartIndex><BulkSize>5</BulkSize>"+
+            "<StartIndex>1</StartIndex>"+
+            "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
-            "<HighlightingEnabled>false</HighlightingEnabled>"+
-            "<InstBoost>true</InstBoost>"+
             "</PrimoSearchRequest></searchRequest>]]></request>", search_request.to_xml
       end
     end

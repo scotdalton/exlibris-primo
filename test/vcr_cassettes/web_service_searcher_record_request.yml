@@ -25,7 +25,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 16 Nov 2012 19:57:51 GMT
+      - Fri, 16 Nov 2012 21:56:43 GMT
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsdl:definitions targetNamespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
@@ -147,7 +147,7 @@ http_interactions:
         \        <wsdlsoap:address location=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"/>\n\n
         \     </wsdl:port>\n\n   </wsdl:service>\n\n</wsdl:definitions>\n"
     http_version: 
-  recorded_at: Fri, 16 Nov 2012 19:57:51 GMT
+  recorded_at: Fri, 16 Nov 2012 21:56:43 GMT
 - request:
     method: post
     uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher
@@ -157,14 +157,14 @@ http_interactions:
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:impl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://xml.apache.org/xml-soap"><env:Body><impl:getRecord><request><![CDATA[<fullViewRequest
         xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest
-        xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled><HighlightingEnabled>false</HighlightingEnabled><InstBoost>true</InstBoost></PrimoSearchRequest><institution>NYU</institution><docId>nyu_aleph000062856</docId></fullViewRequest>]]></request></impl:getRecord></env:Body></env:Envelope>
+        xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution><docId>nyu_aleph000062856</docId></fullViewRequest>]]></request></impl:getRecord></env:Body></env:Envelope>
     headers:
       Soapaction:
       - ! '"getRecord"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '965'
+      - '890'
       Accept:
       - ! '*/*'
       User-Agent:
@@ -183,7 +183,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 16 Nov 2012 19:57:51 GMT
+      - Fri, 16 Nov 2012 21:56:43 GMT
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
@@ -308,5 +308,5 @@ http_interactions:
         \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n        &lt;/DOC&gt;\n
         \     &lt;/DOCSET&gt;\n    &lt;/RESULT&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;</getRecordReturn></ns1:getRecordResponse></soapenv:Body></soapenv:Envelope>"
     http_version: 
-  recorded_at: Fri, 16 Nov 2012 19:57:51 GMT
+  recorded_at: Fri, 16 Nov 2012 21:56:43 GMT
 recorded_with: VCR 2.3.0
