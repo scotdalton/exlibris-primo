@@ -3,6 +3,8 @@ module Exlibris
     module WebService
       module Request
         class Base
+          # Leverage ActiveSupport core extensions
+          require 'active_support/core_ext'
           extend Abstract
           include BaseElements
           include Core

@@ -12,6 +12,15 @@ module WebService
           request = Exlibris::Primo::WebService::Request::Base.new :test_request
         }
       end
+
+      def test_request_build_xml
+          search_request = Exlibris::Primo::WebService::Request::Search.new
+          inner_element = search_request.send :build_xml do |xml|
+            xml.inner "value"
+          end
+          assert_kind_of String, inner_element
+          assert_equal "<inner>value</inner>", inner_element
+      end
     end
   end
 end

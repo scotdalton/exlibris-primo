@@ -2,9 +2,6 @@ module Exlibris
   module Primo
     module WebService
       module MagicActions
-        # Leverage ActiveSupport core extensions
-        require 'active_support/core_ext'
-
         # 
         # Define methods for SOAP actions.  SOAP actions take a single argument, request,
         # which must inherit from Exlibris::Primo::WebService::Request::Base
@@ -27,7 +24,6 @@ module Exlibris
         # Tell users that we respond to SOAP actions.
         #
         def respond_to_missing?(method, include_private=false)
-          raise NotImplementedError.new(please_subclass) if self.class.abstract?
           (client.wsdl.soap_action method) ? true : super
         end
 

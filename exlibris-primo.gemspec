@@ -22,6 +22,8 @@ Gem::Specification.new do |s|
   s.add_dependency "nokogiri", "~> 1.5.5"
   s.add_dependency "json", "~> 1.7.5"
   s.add_dependency "savon", "~> 1.2.0"
+  s.add_development_dependency "rdoc"
+  s.add_development_dependency "rake", "~> 0.9.2.2"
   s.add_development_dependency "vcr", "~> 2.3.0"
   s.add_development_dependency "webmock", "~> 1.8.0"
 end

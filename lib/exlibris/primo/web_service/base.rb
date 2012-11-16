@@ -2,12 +2,13 @@ module Exlibris
   module Primo
     module WebService
       class Base
+        # Leverage ActiveSupport core extensions
+        require 'active_support/core_ext'
         extend Abstract
         include SavonConfig
         include Client
         include MagicActions
         include Wsdl
-        include Util
 
         self.abstract = true
 

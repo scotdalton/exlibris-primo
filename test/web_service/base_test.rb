@@ -56,13 +56,4 @@ class WebServiceBaseTest < Test::Unit::TestCase
       }
     end
   end
-
-  def test_web_service_build_xml
-      search_request = Exlibris::Primo::WebService::Searcher.new @base_url
-      inner_element = search_request.send :build_xml do |xml|
-        xml.inner "value"
-      end
-      assert_kind_of String, inner_element
-      assert_equal "<inner>value</inner>", inner_element
-  end
 end

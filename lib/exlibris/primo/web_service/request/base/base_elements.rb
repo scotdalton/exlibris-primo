@@ -15,8 +15,6 @@ module Exlibris
                   elements.each do |element|
                     base_elements << element unless base_elements.include? element
                   end
-                  p self
-                  p base_elements
                 end
 
                 def remove_base_elements *elements
