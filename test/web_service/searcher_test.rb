@@ -9,12 +9,13 @@ module WebService
       @title = "Travels with My Aunt"
       @author = "Graham Greene"
       @genre = "Book"
+      @institution = "NYU"
     end
 
     def test_searcher_by_issn
       VCR.use_cassette('web service searcher search request issn') do
         search_request = Exlibris::Primo::WebService::Request::Search.new
-        search_request.institution = "NYU"
+        search_request.institution = @institution
         search_request.issn = @issn
         searcher = Exlibris::Primo::WebService::Searcher.new @base
         response = searcher.search_brief search_request
@@ -24,7 +25,7 @@ module WebService
     def test_searcher_by_isbn
       VCR.use_cassette('web service searcher search request isbn') do
         search_request = Exlibris::Primo::WebService::Request::Search.new
-        search_request.institution = "NYU"
+        search_request.institution = @institution
         search_request.isbn = @isbn
         searcher = Exlibris::Primo::WebService::Searcher.new @base
         response = searcher.search_brief search_request
@@ -35,7 +36,7 @@ module WebService
       VCR.use_cassette('web service searcher record request') do
         record_request = Exlibris::Primo::WebService::Request::FullView.new
         record_request.doc_id = @doc_id
-        record_request.institution = "NYU"
+        record_request.institution = @institution
         searcher = Exlibris::Primo::WebService::Searcher.new @base
         response = searcher.get_record record_request
       end

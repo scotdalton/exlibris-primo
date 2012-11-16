@@ -25,7 +25,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 16 Nov 2012 21:56:42 GMT
+      - Fri, 16 Nov 2012 22:17:40 GMT
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsdl:definitions targetNamespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/eshelf\"
@@ -153,7 +153,7 @@ http_interactions:
         location=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/eshelf\"/>\n\n
         \     </wsdl:port>\n\n   </wsdl:service>\n\n</wsdl:definitions>\n"
     http_version: 
-  recorded_at: Fri, 16 Nov 2012 21:56:42 GMT
+  recorded_at: Fri, 16 Nov 2012 22:17:40 GMT
 - request:
     method: post
     uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/eshelf
@@ -188,7 +188,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 16 Nov 2012 21:56:43 GMT
+      - Fri, 16 Nov 2012 22:17:42 GMT
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
@@ -10793,5 +10793,5 @@ http_interactions:
         \         &lt;FOLDER folderId=&quot;210075761&quot; folderName=&quot;Basket&quot;/&gt;\n
         \       &lt;/DOC&gt;\n      &lt;/DOCSET&gt;\n    &lt;/RESULT&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;</getEshelfReturn></ns1:getEshelfResponse></soapenv:Body></soapenv:Envelope>"
     http_version: 
-  recorded_at: Fri, 16 Nov 2012 21:56:43 GMT
+  recorded_at: Fri, 16 Nov 2012 22:17:42 GMT
 recorded_with: VCR 2.3.0

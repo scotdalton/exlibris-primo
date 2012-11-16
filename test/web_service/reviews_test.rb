@@ -5,12 +5,13 @@ module WebService
       @base = "http://bobcatdev.library.nyu.edu"
       @doc_id = "nyu_aleph000062856"
       @user_id = "N12162279"
+      @institution = "NYU"
     end
 
     def test_tags
       VCR.use_cassette('web service get reviews request') do
         reviews_request = Exlibris::Primo::WebService::Request::GetReviews.new
-        reviews_request.institution = "NYU"
+        reviews_request.institution = @institution
         reviews_request.user_id = @user_id
         reviews_request.doc_id = @doc_id
         reviews = Exlibris::Primo::WebService::Reviews.new @base
