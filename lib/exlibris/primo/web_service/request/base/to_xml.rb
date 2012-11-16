@@ -5,11 +5,9 @@ module Exlibris
         module ToXml
           def to_xml &block
             build_xml { |xml|
-              xml.request {
+              xml.send(wrapper) {
                 xml.cdata build_xml { |xml|
-                  xml.send(root, 
-                      "xmlns" => "http://www.exlibris.com/primo/xsd/wsRequest",
-                      "xmlns:uic" => "http://www.exlibris.com/primo/xsd/primoview/uicomponents") {
+                  xml.send(root, namespaces) {
                     yield xml if block
                     xml << base_elements
                   }
