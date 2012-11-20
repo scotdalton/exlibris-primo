@@ -35,7 +35,8 @@ if ! defined? VCR
 end
 
 class Test::Unit::TestCase
-  def assert_request(expected_root, *expected_args, request)
+  # Backwards expectation and actual because of ruby 1.8
+  def assert_request(request, expected_root, *expected_args)
     document = Nokogiri::XML(request.to_xml)
     assert_kind_of Nokogiri::XML::Document, document
     children = document.root.children

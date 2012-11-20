@@ -17,14 +17,14 @@ module WebService
         full_view_request = Exlibris::Primo::WebService::Request::FullView.new @base
         full_view_request.institution = @institution
         full_view_request.doc_id = @doc_id
-        assert_request "fullViewRequest",
+        assert_request full_view_request, "fullViewRequest",
           "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
           "<QueryTerms><BoolOpeator>AND</BoolOpeator></QueryTerms>"+
           "<StartIndex>1</StartIndex>"+
           "<BulkSize>5</BulkSize>"+
           "<DidUMeanEnabled>false</DidUMeanEnabled>"+
           "</PrimoSearchRequest>", "<institution>NYU</institution>",
-          "<docId>nyu_aleph000062856</docId>", full_view_request
+          "<docId>nyu_aleph000062856</docId>"
         VCR.use_cassette('full view request call') do
           full_view_request.call
         end
