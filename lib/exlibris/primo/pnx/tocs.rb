@@ -24,11 +24,10 @@ module Exlibris
 
         def process_linktotoc(input)
           linktotoc, url, display, = nil, nil, nil
-          return linktotoc, url, display if input.nil? or input.inner_text.nil?
           linktotoc = input.inner_text
           linktotoc.split(/\$(?=\$)/).each do |s|
-            url = s.sub!(/^\$U/, "")  unless s.match(/^\$U/).nil?
-            display = s.sub!(/^\$D/, "")  unless s.match(/^\$D/).nil?
+            url = s.sub!(/^\$U/, "")
+            display = s.sub!(/^\$D/, "")
           end
           return linktotoc, url, display
         end

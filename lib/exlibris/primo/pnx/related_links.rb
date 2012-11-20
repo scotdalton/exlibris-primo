@@ -22,7 +22,6 @@ module Exlibris
 
         def process_addlink(input)
           addlink, url, display, = nil, nil, nil
-          return addlink, url, display if input.nil? or input.inner_text.nil?
           addlink = input.inner_text
           addlink.split(/\$(?=\$)/).each do |s|
             url = s.sub!(/^\$U/, "")  unless s.match(/^\$U/).nil?

@@ -26,11 +26,11 @@ module Exlibris
           return linktorsrc, v, url, display, institution_code, origin if input.nil? or input.inner_text.nil?
           linktorsrc = input.inner_text
           linktorsrc.split(/\$(?=\$)/).each do |s|
-            v = s.sub!(/^\$V/, "")  unless s.match(/^\$V/).nil?
-            url = s.sub!(/^\$U/, "")  unless s.match(/^\$U/).nil?
-            display = s.sub!(/^\$D/, "")  unless s.match(/^\$D/).nil?
-            institution_code = s.sub!(/^\$I/, "") unless s.match(/^\$I/).nil?
-            origin = s.sub!(/^\$O/, "") unless s.match(/^\$O/).nil?
+            v = s.sub!(/^\$V/, "")
+            url = s.sub!(/^\$U/, "")
+            display = s.sub!(/^\$D/, "")
+            institution_code = s.sub!(/^\$I/, "")
+            origin = s.sub!(/^\$O/, "")
           end
           return linktorsrc, v, url, display, institution_code, origin
         end
