@@ -8,7 +8,7 @@ module Exlibris
         def related_links
           @related_links ||= []
           if @related_links.empty?
-            record.xpath("links/addlink").each do |addlink|
+            xml.root.xpath("links/addlink").each do |addlink|
               addlink, url, display = process_addlink addlink
               next if url.nil?
               @related_links << Exlibris::Primo::RelatedLink.new(

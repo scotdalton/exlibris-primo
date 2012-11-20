@@ -43,7 +43,7 @@ module Exlibris
             control_attribute = method.id2name.singularize
             self.class.send(:define_method, method) do
               eval("@#{method} ||= (dedup_mgr?) ?
-                process_control_hash(\"/record/control/#{control_attribute}\") : {recordid => #{control_attribute}}")
+                process_control_hash(\"control/#{control_attribute}\") : {recordid => #{control_attribute}}")
             end
             send method, *args, &block
           else
@@ -64,7 +64,7 @@ module Exlibris
         #
         def process_control_hash(xpath)
           h = {}
-          xml.xpath(xpath).each do |e|
+          xml.root.xpath(xpath).each do |e|
             str = e.inner_text unless e.nil?
             a = str.split(/\$(?=\$)/) unless str.nil?
             v = nil

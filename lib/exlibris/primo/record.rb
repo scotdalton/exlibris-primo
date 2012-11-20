@@ -33,7 +33,7 @@ module Exlibris
       include Exlibris::Primo::Pnx::RelatedLinks
       include Exlibris::Primo::Pnx::Rsrcs
       include Exlibris::Primo::Pnx::Tocs
-      attr_accessor :vid, :institution
+      attr_accessor :vid, :institution, :config
 
       #
       # 
@@ -43,6 +43,7 @@ module Exlibris
         set_attributes attributes
         vid = "DEFAULT" if vid.nil?
         institution = "PRIMO" if institution.nil?
+        config = {} if config.nil?
       end
 
       #
@@ -56,7 +57,7 @@ module Exlibris
       # 
       #
       def method_missing(method, *args, &block)
-        if(instance_variable_defined? "@#{method}".to_sym)
+        if(attr_read(method))
           self.class.send(:define_method, method) {
             eval("@#{method} ||= \"#{attr_read method}\"")
           }
@@ -70,14 +71,8 @@ module Exlibris
       # 
       #
       def respond_to_missing?(method, include_private=false)
-        if(attr_value = attr_read method)
-          instance_variable_set "@#{method}".to_sym, attr_value
-          true
-        elsif defined? super
-          super
-        else
-          false
-        end
+        (attr_read(method).nil?) ?  
+          (defined? super) ? super : false : true
       end
 
       def attr_read method
@@ -86,7 +81,7 @@ module Exlibris
       private :attr_read
 
       def inner_text_at xpath
-        xml_at = xml.at(xpath)
+        xml_at = xml.root.at(xpath)
         return xml_at.inner_text unless xml_at.nil?
         return nil
       end

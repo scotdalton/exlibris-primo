@@ -8,7 +8,7 @@ module Exlibris
         def rsrcs
           @rsrcs ||= []
           if @rsrcs.empty?
-            xml.xpath("links/linktorsrc").each do |linktorsrc|
+            xml.root.xpath("links/linktorsrc").each do |linktorsrc|
               linktorsrc, v, url, display, institution_code, origin = process_linktorsrc linktorsrc
               next if url.nil?
                @rsrcs << Exlibris::Primo::Rsrc.new(

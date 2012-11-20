@@ -8,7 +8,7 @@ module Exlibris
         def tocs
           @tocs ||= []
           if @tocs.empty?
-            xml.xpath("links/linktotoc").each do |linktotoc|
+            xml.root.xpath("links/linktotoc").each do |linktotoc|
               linktotoc, url, display = process_linktotoc linktotoc
               next if url.nil?
               @tocs << Exlibris::Primo::Toc.new(

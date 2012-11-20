@@ -8,14 +8,17 @@ module Exlibris
         def holdings
           @holdings ||= []
           if @holdings.empty?
-            xml.xpath("display/availlibrary").each do |availlibrary|
+            xml.root.xpath("display/availlibrary").each do |availlibrary|
+              p availlibrary
               availlibrary, institution_code, library_code, id_one, id_two, status_code, origin = process_availlibrary availlibrary
-              holding_original_source_id = original_source_ids[(origin) ? origin : recordid]
-              holding_source_id = source_ids[(origin) ? origin : recordid]
-              holding_source_record_id = source_record_ids[(origin) ? origin : recordid]
+              holding_original_source_id = originalsourceids[(origin) ? origin : recordid]
+              holding_source_id = sourceids[(origin) ? origin : recordid]
+              holding_source_record_id = sourcerecordids[(origin) ? origin : recordid]
+              title = display_title if self.respond_to? :display_title
+              author = display_creator if self.respond_to? :display_creator
               @holdings << Exlibris::Primo::Holding.new(
                 :vid => vid, :config => config,
-                :record_id => recordid, :title => display_title, :author => display_creator, 
+                :record_id => recordid, :title => title, :author => author, 
                 :original_source_id => holding_original_source_id, :source_id => holding_source_id, 
                 :source_record_id => holding_source_record_id, :origin => origin, 
                 :availlibrary => availlibrary, :institution_code => institution_code, 

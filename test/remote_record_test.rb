@@ -13,7 +13,6 @@ module WebService
         VCR.use_cassette('remote record call') do
           remote_record = Exlibris::Primo::RemoteRecord.new @base, @doc_id, {:institution => @institution}
           assert_equal "nyu_aleph000062856", remote_record.recordid
-          # p remote_record.recordid
         end
       end
 

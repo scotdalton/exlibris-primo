@@ -11,7 +11,7 @@ module WebService
         @author = "Graham Greene"
         @genre = "Book"
       end
-  
+
       def test_client
         assert_equal :search, Exlibris::Primo::WebService::Request::Search.send(:client)
       end
@@ -20,7 +20,7 @@ module WebService
           search_request = Exlibris::Primo::WebService::Request::Search.new @base
           search_request.institution = @institution
           search_request.issn = @issn
-          assert_request search_request, "searchRequest", 
+          assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
             "<IndexField>isbn</IndexField>"+
@@ -40,7 +40,7 @@ module WebService
           search_request = Exlibris::Primo::WebService::Request::Search.new @base
           search_request.institution = @institution
           search_request.isbn = @isbn
-          assert_request search_request, "searchRequest", 
+          assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
             "<IndexField>isbn</IndexField>"+
@@ -60,7 +60,7 @@ module WebService
           search_request = Exlibris::Primo::WebService::Request::Search.new @base
           search_request.institution = @institution
           search_request.title = @title
-          assert_request search_request, "searchRequest", 
+          assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
             "<IndexField>title</IndexField>"+
@@ -80,7 +80,7 @@ module WebService
           search_request = Exlibris::Primo::WebService::Request::Search.new @base
           search_request.institution = @institution
           search_request.author = @author
-          assert_request search_request, "searchRequest", 
+          assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
             "<IndexField>creator</IndexField>"+
@@ -100,7 +100,7 @@ module WebService
           search_request = Exlibris::Primo::WebService::Request::Search.new @base
           search_request.institution = @institution
           search_request.genre = @genre
-          assert_request search_request, "searchRequest", 
+          assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
             "<IndexField>any</IndexField>"+
@@ -122,7 +122,7 @@ module WebService
         search_request.title = @title
         search_request.author = @author
         search_request.genre = @genre
-        assert_request search_request, "searchRequest", 
+        assert_request search_request, "searchRequest",
           "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
           "<QueryTerms><BoolOpeator>AND</BoolOpeator>"+
           "<QueryTerm>"+

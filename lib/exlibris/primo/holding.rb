@@ -98,23 +98,23 @@ module Exlibris
           instance_variable_set("@#{param}".to_sym, default) unless instance_variable_defined?("@#{param}")
         }
         # Set decoded fields
-        decode_variables = (self.class.decode_variables.nil?) ? 
-          Exlibris::Primo::Holding.decode_variables : self.class.decode_variables
-        decode_variables.each { |var, decode_params|
-          decode var, decode_params, true
-        }
+        # decode_variables = (self.class.decode_variables.nil?) ? 
+        #   Exlibris::Primo::Holding.decode_variables : self.class.decode_variables
+        # decode_variables.each { |var, decode_params|
+        #   decode var, decode_params, true
+        # }
         # Deep link URL to record
         @url = primo_url if @url.nil?
         # Set source parameters
-        @source_config = @config["sources"][source_id] unless @config["sources"].nil?
-        @source_class = @source_config["class_name"] unless @source_config.nil?
-        @source_url = @source_config["base_url"] unless @source_config.nil?
-        @source_type = @source_config["type"] unless @source_config.nil?
-        @source_data = {
-          :source_class => @source_class,
-          :source_url => @source_url,
-          :source_type => @source_type
-        }
+        # @source_config = @config["sources"][source_id] unless @config["sources"].nil?
+        # @source_class = @source_config["class_name"] unless @source_config.nil?
+        # @source_url = @source_config["base_url"] unless @source_config.nil?
+        # @source_type = @source_config["type"] unless @source_config.nil?
+        # @source_data = {
+        #   :source_class => @source_class,
+        #   :source_url => @source_url,
+        #   :source_type => @source_type
+        # }
         # Set aliases for convenience
         attribute_aliases = (self.class.attribute_aliases.nil?) ? 
           Exlibris::Primo::Holding.attribute_aliases : self.class.attribute_aliases
