@@ -1,234 +1,498 @@
----
-http_interactions:
-- request:
-    method: get
-    uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags?wsdl
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      X-Powered-By:
-      - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
-      Content-Type:
-      - text/xml;charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Tue, 20 Nov 2012 17:45:46 GMT
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsdl:definitions targetNamespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        xmlns:apachesoap=\"http://xml.apache.org/xml-soap\" xmlns:impl=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        xmlns:intf=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\"
-        xmlns:wsdlsoap=\"http://schemas.xmlsoap.org/wsdl/soap/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n<!--WSDL
-        created by Apache Axis version: 1.2.1\nBuilt on Jun 14, 2005 (09:15:57 EDT)-->\n\n
-        \  <wsdl:message name=\"getAllMyTagsRequest\">\n\n      <wsdl:part name=\"getAllMyTagsRequest\"
-        type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message name=\"getTagsRequest1\">\n\n
-        \     <wsdl:part name=\"getTagsRequest\" type=\"soapenc:string\"/>\n\n      <wsdl:part
-        name=\"isXservice\" type=\"xsd:boolean\"/>\n\n   </wsdl:message>\n\n   <wsdl:message
-        name=\"getAllMyTagsResponse\">\n\n      <wsdl:part name=\"getAllMyTagsReturn\"
-        type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message name=\"removeTagRequest\">\n\n
-        \     <wsdl:part name=\"removeTagRequest\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n
-        \  <wsdl:message name=\"getTagsResponse1\">\n\n      <wsdl:part name=\"getTagsReturn\"
-        type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message name=\"addTagRequest1\">\n\n
-        \     <wsdl:part name=\"addTagRequest\" type=\"soapenc:string\"/>\n\n      <wsdl:part
-        name=\"isXService\" type=\"xsd:boolean\"/>\n\n   </wsdl:message>\n\n   <wsdl:message
-        name=\"removeTagResponse\">\n\n      <wsdl:part name=\"removeTagReturn\" type=\"soapenc:string\"/>\n\n
-        \  </wsdl:message>\n\n   <wsdl:message name=\"getTagsForRecordResponse\">\n\n
-        \     <wsdl:part name=\"getTagsForRecordReturn\" type=\"soapenc:string\"/>\n\n
-        \  </wsdl:message>\n\n   <wsdl:message name=\"addTagResponse\">\n\n      <wsdl:part
-        name=\"addTagReturn\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n
-        \  <wsdl:message name=\"getTagsResponse\">\n\n      <wsdl:part name=\"getTagsReturn\"
-        type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message name=\"removeUserTagsResponse\">\n\n
-        \     <wsdl:part name=\"removeUserTagsReturn\" type=\"soapenc:string\"/>\n\n
-        \  </wsdl:message>\n\n   <wsdl:message name=\"getTagsForRecordRequest\">\n\n
-        \     <wsdl:part name=\"getTagsForRecordRequest\" type=\"soapenc:string\"/>\n\n
-        \  </wsdl:message>\n\n   <wsdl:message name=\"getAllMyTagsResponse1\">\n\n
-        \     <wsdl:part name=\"getAllMyTagsReturn\" type=\"soapenc:string\"/>\n\n
-        \  </wsdl:message>\n\n   <wsdl:message name=\"addTagResponse1\">\n\n      <wsdl:part
-        name=\"addTagReturn\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n
-        \  <wsdl:message name=\"getAllMyTagsRequest1\">\n\n      <wsdl:part name=\"getAllMyTagsRequest\"
-        type=\"soapenc:string\"/>\n\n      <wsdl:part name=\"isXservice\" type=\"xsd:boolean\"/>\n\n
-        \  </wsdl:message>\n\n   <wsdl:message name=\"getTagsRequest\">\n\n      <wsdl:part
-        name=\"getTagsRequest\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n
-        \  <wsdl:message name=\"getTagsForRecordResponse1\">\n\n      <wsdl:part name=\"getTagsForRecordReturn\"
-        type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message name=\"addTagRequest\">\n\n
-        \     <wsdl:part name=\"addTagRequest\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n
-        \  <wsdl:message name=\"getTagsForRecordRequest1\">\n\n      <wsdl:part name=\"getTagsForRecordRequest\"
-        type=\"soapenc:string\"/>\n\n      <wsdl:part name=\"isXservice\" type=\"xsd:boolean\"/>\n\n
-        \  </wsdl:message>\n\n   <wsdl:message name=\"removeUserTagsRequest\">\n\n
-        \     <wsdl:part name=\"removeUserTagsRequest\" type=\"soapenc:string\"/>\n\n
-        \  </wsdl:message>\n\n   <wsdl:portType name=\"PrimoTagsWS\">\n\n      <wsdl:operation
-        name=\"getTags\" parameterOrder=\"getTagsRequest\">\n\n         <wsdl:input
-        message=\"impl:getTagsRequest\" name=\"getTagsRequest\"/>\n\n         <wsdl:output
-        message=\"impl:getTagsResponse\" name=\"getTagsResponse\"/>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"getTags\" parameterOrder=\"getTagsRequest isXservice\">\n\n
-        \        <wsdl:input message=\"impl:getTagsRequest1\" name=\"getTagsRequest1\"/>\n\n
-        \        <wsdl:output message=\"impl:getTagsResponse1\" name=\"getTagsResponse1\"/>\n\n
-        \     </wsdl:operation>\n\n      <wsdl:operation name=\"getAllMyTags\" parameterOrder=\"getAllMyTagsRequest\">\n\n
-        \        <wsdl:input message=\"impl:getAllMyTagsRequest\" name=\"getAllMyTagsRequest\"/>\n\n
-        \        <wsdl:output message=\"impl:getAllMyTagsResponse\" name=\"getAllMyTagsResponse\"/>\n\n
-        \     </wsdl:operation>\n\n      <wsdl:operation name=\"getAllMyTags\" parameterOrder=\"getAllMyTagsRequest
-        isXservice\">\n\n         <wsdl:input message=\"impl:getAllMyTagsRequest1\"
-        name=\"getAllMyTagsRequest1\"/>\n\n         <wsdl:output message=\"impl:getAllMyTagsResponse1\"
-        name=\"getAllMyTagsResponse1\"/>\n\n      </wsdl:operation>\n\n      <wsdl:operation
-        name=\"getTagsForRecord\" parameterOrder=\"getTagsForRecordRequest\">\n\n
-        \        <wsdl:input message=\"impl:getTagsForRecordRequest\" name=\"getTagsForRecordRequest\"/>\n\n
-        \        <wsdl:output message=\"impl:getTagsForRecordResponse\" name=\"getTagsForRecordResponse\"/>\n\n
-        \     </wsdl:operation>\n\n      <wsdl:operation name=\"getTagsForRecord\"
-        parameterOrder=\"getTagsForRecordRequest isXservice\">\n\n         <wsdl:input
-        message=\"impl:getTagsForRecordRequest1\" name=\"getTagsForRecordRequest1\"/>\n\n
-        \        <wsdl:output message=\"impl:getTagsForRecordResponse1\" name=\"getTagsForRecordResponse1\"/>\n\n
-        \     </wsdl:operation>\n\n      <wsdl:operation name=\"removeUserTags\" parameterOrder=\"removeUserTagsRequest\">\n\n
-        \        <wsdl:input message=\"impl:removeUserTagsRequest\" name=\"removeUserTagsRequest\"/>\n\n
-        \        <wsdl:output message=\"impl:removeUserTagsResponse\" name=\"removeUserTagsResponse\"/>\n\n
-        \     </wsdl:operation>\n\n      <wsdl:operation name=\"removeTag\" parameterOrder=\"removeTagRequest\">\n\n
-        \        <wsdl:input message=\"impl:removeTagRequest\" name=\"removeTagRequest\"/>\n\n
-        \        <wsdl:output message=\"impl:removeTagResponse\" name=\"removeTagResponse\"/>\n\n
-        \     </wsdl:operation>\n\n      <wsdl:operation name=\"addTag\" parameterOrder=\"addTagRequest\">\n\n
-        \        <wsdl:input message=\"impl:addTagRequest\" name=\"addTagRequest\"/>\n\n
-        \        <wsdl:output message=\"impl:addTagResponse\" name=\"addTagResponse\"/>\n\n
-        \     </wsdl:operation>\n\n      <wsdl:operation name=\"addTag\" parameterOrder=\"addTagRequest
-        isXService\">\n\n         <wsdl:input message=\"impl:addTagRequest1\" name=\"addTagRequest1\"/>\n\n
-        \        <wsdl:output message=\"impl:addTagResponse1\" name=\"addTagResponse1\"/>\n\n
-        \     </wsdl:operation>\n\n   </wsdl:portType>\n\n   <wsdl:binding name=\"tagsSoapBinding\"
-        type=\"impl:PrimoTagsWS\">\n\n      <wsdlsoap:binding style=\"rpc\" transport=\"http://schemas.xmlsoap.org/soap/http\"/>\n\n
-        \     <wsdl:operation name=\"getTags\">\n\n         <wsdlsoap:operation soapAction=\"\"/>\n\n
-        \        <wsdl:input name=\"getTagsRequest\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://api.ws.primo.exlibris.com\"
-        use=\"encoded\"/>\n\n         </wsdl:input>\n\n         <wsdl:output name=\"getTagsResponse\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"getTags\">\n\n         <wsdlsoap:operation soapAction=\"\"/>\n\n
-        \        <wsdl:input name=\"getTagsRequest1\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://api.ws.primo.exlibris.com\"
-        use=\"encoded\"/>\n\n         </wsdl:input>\n\n         <wsdl:output name=\"getTagsResponse1\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"getAllMyTags\">\n\n         <wsdlsoap:operation
-        soapAction=\"\"/>\n\n         <wsdl:input name=\"getAllMyTagsRequest\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
-        \        <wsdl:output name=\"getAllMyTagsResponse\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"getAllMyTags\">\n\n         <wsdlsoap:operation
-        soapAction=\"\"/>\n\n         <wsdl:input name=\"getAllMyTagsRequest1\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
-        \        <wsdl:output name=\"getAllMyTagsResponse1\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"getTagsForRecord\">\n\n         <wsdlsoap:operation
-        soapAction=\"\"/>\n\n         <wsdl:input name=\"getTagsForRecordRequest\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
-        \        <wsdl:output name=\"getTagsForRecordResponse\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"getTagsForRecord\">\n\n         <wsdlsoap:operation
-        soapAction=\"\"/>\n\n         <wsdl:input name=\"getTagsForRecordRequest1\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
-        \        <wsdl:output name=\"getTagsForRecordResponse1\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"removeUserTags\">\n\n         <wsdlsoap:operation
-        soapAction=\"\"/>\n\n         <wsdl:input name=\"removeUserTagsRequest\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
-        \        <wsdl:output name=\"removeUserTagsResponse\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"removeTag\">\n\n         <wsdlsoap:operation
-        soapAction=\"\"/>\n\n         <wsdl:input name=\"removeTagRequest\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://api.ws.primo.exlibris.com\"
-        use=\"encoded\"/>\n\n         </wsdl:input>\n\n         <wsdl:output name=\"removeTagResponse\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"addTag\">\n\n         <wsdlsoap:operation soapAction=\"\"/>\n\n
-        \        <wsdl:input name=\"addTagRequest\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://api.ws.primo.exlibris.com\"
-        use=\"encoded\"/>\n\n         </wsdl:input>\n\n         <wsdl:output name=\"addTagResponse\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \     <wsdl:operation name=\"addTag\">\n\n         <wsdlsoap:operation soapAction=\"\"/>\n\n
-        \        <wsdl:input name=\"addTagRequest1\">\n\n            <wsdlsoap:body
-        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://api.ws.primo.exlibris.com\"
-        use=\"encoded\"/>\n\n         </wsdl:input>\n\n         <wsdl:output name=\"addTagResponse1\">\n\n
-        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
-        namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"
-        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
-        \  </wsdl:binding>\n\n   <wsdl:service name=\"PrimoTagsWSService\">\n\n      <wsdl:port
-        binding=\"impl:tagsSoapBinding\" name=\"tags\">\n\n         <wsdlsoap:address
-        location=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"/>\n\n
-        \     </wsdl:port>\n\n   </wsdl:service>\n\n</wsdl:definitions>\n"
-    http_version: 
-  recorded_at: Tue, 20 Nov 2012 17:45:47 GMT
-- request:
-    method: post
-    uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags
-    body:
-      encoding: US-ASCII
-      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:impl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><impl:getTags><request><![CDATA[<getTagsRequest
-        xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><institution>NYU</institution><docId>nyu_aleph000062856</docId><userId>N12162279</userId></getTagsRequest>]]></request></impl:getTags></env:Body></env:Envelope>
-    headers:
-      Soapaction:
-      - ! '"getTags"'
-      Content-Type:
-      - text/xml;charset=UTF-8
-      Content-Length:
-      - '621'
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      X-Powered-By:
-      - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
-      Content-Type:
-      - text/xml;charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Tue, 20 Nov 2012 17:45:46 GMT
-    body:
-      encoding: US-ASCII
-      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
-        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><ns1:getTagsResponse
-        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns1=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags\"><getTagsReturn
-        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;TagsAndReviews
-        xmlns=&quot;http://com/exlibris/primo/xsd/tagsAndReview/config&quot;&gt;\n
-        \ &lt;Tags&gt;\n    &lt;MyTags&gt;\n      &lt;Tag&gt;\n        &lt;value&gt;spies&lt;/value&gt;\n
-        \       &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;\n        &lt;userId/&gt;\n
-        \       &lt;status/&gt;\n      &lt;/Tag&gt;\n    &lt;/MyTags&gt;\n    &lt;EverybodyTags&gt;\n
-        \     &lt;Tag&gt;\n        &lt;value&gt;spies&lt;/value&gt;\n        &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;\n
-        \       &lt;userId/&gt;\n        &lt;status/&gt;\n      &lt;/Tag&gt;\n    &lt;/EverybodyTags&gt;\n
-        \ &lt;/Tags&gt;\n&lt;/TagsAndReviews&gt;</getTagsReturn></ns1:getTagsResponse></soapenv:Body></soapenv:Envelope>"
-    http_version: 
-  recorded_at: Tue, 20 Nov 2012 17:45:47 GMT
+--- 
+http_interactions: 
+  - request: 
+      method: get
+      uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags?wsdl
+      body: 
+        string: ""
+      headers: 
+        Accept: 
+          - "*/*"
+    response: 
+      status: 
+        code: 200
+        message: OK
+      headers: 
+        Server: 
+          - Apache-Coyote/1.1
+        X-Powered-By: 
+          - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+        Content-Type: 
+          - text/xml;charset=utf-8
+        Transfer-Encoding: 
+          - chunked
+        Date: 
+          - Tue, 20 Nov 2012 19:01:24 GMT
+      body: 
+        string: |
+          <?xml version="1.0" encoding="UTF-8"?>
+          <wsdl:definitions targetNamespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" xmlns:intf="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <!--WSDL created by Apache Axis version: 1.2.1
+          Built on Jun 14, 2005 (09:15:57 EDT)-->
+          
+             <wsdl:message name="getAllMyTagsRequest">
+          
+                <wsdl:part name="getAllMyTagsRequest" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getTagsRequest1">
+          
+                <wsdl:part name="getTagsRequest" type="soapenc:string"/>
+          
+                <wsdl:part name="isXservice" type="xsd:boolean"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getAllMyTagsResponse">
+          
+                <wsdl:part name="getAllMyTagsReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="removeTagRequest">
+          
+                <wsdl:part name="removeTagRequest" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getTagsResponse1">
+          
+                <wsdl:part name="getTagsReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="addTagRequest1">
+          
+                <wsdl:part name="addTagRequest" type="soapenc:string"/>
+          
+                <wsdl:part name="isXService" type="xsd:boolean"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="removeTagResponse">
+          
+                <wsdl:part name="removeTagReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getTagsForRecordResponse">
+          
+                <wsdl:part name="getTagsForRecordReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="addTagResponse">
+          
+                <wsdl:part name="addTagReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getTagsResponse">
+          
+                <wsdl:part name="getTagsReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="removeUserTagsResponse">
+          
+                <wsdl:part name="removeUserTagsReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getTagsForRecordRequest">
+          
+                <wsdl:part name="getTagsForRecordRequest" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getAllMyTagsResponse1">
+          
+                <wsdl:part name="getAllMyTagsReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="addTagResponse1">
+          
+                <wsdl:part name="addTagReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getAllMyTagsRequest1">
+          
+                <wsdl:part name="getAllMyTagsRequest" type="soapenc:string"/>
+          
+                <wsdl:part name="isXservice" type="xsd:boolean"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getTagsRequest">
+          
+                <wsdl:part name="getTagsRequest" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getTagsForRecordResponse1">
+          
+                <wsdl:part name="getTagsForRecordReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="addTagRequest">
+          
+                <wsdl:part name="addTagRequest" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getTagsForRecordRequest1">
+          
+                <wsdl:part name="getTagsForRecordRequest" type="soapenc:string"/>
+          
+                <wsdl:part name="isXservice" type="xsd:boolean"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="removeUserTagsRequest">
+          
+                <wsdl:part name="removeUserTagsRequest" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:portType name="PrimoTagsWS">
+          
+                <wsdl:operation name="getTags" parameterOrder="getTagsRequest">
+          
+                   <wsdl:input message="impl:getTagsRequest" name="getTagsRequest"/>
+          
+                   <wsdl:output message="impl:getTagsResponse" name="getTagsResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getTags" parameterOrder="getTagsRequest isXservice">
+          
+                   <wsdl:input message="impl:getTagsRequest1" name="getTagsRequest1"/>
+          
+                   <wsdl:output message="impl:getTagsResponse1" name="getTagsResponse1"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getAllMyTags" parameterOrder="getAllMyTagsRequest">
+          
+                   <wsdl:input message="impl:getAllMyTagsRequest" name="getAllMyTagsRequest"/>
+          
+                   <wsdl:output message="impl:getAllMyTagsResponse" name="getAllMyTagsResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getAllMyTags" parameterOrder="getAllMyTagsRequest isXservice">
+          
+                   <wsdl:input message="impl:getAllMyTagsRequest1" name="getAllMyTagsRequest1"/>
+          
+                   <wsdl:output message="impl:getAllMyTagsResponse1" name="getAllMyTagsResponse1"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getTagsForRecord" parameterOrder="getTagsForRecordRequest">
+          
+                   <wsdl:input message="impl:getTagsForRecordRequest" name="getTagsForRecordRequest"/>
+          
+                   <wsdl:output message="impl:getTagsForRecordResponse" name="getTagsForRecordResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getTagsForRecord" parameterOrder="getTagsForRecordRequest isXservice">
+          
+                   <wsdl:input message="impl:getTagsForRecordRequest1" name="getTagsForRecordRequest1"/>
+          
+                   <wsdl:output message="impl:getTagsForRecordResponse1" name="getTagsForRecordResponse1"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="removeUserTags" parameterOrder="removeUserTagsRequest">
+          
+                   <wsdl:input message="impl:removeUserTagsRequest" name="removeUserTagsRequest"/>
+          
+                   <wsdl:output message="impl:removeUserTagsResponse" name="removeUserTagsResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="removeTag" parameterOrder="removeTagRequest">
+          
+                   <wsdl:input message="impl:removeTagRequest" name="removeTagRequest"/>
+          
+                   <wsdl:output message="impl:removeTagResponse" name="removeTagResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="addTag" parameterOrder="addTagRequest">
+          
+                   <wsdl:input message="impl:addTagRequest" name="addTagRequest"/>
+          
+                   <wsdl:output message="impl:addTagResponse" name="addTagResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="addTag" parameterOrder="addTagRequest isXService">
+          
+                   <wsdl:input message="impl:addTagRequest1" name="addTagRequest1"/>
+          
+                   <wsdl:output message="impl:addTagResponse1" name="addTagResponse1"/>
+          
+                </wsdl:operation>
+          
+             </wsdl:portType>
+          
+             <wsdl:binding name="tagsSoapBinding" type="impl:PrimoTagsWS">
+          
+                <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+          
+                <wsdl:operation name="getTags">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="getTagsRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="getTagsResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getTags">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="getTagsRequest1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="getTagsResponse1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getAllMyTags">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="getAllMyTagsRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="getAllMyTagsResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getAllMyTags">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="getAllMyTagsRequest1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="getAllMyTagsResponse1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getTagsForRecord">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="getTagsForRecordRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="getTagsForRecordResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getTagsForRecord">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="getTagsForRecordRequest1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="getTagsForRecordResponse1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="removeUserTags">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="removeUserTagsRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="removeUserTagsResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="removeTag">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="removeTagRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="removeTagResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="addTag">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="addTagRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="addTagResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="addTag">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="addTagRequest1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="addTagResponse1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+             </wsdl:binding>
+          
+             <wsdl:service name="PrimoTagsWSService">
+          
+                <wsdl:port binding="impl:tagsSoapBinding" name="tags">
+          
+                   <wsdlsoap:address location="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags"/>
+          
+                </wsdl:port>
+          
+             </wsdl:service>
+          
+          </wsdl:definitions>
+
+      http_version: 
+    recorded_at: Tue, 20 Nov 2012 19:01:24 GMT
+  - request: 
+      method: post
+      uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags
+      body: 
+        string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:impl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><impl:getTags><request><![CDATA[<getTagsRequest xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><institution>NYU</institution><docId>nyu_aleph000062856</docId><userId>N12162279</userId></getTagsRequest>]]></request></impl:getTags></env:Body></env:Envelope>
+      headers: 
+        Soapaction: 
+          - "\"getTags\""
+        Content-Type: 
+          - text/xml;charset=UTF-8
+        Content-Length: 
+          - "621"
+        Accept: 
+          - "*/*"
+    response: 
+      status: 
+        code: 200
+        message: OK
+      headers: 
+        Server: 
+          - Apache-Coyote/1.1
+        X-Powered-By: 
+          - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+        Content-Type: 
+          - text/xml;charset=utf-8
+        Transfer-Encoding: 
+          - chunked
+        Date: 
+          - Tue, 20 Nov 2012 19:01:24 GMT
+      body: 
+        string: |-
+          <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><ns1:getTagsResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags"><getTagsReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;TagsAndReviews xmlns=&quot;http://com/exlibris/primo/xsd/tagsAndReview/config&quot;&gt;
+            &lt;Tags&gt;
+              &lt;MyTags&gt;
+                &lt;Tag&gt;
+                  &lt;value&gt;spies&lt;/value&gt;
+                  &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                  &lt;userId/&gt;
+                  &lt;status/&gt;
+                &lt;/Tag&gt;
+              &lt;/MyTags&gt;
+              &lt;EverybodyTags&gt;
+                &lt;Tag&gt;
+                  &lt;value&gt;spies&lt;/value&gt;
+                  &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                  &lt;userId/&gt;
+                  &lt;status/&gt;
+                &lt;/Tag&gt;
+              &lt;/EverybodyTags&gt;
+            &lt;/Tags&gt;
+          &lt;/TagsAndReviews&gt;</getTagsReturn></ns1:getTagsResponse></soapenv:Body></soapenv:Envelope>
+      http_version: 
+    recorded_at: Tue, 20 Nov 2012 19:01:25 GMT
 recorded_with: VCR 2.3.0

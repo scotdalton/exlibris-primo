@@ -70,8 +70,16 @@ module Exlibris
       #
       # 
       #
-      def respond_to_missing?(method, include_private=false)
+      def respond_to?(method, include_private=false)
         (attr_read(method).nil?) ?  
+          (defined? super) ? super : false : true
+      end
+
+      #
+      # 
+      #
+      def respond_to_missing?(method, include_private=false)
+        (not respond_to?(method, include_private)) ?  
           (defined? super) ? super : false : true
       end
 
