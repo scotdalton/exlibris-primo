@@ -5,6 +5,7 @@ module Exlibris
         class Eshelf < User
           self.add_base_elements :folder_id
           self.abstract = true
+          self.has_client
         end
 
         class EshelfRecord < Eshelf
@@ -46,6 +47,11 @@ module Exlibris
         # 
         # 
         class RemoveFromEshelf < EshelfRecord; end
+
+        # 
+        # 
+        # 
+        # class RemoveFolderFromEshelf < Eshelf; end
       end
     end
   end

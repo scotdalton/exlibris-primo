@@ -4,6 +4,7 @@ module Exlibris
       module Request
         class Reviews < UserRecord
           self.abstract = true
+          self.has_client
         end
         
         # 

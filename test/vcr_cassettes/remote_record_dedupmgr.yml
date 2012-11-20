@@ -1,0 +1,404 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher?wsdl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Powered-By:
+      - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 20 Nov 2012 15:09:53 GMT
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsdl:definitions targetNamespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        xmlns:apachesoap=\"http://xml.apache.org/xml-soap\" xmlns:impl=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        xmlns:intf=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\"
+        xmlns:wsdlsoap=\"http://schemas.xmlsoap.org/wsdl/soap/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n<!--WSDL
+        created by Apache Axis version: 1.2.1\nBuilt on Jun 14, 2005 (09:15:57 EDT)-->\n
+        <wsdl:types>\n  <schema targetNamespace=\"http://xml.apache.org/xml-soap\"
+        xmlns=\"http://www.w3.org/2001/XMLSchema\">\n   <import namespace=\"http://schemas.xmlsoap.org/soap/encoding/\"/>\n
+        \  <complexType name=\"mapItem\">\n    <sequence>\n     <element name=\"key\"
+        nillable=\"true\" type=\"xsd:anyType\"/>\n     <element name=\"value\" nillable=\"true\"
+        type=\"xsd:anyType\"/>\n    </sequence>\n   </complexType>\n   <complexType
+        name=\"Map\">\n    <sequence>\n     <element maxOccurs=\"unbounded\" minOccurs=\"0\"
+        name=\"item\" type=\"apachesoap:mapItem\"/>\n    </sequence>\n   </complexType>\n
+        \ </schema>\n </wsdl:types>\n\n   <wsdl:message name=\"getRecordResponse\">\n\n
+        \     <wsdl:part name=\"getRecordReturn\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n
+        \  <wsdl:message name=\"getRecordResponse1\">\n\n      <wsdl:part name=\"getRecordReturn\"
+        type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message name=\"countFacetsRequest\">\n\n
+        \     <wsdl:part name=\"searchRequestStr\" type=\"soapenc:string\"/>\n\n      <wsdl:part
+        name=\"facets\" type=\"apachesoap:Map\"/>\n\n      <wsdl:part name=\"searchToken\"
+        type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message name=\"countFacetsResponse\">\n\n
+        \     <wsdl:part name=\"countFacetsReturn\" type=\"soapenc:string\"/>\n\n
+        \  </wsdl:message>\n\n   <wsdl:message name=\"searchFullRequest\">\n\n      <wsdl:part
+        name=\"searchRequestStr\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n
+        \  <wsdl:message name=\"executeSearchRequest1\">\n\n      <wsdl:part name=\"searchRequestStr\"
+        type=\"soapenc:string\"/>\n\n      <wsdl:part name=\"isXservice\" type=\"xsd:boolean\"/>\n\n
+        \  </wsdl:message>\n\n   <wsdl:message name=\"getRecordRequest\">\n\n      <wsdl:part
+        name=\"fullRequest\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message
+        name=\"getRecordRequest1\">\n\n      <wsdl:part name=\"fullRequest\" type=\"soapenc:string\"/>\n\n
+        \     <wsdl:part name=\"isXService\" type=\"xsd:boolean\"/>\n\n   </wsdl:message>\n\n
+        \  <wsdl:message name=\"searchFullResponse\">\n\n      <wsdl:part name=\"searchFullReturn\"
+        type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message name=\"executeSearchRequest\">\n\n
+        \     <wsdl:part name=\"searchRequestStr\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n
+        \  <wsdl:message name=\"searchBriefResponse\">\n\n      <wsdl:part name=\"searchBriefReturn\"
+        type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n   <wsdl:message name=\"executeSearchResponse1\">\n\n
+        \     <wsdl:part name=\"executeSearchReturn\" type=\"soapenc:string\"/>\n\n
+        \  </wsdl:message>\n\n   <wsdl:message name=\"executeSearchResponse\">\n\n
+        \     <wsdl:part name=\"executeSearchReturn\" type=\"soapenc:string\"/>\n\n
+        \  </wsdl:message>\n\n   <wsdl:message name=\"searchBriefRequest\">\n\n      <wsdl:part
+        name=\"searchRequestStr\" type=\"soapenc:string\"/>\n\n   </wsdl:message>\n\n
+        \  <wsdl:portType name=\"PrimoSearchWS\">\n\n      <wsdl:operation name=\"getRecord\"
+        parameterOrder=\"fullRequest\">\n\n         <wsdl:input message=\"impl:getRecordRequest\"
+        name=\"getRecordRequest\"/>\n\n         <wsdl:output message=\"impl:getRecordResponse\"
+        name=\"getRecordResponse\"/>\n\n      </wsdl:operation>\n\n      <wsdl:operation
+        name=\"getRecord\" parameterOrder=\"fullRequest isXService\">\n\n         <wsdl:input
+        message=\"impl:getRecordRequest1\" name=\"getRecordRequest1\"/>\n\n         <wsdl:output
+        message=\"impl:getRecordResponse1\" name=\"getRecordResponse1\"/>\n\n      </wsdl:operation>\n\n
+        \     <wsdl:operation name=\"countFacets\" parameterOrder=\"searchRequestStr
+        facets searchToken\">\n\n         <wsdl:input message=\"impl:countFacetsRequest\"
+        name=\"countFacetsRequest\"/>\n\n         <wsdl:output message=\"impl:countFacetsResponse\"
+        name=\"countFacetsResponse\"/>\n\n      </wsdl:operation>\n\n      <wsdl:operation
+        name=\"executeSearch\" parameterOrder=\"searchRequestStr\">\n\n         <wsdl:input
+        message=\"impl:executeSearchRequest\" name=\"executeSearchRequest\"/>\n\n
+        \        <wsdl:output message=\"impl:executeSearchResponse\" name=\"executeSearchResponse\"/>\n\n
+        \     </wsdl:operation>\n\n      <wsdl:operation name=\"executeSearch\" parameterOrder=\"searchRequestStr
+        isXservice\">\n\n         <wsdl:input message=\"impl:executeSearchRequest1\"
+        name=\"executeSearchRequest1\"/>\n\n         <wsdl:output message=\"impl:executeSearchResponse1\"
+        name=\"executeSearchResponse1\"/>\n\n      </wsdl:operation>\n\n      <wsdl:operation
+        name=\"searchBrief\" parameterOrder=\"searchRequestStr\">\n\n         <wsdl:input
+        message=\"impl:searchBriefRequest\" name=\"searchBriefRequest\"/>\n\n         <wsdl:output
+        message=\"impl:searchBriefResponse\" name=\"searchBriefResponse\"/>\n\n      </wsdl:operation>\n\n
+        \     <wsdl:operation name=\"searchFull\" parameterOrder=\"searchRequestStr\">\n\n
+        \        <wsdl:input message=\"impl:searchFullRequest\" name=\"searchFullRequest\"/>\n\n
+        \        <wsdl:output message=\"impl:searchFullResponse\" name=\"searchFullResponse\"/>\n\n
+        \     </wsdl:operation>\n\n   </wsdl:portType>\n\n   <wsdl:binding name=\"searcherSoapBinding\"
+        type=\"impl:PrimoSearchWS\">\n\n      <wsdlsoap:binding style=\"rpc\" transport=\"http://schemas.xmlsoap.org/soap/http\"/>\n\n
+        \     <wsdl:operation name=\"getRecord\">\n\n         <wsdlsoap:operation
+        soapAction=\"\"/>\n\n         <wsdl:input name=\"getRecordRequest\">\n\n            <wsdlsoap:body
+        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://api.ws.primo.exlibris.com\"
+        use=\"encoded\"/>\n\n         </wsdl:input>\n\n         <wsdl:output name=\"getRecordResponse\">\n\n
+        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
+        \     <wsdl:operation name=\"getRecord\">\n\n         <wsdlsoap:operation
+        soapAction=\"\"/>\n\n         <wsdl:input name=\"getRecordRequest1\">\n\n
+        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
+        \        <wsdl:output name=\"getRecordResponse1\">\n\n            <wsdlsoap:body
+        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
+        \     <wsdl:operation name=\"countFacets\">\n\n         <wsdlsoap:operation
+        soapAction=\"\"/>\n\n         <wsdl:input name=\"countFacetsRequest\">\n\n
+        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
+        \        <wsdl:output name=\"countFacetsResponse\">\n\n            <wsdlsoap:body
+        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
+        \     <wsdl:operation name=\"executeSearch\">\n\n         <wsdlsoap:operation
+        soapAction=\"\"/>\n\n         <wsdl:input name=\"executeSearchRequest\">\n\n
+        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
+        \        <wsdl:output name=\"executeSearchResponse\">\n\n            <wsdlsoap:body
+        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
+        \     <wsdl:operation name=\"executeSearch\">\n\n         <wsdlsoap:operation
+        soapAction=\"\"/>\n\n         <wsdl:input name=\"executeSearchRequest1\">\n\n
+        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
+        \        <wsdl:output name=\"executeSearchResponse1\">\n\n            <wsdlsoap:body
+        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
+        \     <wsdl:operation name=\"searchBrief\">\n\n         <wsdlsoap:operation
+        soapAction=\"\"/>\n\n         <wsdl:input name=\"searchBriefRequest\">\n\n
+        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
+        \        <wsdl:output name=\"searchBriefResponse\">\n\n            <wsdlsoap:body
+        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
+        \     <wsdl:operation name=\"searchFull\">\n\n         <wsdlsoap:operation
+        soapAction=\"\"/>\n\n         <wsdl:input name=\"searchFullRequest\">\n\n
+        \           <wsdlsoap:body encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        namespace=\"http://api.ws.primo.exlibris.com\" use=\"encoded\"/>\n\n         </wsdl:input>\n\n
+        \        <wsdl:output name=\"searchFullResponse\">\n\n            <wsdlsoap:body
+        encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" namespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
+        use=\"encoded\"/>\n\n         </wsdl:output>\n\n      </wsdl:operation>\n\n
+        \  </wsdl:binding>\n\n   <wsdl:service name=\"PrimoSearchWSService\">\n\n
+        \     <wsdl:port binding=\"impl:searcherSoapBinding\" name=\"searcher\">\n\n
+        \        <wsdlsoap:address location=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"/>\n\n
+        \     </wsdl:port>\n\n   </wsdl:service>\n\n</wsdl:definitions>\n"
+    http_version: 
+  recorded_at: Tue, 20 Nov 2012 15:09:53 GMT
+- request:
+    method: post
+    uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:impl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://xml.apache.org/xml-soap"><env:Body><impl:getRecord><request><![CDATA[<fullViewRequest
+        xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution><docId>dedupmrg17343091</docId></fullViewRequest>]]></request></impl:getRecord></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - ! '"getRecord"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '888'
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Powered-By:
+      - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 20 Nov 2012 15:09:53 GMT
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><ns1:getRecordResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns1=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"><getRecordReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;SEGMENTS
+        xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n  &lt;JAGROOT&gt;\n
+        \   &lt;RESULT&gt;\n      &lt;DOCSET TOTALHITS=&quot;1&quot;&gt;\n        &lt;DOC
+        LOCAL=&quot;true&quot;&gt;\n          &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;\n
+        \           &lt;record&gt;\n              &lt;control&gt;\n                &lt;sourcerecordid&gt;$$V000932393$$Onyu_aleph000932393&lt;/sourcerecordid&gt;\n
+        \               &lt;sourcerecordid&gt;$$V002959842$$Onyu_aleph002959842&lt;/sourcerecordid&gt;\n
+        \               &lt;sourceid&gt;$$Vnyu_aleph$$Onyu_aleph000932393&lt;/sourceid&gt;\n
+        \               &lt;sourceid&gt;$$Vnyu_aleph$$Onyu_aleph002959842&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;dedupmrg17343091&lt;/recordid&gt;\n                &lt;originalsourceid&gt;$$VNYU01$$Onyu_aleph000932393&lt;/originalsourceid&gt;\n
+        \               &lt;originalsourceid&gt;$$VNYU01$$Onyu_aleph002959842&lt;/originalsourceid&gt;\n
+        \               &lt;sourceformat&gt;$$VMARC21$$Onyu_aleph000932393&lt;/sourceformat&gt;\n
+        \               &lt;sourceformat&gt;$$VMARC21$$Onyu_aleph002959842&lt;/sourceformat&gt;\n
+        \               &lt;sourcesystem&gt;$$VAleph$$Onyu_aleph000932393&lt;/sourcesystem&gt;\n
+        \               &lt;sourcesystem&gt;$$VAleph$$Onyu_aleph002959842&lt;/sourcesystem&gt;\n
+        \               &lt;ilsapiid&gt;$$VNYU01000932393$$Onyu_aleph000932393&lt;/ilsapiid&gt;\n
+        \               &lt;ilsapiid&gt;$$VNYU01002959842$$Onyu_aleph002959842&lt;/ilsapiid&gt;\n
+        \             &lt;/control&gt;\n              &lt;display&gt;\n                &lt;type&gt;journal&lt;/type&gt;\n
+        \               &lt;title&gt;The New York times&lt;/title&gt;\n                &lt;publisher&gt;New-York
+        N.Y. : H.J. Raymond &amp;amp; Co.&lt;/publisher&gt;\n                &lt;creationdate&gt;1857-&lt;/creationdate&gt;\n
+        \               &lt;subject&gt;New York (N.Y.) -- Newspapers; New York County
+        (N.Y.) -- Newspapers; Electronic journals&lt;/subject&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;relation&gt;$$Cearlier_title $$VNew-York daily times&lt;/relation&gt;\n
+        \               &lt;rights&gt;Access is restricted to users affiliated with
+        licensed institutions.&lt;/rights&gt;\n                &lt;source&gt;$$Vnyu_aleph$$Onyu_aleph000932393&lt;/source&gt;\n
+        \               &lt;source&gt;$$Vnyu_aleph$$Onyu_aleph002959842&lt;/source&gt;\n
+        \               &lt;availlibrary&gt;$$INYU$$LBWEB$$1Internet Resources$$2(Newspaper
+        Electronic access )$$Scheck_holdings$$XNYU50$$YBWEB$$ZBNYUI$$Onyu_aleph000932393&lt;/availlibrary&gt;\n
+        \               &lt;availlibrary&gt;$$INYU$$LBOBST$$1Microform$$2(Film/Per
+        Non-circulating )$$Scheck_holdings$$5N$$XNYU50$$YBOBST$$ZMFORM$$Onyu_aleph002959842&lt;/availlibrary&gt;\n
+        \               &lt;availlibrary&gt;$$ICU$$LCU$$1Microform Periodicals$$2(Non-circulating
+        )$$Savailable$$31$$40$$5N$$60$$XNYU50$$YCU$$ZMICRP$$Onyu_aleph002959842&lt;/availlibrary&gt;\n
+        \               &lt;availlibrary&gt;$$ICU$$LCU$$1Periodicals$$2(Non-circulating
+        )$$Savailable$$31$$40$$5N$$60$$XNYU50$$YCU$$ZPERIO$$Onyu_aleph002959842&lt;/availlibrary&gt;\n
+        \               &lt;availlibrary&gt;$$INYU$$LBWEB$$1Internet Resources$$2(Newspaper
+        Electronic access )$$Scheck_holdings$$XNYU50$$YBWEB$$ZBNYUI$$Onyu_aleph002959842&lt;/availlibrary&gt;\n
+        \               &lt;availlibrary&gt;$$INYU$$LREI$$1Reference$$2(Newspaper
+        Non-circulating )$$Scheck_holdings$$XNYU50$$YNREI$$ZREF$$Onyu_aleph002959842&lt;/availlibrary&gt;\n
+        \               &lt;availlibrary&gt;$$INS$$LNSSC$$1Periodicals$$2(Non-circulating
+        )$$Scheck_holdings$$XNYU50$$YTNSSC$$ZPERIO$$Onyu_aleph002959842&lt;/availlibrary&gt;\n
+        \               &lt;availinstitution&gt;$$ICU$$Savailable&lt;/availinstitution&gt;\n
+        \               &lt;availinstitution&gt;$$INYU$$Scheck_holdings&lt;/availinstitution&gt;\n
+        \               &lt;availinstitution&gt;$$INS$$Scheck_holdings&lt;/availinstitution&gt;\n
+        \               &lt;availpnx&gt;available&lt;/availpnx&gt;\n                &lt;lds01&gt;NYU&lt;/lds01&gt;\n
+        \               &lt;lds01&gt;NYUAD&lt;/lds01&gt;\n                &lt;lds01&gt;NYU&lt;/lds01&gt;\n
+        \               &lt;lds01&gt;CU&lt;/lds01&gt;\n                &lt;lds01&gt;NS&lt;/lds01&gt;\n
+        \               &lt;lds01&gt;NYUAD&lt;/lds01&gt;\n                &lt;lds02&gt;nyu_aleph000932393&lt;/lds02&gt;\n
+        \               &lt;lds02&gt;nyu_aleph002959842&lt;/lds02&gt;\n              &lt;/display&gt;\n
+        \             &lt;links&gt;\n                &lt;linktoholdings&gt;$$V$$Taleph_holdings$$Onyu_aleph000932393&lt;/linktoholdings&gt;\n
+        \               &lt;linktoholdings&gt;$$V$$Taleph_holdings$$Onyu_aleph002959842&lt;/linktoholdings&gt;\n
+        \               &lt;backlink&gt;$$V$$Taleph_backlink$$DMore bibliographic
+        information$$Onyu_aleph000932393&lt;/backlink&gt;\n                &lt;backlink&gt;$$V$$Taleph_backlink$$DMore
+        bibliographic information$$Onyu_aleph002959842&lt;/backlink&gt;\n                &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://proquest.umi.com/pqdweb?RQT=318&amp;amp;VName=PQD&amp;amp;clientid=9269&amp;amp;pmid=7818$$D1995
+        - Current Access via Proquest$$INYU$$Onyu_aleph000932393&lt;/linktorsrc&gt;\n
+        \               &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://proquest.umi.com/pqdweb?RQT=318&amp;amp;VName=PQD&amp;amp;clientid=9269&amp;amp;pmid=7818$$D1995
+        - Current Access via Proquest$$INYUAD$$Onyu_aleph000932393&lt;/linktorsrc&gt;\n
+        \               &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.nytimes.com/$$DOnline
+        version:$$INYU$$Onyu_aleph002959842&lt;/linktorsrc&gt;\n                &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.nytimes.com/$$DOnline
+        version:$$INYUAD$$Onyu_aleph002959842&lt;/linktorsrc&gt;\n                &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://web.lexis-nexis.com/universe$$DOnline
+        access via Lexis-Nexis Academic Universe: Full-text available from 1980-$$INYU$$Onyu_aleph002959842&lt;/linktorsrc&gt;\n
+        \               &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://web.lexis-nexis.com/universe$$DOnline
+        access via Lexis-Nexis Academic Universe: Full-text available from 1980-$$INYUAD$$Onyu_aleph002959842&lt;/linktorsrc&gt;\n
+        \               &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.umi.com/pqdauto$$DOnline
+        access via ProQuest:$$INYU$$Onyu_aleph002959842&lt;/linktorsrc&gt;\n                &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.umi.com/pqdauto$$DOnline
+        access via ProQuest:$$INYUAD$$Onyu_aleph002959842&lt;/linktorsrc&gt;\n                &lt;openurl&gt;$$V$$Topenurl_journal$$Onyu_aleph000932393&lt;/openurl&gt;\n
+        \               &lt;openurl&gt;$$V$$Topenurl_journal$$Onyu_aleph002959842&lt;/openurl&gt;\n
+        \               &lt;openurlfulltext&gt;$$V$$Topenurlfull_journal$$Onyu_aleph000932393&lt;/openurlfulltext&gt;\n
+        \               &lt;openurlfulltext&gt;$$V$$Topenurlfull_journal$$Onyu_aleph002959842&lt;/openurlfulltext&gt;\n
+        \               &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;\n
+        \               &lt;linktouc&gt;$$Tworldcat_oclc$$DCheck other libraries (WorldCat&#xAE;)&lt;/linktouc&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;creatorcontrib&gt;Mellon
+        Project.&lt;/creatorcontrib&gt;\n                &lt;creatorcontrib&gt;ProQuest
+        Information and Learning Company.&lt;/creatorcontrib&gt;\n                &lt;title&gt;The
+        New York times&lt;/title&gt;\n                &lt;subject&gt;New York (N.Y.)
+        \ Newspapers&lt;/subject&gt;\n                &lt;subject&gt;New York County
+        (N.Y.)  Newspapers&lt;/subject&gt;\n                &lt;subject&gt;Electronic
+        journals&lt;/subject&gt;\n                &lt;subject&gt;Niy&#x16B; Y&#x16B;rk
+        (N.Y.)&lt;/subject&gt;\n                &lt;subject&gt;Niu-y&#xFC;eh (N.Y.)&lt;/subject&gt;\n
+        \               &lt;subject&gt;Nyuyok (N.Y.)&lt;/subject&gt;\n                &lt;subject&gt;Nyu-Yor&#x1E33;
+        (N.Y.)&lt;/subject&gt;\n                &lt;subject&gt;New York City (N.Y.)&lt;/subject&gt;\n
+        \               &lt;subject&gt;New Amsterdam (N.Y.)&lt;/subject&gt;\n                &lt;subject&gt;Nu
+        Yor&#x1E33; (N.Y.)&lt;/subject&gt;\n                &lt;subject&gt;Nuyor&#x1E33;
+        (N.Y.)&lt;/subject&gt;\n                &lt;subject&gt;Novi Jork (N.Y.)&lt;/subject&gt;\n
+        \               &lt;subject&gt;Nowy Jork (N.Y.)&lt;/subject&gt;\n                &lt;subject&gt;Nova
+        Iorque (N.Y.)&lt;/subject&gt;\n                &lt;subject&gt;Ni&#x361;u &#x12C;ork
+        (N.Y.)&lt;/subject&gt;\n                &lt;subject&gt;Nueva York (N.Y.)&lt;/subject&gt;\n
+        \               &lt;general&gt;H.J. Raymond &amp;amp; Co.],&lt;/general&gt;\n
+        \               &lt;general&gt;Latest issue consulted: Vol. 151, no. 52,028
+        (Feb. 13, 2002).&lt;/general&gt;\n                &lt;general&gt;[electronic
+        resource].&lt;/general&gt;\n                &lt;general&gt;United States New
+        York New York New York.&lt;/general&gt;\n                &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;nyu_aleph000932393&lt;/recordid&gt;\n                &lt;isbn&gt;0362-4331&lt;/isbn&gt;\n
+        \               &lt;rsrctype&gt;journal&lt;/rsrctype&gt;\n                &lt;creationdate&gt;1857&lt;/creationdate&gt;\n
+        \               &lt;creationdate&gt;9999&lt;/creationdate&gt;\n                &lt;addtitle&gt;New
+        York times on the web.&lt;/addtitle&gt;\n                &lt;addtitle&gt;New
+        York times large type weekly&lt;/addtitle&gt;\n                &lt;addtitle&gt;New-York
+        semi-weekly times&lt;/addtitle&gt;\n                &lt;addtitle&gt;New-York
+        weekly times&lt;/addtitle&gt;\n                &lt;addtitle&gt;Semi-weekly
+        times (New York, N.Y.)&lt;/addtitle&gt;\n                &lt;addtitle&gt;New
+        York times on the Web&lt;/addtitle&gt;\n                &lt;addtitle&gt;Little
+        times&lt;/addtitle&gt;\n                &lt;addtitle&gt;New-York daily times&lt;/addtitle&gt;\n
+        \               &lt;searchscope&gt;BWEB&lt;/searchscope&gt;\n                &lt;searchscope&gt;BWEB
+        Internet Resources&lt;/searchscope&gt;\n                &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;NYU&lt;/searchscope&gt;\n                &lt;searchscope&gt;NYUAD&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;BOBST&lt;/searchscope&gt;\n                &lt;searchscope&gt;IFA&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;IFAC&lt;/searchscope&gt;\n                &lt;searchscope&gt;ISAW&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;COUR&lt;/searchscope&gt;\n                &lt;searchscope&gt;REI&lt;/searchscope&gt;\n
+        \               &lt;scope&gt;BWEB&lt;/scope&gt;\n                &lt;scope&gt;BWEB
+        Internet Resources&lt;/scope&gt;\n                &lt;scope&gt;nyu_aleph&lt;/scope&gt;\n
+        \               &lt;scope&gt;NYU&lt;/scope&gt;\n                &lt;scope&gt;NYUAD&lt;/scope&gt;\n
+        \               &lt;scope&gt;BOBST&lt;/scope&gt;\n                &lt;scope&gt;IFA&lt;/scope&gt;\n
+        \               &lt;scope&gt;IFAC&lt;/scope&gt;\n                &lt;scope&gt;ISAW&lt;/scope&gt;\n
+        \               &lt;scope&gt;COUR&lt;/scope&gt;\n                &lt;scope&gt;REI&lt;/scope&gt;\n
+        \               &lt;alttitle&gt;Combined New York morning newspapers&lt;/alttitle&gt;\n
+        \               &lt;alttitle&gt;Combined New York Sunday newspapers&lt;/alttitle&gt;\n
+        \               &lt;lsr01&gt;Newspaper&lt;/lsr01&gt;\n                &lt;lsr02&gt;H.J.
+        Raymond &amp;amp; Co.],&lt;/lsr02&gt;\n                &lt;title&gt;The New
+        York times.&lt;/title&gt;\n                &lt;subject&gt;History&lt;/subject&gt;\n
+        \               &lt;subject&gt;History  Africa&lt;/subject&gt;\n                &lt;subject&gt;History
+        \ East Asia&lt;/subject&gt;\n                &lt;subject&gt;History  Europe&lt;/subject&gt;\n
+        \               &lt;subject&gt;History  Latin America and Caribbean&lt;/subject&gt;\n
+        \               &lt;subject&gt;History  Middle East&lt;/subject&gt;\n                &lt;subject&gt;History
+        \ North America&lt;/subject&gt;\n                &lt;subject&gt;History  Slavic&lt;/subject&gt;\n
+        \               &lt;subject&gt;Dance&lt;/subject&gt;\n                &lt;subject&gt;Performing
+        arts&lt;/subject&gt;\n                &lt;subject&gt;Theater&lt;/subject&gt;\n
+        \               &lt;subject&gt;Government information  New York State and
+        City Recommended&lt;/subject&gt;\n                &lt;subject&gt;Electronic
+        indexes&lt;/subject&gt;\n                &lt;subject&gt;Electronic newspapers&lt;/subject&gt;\n
+        \               &lt;subject&gt;Dancing&lt;/subject&gt;\n                &lt;subject&gt;Information,
+        Government&lt;/subject&gt;\n                &lt;subject&gt;Show business&lt;/subject&gt;\n
+        \               &lt;subject&gt;Professional theater&lt;/subject&gt;\n                &lt;subject&gt;Theatre&lt;/subject&gt;\n
+        \               &lt;subject&gt;Dramatics&lt;/subject&gt;\n                &lt;recordid&gt;nyu_aleph002959842&lt;/recordid&gt;\n
+        \               &lt;addtitle&gt;New York semi-weekly times&lt;/addtitle&gt;\n
+        \               &lt;addtitle&gt;New York times on the web&lt;/addtitle&gt;\n
+        \               &lt;searchscope&gt;BOBST Microform&lt;/searchscope&gt;\n                &lt;searchscope&gt;CU&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;CU Microform Periodicals&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;CU Periodicals&lt;/searchscope&gt;\n                &lt;searchscope&gt;NREI&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;NREI Reference&lt;/searchscope&gt;\n                &lt;searchscope&gt;TNSSC&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;TNSSC Periodicals&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;NS&lt;/searchscope&gt;\n                &lt;searchscope&gt;NSSC&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;CPER&lt;/searchscope&gt;\n                &lt;scope&gt;BOBST
+        Microform&lt;/scope&gt;\n                &lt;scope&gt;CU&lt;/scope&gt;\n                &lt;scope&gt;CU
+        Microform Periodicals&lt;/scope&gt;\n                &lt;scope&gt;CU Periodicals&lt;/scope&gt;\n
+        \               &lt;scope&gt;NREI&lt;/scope&gt;\n                &lt;scope&gt;NREI
+        Reference&lt;/scope&gt;\n                &lt;scope&gt;TNSSC&lt;/scope&gt;\n
+        \               &lt;scope&gt;TNSSC Periodicals&lt;/scope&gt;\n                &lt;scope&gt;NS&lt;/scope&gt;\n
+        \               &lt;scope&gt;NSSC&lt;/scope&gt;\n                &lt;scope&gt;CPER&lt;/scope&gt;\n
+        \               &lt;alttitle&gt;N.Y. times&lt;/alttitle&gt;\n                &lt;lsr01&gt;Film/Per&lt;/lsr01&gt;\n
+        \             &lt;/search&gt;\n              &lt;sort&gt;\n                &lt;title&gt;New
+        York times&lt;/title&gt;\n                &lt;creationdate&gt;1857&lt;/creationdate&gt;\n
+        \               &lt;lso01&gt;1857&lt;/lso01&gt;\n              &lt;/sort&gt;\n
+        \             &lt;facets&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;creationdate&gt;1857&lt;/creationdate&gt;\n                &lt;topic&gt;New
+        York (N.Y.)&#x2013;Newspapers&lt;/topic&gt;\n                &lt;topic&gt;New
+        York County (N.Y.)&#x2013;Newspapers&lt;/topic&gt;\n                &lt;toplevel&gt;available&lt;/toplevel&gt;\n
+        \               &lt;toplevel&gt;online_resources&lt;/toplevel&gt;\n                &lt;prefilter&gt;journals&lt;/prefilter&gt;\n
+        \               &lt;rsrctype&gt;journals&lt;/rsrctype&gt;\n                &lt;genre&gt;Newspapers&lt;/genre&gt;\n
+        \               &lt;genre&gt;Electronic journals&lt;/genre&gt;\n                &lt;library&gt;BOBST&lt;/library&gt;\n
+        \               &lt;library&gt;IFA&lt;/library&gt;\n                &lt;library&gt;IFAC&lt;/library&gt;\n
+        \               &lt;library&gt;ISAW&lt;/library&gt;\n                &lt;library&gt;COUR&lt;/library&gt;\n
+        \               &lt;library&gt;REI&lt;/library&gt;\n                &lt;lfc01&gt;Internet
+        Resources&lt;/lfc01&gt;\n                &lt;lfc04&gt;United States&lt;/lfc04&gt;\n
+        \               &lt;lfc04&gt;New York&lt;/lfc04&gt;\n                &lt;lfc04&gt;New
+        York.&lt;/lfc04&gt;\n                &lt;topic&gt;History&lt;/topic&gt;\n
+        \               &lt;topic&gt;History&#x2013;Africa&lt;/topic&gt;\n                &lt;topic&gt;History&#x2013;East
+        Asia&lt;/topic&gt;\n                &lt;topic&gt;History&#x2013;Europe&lt;/topic&gt;\n
+        \               &lt;topic&gt;History&#x2013;Latin America and Caribbean&lt;/topic&gt;\n
+        \               &lt;topic&gt;History&#x2013;Middle East&lt;/topic&gt;\n                &lt;topic&gt;History&#x2013;North
+        America&lt;/topic&gt;\n                &lt;topic&gt;History&#x2013;Slavic&lt;/topic&gt;\n
+        \               &lt;topic&gt;Dance&lt;/topic&gt;\n                &lt;topic&gt;Performing
+        arts&lt;/topic&gt;\n                &lt;topic&gt;Theater&lt;/topic&gt;\n                &lt;topic&gt;Government
+        information&#x2013;New York State and City&#x2013;Recommended&lt;/topic&gt;\n
+        \               &lt;collection&gt;BOBST&lt;/collection&gt;\n                &lt;collection&gt;CU&lt;/collection&gt;\n
+        \               &lt;collection&gt;NREI&lt;/collection&gt;\n                &lt;collection&gt;NSSC&lt;/collection&gt;\n
+        \               &lt;genre&gt;Electronic indexes&lt;/genre&gt;\n                &lt;genre&gt;Electronic
+        newspapers&lt;/genre&gt;\n                &lt;library&gt;NSSC&lt;/library&gt;\n
+        \               &lt;library&gt;CPER&lt;/library&gt;\n                &lt;lfc01&gt;Microform&lt;/lfc01&gt;\n
+        \               &lt;lfc01&gt;Microform Periodicals&lt;/lfc01&gt;\n                &lt;lfc01&gt;Periodicals&lt;/lfc01&gt;\n
+        \               &lt;lfc01&gt;Reference&lt;/lfc01&gt;\n                &lt;frbrgroupid&gt;21490924&lt;/frbrgroupid&gt;\n
+        \               &lt;frbrtype&gt;5&lt;/frbrtype&gt;\n              &lt;/facets&gt;\n
+        \             &lt;dedup&gt;\n                &lt;t&gt;2&lt;/t&gt;\n                &lt;c2&gt;0362-4331&lt;/c2&gt;\n
+        \               &lt;c3&gt;newyorktimes&lt;/c3&gt;\n                &lt;c4&gt;new&lt;/c4&gt;\n
+        \               &lt;f4&gt;0362-4331&lt;/f4&gt;\n                &lt;f6&gt;1857&lt;/f6&gt;\n
+        \               &lt;f7&gt;new york times&lt;/f7&gt;\n                &lt;f8&gt;new
+        york times&lt;/f8&gt;\n                &lt;f9&gt;nyu&lt;/f9&gt;\n                &lt;f10&gt;new&lt;/f10&gt;\n
+        \             &lt;/dedup&gt;\n              &lt;frbr&gt;\n                &lt;t&gt;1&lt;/t&gt;\n
+        \               &lt;k3&gt;$$Knew york times$$AT&lt;/k3&gt;\n              &lt;/frbr&gt;\n
+        \             &lt;delivery&gt;\n                &lt;institution&gt;$$VNYU$$Onyu_aleph000932393&lt;/institution&gt;\n
+        \               &lt;institution&gt;$$VNYUAD$$Onyu_aleph000932393&lt;/institution&gt;\n
+        \               &lt;delcategory&gt;$$VOnline Resource$$Onyu_aleph000932393&lt;/delcategory&gt;\n
+        \               &lt;institution&gt;$$VNYU$$Onyu_aleph002959842&lt;/institution&gt;\n
+        \               &lt;institution&gt;$$VCU$$Onyu_aleph002959842&lt;/institution&gt;\n
+        \               &lt;institution&gt;$$VNS$$Onyu_aleph002959842&lt;/institution&gt;\n
+        \               &lt;institution&gt;$$VNYUAD$$Onyu_aleph002959842&lt;/institution&gt;\n
+        \               &lt;delcategory&gt;$$VOnline Resource$$Onyu_aleph002959842&lt;/delcategory&gt;\n
+        \             &lt;/delivery&gt;\n              &lt;enrichment&gt;\n                &lt;classificationlcc&gt;Newspaper&lt;/classificationlcc&gt;\n
+        \             &lt;/enrichment&gt;\n              &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n              &lt;/ranking&gt;\n
+        \             &lt;addata&gt;\n                &lt;jtitle&gt;The New York times&lt;/jtitle&gt;\n
+        \               &lt;addtitle&gt;Combined New York morning newspapers&lt;/addtitle&gt;\n
+        \               &lt;date&gt;1857&lt;/date&gt;\n                &lt;risdate&gt;1857-&lt;/risdate&gt;\n
+        \               &lt;coden&gt;NYTIAO&lt;/coden&gt;\n                &lt;format&gt;journal&lt;/format&gt;\n
+        \               &lt;genre&gt;journal&lt;/genre&gt;\n                &lt;ristype&gt;JOUR&lt;/ristype&gt;\n
+        \               &lt;cop&gt;New-York [N.Y.&lt;/cop&gt;\n                &lt;pub&gt;H.J.
+        Raymond &amp;amp; Co.]&lt;/pub&gt;\n                &lt;lad01&gt;BWEB&lt;/lad01&gt;\n
+        \               &lt;lad01&gt;Online Resource&lt;/lad01&gt;\n                &lt;jtitle&gt;The
+        New York times.&lt;/jtitle&gt;\n                &lt;stitle&gt;N.Y. times&lt;/stitle&gt;\n
+        \               &lt;issn&gt;0362-4331&lt;/issn&gt;\n                &lt;oclcid&gt;1645522&lt;/oclcid&gt;\n
+        \               &lt;lccn&gt;sn 78004456&lt;/lccn&gt;\n                &lt;lad01&gt;BOBSTBOBSTBWEBNREICUCUTNSSC&lt;/lad01&gt;\n
+        \             &lt;/addata&gt;\n            &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n
+        \       &lt;/DOC&gt;\n      &lt;/DOCSET&gt;\n    &lt;/RESULT&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;</getRecordReturn></ns1:getRecordResponse></soapenv:Body></soapenv:Envelope>"
+    http_version: 
+  recorded_at: Tue, 20 Nov 2012 15:09:53 GMT
+recorded_with: VCR 2.3.0

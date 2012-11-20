@@ -25,7 +25,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 16 Nov 2012 22:17:42 GMT
+      - Mon, 19 Nov 2012 22:59:40 GMT
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wsdl:definitions targetNamespace=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"
@@ -147,7 +147,7 @@ http_interactions:
         \        <wsdlsoap:address location=\"http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher\"/>\n\n
         \     </wsdl:port>\n\n   </wsdl:service>\n\n</wsdl:definitions>\n"
     http_version: 
-  recorded_at: Fri, 16 Nov 2012 22:17:42 GMT
+  recorded_at: Mon, 19 Nov 2012 22:59:40 GMT
 - request:
     method: post
     uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher
@@ -183,7 +183,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 16 Nov 2012 22:17:42 GMT
+      - Mon, 19 Nov 2012 22:59:40 GMT
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
@@ -220,9 +220,9 @@ http_interactions:
         KEY=&quot;BOBST&quot; VALUE=&quot;1&quot;/&gt;\n        &lt;/FACET&gt;\n        &lt;FACET
         NAME=&quot;local1&quot; COUNT=&quot;1&quot;&gt;\n          &lt;FACET_VALUES
         KEY=&quot;Main Collection&quot; VALUE=&quot;1&quot;/&gt;\n        &lt;/FACET&gt;\n
-        \     &lt;/FACETLIST&gt;\n      &lt;DOCSET HIT_TIME=&quot;19&quot; TOTALHITS=&quot;1&quot;
-        FIRSTHIT=&quot;1&quot; LASTHIT=&quot;1&quot; TOTAL_TIME=&quot;119&quot; IS_LOCAL=&quot;true&quot;&gt;\n
-        \       &lt;DOC ID=&quot;648337&quot; RANK=&quot;0.559017&quot; NO=&quot;1&quot;
+        \     &lt;/FACETLIST&gt;\n      &lt;DOCSET HIT_TIME=&quot;12&quot; TOTALHITS=&quot;1&quot;
+        FIRSTHIT=&quot;1&quot; LASTHIT=&quot;1&quot; TOTAL_TIME=&quot;44&quot; IS_LOCAL=&quot;true&quot;&gt;\n
+        \       &lt;DOC ID=&quot;3698109&quot; RANK=&quot;1.0&quot; NO=&quot;1&quot;
         SEARCH_ENGINE=&quot;Local Search Engine&quot; SEARCH_ENGINE_TYPE=&quot;Local
         Search Engine&quot;&gt;\n          &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;\n
         \           &lt;record&gt;\n              &lt;control&gt;\n                &lt;sourcerecordid&gt;000062856&lt;/sourcerecordid&gt;\n
@@ -339,17 +339,17 @@ http_interactions:
         \               &lt;lad01&gt;Physical Item&lt;/lad01&gt;\n              &lt;/addata&gt;\n
         \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n          &lt;GETIT
         deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000062856&quot;
-        GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2012-11-16T17%3A17%3A42IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;amp;rft.genre=book&amp;amp;rft.jtitle=&amp;amp;rft.btitle=Travels%20with%20my%20aunt&amp;amp;rft.aulast=Greene&amp;amp;rft.aufirst=Graham%2C&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;amp;rft.aucorp=&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=Penguin%20Books&amp;amp;rft.place=New%20York&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=0143039008&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph000062856&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;000062856&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;\n
+        GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2012-11-19T17%3A59%3A40IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;amp;rft.genre=book&amp;amp;rft.jtitle=&amp;amp;rft.btitle=Travels%20with%20my%20aunt&amp;amp;rft.aulast=Greene&amp;amp;rft.aufirst=Graham%2C&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;amp;rft.aucorp=&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=Penguin%20Books&amp;amp;rft.place=New%20York&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=0143039008&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph000062856&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;000062856&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;\n
         \         &lt;LIBRARIES&gt;\n            &lt;LIBRARY&gt;\n              &lt;institution&gt;NYU&lt;/institution&gt;\n
         \             &lt;library&gt;BOBST&lt;/library&gt;\n              &lt;status&gt;unavailable&lt;/status&gt;\n
         \             &lt;collection&gt;Main Collection&lt;/collection&gt;\n              &lt;callNumber&gt;(PR6013.R44
         T7 2004 )&lt;/callNumber&gt;\n              &lt;url&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000062856&lt;/url&gt;\n
         \           &lt;/LIBRARY&gt;\n          &lt;/LIBRARIES&gt;\n          &lt;LINKS&gt;\n
-        \           &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-16T17%3A17%3A42IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Travels%20with%20my%20aunt&amp;rft.aulast=Greene&amp;rft.aufirst=Graham%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Penguin%20Books&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=0143039008&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph000062856&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000062856&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;\n
+        \           &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-19T17%3A59%3A40IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Travels%20with%20my%20aunt&amp;rft.aulast=Greene&amp;rft.aufirst=Graham%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Penguin%20Books&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=0143039008&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph000062856&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000062856&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;\n
         \           &lt;backlink&gt;http://alephstage.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000062856&lt;/backlink&gt;\n
         \           &lt;thumbnail&gt;http://images.amazon.com/images/P/0143039008.01._SSTHUM_.jpg&lt;/thumbnail&gt;\n
         \           &lt;linktotoc&gt;http://www.amazon.com/gp/reader/0143039008&lt;/linktotoc&gt;\n
-        \           &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-16T17%3A17%3A42IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Travels%20with%20my%20aunt&amp;rft.aulast=Greene&amp;rft.aufirst=Graham%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Penguin%20Books&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=0143039008&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000062856&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;\n
+        \           &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-19T17%3A59%3A40IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Travels%20with%20my%20aunt&amp;rft.aulast=Greene&amp;rft.aufirst=Graham%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Penguin%20Books&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=0143039008&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000062856&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;\n
         \           &lt;linktoholdings&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000062856&lt;/linktoholdings&gt;\n
         \           &lt;linktoreview&gt;https://library.nyu.edu/persistent/lcn/nyu_aleph000062856?institution=NYU&amp;amp;persistent&lt;/linktoreview&gt;\n
         \           &lt;linktouc&gt;http://www.amazon.com/s/?search-alias=aps&amp;amp;field-keywords=0143039008&lt;/linktouc&gt;\n
@@ -357,5 +357,5 @@ http_interactions:
         \         &lt;/LINKS&gt;\n        &lt;/DOC&gt;\n      &lt;/DOCSET&gt;\n    &lt;/RESULT&gt;\n
         \   &lt;searchToken&gt;0&lt;/searchToken&gt;\n  &lt;/JAGROOT&gt;\n&lt;/SEGMENTS&gt;</searchBriefReturn></ns1:searchBriefResponse></soapenv:Body></soapenv:Envelope>"
     http_version: 
-  recorded_at: Fri, 16 Nov 2012 22:17:42 GMT
+  recorded_at: Mon, 19 Nov 2012 22:59:40 GMT
 recorded_with: VCR 2.3.0

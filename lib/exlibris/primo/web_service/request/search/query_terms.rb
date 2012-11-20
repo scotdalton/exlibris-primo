@@ -13,7 +13,6 @@ module Exlibris
                 :genre => {:precision => "exact", :index => "any"}
               }
             end
-            # Splat the keys to define accessors
             attr_accessor *query_terms.keys
           end
         end

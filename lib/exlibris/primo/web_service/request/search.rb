@@ -6,6 +6,8 @@ module Exlibris
         # 
         # 
         class Search < Base
+          self.has_client
+          self.action = :search_brief
           include QueryTerms
           include SearchElements
 
@@ -27,6 +29,7 @@ module Exlibris
           self.add_base_elements :doc_id
           # Clear the query terms since record searches don't do queries on terms.
           self.query_terms.clear
+          self.action = :get_record
         end
       end
     end

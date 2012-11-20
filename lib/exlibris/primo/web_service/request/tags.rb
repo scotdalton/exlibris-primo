@@ -7,12 +7,20 @@ module Exlibris
         # 
         class Tags < UserRecord
           self.abstract = true
+          self.has_client
         end
 
         # 
         # 
         # 
         class GetTags < Tags; end
+
+        # 
+        # 
+        # 
+        class RemoveTag < Tags
+          self.add_base_elements :value
+        end
 
         # 
         # 
@@ -31,14 +39,14 @@ module Exlibris
         # 
         # 
         # 
-        class RemoveTag < Tags
-          self.add_base_elements :value
+        class GetUserTags < Tags
+          self.remove_base_elements :doc_id
         end
 
         # 
         # 
         # 
-        class GetUserTags < Tags
+        class RemoveUserTags < Tags
           self.remove_base_elements :doc_id
         end
       end

@@ -22,7 +22,34 @@ module Exlibris
     #
     # == Examples of usage
     #   Record.new({ :base_url => @base_url, :vid => @vid, :record => doc.at("//record") })
-    class RemoteRecord < Record
+    class RemoteRecord
+      def initialize base, doc_id, attributes
+        @record = Exlibris::Primo::WebService::Request::FullView.new(base, attributes.merge(:doc_id => doc_id)).call.record
+      end
+
+      def method_missing(method, *args, &block)
+        if @record.respond_to? method
+          self.class.send(:define_method, method) { |*args, &block|
+            @record.send method, *args, &block
+          }
+          send method, *args, &block
+        else
+          super
+        end
+      end
+
+      #
+      # Tell users that we respond methods that the record responds to.
+      #
+      def respond_to_missing?(method, include_private=false)
+        if(@record.respond_to? method, include_private)
+          true
+        elsif defined? super
+          super
+        else
+          false
+        end
+      end
     end
   end
 end

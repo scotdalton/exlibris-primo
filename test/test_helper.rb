@@ -34,3 +34,29 @@ if ! defined? VCR
   end
 end
 
+class Test::Unit::TestCase
+  def assert_request(expected_root, *expected_args, request)
+    document = Nokogiri::XML(request.to_xml)
+    assert_kind_of Nokogiri::XML::Document, document
+    children = document.root.children
+    assert_equal 1, children.size
+    assert_equal "request", document.root.name
+    children.each do |child|
+      assert child.cdata?
+      request_document = Nokogiri::XML(child.inner_text)
+      assert_equal "http://www.exlibris.com/primo/xsd/wsRequest", request_document.namespaces["xmlns"]
+      assert_equal "http://www.exlibris.com/primo/xsd/primoview/uicomponents", request_document.namespaces["xmlns:uic"]
+      assert_equal expected_root, request_document.root.name
+      assert_equal expected_args.size, request_document.root.children.size
+      request_document.root.children.each do |child|
+        child_xml = child.to_xml(
+          :encoding => 'UTF-8',
+          :indent => 0,
+          :save_with => Nokogiri::XML::Node::SaveOptions::AS_XML | Nokogiri::XML::Node::SaveOptions::NO_DECLARATION).strip
+        assert_equal expected_args.shift, child_xml
+      end
+    end
+  end
+  protected :assert_request
+end
+

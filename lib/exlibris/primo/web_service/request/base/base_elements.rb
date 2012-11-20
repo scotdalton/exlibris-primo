@@ -5,23 +5,25 @@ module Exlibris
         module BaseElements
           def self.included(klass)
             klass.class_eval do
-              class << self
-                def base_elements
-                  @base_elements ||= self.superclass.respond_to?(:base_elements) ? 
-                    self.superclass.base_elements.dup : []
-                end
+              extend Config
+            end
+          end
 
-                def add_base_elements *elements
-                  elements.each do |element|
-                    base_elements << element unless base_elements.include? element
-                  end
-                end
+          module Config
+            def base_elements
+              @base_elements ||= self.superclass.respond_to?(:base_elements) ? 
+                self.superclass.base_elements.dup : []
+            end
 
-                def remove_base_elements *elements
-                  base_elements.delete_if do |element|
-                    elements.include? element
-                  end
-                end
+            def add_base_elements *elements
+              elements.each do |element|
+                base_elements << element unless base_elements.include? element
+              end
+            end
+
+            def remove_base_elements *elements
+              base_elements.delete_if do |element|
+                elements.include? element
               end
             end
           end
@@ -43,7 +45,7 @@ module Exlibris
           # Dynamically sets attr_accessors for base_elements
           #
           def method_missing(method, *args, &block)
-            if respond_to_missing?(method)
+            if self.class.base_elements.include?(attributize(method))
               self.class.send :attr_accessor, attributize(method)
               send method, *args, &block
             else
@@ -55,7 +57,8 @@ module Exlibris
           # Tell users that we respond to base elements accessors.
           #
           def respond_to_missing?(method, include_private = false)
-            (self.class.base_elements.include? attributize(method)) ? true : super
+            (not self.class.base_elements.include?(attributize(method))) ? 
+              (defined? super) ? super : false : true
           end
 
           def attributize symbol
