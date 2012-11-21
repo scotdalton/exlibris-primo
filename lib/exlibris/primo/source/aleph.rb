@@ -5,18 +5,16 @@ module Exlibris
       # Exlibris::Primo::Source::Aleph is an Exlibris::Primo::Holding that provides a link to Aleph
       # and a request button based on config settings in the Primo config file.
       class Aleph < Exlibris::Primo::Holding
-        @attribute_aliases = Exlibris::Primo::Holding.attribute_aliases.merge({
-          :aleph_doc_library => :original_source_id, :aleph_sub_library => :library,
-          :aleph_collection => :collection, :aleph_call_number => :call_number,
-          :aleph_doc_number => :source_record_id
-        })
-        @decode_variables = Exlibris::Primo::Holding.decode_variables.merge({
-          :aleph_sub_library_code => { :code => :library_code }
-        })
+        
+        alias :aleph_doc_library :original_source_id
+        alias :aleph_sub_library :library
+        alias :aleph_collection :collection
+        alias :aleph_call_number :call_number
+        alias :aleph_doc_number :source_record_id
 
         # Overwrites Exlibris::Primo::Holding#new
-        def initialize(parameters={})
-          super(parameters)
+        def initialize(attributes={})
+          super
           @aleph_local_base = aleph_config["local_base"] unless aleph_config.nil?
           # Aleph holdings page
           @url = "#{@source_url}/F?func=item-global&doc_library=#{aleph_doc_library}&local_base=#{@aleph_local_base}&doc_number=#{aleph_doc_number}&sub_library=#{@aleph_sub_library_code}"

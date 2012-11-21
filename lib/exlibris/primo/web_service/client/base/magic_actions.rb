@@ -21,9 +21,8 @@ module Exlibris
           #
           # Tell users that we respond to SOAP actions.
           #
-          def respond_to_missing?(method, include_private=false)
-            (client.wsdl.soap_action(method).nil?) ? (defined? super) ? 
-              super : false : true
+          def respond_to?(method, include_private=false)
+            (client.wsdl.soap_action(method) || super) ? true : false
           end
         end
       end

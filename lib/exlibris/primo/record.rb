@@ -24,37 +24,40 @@ module Exlibris
     #   Record.new({ :base_url => @base_url, :vid => @vid, :record => doc.at("//record") })
     class Record
       require 'nokogiri'
+      include MissingResponse
       include Namespaces
-      include SetAttributes
+      include WriteAttributes
       include XmlUtil
       include Exlibris::Primo::Pnx::DedupMgr
       include Exlibris::Primo::Pnx::Holdings
+      include Exlibris::Primo::Pnx::Links
       include Exlibris::Primo::Pnx::Openurl
-      include Exlibris::Primo::Pnx::RelatedLinks
-      include Exlibris::Primo::Pnx::Rsrcs
-      include Exlibris::Primo::Pnx::Tocs
-      attr_accessor :vid, :institution, :config
+      include Exlibris::Primo::Pnx::Subfields
 
-      #
-      # 
-      #
-      def initialize(attributes={})
-        @raw_xml = attributes.delete(:raw_xml)
-        set_attributes attributes
-        vid = "DEFAULT" if vid.nil?
-        institution = "PRIMO" if institution.nil?
-        config = {} if config.nil?
+      attr_accessor :vid, :institution
+
+      def self.defaults
+        @defaults = {
+          :vid => "DEFAULT", :institution => "PRIMO" }
       end
 
       #
-      # 
+      #
+      #
+      def initialize attributes={}
+        @raw_xml = attributes.delete(:raw_xml)
+        super self.class.defaults.merge(attributes)
+      end
+
+      #
+      #
       #
       def url
         @url ||= "/primo_library/libweb/action/dlDisplay.do?dym=false&onCampus=false&docId=#{record_id}&institution=#{institution}&vid=#{vid}"
       end
 
       #
-      # 
+      #
       #
       def method_missing(method, *args, &block)
         if(attr_read(method))
@@ -68,40 +71,30 @@ module Exlibris
       end
 
       #
-      # 
+      # Tell user we respond to PNX elements
       #
       def respond_to?(method, include_private=false)
-        (attr_read(method).nil?) ?  
-          (defined? super) ? super : false : true
-      end
-
-      #
-      # 
-      #
-      def respond_to_missing?(method, include_private=false)
-        (not respond_to?(method, include_private)) ?  
-          (defined? super) ? super : false : true
+        (attr_read(method) || super) ? true : false
       end
 
       def attr_read method
-        inner_text_at(xpathize(method)) || inner_text_at(controlize(method))
+        (inner_text_at(xpathize(method)) || inner_text_at(controlize(method)))
       end
       private :attr_read
 
       def inner_text_at xpath
         xml_at = xml.root.at(xpath)
         return xml_at.inner_text unless xml_at.nil?
-        return nil
       end
       private :inner_text_at
 
       def controlize s
-        "control/#{xpathize s}"
+        "control/#{xpathize s.to_s}"
       end
       private :controlize
 
       def xpathize s
-        "#{s}".gsub(/_/, "/")
+        "#{s.to_s}".gsub(/_/, "/").gsub(/[=\[\]]/, "")
       end
       private :xpathize
     end

@@ -12,12 +12,9 @@ module Exlibris
         module Config
           def duplicated_control_attributes
             @duplicated_control_attributes ||= [
-              :sourcerecordids,
-              :sourceids,
-              :originalsourceids,
-              :sourceformats,
-              :sourcesystems,
-              :ilsapiids]
+              :sourcerecordids, :sourceids,
+              :originalsourceids, :sourceformats,
+              :sourcesystems, :ilsapiids ]
           end
         end
 
@@ -43,7 +40,7 @@ module Exlibris
             control_attribute = method.id2name.singularize
             self.class.send(:define_method, method) do
               eval("@#{method} ||= (dedup_mgr?) ?
-                process_control_hash(\"control/#{control_attribute}\") : {recordid => #{control_attribute}}")
+                map_values_to_origins(\"#{control_attribute}\") : {recordid => #{control_attribute}}")
             end
             send method, *args, &block
           else
@@ -52,32 +49,28 @@ module Exlibris
         end
 
         #
+        # Tell users we respond to pluralized PNX control elements
         #
-        #
-        def respond_to_missing?(method, include_private=false)
-          (not duplicated_control_attributes.include?(method)) ?
-            (defined? super) ? super : false : true
+        def respond_to?(method, include_private=false)
+          # WARNING: We should be calling `super` here, but that gives 
+          # us an infinite loop for some reason.  Not sure why
+          (duplicated_control_attributes.include? method) ? true : false
         end
 
         #
         #
         #
-        def process_control_hash(xpath)
-          h = {}
-          xml.root.xpath(xpath).each do |e|
-            str = e.inner_text unless e.nil?
-            a = str.split(/\$(?=\$)/) unless str.nil?
-            v = nil
-            o = nil
-            a.each do |s|
-              v = s.sub!(/^\$V/, "") unless s.match(/^\$V/).nil?
-              o = s.sub!(/^\$O/, "") unless s.match(/^\$O/).nil?
-            end
-            h[o] = v unless (o.nil? or v.nil?)
+        def map_values_to_origins(field)
+          values_to_origins_map = {}
+          xml.root.xpath("control/#{field}").each do |element|
+            # Parse subfields, O is origin, V is value
+            subfields = parse_subfields(element.inner_text)
+            # Map values to the origin
+            values_to_origins_map[subfields["O"]] = subfields["V"]
           end
-          return h
+          values_to_origins_map
         end
-        private :process_control_hash
+        private :map_values_to_origins
       end
     end
   end

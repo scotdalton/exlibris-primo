@@ -8,8 +8,9 @@ module Exlibris
           include BaseElements
           include Client
           include Call
+          include MissingResponse
           include Namespaces
-          include SetAttributes
+          include WriteAttributes
           include Util
           include XmlUtil
           self.abstract = true
@@ -26,7 +27,6 @@ module Exlibris
             @root = "#{self.class.name.demodulize}Request".camelize(:lower).to_sym
             @namespaces = request_namespaces
             @wrapper = DEFAULT_WRAPPER.id2name.camelize(:lower).to_sym
-            set_attributes attributes
           end
 
           def to_xml &block

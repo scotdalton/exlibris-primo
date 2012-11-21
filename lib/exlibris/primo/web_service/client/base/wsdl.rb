@@ -20,9 +20,10 @@ module Exlibris
           attr_reader :wsdl
           protected :wsdl
 
-          def wsdl= base
-            @wsdl ||= "#{base}/PrimoWebServices/services/#{self.class.wsdl}?wsdl"
+          def wsdl= base_url
+            @wsdl ||= "#{base_url}/PrimoWebServices/services/#{self.class.wsdl}?wsdl"
           end
+          protected :wsdl=
         end
       end
     end

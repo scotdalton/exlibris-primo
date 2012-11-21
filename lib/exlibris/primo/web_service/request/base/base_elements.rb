@@ -56,9 +56,8 @@ module Exlibris
           #
           # Tell users that we respond to base elements accessors.
           #
-          def respond_to_missing?(method, include_private = false)
-            (not self.class.base_elements.include?(attributize(method))) ? 
-              (defined? super) ? super : false : true
+          def respond_to?(method, include_private = false)
+            (self.class.base_elements.include?(attributize(method)) || super) ? true : false
           end
 
           def attributize symbol

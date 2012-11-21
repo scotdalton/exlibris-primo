@@ -3,18 +3,18 @@ module WebService
     require 'test_helper'
     class FullViewTest < Test::Unit::TestCase
       def setup
-        @base = "http://bobcatdev.library.nyu.edu"
+        @base_url = "http://bobcatdev.library.nyu.edu"
         @institution = "NYU"
         @doc_id = "nyu_aleph000062856"
       end
 
       def test_class_client
         assert_kind_of Exlibris::Primo::WebService::Client::Search, 
-          Exlibris::Primo::WebService::Request::FullView.new(@base).send(:client)
+          Exlibris::Primo::WebService::Request::FullView.new(@base_url).send(:client)
       end
 
       def test_request_record
-        full_view_request = Exlibris::Primo::WebService::Request::FullView.new @base
+        full_view_request = Exlibris::Primo::WebService::Request::FullView.new @base_url
         full_view_request.institution = @institution
         full_view_request.doc_id = @doc_id
         assert_request full_view_request, "fullViewRequest",

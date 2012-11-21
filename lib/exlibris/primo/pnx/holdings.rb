@@ -3,47 +3,33 @@ module Exlibris
     module Pnx
       module Holdings
         #
-        #
+        # Gather Holdings for this record.
         #
         def holdings
           @holdings ||= []
           if @holdings.empty?
             xml.root.xpath("display/availlibrary").each do |availlibrary|
-              p availlibrary
-              availlibrary, institution_code, library_code, id_one, id_two, status_code, origin = process_availlibrary availlibrary
-              holding_original_source_id = originalsourceids[(origin) ? origin : recordid]
-              holding_source_id = sourceids[(origin) ? origin : recordid]
-              holding_source_record_id = sourcerecordids[(origin) ? origin : recordid]
-              title = display_title if self.respond_to? :display_title
-              author = display_creator if self.respond_to? :display_creator
+              subfields = parse_subfields availlibrary.inner_text
+              # Get original id for dealing w/ dedup merger records
+              original_id = (subfields["O"]) ? subfields["O"] : recordid
+              # Get some info that may or may not be in the Pnx metadata
+              title = display_title if self.class.respond_to? :display_title
+              author = display_creator if self.class.respond_to? :display_creator
+              type = display_type if self.class.respond_to? :display_type
+              # Add a new holding to the record's holdings.
               @holdings << Exlibris::Primo::Holding.new(
-                :vid => vid, :config => config,
-                :record_id => recordid, :title => title, :author => author, 
-                :original_source_id => holding_original_source_id, :source_id => holding_source_id, 
-                :source_record_id => holding_source_record_id, :origin => origin, 
-                :availlibrary => availlibrary, :institution_code => institution_code, 
-                :library_code => library_code, :id_one => id_one, :id_two => id_two, 
-                :status_code => status_code, :origin => origin, :type => display_type, :notes => "")
+                :vid => vid, :institution => subfields["I"],
+                :record_id => recordid, :original_id => original_id, 
+                :title => title, :author => author, :type => type, 
+                :original_source_id => originalsourceids[original_id], :source_id => sourceids[original_id], 
+                :source_record_id => sourcerecordids[original_id], :ils_api_id => ilsapiids[original_id],
+                :library_code => subfields["L"], 
+                :collection => subfields["1"], :call_number => subfields["2"],
+                :subfields => subfields, :availability_code => subfields["S"])
             end
           end
           @holdings
         end
-        
-        def process_availlibrary(input)
-          availlibrary, institution_code, library_code, id_one, id_two, status_code, origin =
-            nil, nil, nil, nil, nil, nil, nil
-          availlibrary = input.inner_text
-          availlibrary.split(/\$(?=\$)/).each do |s|
-            institution_code = s.sub!(/^\$I/, "")
-            library_code = s.sub!(/^\$L/, "")
-            id_one = s.sub!(/^\$1/, "")
-            id_two = s.sub!(/^\$2/, "")
-            status_code = "check_holdings"
-            origin = s.sub!(/^\$O/, "")
-          end
-          return availlibrary, institution_code, library_code, id_one, id_two, status_code, origin
-        end
-        private :process_availlibrary
       end
     end
   end
