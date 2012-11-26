@@ -62,7 +62,6 @@ Or
 Exlibris::Primo::Record is an object representation of a Primo record.
 
 ### Example of Exlibris::Primo::Record in action
-
     searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
       :vid => "VID", :institution => "INSTITUTION")
     searcher.record_id= "aleph0123456789"
@@ -80,7 +79,6 @@ Exlibris::Primo::Record is an object representation of a Primo record.
 Exlibris::Primo::RemoteRecord is an object representation of a Primo record for the given record_id.
 
 ### Example of Exlibris::Primo::RemoteRecord in action
-
     remote_record = Exlibris::Primo::RemoteRecord.new "aleph0123456789", :base_url => @base_url, :institution => @institution
     holdings = remote_record.holdings
     fulltexts = remote_record.fulltexts
@@ -108,8 +106,8 @@ Exlibris::Primo::Config can also read in from a YAML file that specifies the var
 The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf and eshelf structure as well as adding and removing records.
 
 ## Example of Exlibris::Primo::EShelf in action
-  eshelf = Exlibris::Primo::EShelf.new("USER_ID", :base_url => "http://primo.institution.edu", :vid => "VID", :insitution => "INSTITUTION")
-  records = eshelf.records
-  count = eshelf.count
-  basket_id = eshelf.basket_id
-  eshelf.add_records(["PrimoRecordId","PrimoRecordId2"], basket_id)
+    eshelf = Exlibris::Primo::EShelf.new("USER_ID", :base_url => "http://primo.institution.edu", :vid => "VID", :insitution => "INSTITUTION")
+    records = eshelf.records
+    count = eshelf.count
+    basket_id = eshelf.basket_id
+    eshelf.add_records(["PrimoRecordId","PrimoRecordId2"], basket_id)
