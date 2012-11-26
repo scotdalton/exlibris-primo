@@ -6,7 +6,7 @@ module Exlibris
         # Just call super w/o any args for now.  Eventually, we'll want to check the arity and adjust.
         # self.class.superclass.instance_method(:initialize).arity.eql? self.class.instance_method(:initialize).arity
         super()
-        write_attributes args.last
+        write_attributes (args.last || {})
       end
 
       def write_attributes attributes
