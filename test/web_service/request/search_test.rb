@@ -19,7 +19,7 @@ module WebService
       def test_request_search_issn
           search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
           search_request.institution = @institution
-          search_request.issn = @issn
+          search_request.add_query_term @issn, "isbn", "exact"
           assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
@@ -39,7 +39,7 @@ module WebService
       def test_request_search_isbn
           search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
           search_request.institution = @institution
-          search_request.isbn = @isbn
+          search_request.add_query_term @isbn, "isbn", "exact"
           assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
@@ -59,7 +59,7 @@ module WebService
       def test_request_search_title
           search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
           search_request.institution = @institution
-          search_request.title = @title
+          search_request.add_query_term @title, "title"
           assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
@@ -79,7 +79,7 @@ module WebService
       def test_request_search_author
           search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
           search_request.institution = @institution
-          search_request.author = @author
+          search_request.add_query_term @author, "creator"
           assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
@@ -99,7 +99,7 @@ module WebService
       def test_request_search_genre
           search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
           search_request.institution = @institution
-          search_request.genre = @genre
+          search_request.add_query_term @genre, "any", "exact"
           assert_request search_request, "searchRequest",
             "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
             "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
@@ -119,32 +119,38 @@ module WebService
       def test_request_search_title_author_genre
         search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
         search_request.institution = @institution
-        search_request.title = @title
-        search_request.author = @author
-        search_request.genre = @genre
-        assert_request search_request, "searchRequest",
-          "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
-          "<QueryTerms><BoolOpeator>AND</BoolOpeator>"+
-          "<QueryTerm>"+
-          "<IndexField>title</IndexField>"+
-          "<PrecisionOperator>contains</PrecisionOperator>"+
-          "<Value>Travels with My Aunt</Value>"+
-          "</QueryTerm>"+
-          "<QueryTerm>"+
-          "<IndexField>creator</IndexField>"+
-          "<PrecisionOperator>contains</PrecisionOperator>"+
-          "<Value>Graham Greene</Value>"+
-          "</QueryTerm>"+
-          "<QueryTerm>"+
-          "<IndexField>any</IndexField>"+
-          "<PrecisionOperator>exact</PrecisionOperator>"+
-          "<Value>Book</Value>"+
-          "</QueryTerm>"+
-          "</QueryTerms>"+
-          "<StartIndex>1</StartIndex>"+
-          "<BulkSize>5</BulkSize>"+
-          "<DidUMeanEnabled>false</DidUMeanEnabled>"+
-          "</PrimoSearchRequest>", "<institution>NYU</institution>"
+        search_request.add_query_term @title, "title"
+        search_request.add_query_term @author, "creator"
+        search_request.add_query_term @genre, "any", "exact"
+        assert_request_children(search_request, "searchRequest") do |child|
+          if child.children.size > 1
+            assert_nil child.namespace.prefix
+            assert_equal "http://www.exlibris.com/primo/xsd/search/request", child.namespace.href
+            child.children.each do |grand_child|
+              if grand_child.children.size > 1
+                assert_equal 4, grand_child.children.size
+                grand_child.children.each do |great_grand_child|
+                  assert [
+                    "<BoolOpeator>AND</BoolOpeator>",
+                    "<QueryTerm><IndexField>title</IndexField>"+
+                    "<PrecisionOperator>contains</PrecisionOperator>"+
+                    "<Value>Travels with My Aunt</Value></QueryTerm>",
+                    "<QueryTerm><IndexField>creator</IndexField>"+
+                    "<PrecisionOperator>contains</PrecisionOperator>"+
+                    "<Value>Graham Greene</Value></QueryTerm>",
+                    "<QueryTerm><IndexField>any</IndexField>"+
+                    "<PrecisionOperator>exact</PrecisionOperator>"+
+                    "<Value>Book</Value></QueryTerm>"].include? xmlize(great_grand_child)
+                end
+              else
+                assert ["<StartIndex>1</StartIndex>", "<BulkSize>5</BulkSize>", 
+                  "<DidUMeanEnabled>false</DidUMeanEnabled>"].include? xmlize(grand_child)
+              end
+            end
+          else
+            assert_equal "<institution>NYU</institution>", xmlize(child)
+          end
+        end
         VCR.use_cassette('search request title author genre call') do
           search_request.call.records
         end

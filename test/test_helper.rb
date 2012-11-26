@@ -35,8 +35,7 @@ if ! defined? VCR
 end
 
 class Test::Unit::TestCase
-  # Backwards expectation and actual because of ruby 1.8
-  def assert_request(request, expected_root, *expected_args)
+  def assert_request_children(request, expected_root, &block)
     document = Nokogiri::XML(request.to_xml)
     assert_kind_of Nokogiri::XML::Document, document
     children = document.root.children
@@ -48,16 +47,27 @@ class Test::Unit::TestCase
       assert_equal "http://www.exlibris.com/primo/xsd/wsRequest", request_document.namespaces["xmlns"]
       assert_equal "http://www.exlibris.com/primo/xsd/primoview/uicomponents", request_document.namespaces["xmlns:uic"]
       assert_equal expected_root, request_document.root.name
-      assert_equal expected_args.size, request_document.root.children.size
-      request_document.root.children.each do |child|
-        child_xml = child.to_xml(
-          :encoding => 'UTF-8',
-          :indent => 0,
-          :save_with => Nokogiri::XML::Node::SaveOptions::AS_XML | Nokogiri::XML::Node::SaveOptions::NO_DECLARATION).strip
-        assert_equal expected_args.shift, child_xml
+      request_document.root.children.each do |sub_child|
+        yield sub_child
       end
     end
   end
+  protected :assert_request_children
+
+  # Reversed expectation and actual because of ruby 1.8
+  def assert_request(request, expected_root, *expected_args)
+    assert_request_children(request, expected_root) do |child|
+      child_xml = xmlize(child)
+      assert_equal expected_args.shift, child_xml
+    end
+  end
   protected :assert_request
+  
+  def xmlize(element)
+    element.to_xml(
+      :encoding => 'UTF-8',
+      :indent => 0,
+      :save_with => Nokogiri::XML::Node::SaveOptions::AS_XML | Nokogiri::XML::Node::SaveOptions::NO_DECLARATION).strip
+  end
 end
 

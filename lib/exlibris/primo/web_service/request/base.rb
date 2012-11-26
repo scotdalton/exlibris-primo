@@ -11,7 +11,6 @@ module Exlibris
           include MissingResponse
           include Namespaces
           include WriteAttributes
-          include Util
           include XmlUtil
           self.abstract = true
           self.add_base_elements :institution, :ip, :group, 

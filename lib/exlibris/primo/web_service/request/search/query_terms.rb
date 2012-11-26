@@ -2,50 +2,26 @@ module Exlibris
   module Primo
     module WebService
       module QueryTerms
-        def self.included(klass)
-          klass.class_eval do
-            def self.query_terms
-              @query_terms ||= {
-                :isbn => {:precision => "exact"}, 
-                :issn => {:precision => "exact", :index => "isbn"}, 
-                :title => {:precision => "contains"}, 
-                :author => {:precision => "contains", :index => "creator"}, 
-                :genre => {:precision => "exact", :index => "any"}
-              }
-            end
-            attr_accessor *query_terms.keys
-          end
-        end
 
-        def query_terms(bool_operator="AND")
-          # Set a hash of values, indexes and precisions
-          # to pass into the closure.
-          qts = self.class.query_terms.dup
-          qts.each do |qt, config|
-            qts[qt][:value] = send qt
-            qts[qt][:index] = config[:index] ? config[:index] : qt.id2name
-          end
+        def query_terms_xml(bool_operator="AND")
           build_xml do |xml|
             xml.QueryTerms {
               xml.BoolOpeator bool_operator
-              qts.each_value do |qt|
-                xml << query_term(qt[:value], qt[:index], qt[:precision]) unless qt[:value].nil?
+              query_terms.each do |query_term|
+                xml << query_term.to_xml
               end
             }
           end
         end
-        protected :query_terms
+        protected :query_terms_xml
 
-        def query_term(value, index, precision)
-          build_xml do |xml|
-            xml.QueryTerm {
-              xml.IndexField index
-              xml.PrecisionOperator precision
-              xml.Value value
-            }
-          end
+        def query_terms
+          @query_terms ||= []
         end
-        private :query_term
+
+        def add_query_term(value, index, precision="contains")
+          query_terms << QueryTerm.new(:value => value, :index => index, :precision => precision)
+        end
       end
     end
   end
