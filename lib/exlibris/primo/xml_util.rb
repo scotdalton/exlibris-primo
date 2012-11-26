@@ -19,6 +19,9 @@ module Exlibris
         end
       end
 
+      attr_accessor :raw_xml
+      protected :raw_xml
+
       # Returns an XML string and takes any args that are
       # understood by Nokogiri::XML::Builder.
       def build_xml options={}, &block
@@ -30,9 +33,6 @@ module Exlibris
         @xml_options ||= self.class.xml_options
       end
       protected :xml_options
-
-      attr_reader :raw_xml
-      protected :raw_xml
 
       def xml
         @xml ||= Nokogiri::XML(raw_xml)

@@ -1,17 +1,15 @@
 module WebService
   module Response
     require 'test_helper'
-    class BaseTest < Test::Unit::TestCase
+    class FacetsTest < Test::Unit::TestCase
       def setup
         @base_url = "http://bobcatdev.library.nyu.edu"
         @institution = "University"
         @group = "Department"
       end
 
-      def test_base_new
-        assert_raise(NotImplementedError) {
-          request = Exlibris::Primo::WebService::Response::Base.new "", ""
-        }
+      def test_new
+        assert true
       end
     end
   end

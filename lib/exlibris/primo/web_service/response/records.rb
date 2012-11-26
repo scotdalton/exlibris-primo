@@ -4,13 +4,9 @@ module Exlibris
       module Response
         module Records
           def records
-            @records ||= []
-            if @records.empty?
-              xml.search("//pnx:record", response_namespaces).each do |record|
-                @records << Exlibris::Primo::Record.new(:raw_xml => record.to_xml)
-              end
+            @records ||= xml.search("//pnx:record", response_namespaces).collect do |record|
+              Exlibris::Primo::Record.new(:raw_xml => record.to_xml)
             end
-            @records
           end
         end
       end

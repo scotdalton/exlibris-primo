@@ -2,9 +2,9 @@ require 'test_helper'
 class ConfigTest < Test::Unit::TestCase
   def test_config
     Exlibris::Primo.configure do |config|
-      # config.base_url = "test_url"
+      config.base_url = "test_url"
     end
-    # assert_equal "test_url", Exlibris::Primo::Config.base_url
+    assert_equal "test_url", Exlibris::Primo::Config.base_url
   end
 
   def test_config_from_yaml

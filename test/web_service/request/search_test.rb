@@ -32,7 +32,9 @@ module WebService
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
           VCR.use_cassette('search request issn call') do
-            search_request.call
+            search_response = search_request.call
+            search_response.records
+            facets = search_response.facets
           end
       end
 
@@ -152,7 +154,9 @@ module WebService
           end
         end
         VCR.use_cassette('search request title author genre call') do
-          search_request.call.records
+          search_response = search_request.call
+          search_response.records
+          search_response.facets
         end
       end
     end

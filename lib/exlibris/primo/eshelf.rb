@@ -1,15 +1,8 @@
 module Exlibris
   module Primo
-    # == Overview
-    # Exlibris::Primo::EShelf provides access to the Primo Eshelf for a given user.
-    # An instance of Exlibris::Primo::EShelf can be created by passing
-    # in a hash with setup parameters, a user_id and an institution.
-    # Valid setup parameters include:
-    #   :base_url, :resolver_base_url, :vid, :config
-    #
-    # == Examples of usage
-    #   Exlibris::Primo::EShelf.new({ :base_url => "http://primo.institution.edu", :vid => "VID", :resolver_base_url => "http://resolver.institution.edu"} , "USER_ID", "PRIMO").count
-    #   Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute).basket_id
+    # 
+    # 
+    # 
     class EShelf
       include Config::Attributes
       include RequestAttributes
@@ -22,46 +15,73 @@ module Exlibris
         @user_id = user_id
       end
 
-      # Call Web Service to get Eshelf contents and return
+      # 
+      # Call web service to get Eshelf contents and return
+      # 
       def eshelf
         @eshelf ||= Exlibris::Primo::WebService::Request::GetEShelf.new(request_attributes.merge :user_id => user_id).call
       end
 
-      # Call Web Service to get Eshelf structure and return
+      # 
+      # Call web service to get Eshelf structure and return
+      # 
       def eshelfStructure
         @eshelfStructure ||= Exlibris::Primo::WebService::Request::GetEShelfStructure.new(request_attributes.merge :user_id => user_id).call
       end
 
-      # Fetch the number of records in user's Eshelf
+      # 
+      # Get the number of records in user's eshelf
+      # 
       def count
         @count ||= eshelf.count
       end
 
-      # Fetch all records from user's Eshelf as an array of Primo Record objects
+      # 
+      # Get all the records from user's eshelf as an array of Primo Record objects
+      # 
       def records
         @records ||= eshelf.records
       end
 
-      # Fetch default basket id from eshelf structure web service call
+      # 
+      # Get the default basket id from eshelf structure web service call
+      # 
       def basket_id
         @basket_id ||= eshelfStructure.at(
           "//prim:eshelf_folders//prim:eshelf_folder[./prim:folder_name='Basket']", PRIM_NS).
           get_attribute("folder_id") unless eshelfStructure.at("//prim:eshelf_folders//prim:eshelf_folder[./prim:folder_name='Basket']", PRIM_NS).nil?
       end
 
-      # Call Web Service to add records to remote Eshelf
-      def add_records(doc_ids, folder_id)
-        Exlibris::Primo::WebService::AddToEShelf.new(doc_ids, folder_id, @user_id, @institution, @base_url) unless doc_ids.empty?
+      # 
+      # Call web service to add records to eshelf
+      # 
+      def add_records(record_ids, folder_id)
+        record_ids.each do |record_id|
+          add_record record_id, folder_id
+        end
       end
 
-      # Call Web Service to remove records from remote EShelf
-      def remove_records(doc_ids, folder_id)
-        Exlibris::Primo::WebService::RemoveFromEShelf.new(doc_ids, folder_id, @user_id, @institution, @base_url) unless doc_ids.empty?
+      # 
+      # Call web service to add record to eshelf
+      # 
+      def add_record(record_id, folder_id)
+        Exlibris::Primo::WebService::Request::AddToEshelf.new(request_attributes.merge :user_id => user_id, :folder_id => folder_id, :doc_id => record_id).call
       end
 
-      private
-      def raise_required_setup_parameter_error(parameter)
-        raise ArgumentError.new("Error in #{self.class}. Missing required setup parameter: #{parameter}.")
+      # 
+      # Call web service to add records to eshelf
+      # 
+      def remove_records(record_ids, folder_id)
+        record_ids.each do |record_id|
+          remove_record record_id, folder_id
+        end
+      end
+
+      # 
+      # Call web service to remove record from eshelf
+      # 
+      def remove_record(record_id, folder_id)
+        Exlibris::Primo::WebService::Request::RemoveFromEshelf.new(request_attributes.merge :user_id => user_id, :folder_id => folder_id, :doc_id => record_id).call
       end
     end
   end
