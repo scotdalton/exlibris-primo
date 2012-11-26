@@ -11,48 +11,34 @@ module Exlibris
     #   Exlibris::Primo::EShelf.new({ :base_url => "http://primo.institution.edu", :vid => "VID", :resolver_base_url => "http://resolver.institution.edu"} , "USER_ID", "PRIMO").count
     #   Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute).basket_id
     class EShelf
+      include Config::Attributes
+      include WriteAttributes
       
-      #Namespaces
-      SEAR_NS = {'sear' => 'http://www.exlibrisgroup.com/xsd/jaguar/search'}
-      PRIM_NS = {'prim' => 'http://www.exlibris.com/primo/xsd/primoeshelffolder'}
-      PRIM_BIB_NS = {'bib' => 'http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib'}
+      attr_accessor :user_id
       
-      def initialize(setup, user_id, institution)
-        @base_url = setup[:base_url]
-        raise_required_setup_parameter_error :base_url if @base_url.nil?
-        @resolver_base_url = setup[:resolver_base_url]
-        @vid = setup.fetch(:vid, "DEFAULT")
-        raise_required_setup_parameter_error :vid if @vid.nil?
-        @config = setup.fetch(:config, {})
-        raise_required_setup_parameter_error :config if @config.nil?
+      def initialize user_id, *args
+        super
         @user_id = user_id
-        raise_required_setup_parameter_error :user_id if @user_id.nil?
-        @institution = institution
-        raise_required_setup_parameter_error :institution if @institution.nil?
-        @records = []
       end
     
       # Call Web Service to get Eshelf contents and return
       def eshelf
-        @eshelf ||= Exlibris::Primo::WebService::GetEShelf.new(@user_id, @institution, @base_url).response
+        @eshelf ||= Exlibris::Primo::WebService::Request::GetEShelf.new(:user_id => user_id, :base_url =>base_url, :institution => institution).call
       end
       
       # Call Web Service to get Eshelf structure and return
       def eshelfStructure
-        @eshelfStructure ||= Exlibris::Primo::WebService::GetEShelfStructure.new(@user_id, @institution, @base_url).response
+        @eshelfStructure ||= Exlibris::Primo::WebService::Request::GetEShelfStructure.new(:user_id => user_id, :base_url =>base_url, :institution => institution).call
       end
       
       # Fetch the number of records in user's Eshelf
       def count
-        @count ||= Integer(eshelf.at("//sear:DOCSET", SEAR_NS)["TOTALHITS"])
+        @count ||= eshelf.count
       end
     
       # Fetch all records from user's Eshelf as an array of Primo Record objects
       def records    
-        eshelf.search("//sear:DOC", SEAR_NS).each { |doc|
-          @records.push(Record.new({ :base_url => @base_url, :resolver_base_url => @resolver_base_url, :vid => @vid, :record => doc.at("//bib:record", PRIM_BIB_NS), :institution => @institution }))
-        } if @records.empty?
-        return @records
+        @records ||= eshelf.records
       end
       
       # Fetch default basket id from eshelf structure web service call

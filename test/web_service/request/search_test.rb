@@ -17,7 +17,7 @@ module WebService
       end
 
       def test_request_search_issn
-          search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
+          search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
           search_request.institution = @institution
           search_request.add_query_term @issn, "isbn", "exact"
           assert_request search_request, "searchRequest",
@@ -37,7 +37,7 @@ module WebService
       end
 
       def test_request_search_isbn
-          search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
+          search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
           search_request.institution = @institution
           search_request.add_query_term @isbn, "isbn", "exact"
           assert_request search_request, "searchRequest",
@@ -57,7 +57,7 @@ module WebService
       end
 
       def test_request_search_title
-          search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
+          search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
           search_request.institution = @institution
           search_request.add_query_term @title, "title"
           assert_request search_request, "searchRequest",
@@ -77,7 +77,7 @@ module WebService
       end
 
       def test_request_search_author
-          search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
+          search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
           search_request.institution = @institution
           search_request.add_query_term @author, "creator"
           assert_request search_request, "searchRequest",
@@ -97,7 +97,7 @@ module WebService
       end
 
       def test_request_search_genre
-          search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
+          search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
           search_request.institution = @institution
           search_request.add_query_term @genre, "any", "exact"
           assert_request search_request, "searchRequest",
@@ -117,7 +117,7 @@ module WebService
       end
 
       def test_request_search_title_author_genre
-        search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
+        search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
         search_request.institution = @institution
         search_request.add_query_term @title, "title"
         search_request.add_query_term @author, "creator"

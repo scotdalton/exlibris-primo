@@ -9,14 +9,14 @@ class RemoteRecordTest < Test::Unit::TestCase
 
   def test_remote_record
     VCR.use_cassette('remote record call') do
-      remote_record = Exlibris::Primo::RemoteRecord.new @base_url, @doc_id, {:institution => @institution}
+      remote_record = Exlibris::Primo::RemoteRecord.new @doc_id, {:base_url => @base_url, :institution => @institution}
       assert_equal "nyu_aleph000062856", remote_record.recordid
     end
   end
 
   def test_remote_record
     VCR.use_cassette('remote record dedupmgr') do
-      remote_record = Exlibris::Primo::RemoteRecord.new @base_url, @dedupmgr_id, {:institution => @institution}
+      remote_record = Exlibris::Primo::RemoteRecord.new @dedupmgr_id, {:base_url => @base_url, :institution => @institution}
       assert_equal "dedupmrg17343091", remote_record.recordid
     end
   end

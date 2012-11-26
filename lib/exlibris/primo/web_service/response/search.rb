@@ -7,14 +7,9 @@ module Exlibris
         # 
         # 
         class Search < Base
-          include Records
           include Facets
-          attr_reader :hits
-
-          def initialize *args
-            super
-            @hits = xml.at("//search:DOCSET", response_namespaces)["TOTALHITS"]
-          end
+          include Hits
+          include Records
         end
 
         # 

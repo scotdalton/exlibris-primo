@@ -10,11 +10,11 @@ module WebService
 
       def test_class_client
         assert_kind_of Exlibris::Primo::WebService::Client::Search, 
-          Exlibris::Primo::WebService::Request::FullView.new(@base_url).send(:client)
+          Exlibris::Primo::WebService::Request::FullView.new(:base_url => @base_url).send(:client)
       end
 
       def test_request_record
-        full_view_request = Exlibris::Primo::WebService::Request::FullView.new @base_url
+        full_view_request = Exlibris::Primo::WebService::Request::FullView.new :base_url => @base_url
         full_view_request.institution = @institution
         full_view_request.doc_id = @doc_id
         assert_request full_view_request, "fullViewRequest",

@@ -22,7 +22,10 @@ module Exlibris
         # 
         # 
         # 
-        class GetEshelf < Eshelf; end
+        class GetEshelf < Eshelf;
+          include Hits
+          include Records
+        end
 
         # 
         # 

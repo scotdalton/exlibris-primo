@@ -10,12 +10,12 @@ module WebService
   
       def test_base_instantiation
         assert_raise(NotImplementedError) {
-          request = Exlibris::Primo::WebService::Request::Base.new @base_url
+          request = Exlibris::Primo::WebService::Request::Base.new :base_url => @base_url
         }
       end
 
       def test_request_build_xml
-          search_request = Exlibris::Primo::WebService::Request::Search.new @base_url
+          search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
           inner_element = search_request.send :build_xml do |xml|
             xml.inner "value"
           end

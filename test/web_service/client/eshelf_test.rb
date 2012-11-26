@@ -11,7 +11,7 @@ module WebService
 
       def test_eshelf
         VCR.use_cassette('web service get eshelf request') do
-          eshelf = Exlibris::Primo::WebService::Client::Eshelf.new @base_url
+          eshelf = Exlibris::Primo::WebService::Client::Eshelf.new :base_url => @base_url
           response = eshelf.get_eshelf "<request><![CDATA[<getEshelfRequest xmlns=\"http://www.exlibris.com/primo/xsd/wsRequest\" xmlns:uic=\"http://www.exlibris.com/primo/xsd/primoview/uicomponents\"><institution>NYU</institution><userId>N12162279</userId></getEshelfRequest>]]></request>"
         end
       end
