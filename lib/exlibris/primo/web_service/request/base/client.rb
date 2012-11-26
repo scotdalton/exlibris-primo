@@ -30,7 +30,7 @@ module Exlibris
           end
           
           def client
-            @client ||= client_klass.new base_url
+            @client ||= client_klass.new :base_url => base_url
           end
           
           def client_klass

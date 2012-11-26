@@ -25,8 +25,8 @@ module Exlibris
     class RemoteRecord
       include MissingResponse
 
-      def initialize base_url, doc_id, attributes
-        @record = Exlibris::Primo::WebService::Request::FullView.new(base_url, attributes.merge(:doc_id => doc_id)).call.record
+      def initialize record_id, attributes
+        @record = Exlibris::Primo::WebService::Request::FullView.new(attributes.merge(:doc_id => record_id)).call.record
       end
 
       def method_missing(method, *args, &block)

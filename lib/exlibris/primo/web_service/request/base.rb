@@ -8,6 +8,7 @@ module Exlibris
           include BaseElements
           include Client
           include Call
+          include Config::Attributes
           include MissingResponse
           include Namespaces
           include WriteAttributes
@@ -17,12 +18,11 @@ module Exlibris
             :on_campus, :is_logged_in, :pds_handle
 
           DEFAULT_WRAPPER = :request
-          attr_reader :root, :namespaces, :wrapper, :base_url
-          protected :root, :namespaces, :wrapper, :base_url
+          attr_reader :root, :namespaces, :wrapper
+          protected :root, :namespaces, :wrapper
 
-          def initialize base_url, attributes={}
+          def initialize *args
             super
-            @base_url = base_url
             @root = "#{self.class.name.demodulize}Request".camelize(:lower).to_sym
             @namespaces = request_namespaces
             @wrapper = DEFAULT_WRAPPER.id2name.camelize(:lower).to_sym
