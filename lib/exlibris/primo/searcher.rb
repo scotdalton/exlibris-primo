@@ -5,6 +5,7 @@ module Exlibris
     #
     class Searcher
       include Config::Attributes
+      include RequestAttributes
       include WriteAttributes
       attr_reader :record_id, :isbn, :title, :author
 
@@ -71,11 +72,6 @@ module Exlibris
         @full_view_request ||= Exlibris::Primo::WebService::Request::SearchView.new request_attributes
       end
       private :search_request
-
-      def request_attributes
-        @request_attributes || {:base_url =>base_url, :institution => institution, :vid => vid}
-      end
-      private :request_attributes
 
       def request
         (record_id) ? full_view_request : search_request

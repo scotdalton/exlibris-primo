@@ -12,42 +12,43 @@ module Exlibris
     #   Exlibris::Primo::EShelf.new(@eshelf_setup, @valid_user_id, @valid_institute).basket_id
     class EShelf
       include Config::Attributes
+      include RequestAttributes
       include WriteAttributes
-      
+
       attr_accessor :user_id
-      
+
       def initialize user_id, *args
         super
         @user_id = user_id
       end
-    
+
       # Call Web Service to get Eshelf contents and return
       def eshelf
-        @eshelf ||= Exlibris::Primo::WebService::Request::GetEShelf.new(:user_id => user_id, :base_url =>base_url, :institution => institution).call
+        @eshelf ||= Exlibris::Primo::WebService::Request::GetEShelf.new(request_attributes.merge :user_id => user_id).call
       end
-      
+
       # Call Web Service to get Eshelf structure and return
       def eshelfStructure
-        @eshelfStructure ||= Exlibris::Primo::WebService::Request::GetEShelfStructure.new(:user_id => user_id, :base_url =>base_url, :institution => institution).call
+        @eshelfStructure ||= Exlibris::Primo::WebService::Request::GetEShelfStructure.new(request_attributes.merge :user_id => user_id).call
       end
-      
+
       # Fetch the number of records in user's Eshelf
       def count
         @count ||= eshelf.count
       end
-    
+
       # Fetch all records from user's Eshelf as an array of Primo Record objects
-      def records    
+      def records
         @records ||= eshelf.records
       end
-      
+
       # Fetch default basket id from eshelf structure web service call
       def basket_id
         @basket_id ||= eshelfStructure.at(
           "//prim:eshelf_folders//prim:eshelf_folder[./prim:folder_name='Basket']", PRIM_NS).
           get_attribute("folder_id") unless eshelfStructure.at("//prim:eshelf_folders//prim:eshelf_folder[./prim:folder_name='Basket']", PRIM_NS).nil?
       end
-      
+
       # Call Web Service to add records to remote Eshelf
       def add_records(doc_ids, folder_id)
         Exlibris::Primo::WebService::AddToEShelf.new(doc_ids, folder_id, @user_id, @institution, @base_url) unless doc_ids.empty?
@@ -57,7 +58,7 @@ module Exlibris
       def remove_records(doc_ids, folder_id)
         Exlibris::Primo::WebService::RemoveFromEShelf.new(doc_ids, folder_id, @user_id, @institution, @base_url) unless doc_ids.empty?
       end
-      
+
       private
       def raise_required_setup_parameter_error(parameter)
         raise ArgumentError.new("Error in #{self.class}. Missing required setup parameter: #{parameter}.")
