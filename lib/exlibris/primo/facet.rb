@@ -1,5 +1,8 @@
 module Exlibris
   module Primo
+    # 
+    # 
+    # 
     class Facet
       include Config::Attributes
       include MissingResponse
@@ -10,9 +13,6 @@ module Exlibris
       attr_accessor :accurate
       alias accurate? accurate
 
-      #
-      #
-      #
       def initialize *args
         @raw_xml = args.last.delete(:raw_xml)
         super

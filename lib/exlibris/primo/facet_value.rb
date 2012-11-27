@@ -1,5 +1,8 @@
 module Exlibris
   module Primo
+    #
+    #
+    #
     class FacetValue
       include Config::Attributes
       include MissingResponse
@@ -7,9 +10,6 @@ module Exlibris
       include WriteAttributes
       include XmlUtil
 
-      #
-      #
-      #
       def initialize *args
         @raw_xml = args.last.delete(:raw_xml)
         super

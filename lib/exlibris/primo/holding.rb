@@ -1,11 +1,14 @@
 module Exlibris
   module Primo
+    #
+    #
+    #
     class Holding
+      include Config::Attributes
       include WriteAttributes
 
       def self.defaults
-        @defaults ||= { :vid => "DEFAULT", :institution_code => "PRIMO",
-          :coverage => [], :source_data => {} }
+        @defaults ||= { :coverage => [], :source_data => {} }
       end
 
       attr_accessor :vid, :institution, :record_id, :original_id,
@@ -36,11 +39,8 @@ module Exlibris
       end
       alias availability availability_status
 
-      #
-      #
-      #
       def url
-        @url ||= "/primo_library/libweb/action/dlDisplay.do?dym=false&onCampus=false&docId=#{record_id}&institution=#{institution_code}&vid=#{vid}"
+        @url ||= "#{base_url}/primo_library/libweb/action/dlDisplay.do?dym=false&onCampus=false&docId=#{record_id}&institution=#{institution_code}&vid=#{vid}"
       end
 
       # Return this holding as a new holdings subclass instance based on source

@@ -1,5 +1,8 @@
 module Exlibris
   module Primo
+    # 
+    # 
+    # 
     class RemoteRecord
       include MissingResponse
 
