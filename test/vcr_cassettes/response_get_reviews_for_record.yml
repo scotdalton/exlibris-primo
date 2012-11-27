@@ -22,7 +22,7 @@ http_interactions:
         Transfer-Encoding: 
           - chunked
         Date: 
-          - Tue, 27 Nov 2012 17:56:29 GMT
+          - Tue, 27 Nov 2012 18:45:54 GMT
       body: 
         string: |
           <?xml version="1.0" encoding="UTF-8"?>
@@ -461,19 +461,19 @@ http_interactions:
           </wsdl:definitions>
 
       http_version: 
-    recorded_at: Tue, 27 Nov 2012 17:56:30 GMT
+    recorded_at: Tue, 27 Nov 2012 18:45:55 GMT
   - request: 
       method: post
       uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/reviews
       body: 
-        string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:impl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/reviews" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/reviews" xmlns:ins1="http://xml.apache.org/xml-soap"><env:Body><impl:getReviews><request><![CDATA[<getReviewsRequest xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><institution>NYU</institution><docId>nyu_aleph000062856</docId><userId>N12162279</userId></getReviewsRequest>]]></request></impl:getReviews></env:Body></env:Envelope>
+        string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:impl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/reviews" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/reviews" xmlns:ins1="http://xml.apache.org/xml-soap"><env:Body><impl:getReviewsForRecord><request><![CDATA[<getReviewsForRecordRequest xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><institution>YAML_INSTITUTION</institution></getReviewsForRecordRequest>]]></request></impl:getReviewsForRecord></env:Body></env:Envelope>
       headers: 
         Soapaction: 
-          - "\"getReviews\""
+          - "\"getReviewsForRecord\""
         Content-Type: 
           - text/xml;charset=UTF-8
         Content-Length: 
-          - "760"
+          - "750"
         Accept: 
           - "*/*"
     response: 
@@ -490,22 +490,12 @@ http_interactions:
         Transfer-Encoding: 
           - chunked
         Date: 
-          - Tue, 27 Nov 2012 17:56:29 GMT
+          - Tue, 27 Nov 2012 18:45:55 GMT
       body: 
         string: |-
-          <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><ns1:getReviewsResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/reviews"><getReviewsReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;TagsAndReviews xmlns=&quot;http://com/exlibris/primo/xsd/tagsAndReview/config&quot;&gt;
-            &lt;Reviews&gt;
-              &lt;Review&gt;
-                &lt;value&gt;Test review&lt;/value&gt;
-                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
-                &lt;userId/&gt;
-                &lt;status&gt;2&lt;/status&gt;
-                &lt;rating&gt;1&lt;/rating&gt;
-                &lt;userDisplayName/&gt;
-                &lt;allowUserName&gt;false&lt;/allowUserName&gt;
-              &lt;/Review&gt;
-            &lt;/Reviews&gt;
-          &lt;/TagsAndReviews&gt;</getReviewsReturn></ns1:getReviewsResponse></soapenv:Body></soapenv:Envelope>
+          <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><ns1:getReviewsForRecordResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/reviews"><getReviewsForRecordReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;TagsAndReviews xmlns=&quot;http://com/exlibris/primo/xsd/tagsAndReview/config&quot;&gt;
+            &lt;ERROR CODE=&quot;-2&quot; MESSAGE=&quot;One of the parameters is missing&quot;/&gt;
+          &lt;/TagsAndReviews&gt;</getReviewsForRecordReturn></ns1:getReviewsForRecordResponse></soapenv:Body></soapenv:Envelope>
       http_version: 
-    recorded_at: Tue, 27 Nov 2012 17:56:30 GMT
+    recorded_at: Tue, 27 Nov 2012 18:45:55 GMT
 recorded_with: VCR 2.3.0

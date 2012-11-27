@@ -19,7 +19,7 @@ module WebService
       end
 
       def test_eshelf_base_elements
-        assert_equal :eshelf_structure,
+        assert_equal :get_eshelf_structure,
           Exlibris::Primo::WebService::Request::EshelfStructure.action
         assert_equal :add_folder_to_eshelf,
           Exlibris::Primo::WebService::Request::AddFolderToEshelf.action

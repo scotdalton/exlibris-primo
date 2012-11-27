@@ -14,7 +14,6 @@ module Exlibris
         # is therefore not supported for the time being.
         # 
         class EshelfStructure < Eshelf
-          self.abstract = true
         end
 
         # 

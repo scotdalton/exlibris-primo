@@ -18,8 +18,8 @@ module Exlibris
         # is therefore not supported for the time being.
         # 
         class EshelfStructure < Eshelf
-          self.abstract = true
           self.add_base_elements :include_basket_items
+          self.action = :get_eshelf_structure
         end
 
         # 
