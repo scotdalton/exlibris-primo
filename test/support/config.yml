@@ -1,3 +1,5 @@
+base_url: "yaml_url"
+institution: "YAML_INSTITUTION"
 libraries:
   "LIB_CODE1": "Library Decoded 1"
   "LIB_CODE2": "Library Decoded 2"

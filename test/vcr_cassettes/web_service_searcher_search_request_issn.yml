@@ -22,7 +22,7 @@ http_interactions:
         Transfer-Encoding: 
           - chunked
         Date: 
-          - Tue, 27 Nov 2012 17:17:50 GMT
+          - Tue, 27 Nov 2012 17:56:30 GMT
       body: 
         string: |
           <?xml version="1.0" encoding="UTF-8"?>
@@ -343,7 +343,7 @@ http_interactions:
           </wsdl:definitions>
 
       http_version: 
-    recorded_at: Tue, 27 Nov 2012 17:17:51 GMT
+    recorded_at: Tue, 27 Nov 2012 17:56:30 GMT
   - request: 
       method: post
       uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher
@@ -372,7 +372,7 @@ http_interactions:
         Transfer-Encoding: 
           - chunked
         Date: 
-          - Tue, 27 Nov 2012 17:17:50 GMT
+          - Tue, 27 Nov 2012 17:56:30 GMT
       body: 
         string: |-
           <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><ns1:searchBriefResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher"><searchBriefReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;SEGMENTS xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;
@@ -584,7 +584,7 @@ http_interactions:
                         &lt;/addata&gt;
                       &lt;/record&gt;
                     &lt;/PrimoNMBib&gt;
-                    &lt;GETIT deliveryCategory=&quot;Online Resource&quot; GetIt1=&quot;https://ezproxy.library.nyu.edu/login?url=http://www.sciencedirect.com/science/journal/00905720&quot; GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2012-11-27T12%3A17%3A51IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph002736245&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=journal&amp;amp;rft.jtitle=The%20Journal%20of%20behavioral%20economics.&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.aufirst=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=Center%20for%20Business%20and%20Economic%20Research%2C%20Western%20Illinois%20University]&amp;amp;rft.place=Macomb&amp;amp;rft.issn=0090-5720&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph002736245&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;002736245&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;
+                    &lt;GETIT deliveryCategory=&quot;Online Resource&quot; GetIt1=&quot;https://ezproxy.library.nyu.edu/login?url=http://www.sciencedirect.com/science/journal/00905720&quot; GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2012-11-27T12%3A56%3A30IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph002736245&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=journal&amp;amp;rft.jtitle=The%20Journal%20of%20behavioral%20economics.&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.aufirst=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=Center%20for%20Business%20and%20Economic%20Research%2C%20Western%20Illinois%20University]&amp;amp;rft.place=Macomb&amp;amp;rft.issn=0090-5720&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph002736245&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;002736245&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;
                     &lt;GETIT deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002736245&quot; GetIt2=&quot;&quot;/&gt;
                     &lt;LIBRARIES&gt;
                       &lt;LIBRARY&gt;
@@ -607,11 +607,11 @@ http_interactions:
                       &lt;/LIBRARY&gt;
                     &lt;/LIBRARIES&gt;
                     &lt;LINKS&gt;
-                      &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?umlaut.institution=NYUAD&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T12%3A17%3A51IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph002736245&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=The%20Journal%20of%20behavioral%20economics.&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Center%20for%20Business%20and%20Economic%20Research%2C%20Western%20Illinois%20University]&amp;rft.place=Macomb&amp;rft.issn=0090-5720&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph002736245&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;002736245&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;
+                      &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?umlaut.institution=NYUAD&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T12%3A56%3A30IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph002736245&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=The%20Journal%20of%20behavioral%20economics.&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Center%20for%20Business%20and%20Economic%20Research%2C%20Western%20Illinois%20University]&amp;rft.place=Macomb&amp;rft.issn=0090-5720&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph002736245&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;002736245&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;
                       &lt;backlink&gt;http://alephstage.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002736245&lt;/backlink&gt;
                       &lt;linktorsrc&gt;https://ezproxy.library.nyu.edu/login?url=http://www.sciencedirect.com/science/journal/00905720&lt;/linktorsrc&gt;
                       &lt;thumbnail/&gt;
-                      &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?umlaut.institution=NYUAD&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T12%3A17%3A51IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph002736245&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=The%20Journal%20of%20behavioral%20economics.&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Center%20for%20Business%20and%20Economic%20Research%2C%20Western%20Illinois%20University]&amp;rft.place=Macomb&amp;rft.issn=0090-5720&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;002736245&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;
+                      &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?umlaut.institution=NYUAD&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T12%3A56%3A30IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph002736245&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=The%20Journal%20of%20behavioral%20economics.&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Center%20for%20Business%20and%20Economic%20Research%2C%20Western%20Illinois%20University]&amp;rft.place=Macomb&amp;rft.issn=0090-5720&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;002736245&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;
                       &lt;linktoholdings&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=002736245&lt;/linktoholdings&gt;
                       &lt;linktoreview&gt;https://library.nyu.edu/persistent/lcn/nyu_aleph002736245?institution=NYU&amp;amp;persistent&lt;/linktoreview&gt;
                     &lt;/LINKS&gt;
@@ -622,5 +622,5 @@ http_interactions:
             &lt;/JAGROOT&gt;
           &lt;/SEGMENTS&gt;</searchBriefReturn></ns1:searchBriefResponse></soapenv:Body></soapenv:Envelope>
       http_version: 
-    recorded_at: Tue, 27 Nov 2012 17:17:51 GMT
+    recorded_at: Tue, 27 Nov 2012 17:56:30 GMT
 recorded_with: VCR 2.3.0
