@@ -21,7 +21,6 @@ module Exlibris
             "xmlns" => "http://www.exlibris.com/primo/xsd/wsRequest",
             "xmlns:uic" => "http://www.exlibris.com/primo/xsd/primoview/uicomponents"
           }
-
         end
       end
 

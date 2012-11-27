@@ -26,6 +26,28 @@ module WebService
         assert_equal :eshelf, Exlibris::Primo::WebService::Request::RemoveFromEshelf.client
         assert_equal :eshelf, Exlibris::Primo::WebService::Request::GetEshelf.client
       end
+
+      def test_search_client
+        assert_equal :search, Exlibris::Primo::WebService::Request::Search.client
+        assert_equal :search, Exlibris::Primo::WebService::Request::FullView.client
+      end
+      
+      def test_reviews_client
+        assert_equal :reviews, Exlibris::Primo::WebService::Request::GetReviews.client
+        assert_equal :reviews, Exlibris::Primo::WebService::Request::GetAllMyReviews.client
+        assert_equal :reviews, Exlibris::Primo::WebService::Request::GetReviewsForRecord.client
+        assert_equal :reviews, Exlibris::Primo::WebService::Request::GetReviewsByRating.client
+        assert_equal :reviews, Exlibris::Primo::WebService::Request::AddReview.client
+        assert_equal :reviews, Exlibris::Primo::WebService::Request::RemoveReview.client
+      end
+
+      def test_tags_client
+        assert_equal :tags, Exlibris::Primo::WebService::Request::GetTags.client
+        assert_equal :tags, Exlibris::Primo::WebService::Request::GetAllMyTags.client
+        assert_equal :tags, Exlibris::Primo::WebService::Request::GetTagsForRecord.client
+        assert_equal :tags, Exlibris::Primo::WebService::Request::RemoveTag.client
+        assert_equal :tags, Exlibris::Primo::WebService::Request::RemoveUserTags.client
+      end
     end
   end
 end
