@@ -31,14 +31,14 @@ module WebService
           # The eshelf structure action is not specified in Primo's WSDL and 
           # is therefore not supported for the time being.
           # 
-          # VCR.use_cassette('response eshelf structure') {
-          #   Exlibris::Primo::WebService::Response::EshelfStructure.new(
-          #     Exlibris::Primo::WebService::Client::Eshelf.new(:base_url => @base_url).get_eshelf_structure(
-          #       Exlibris::Primo::WebService::Request::EshelfStructure.new(:user_id => @user_id, 
-          #         :institution => @institution).to_xml), 
-          #     :eshelf_structure
-          #   )
-          # }
+          VCR.use_cassette('response get eshelf structure') {
+            Exlibris::Primo::WebService::Response::GetEshelfStructure.new(
+              Exlibris::Primo::WebService::Client::EshelfStructure.new(:base_url => @base_url).get_eshelf_structure(
+                Exlibris::Primo::WebService::Request::GetEshelfStructure.new(:user_id => @user_id, 
+                  :institution => @institution).to_xml), 
+              :get_eshelf_structure
+            )
+          }
           VCR.use_cassette('response add folder to eshelf') {
             request = Exlibris::Primo::WebService::Request::AddFolderToEshelf.new
             Exlibris::Primo::WebService::Response::AddFolderToEshelf.new(

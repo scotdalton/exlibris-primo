@@ -15,6 +15,9 @@ module Exlibris
                 (self.superclass.respond_to? :client) ?
                   self.superclass.client : nil
             end
+            
+            attr_writer :client
+            protected :client=
 
             # Returns whether this class has a client symbol
             def has_client?

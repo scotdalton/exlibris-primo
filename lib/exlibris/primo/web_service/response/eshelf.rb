@@ -10,11 +10,9 @@ module Exlibris
         end
 
         # 
-        # The eshelf structure action is not specified in Primo's WSDL and 
-        # is therefore not supported for the time being.
         # 
-        class EshelfStructure < Eshelf
-        end
+        # 
+        class GetEshelfStructure < Eshelf; end
 
         # 
         # 

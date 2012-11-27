@@ -5,9 +5,12 @@ module Exlibris
         # 
         # 
         # 
-        class Eshelf < Base
-          self.add_magic_actions :get_eshelf_structure
-        end
+        class Eshelf < Base; end
+
+        # 
+        # 
+        # 
+        class EshelfStructure < Base; end
       end
     end
   end

@@ -2,25 +2,36 @@ module Exlibris
   module Primo
     module WebService
       module Request
+        # 
+        # 
+        # 
         class Eshelf < User
           self.add_base_elements :folder_id
           self.abstract = true
           self.has_client
         end
 
+        # 
+        # 
+        # 
         class EshelfRecord < Eshelf
           self.add_base_elements :doc_id
           self.abstract = true
         end
 
         # 
-        # The eshelf structure action is not specified in Primo's WSDL and 
-        # is therefore not supported for the time being.
+        # 
         # 
         class EshelfStructure < Eshelf
           self.add_base_elements :include_basket_items
-          self.action = :get_eshelf_structure
+          self.has_client
+          self.abstract = true
         end
+
+        # 
+        # 
+        # 
+        class GetEshelfStructure < EshelfStructure; end
 
         # 
         # 

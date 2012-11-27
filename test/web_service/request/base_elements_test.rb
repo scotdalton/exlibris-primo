@@ -35,7 +35,7 @@ module WebService
         assert_equal [:institution, :ip, :group, :on_campus, :is_logged_in, :pds_handle, :user_id, :folder_id, :doc_id],
           Exlibris::Primo::WebService::Request::EshelfRecord.base_elements
         assert_equal [:institution, :ip, :group, :on_campus, :is_logged_in, :pds_handle, :user_id, :folder_id, :include_basket_items],
-          Exlibris::Primo::WebService::Request::EshelfStructure.base_elements
+          Exlibris::Primo::WebService::Request::GetEshelfStructure.base_elements
         assert_equal [:institution, :ip, :group, :on_campus, :is_logged_in, :pds_handle, :user_id, :folder_name, :parent_folder],
           Exlibris::Primo::WebService::Request::AddFolderToEshelf.base_elements
         assert_equal [:institution, :ip, :group, :on_campus, :is_logged_in, :pds_handle, :user_id, :folder_id, :get_delivery],
@@ -52,7 +52,7 @@ module WebService
         # is therefore not supported for the time being.
         # 
         # assert_equal [:institution, :ip, :group, :on_campus, :is_logged_in, :pds_handle, :user_id, :folder_id, :include_basket_items],
-        #   Exlibris::Primo::WebService::Request::EshelfStructure.base_elements
+        #   Exlibris::Primo::WebService::Request::GetEshelfStructure.base_elements
         assert_nothing_raised {
           request = Exlibris::Primo::WebService::Request::AddFolderToEshelf.new(
             :institution => @institution, 
