@@ -32,7 +32,7 @@ module Exlibris
         # 
         # 
         # 
-        class GetUserTags < Tags; end
+        class RemoveUserTags < Tags; end
       end
     end
   end

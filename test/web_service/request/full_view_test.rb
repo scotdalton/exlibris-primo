@@ -26,7 +26,7 @@ module WebService
           "</PrimoSearchRequest>", "<institution>NYU</institution>",
           "<docId>nyu_aleph000062856</docId>"
         VCR.use_cassette('full view request call') do
-          full_view_request.call
+          full_view_request.call.record.frbr?
         end
       end
     end

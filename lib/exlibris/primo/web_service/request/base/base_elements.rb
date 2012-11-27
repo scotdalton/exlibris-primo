@@ -11,7 +11,7 @@ module Exlibris
 
           module Config
             def base_elements
-              @base_elements ||= self.superclass.respond_to?(:base_elements) ? 
+              @base_elements ||= self.superclass.respond_to?(:base_elements) ?
                 self.superclass.base_elements.dup : []
             end
 
@@ -29,17 +29,19 @@ module Exlibris
           end
 
           def base_elements
-            base_elements = ""
-            self.class.base_elements.each do |opt|
+            @base_element ||= self.class.base_elements
+          end
+
+          def base_elements_xml
+            (base_elements.collect { |opt|
               value = send(opt)
               name = opt.id2name.camelize(:lower)
-              base_elements << build_xml do |xml|
+              build_xml do |xml|
                 xml.send(name, value) unless value.nil?
               end
-            end
-            base_elements
+            }).join
           end
-          protected :base_elements
+          protected :base_elements_xml
 
           #
           # Dynamically sets attr_accessors for base_elements
@@ -57,7 +59,7 @@ module Exlibris
           # Tell users that we respond to base elements accessors.
           #
           def respond_to?(method, include_private = false)
-            (self.class.base_elements.include?(attributize(method)) || super) ? true : false
+            (base_elements.include?(attributize method)) ? true : super
           end
 
           def attributize symbol

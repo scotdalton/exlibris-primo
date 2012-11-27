@@ -10,21 +10,25 @@ module Exlibris
         end
 
         # 
+        # The eshelf structure action is not specified in Primo's WSDL and 
+        # is therefore not supported for the time being.
         # 
-        # 
-        class EshelfStructure < Eshelf; end
+        class EshelfStructure < Eshelf
+          self.abstract = true
+        end
 
         # 
         # 
         # 
-        class AddFoldertoEshelf < Eshelf; end
+        class AddFolderToEshelf < Eshelf; end
 
         # 
         # 
         # 
         class GetEshelf < Eshelf;
-          include Hits
+          include DidUMean
           include Records
+          include SearchStats
         end
 
         # 

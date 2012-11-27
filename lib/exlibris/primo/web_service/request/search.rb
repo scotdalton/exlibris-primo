@@ -8,6 +8,7 @@ module Exlibris
         class Search < Base
           self.has_client
           self.action = :search_brief
+          include Locations
           include QueryTerms
           include SearchElements
 

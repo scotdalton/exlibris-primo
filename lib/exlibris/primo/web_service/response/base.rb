@@ -5,6 +5,7 @@ module Exlibris
         class Base
           include Abstract
           include Namespaces
+          include Request::Action
           include Util
           include XmlUtil
           self.abstract = true

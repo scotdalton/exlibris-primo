@@ -18,13 +18,6 @@ module Exlibris
         # 
         # 
         # 
-        class RemoveTag < Tags
-          self.add_base_elements :value
-        end
-
-        # 
-        # 
-        # 
         class GetAllMyTags < Tags
           self.remove_base_elements :doc_id
         end
@@ -39,8 +32,8 @@ module Exlibris
         # 
         # 
         # 
-        class GetUserTags < Tags
-          self.remove_base_elements :doc_id
+        class RemoveTag < Tags
+          self.add_base_elements :value
         end
 
         # 

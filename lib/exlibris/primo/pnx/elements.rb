@@ -24,15 +24,15 @@ module Exlibris
         end
 
         def attr_read method
-          (inner_text_at(xpathize(method)) || inner_text_at(controlize(method)))
+          (inner_text(xpathize(method)) || inner_text(controlize(method)))
         end
         private :attr_read
 
-        def inner_text_at xpath
-          xml_at = xml.root.at(xpath)
-          return xml_at.inner_text unless xml_at.nil?
+        def inner_text xpath
+          xml_at = xml.root.at_xpath(xpath)
+          xml_at.inner_text if xml_at
         end
-        private :inner_text_at
+        private :inner_text
 
         def controlize s
           "control/#{xpathize s.to_s}"

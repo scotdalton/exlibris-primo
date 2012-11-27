@@ -5,7 +5,6 @@ module Exlibris
     # 
     class Facet
       include Config::Attributes
-      include MissingResponse
       include Namespaces
       include WriteAttributes
       include XmlUtil

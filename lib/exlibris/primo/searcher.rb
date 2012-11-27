@@ -26,8 +26,12 @@ module Exlibris
         @count ||= search.count
       end
 
+      def did_u_mean
+        @did_u_mean ||= search.did_u_mean
+      end
+
       def add_query_term *args
-        search_request.add_query_terms *args
+        search_request.add_query_term *args
       end
 
       def record_id= record_id

@@ -13,7 +13,7 @@ and exposes the set of holdings, fulltext links, table of contents links, and re
 Searcher can search by a query
 
     searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
-      :vid => "VID", :institution => "INSTITUTION")
+      :institution => "INSTITUTION")
     searcher.add_query_term "0143039008", "isbn", "exact"
     count searcher.count
     facets = searcher.facets
@@ -28,7 +28,7 @@ Searcher can search by a query
 Or by a given record id
 
     searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
-      :vid => "VID", :institution => "INSTITUTION")
+      :institution => "INSTITUTION")
     searcher.record_id= "aleph0123456789"
     count = searcher.count
     facets = searcher.facets
@@ -43,7 +43,7 @@ Or by a given record id
 Searcher has some convenience methods for setting search params
 
     searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
-      :vid => "VID", :institution => "INSTITUTION")
+      :institution => "INSTITUTION")
     searcher.isbn = "0143039008" # Equivalent to searcher.add_query_term "0143039008", "isbn", "exact"
     searcher.title = "Travels with My Aunt" # Equivalent to searcher.add_query_term "Travels with My Aunt", "title", "exact"
     searcher.author = "Graham Greene" # Equivalent to searcher.add_query_term "Graham Greene", "creator", "exact"
@@ -51,11 +51,11 @@ Searcher has some convenience methods for setting search params
 Searcher also takes search elements in the initial hash
 
     searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
-      :vid => "VID", :institution => "INSTITUTION", :isbn = "0143039008")
+      :institution => "INSTITUTION", :isbn = "0143039008")
 Or  
 
     searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
-      :vid => "VID", :institution => "INSTITUTION", :record_id = "aleph0123456789")
+      :institution => "INSTITUTION", :record_id = "aleph0123456789")
 
     
 ## Exlibris::Primo::Record
@@ -63,7 +63,7 @@ Exlibris::Primo::Record is an object representation of a Primo record.
 
 ### Example of Exlibris::Primo::Record in action
     searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
-      :vid => "VID", :institution => "INSTITUTION")
+      :institution => "INSTITUTION")
     searcher.record_id= "aleph0123456789"
     count = searcher.count
     facets = searcher.facets
@@ -91,7 +91,6 @@ Exlibris::Primo::Config allows you to specify global configuration parameter for
 
     Exlibris::Primo.configure do |config|
       config.base_url = "http://primo.institution.edu"
-      config.vid = "VID"
       config.institution = "INSTITUTION"
       config.libraries = { "LIB_CODE1" => "Library Decoded 1", "LIB_CODE2" => "Library Decoded 2",
         "LIB_CODE3" => "Library Decoded 3" }
@@ -108,7 +107,7 @@ The Exlibris::Primo::EShelf class provides methods for reading a given user's Pr
 
 ## Example of Exlibris::Primo::EShelf in action
     eshelf = Exlibris::Primo::EShelf.new("USER_ID", 
-      :base_url => "http://primo.institution.edu", :vid => "VID", :insitution => "INSTITUTION")
+      :base_url => "http://primo.institution.edu", :insitution => "INSTITUTION")
     records = eshelf.records
     count = eshelf.count
     basket_id = eshelf.basket_id

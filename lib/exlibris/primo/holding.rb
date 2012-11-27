@@ -11,11 +11,11 @@ module Exlibris
         @defaults ||= { :coverage => [], :source_data => {} }
       end
 
-      attr_accessor :vid, :institution, :record_id, :original_id,
-        :title, :author, :type, :source_id, :original_source_id,
+      attr_accessor :record_id, :original_id,
+        :title, :author, :display_type, :source_id, :original_source_id,
         :source_record_id, :ils_api_id,
         :library_code, :availability_status_code,
-        :collection, :call_number, :coverage, :url, :request_url, :notes,
+        :collection, :call_number, :coverage, :notes,
         :subfields, :source_data
 
       def initialize attributes={}
@@ -38,10 +38,6 @@ module Exlibris
         @availability_status ||= (config.availability_statuses[availability_status_code] || availability_status_code)
       end
       alias availability availability_status
-
-      def url
-        @url ||= "#{base_url}/primo_library/libweb/action/dlDisplay.do?dym=false&onCampus=false&docId=#{record_id}&institution=#{institution_code}&vid=#{vid}"
-      end
 
       # Return this holding as a new holdings subclass instance based on source
       def to_source

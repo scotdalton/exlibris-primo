@@ -7,9 +7,10 @@ module Exlibris
         # 
         # 
         class Search < Base
+          include DidUMean
           include Facets
-          include Hits
           include Records
+          include SearchStats
         end
 
         # 

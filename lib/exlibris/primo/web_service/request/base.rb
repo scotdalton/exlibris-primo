@@ -9,7 +9,6 @@ module Exlibris
           include Client
           include Call
           include Config::Attributes
-          include MissingResponse
           include Namespaces
           include WriteAttributes
           include XmlUtil
@@ -34,7 +33,7 @@ module Exlibris
                 xml.cdata build_xml { |xml|
                   xml.send(root, namespaces) {
                     yield xml if block
-                    xml << base_elements
+                    xml << base_elements_xml
                   }
                 }
               }

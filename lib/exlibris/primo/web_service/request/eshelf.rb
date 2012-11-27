@@ -14,16 +14,18 @@ module Exlibris
         end
 
         # 
-        # 
+        # The eshelf structure action is not specified in Primo's WSDL and 
+        # is therefore not supported for the time being.
         # 
         class EshelfStructure < Eshelf
+          self.abstract = true
           self.add_base_elements :include_basket_items
         end
 
         # 
         # 
         # 
-        class AddFoldertoEshelf < Eshelf
+        class AddFolderToEshelf < Eshelf
           self.add_base_elements :folder_name, :parent_folder
           self.remove_base_elements :folder_id
         end

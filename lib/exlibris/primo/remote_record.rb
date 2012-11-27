@@ -4,7 +4,6 @@ module Exlibris
     # 
     # 
     class RemoteRecord
-      include MissingResponse
 
       def initialize record_id, attributes
         @record = Exlibris::Primo::WebService::Request::FullView.new(attributes.merge(:doc_id => record_id)).call.record

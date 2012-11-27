@@ -78,6 +78,31 @@ module WebService
           end
       end
 
+      def test_request_search_did_u_mean
+          search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
+          search_request.institution = @institution
+          search_request.did_u_mean_enabled = true
+          search_request.add_query_term "Digital dvide", "title"
+          assert_request search_request, "searchRequest",
+            "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
+            "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
+            "<IndexField>title</IndexField>"+
+            "<PrecisionOperator>contains</PrecisionOperator>"+
+            "<Value>Digital dvide</Value>"+
+            "</QueryTerm></QueryTerms>"+
+            "<StartIndex>1</StartIndex>"+
+            "<BulkSize>5</BulkSize>"+
+            "<DidUMeanEnabled>true</DidUMeanEnabled>"+
+            "</PrimoSearchRequest>", "<institution>NYU</institution>"
+          VCR.use_cassette('search request did u mean call') do
+            search_response = search_request.call
+            search_response.records
+            facets = search_response.facets
+            assert_equal "digital d vide", search_response.did_u_mean
+            assert search_response.local?
+          end
+      end
+
       def test_request_search_author
           search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
           search_request.institution = @institution

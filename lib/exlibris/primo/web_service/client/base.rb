@@ -8,7 +8,6 @@ module Exlibris
           include Config::Attributes
           include SavonClient
           include MagicActions
-          include MissingResponse
           include Wsdl
 
           self.abstract = true

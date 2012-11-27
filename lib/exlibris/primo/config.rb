@@ -6,7 +6,7 @@ module Exlibris
     module Config
       class << self
         include WriteAttributes
-        attr_accessor :base_url, :vid, :institution, :libraries, :availability_statuses, :sources
+        attr_accessor :base_url, :institution, :libraries, :availability_statuses, :sources
 
         def load_yaml file
           write_attributes YAML.load_file(file)
@@ -17,14 +17,10 @@ module Exlibris
       #
       #
       module Attributes
-        attr_writer :base_url, :vid, :institution
+        attr_writer :base_url, :institution
 
         def base_url
           @base_url ||= String.new Config.base_url.to_s
-        end
-
-        def vid
-          @vid ||= String.new Config.vid.to_s
         end
 
         def institution
