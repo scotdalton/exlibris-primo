@@ -17,11 +17,6 @@ module Exlibris
         # 
         # 
         # 
-        class AddFolderToEshelf < Eshelf; end
-
-        # 
-        # 
-        # 
         class GetEshelf < Eshelf;
           include DidUMean
           include Records
@@ -37,6 +32,16 @@ module Exlibris
         # 
         # 
         class RemoveFromEshelf < Eshelf; end
+
+        # 
+        # 
+        # 
+        class AddFolderToEshelf < Eshelf; end
+
+        # 
+        # 
+        # 
+        class RemoveFolderFromEshelf < Eshelf; end
       end
     end
   end

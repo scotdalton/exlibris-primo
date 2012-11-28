@@ -6,6 +6,7 @@ module Exlibris
           extend SavonConfig
           include Abstract
           include Config::Attributes
+          include Endpoint
           include SavonClient
           include SoapActions
           include Wsdl
@@ -18,10 +19,6 @@ module Exlibris
           def initialize *args
             super
             @base_url = args.last.delete(:base_url)
-            # Set WSDL
-            self.wsdl= base_url
-            # Set client
-            self.client= wsdl
           end
         end
       end

@@ -16,7 +16,7 @@ module WebService
           "<institution>NYU</institution>",
           "<docId>nyu_aleph000062856</docId>",
           "<userId>N12162279</userId>"
-        VCR.use_cassette('request get reviews call') do
+        VCR.use_cassette('request get reviews') do
           assert_nothing_raised {
             request.call
           }

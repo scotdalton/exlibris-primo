@@ -54,7 +54,7 @@ module Exlibris
         def respond_to?(method, include_private=false)
           # WARNING: We should be calling `super` here, but that gives 
           # us an infinite loop for some reason.  Not sure why
-          (duplicated_control_attributes.include? method) ? true : false
+          (duplicated_control_attributes.include? method) ? true : super
         end
 
         #

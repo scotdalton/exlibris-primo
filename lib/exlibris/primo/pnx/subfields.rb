@@ -8,6 +8,7 @@ module Exlibris
         def parse_subfields s
           Hash[s.scan(/\${2}([^\$])([^\$]+)/)]
         end
+        protected :parse_subfields
       end
     end
   end

@@ -1,7 +1,7 @@
 module WebService
   module Request
     require 'test_helper'
-    class BaseTest < Test::Unit::TestCase
+    class BuildXmlTest < Test::Unit::TestCase
       def setup
         @base_url = "http://bobcatdev.library.nyu.edu"
         @institution = "University"

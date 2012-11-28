@@ -1,0 +1,43 @@
+--- 
+http_interactions: 
+  - request: 
+      method: post
+      uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/eshelf
+      body: 
+        string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/eshelf" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><removeFolderFromEshelf><request><![CDATA[<removeFolderFromEshelfRequest xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><institution>NYU</institution><userId>N12162279</userId><folderId>377473116</folderId></removeFolderFromEshelfRequest>]]></request></removeFolderFromEshelf></env:Body></env:Envelope>
+      headers: 
+        Soapaction: 
+          - "\"removeFolderFromEshelf\""
+        Content-Type: 
+          - text/xml;charset=UTF-8
+        Content-Length: 
+          - "670"
+        Accept: 
+          - "*/*"
+    response: 
+      status: 
+        code: 200
+        message: OK
+      headers: 
+        Server: 
+          - Apache-Coyote/1.1
+        X-Powered-By: 
+          - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+        Content-Type: 
+          - text/xml;charset=utf-8
+        Transfer-Encoding: 
+          - chunked
+        Date: 
+          - Wed, 28 Nov 2012 19:48:01 GMT
+      body: 
+        string: |-
+          <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><removeFolderFromEshelfResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><removeFolderFromEshelfReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;SEGMENTS xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;
+            &lt;JAGROOT&gt;
+              &lt;RESULT&gt;
+                &lt;ERROR CODE=&quot;0&quot; MESSAGE=&quot;Remove Folder from eshelf action completed successfully&quot;/&gt;
+              &lt;/RESULT&gt;
+            &lt;/JAGROOT&gt;
+          &lt;/SEGMENTS&gt;</removeFolderFromEshelfReturn></removeFolderFromEshelfResponse></soapenv:Body></soapenv:Envelope>
+      http_version: 
+    recorded_at: Wed, 28 Nov 2012 19:48:01 GMT
+recorded_with: VCR 2.3.0

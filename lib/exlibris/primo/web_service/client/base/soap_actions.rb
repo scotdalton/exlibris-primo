@@ -22,7 +22,7 @@ module Exlibris
           end
 
           def soap_actions
-            @soap_actions ||= self.class.soap_actions.concat(client.wsdl.soap_actions)
+            @soap_actions ||= self.class.soap_actions #.concat(client.wsdl.soap_actions)
           end
           
           # 

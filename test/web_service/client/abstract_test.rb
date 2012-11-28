@@ -18,18 +18,10 @@ module WebService
 
       def test_non_abstract_nothing_raised
         assert_nothing_raised {
-          VCR.use_cassette('client eshelf wsdl') {
-            Exlibris::Primo::WebService::Client::Eshelf.new :base_url => @base_url
-          }
-          VCR.use_cassette('client reviews wsdl') {
-            Exlibris::Primo::WebService::Client::Reviews.new :base_url => @base_url
-          }
-          VCR.use_cassette('client search wsdl') {
-            Exlibris::Primo::WebService::Client::Search.new :base_url => @base_url
-          }
-          VCR.use_cassette('client tags wsdl') {
-            Exlibris::Primo::WebService::Client::Tags.new :base_url => @base_url
-          }
+          Exlibris::Primo::WebService::Client::Eshelf.new :base_url => @base_url
+          Exlibris::Primo::WebService::Client::Reviews.new :base_url => @base_url
+          Exlibris::Primo::WebService::Client::Search.new :base_url => @base_url
+          Exlibris::Primo::WebService::Client::Tags.new :base_url => @base_url
         }
       end
     end

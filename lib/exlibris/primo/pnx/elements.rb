@@ -20,7 +20,7 @@ module Exlibris
         # Tell user we respond to PNX elements
         #
         def respond_to?(method, include_private=false)
-          (attr_read(method) || super) ? true : false
+          (attr_read(method)) ? true : super
         end
 
         def attr_read method

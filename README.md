@@ -18,7 +18,7 @@ Searcher can search by a query
     count searcher.count
     facets = searcher.facets
     records = searcher.search.records
-    records.each do |record|
+    records.each do |record_id, record|
       holdings = record.holdings
       fulltexts = record.fulltexts
       table_of_contents = record.table_of_contents
@@ -33,7 +33,7 @@ Or by a given record id
     count = searcher.count
     facets = searcher.facets
     records = searcher.search.records
-    records.each do |record|
+    records.each do |record_id, record|
       holdings = record.holdings
       fulltexts = record.fulltexts
       table_of_contents = record.table_of_contents
@@ -68,7 +68,7 @@ Exlibris::Primo::Record is an object representation of a Primo record.
     count = searcher.count
     facets = searcher.facets
     records = searcher.search.records
-    records.each do |record|
+    records.each do |record_id, record|
       holdings = record.holdings
       fulltexts = record.fulltexts
       table_of_contents = record.table_of_contents

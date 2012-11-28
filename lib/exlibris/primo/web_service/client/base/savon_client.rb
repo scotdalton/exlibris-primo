@@ -4,13 +4,19 @@ module Exlibris
       module Client
         module SavonClient
           require 'savon'
-          attr_reader :client
-          protected :client
 
-          def client= wsdl
-            @client ||= Savon.client(wsdl)
+          def client
+            # 
+            # We're not using WSDL at the moment, since
+            # we don't want to make an extra HTTP call.
+            # 
+            # @client ||= Savon.client(wsdl)
+            @client ||= Savon.client do
+              wsdl.endpoint = endpoint
+              wsdl.namespace = endpoint
+            end
           end
-          protected :client=
+          protected :client
         end
       end
     end

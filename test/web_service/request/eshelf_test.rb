@@ -15,7 +15,7 @@ module WebService
         assert_request request, "getEshelfRequest",
           "<institution>NYU</institution>",
           "<userId>N12162279</userId>"
-        VCR.use_cassette('request get eshelf call') do
+        VCR.use_cassette('request get eshelf') do
           assert_nothing_raised {
             request.call
           }

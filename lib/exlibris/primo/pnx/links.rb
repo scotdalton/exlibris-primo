@@ -7,8 +7,8 @@ module Exlibris
         #
         def fulltexts
           @fulltexts ||= 
-            links("linktorsrc").collect { |attributes| 
-              Exlibris::Primo::Fulltext.new attributes }
+            links("linktorsrc").collect { |link_attributes| 
+              Exlibris::Primo::Fulltext.new link_attributes }
         end
         
         #
@@ -16,8 +16,8 @@ module Exlibris
         #
         def related_links
           @fulltexts ||= 
-            links("addlink").collect { |attributes| 
-              Exlibris::Primo::RelatedLink.new attributes }
+            links("addlink").collect { |link_attributes| 
+              Exlibris::Primo::RelatedLink.new link_attributes }
         end
         
         #
@@ -25,8 +25,8 @@ module Exlibris
         #
         def tables_of_contents
           @tables_of_contents ||= 
-            links("linktotoc").collect { |attributes| 
-              Exlibris::Primo::TableOfContents.new attributes }
+            links("linktotoc").collect { |link_attributes| 
+              Exlibris::Primo::TableOfContents.new link_attributes }
         end
         
         def links(link)
@@ -36,10 +36,9 @@ module Exlibris
             original_id = (subfields["O"]) ? subfields["O"] : recordid
             # We're not interested if we don't have a URL
             next if subfields["U"].nil?
-            {
-              :institution => subfields["I"],
+            { :institution => subfields["I"],
               :recordid => recordid, :original_id => original_id,
-              :url => subfields["U"], :display => subfields["D"]}
+              :url => subfields["U"], :display => subfields["D"] }
           end
         end
         private :links

@@ -6,7 +6,8 @@ module Exlibris
         # 
         # 
         class Search < Base
-          self.wsdl = :searcher
+          self.endpoint = :searcher
+          self.add_soap_actions :search_brief, :get_record
         end
       end
     end

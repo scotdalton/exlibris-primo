@@ -44,7 +44,7 @@ module Exlibris
       end
 
       def to_xml
-        xml.to_xml
+        xml.to_xml.strip
       end
 
       def to_json

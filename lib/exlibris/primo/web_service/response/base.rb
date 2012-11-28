@@ -11,6 +11,7 @@ module Exlibris
 
           attr_reader :savon_response, :soap_action
           protected :savon_response, :soap_action
+
           def initialize savon_response, soap_action
             super
             @savon_response = savon_response

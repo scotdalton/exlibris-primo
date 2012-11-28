@@ -4,12 +4,27 @@ module WebService
     class DidUMeanTest < Test::Unit::TestCase
       def setup
         @base_url = "http://bobcatdev.library.nyu.edu"
-        @institution = "University"
-        @group = "Department"
+        @isbn = "0143039008"
+        @user_id = "N12162279"
+        @institution = "NYU"
+        @doc_id = "nyu_aleph000062856"
+        @dedupmgr_id = "dedupmrg17343091"
+        @basket_id ="210075761"
+        @did_u_mean_title = "Digital dvide"
       end
 
-      def test_new
-        assert true
+      def test_search
+        VCR.use_cassette('response search did u mean') {
+          soap_action = :search_brief
+          request = Exlibris::Primo::WebService::Request::Search.new(:user_id => @user_id, 
+            :institution => @institution, :did_u_mean_enabled => "true")
+          request.add_query_term(@did_u_mean_title, "title")
+          client = Exlibris::Primo::WebService::Client::Search.new(:base_url => @base_url)
+          response = Exlibris::Primo::WebService::Response::Search.new(
+            client.send(soap_action, request.to_xml), soap_action)
+          assert_not_nil response.did_u_mean
+          assert_equal "digital d vide", response.did_u_mean
+        }
       end
     end
   end

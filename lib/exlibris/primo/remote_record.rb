@@ -24,7 +24,7 @@ module Exlibris
       # Tell users that we respond to methods that the record responds to.
       #
       def respond_to?(method, include_private=false)
-        (super || @record.respond_to?(method, include_private)) ? true : false
+        (@record.respond_to?(method, include_private)) ? true : super
       end
     end
   end

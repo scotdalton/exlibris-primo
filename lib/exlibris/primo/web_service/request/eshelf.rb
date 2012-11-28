@@ -36,14 +36,6 @@ module Exlibris
         # 
         # 
         # 
-        class AddFolderToEshelf < Eshelf
-          self.add_base_elements :folder_name, :parent_folder
-          self.remove_base_elements :folder_id
-        end
-
-        # 
-        # 
-        # 
         class GetEshelf < Eshelf
           self.add_base_elements :get_delivery
         end
@@ -64,7 +56,15 @@ module Exlibris
         # 
         # 
         # 
-        # class RemoveFolderFromEshelf < Eshelf; end
+        class AddFolderToEshelf < Eshelf
+          self.add_base_elements :folder_name, :parent_folder
+          self.remove_base_elements :folder_id
+        end
+
+        # 
+        # 
+        # 
+        class RemoveFolderFromEshelf < Eshelf; end
       end
     end
   end

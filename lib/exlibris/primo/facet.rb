@@ -21,9 +21,10 @@ module Exlibris
         @name = xml.root["NAME"]
       end
 
-      def count
-        @count = xml.root["COUNT"]
+      def size
+        @size = Integer(xml.root["COUNT"])
       end
+      alias :count :size
 
       def facet_values
         @facet_values ||= xml.root.search("//FACET_VALUES").collect do |facet_value|

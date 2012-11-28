@@ -24,7 +24,7 @@ module WebService
           "<DidUMeanEnabled>false</DidUMeanEnabled>"+
           "</PrimoSearchRequest>", "<institution>NYU</institution>",
           "<docId>nyu_aleph000062856</docId>"
-        VCR.use_cassette('request full view call') do
+        VCR.use_cassette('request full view') do
           assert_nothing_raised {
             response = request.call
           }
@@ -46,7 +46,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request search issn call') do
+          VCR.use_cassette('request search issn') do
             assert_nothing_raised {
               response = request.call
             }
@@ -68,7 +68,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request search isbn call') do
+          VCR.use_cassette('request search isbn') do
             assert_nothing_raised {
               response = request.call
             }
@@ -90,7 +90,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request search title call') do
+          VCR.use_cassette('request search title') do
             assert_nothing_raised {
               response = request.call
             }
@@ -113,11 +113,9 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>true</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request search did u mean call') do
+          VCR.use_cassette('request search did u mean') do
             assert_nothing_raised {
               response = request.call
-              assert_equal "digital d vide", response.did_u_mean
-              assert response.local?
             }
           end
       end
@@ -137,7 +135,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request search author call') do
+          VCR.use_cassette('request search author') do
             assert_nothing_raised {
               response = request.call
             }
@@ -159,7 +157,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request search genre call') do
+          VCR.use_cassette('request search genre') do
             assert_nothing_raised {
               response = request.call
             }
@@ -201,7 +199,7 @@ module WebService
             assert_equal "<institution>NYU</institution>", xmlize(child)
           end
         end
-        VCR.use_cassette('request search title author genre call') do
+        VCR.use_cassette('request search title author genre') do
           assert_nothing_raised {
             response = request.call
           }

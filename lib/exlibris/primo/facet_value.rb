@@ -18,9 +18,10 @@ module Exlibris
         @name ||= xml.root["KEY"]
       end
 
-      def count
-        @count ||= xml.root["VALUE"]
+      def size
+        @size = Integer(xml.root["VALUE"])
       end
+      alias :count :size
     end
   end
 end
