@@ -1,7 +1,7 @@
 module WebService
   module Request
     require 'test_helper'
-    class ReviewsTest < Test::Unit::TestCase
+    class TagsTest < Test::Unit::TestCase
       def setup
         @base_url = "http://bobcatdev.library.nyu.edu"
         @institution = "NYU"
@@ -10,13 +10,13 @@ module WebService
       end
 
       def test_get_reviews
-        request = Exlibris::Primo::WebService::Request::GetReviews.new :base_url => @base_url,
+        request = Exlibris::Primo::WebService::Request::GetTags.new :base_url => @base_url,
           :institution => @institution, :doc_id => @doc_id
-        assert_request request, "getReviewsRequest",
+        assert_request request, "getTagsRequest",
           "<institution>NYU</institution>",
           "<docId>nyu_aleph000062856</docId>",
           "<userId>N12167779</userId>"
-        VCR.use_cassette('request get reviews call') do
+        VCR.use_cassette('request get tags call') do
           assert_nothing_raised {
             request.call
           }
