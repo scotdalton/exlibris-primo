@@ -8,19 +8,15 @@ module WebService
         @group = "Department"
       end
   
-      def test_base_instantiation
-        assert_raise(NotImplementedError) {
-          request = Exlibris::Primo::WebService::Request::Base.new :base_url => @base_url
-        }
-      end
-
       def test_request_build_xml
           search_request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
-          inner_element = search_request.send :build_xml do |xml|
-            xml.inner "value"
+          element = search_request.send :build_xml do |xml|
+            xml.outer {
+              xml.inner "value"
+            }
           end
-          assert_kind_of String, inner_element
-          assert_equal "<inner>value</inner>", inner_element
+          assert_kind_of String, element
+          assert_equal "<outer><inner>value</inner></outer>", element
       end
     end
   end
