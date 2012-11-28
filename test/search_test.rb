@@ -1,5 +1,5 @@
 require 'test_helper'
-class SearcherTest < Test::Unit::TestCase
+class SearchTest < Test::Unit::TestCase
   def test_placeholder
     assert true
   end

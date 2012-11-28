@@ -5,19 +5,19 @@
 
 Exlibris::Primo offers a set of classes for interacting with the ExLibris Primo APIs.
 
-## Exlibris::Primo::Searcher
-The Exlibris::Primo::Searcher class performs a search against Primo for given parameters
+## Exlibris::Primo::Search
+The Exlibris::Primo::Search class performs a search against Primo for given parameters
 and exposes the set of holdings, fulltext links, table of contents links, and related links for each record retrieved.
 
-### Example of Exlibris::Primo::Searcher in action
-Searcher can search by a query
+### Example of Exlibris::Primo::Search in action
+Search can search by a query
 
-    searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
       :institution => "INSTITUTION")
-    searcher.add_query_term "0143039008", "isbn", "exact"
-    count searcher.count
-    facets = searcher.facets
-    records = searcher.search.records
+    search.add_query_term "0143039008", "isbn", "exact"
+    count search.count
+    facets = search.facets
+    records = search.search.records
     records.each do |record_id, record|
       holdings = record.holdings
       fulltexts = record.fulltexts
@@ -27,12 +27,12 @@ Searcher can search by a query
 
 Or by a given record id
 
-    searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
       :institution => "INSTITUTION")
-    searcher.record_id= "aleph0123456789"
-    count = searcher.count
-    facets = searcher.facets
-    records = searcher.search.records
+    search.record_id= "aleph0123456789"
+    count = search.count
+    facets = search.facets
+    records = search.search.records
     records.each do |record_id, record|
       holdings = record.holdings
       fulltexts = record.fulltexts
@@ -40,21 +40,21 @@ Or by a given record id
       related_links = record.related_links
     end
 
-Searcher has some convenience methods for setting search params
+Search has some convenience methods for setting search params
 
-    searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
       :institution => "INSTITUTION")
-    searcher.isbn = "0143039008" # Equivalent to searcher.add_query_term "0143039008", "isbn", "exact"
-    searcher.title = "Travels with My Aunt" # Equivalent to searcher.add_query_term "Travels with My Aunt", "title", "exact"
-    searcher.author = "Graham Greene" # Equivalent to searcher.add_query_term "Graham Greene", "creator", "exact"
+    search.isbn = "0143039008" # Equivalent to search.add_query_term "0143039008", "isbn", "exact"
+    search.title = "Travels with My Aunt" # Equivalent to search.add_query_term "Travels with My Aunt", "title", "exact"
+    search.author = "Graham Greene" # Equivalent to search.add_query_term "Graham Greene", "creator", "exact"
     
-Searcher also takes search elements in the initial hash
+Search also takes search elements in the initial hash
 
-    searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
       :institution => "INSTITUTION", :isbn = "0143039008")
 Or  
 
-    searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
       :institution => "INSTITUTION", :record_id = "aleph0123456789")
 
     
@@ -62,12 +62,12 @@ Or
 Exlibris::Primo::Record is an object representation of a Primo record.
 
 ### Example of Exlibris::Primo::Record in action
-    searcher = Exlibris::Primo::Searcher.new(:base_url => "http://primo.institution.edu", 
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
       :institution => "INSTITUTION")
-    searcher.record_id= "aleph0123456789"
-    count = searcher.count
-    facets = searcher.facets
-    records = searcher.search.records
+    search.record_id= "aleph0123456789"
+    count = search.count
+    facets = search.facets
+    records = search.search.records
     records.each do |record_id, record|
       holdings = record.holdings
       fulltexts = record.fulltexts

@@ -3,7 +3,7 @@ module Exlibris
     #
     #
     #
-    class Searcher
+    class Search
       include Config::Attributes
       include RequestAttributes
       include WriteAttributes

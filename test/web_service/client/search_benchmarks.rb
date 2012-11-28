@@ -15,10 +15,10 @@ module WebService
       def test_benchmarks
         VCR.turn_off!
         Benchmark.bmbm do |results|
-          results.report("Searcher:") {
+          results.report("Web Service Search:") {
             (1..10).each {
-              searcher = Exlibris::Primo::WebService::Client::Searcher.new :base_url => @base_url
-              response = searcher.search_brief "<request><![CDATA[<searchRequest xmlns=\"http://www.exlibris.com/primo/xsd/wsRequest\" xmlns:uic=\"http://www.exlibris.com/primo/xsd/primoview/uicomponents\"><PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>isbn</IndexField><PrecisionOperator>exact</PrecisionOperator><Value>0090-5720</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution></searchRequest>]]></request>"
+              search = Exlibris::Primo::WebService::Client::Search.new :base_url => @base_url
+              response = search.search_brief "<request><![CDATA[<searchRequest xmlns=\"http://www.exlibris.com/primo/xsd/wsRequest\" xmlns:uic=\"http://www.exlibris.com/primo/xsd/primoview/uicomponents\"><PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>isbn</IndexField><PrecisionOperator>exact</PrecisionOperator><Value>0090-5720</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution></searchRequest>]]></request>"
             }
           }
         end
