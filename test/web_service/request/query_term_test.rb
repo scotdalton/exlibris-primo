@@ -10,11 +10,7 @@ module WebService
         @genre = "Book"
       end
 
-      def test_class
-        assert_kind_of Exlibris::Primo::WebService::Request::QueryTerm, Exlibris::Primo::WebService::Request::QueryTerm.new()
-      end
-
-      def test_isbn
+      def test_set_attributes
         query_term = Exlibris::Primo::WebService::Request::QueryTerm.new()
         query_term.value = @isbn
         query_term.precision = "exact"
@@ -23,7 +19,7 @@ module WebService
           "<PrecisionOperator>exact</PrecisionOperator><Value>0143039008</Value></QueryTerm>", query_term.to_xml
       end
 
-      def test_isbn_write_attributes
+      def test_write_attributes
         query_term = Exlibris::Primo::WebService::Request::QueryTerm.new(:value => @isbn, :precision => "exact", :index => "isbn")
         assert_equal "<QueryTerm><IndexField>isbn</IndexField>"+
           "<PrecisionOperator>exact</PrecisionOperator><Value>0143039008</Value></QueryTerm>", query_term.to_xml

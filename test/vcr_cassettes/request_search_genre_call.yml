@@ -1,0 +1,1679 @@
+--- 
+http_interactions: 
+  - request: 
+      method: get
+      uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher?wsdl
+      body: 
+        string: ""
+      headers: 
+        Accept: 
+          - "*/*"
+    response: 
+      status: 
+        code: 200
+        message: OK
+      headers: 
+        Server: 
+          - Apache-Coyote/1.1
+        X-Powered-By: 
+          - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+        Content-Type: 
+          - text/xml;charset=utf-8
+        Transfer-Encoding: 
+          - chunked
+        Date: 
+          - Wed, 28 Nov 2012 02:09:58 GMT
+      body: 
+        string: |
+          <?xml version="1.0" encoding="UTF-8"?>
+          <wsdl:definitions targetNamespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" xmlns:intf="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <!--WSDL created by Apache Axis version: 1.2.1
+          Built on Jun 14, 2005 (09:15:57 EDT)-->
+           <wsdl:types>
+            <schema targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+             <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+             <complexType name="mapItem">
+              <sequence>
+               <element name="key" nillable="true" type="xsd:anyType"/>
+               <element name="value" nillable="true" type="xsd:anyType"/>
+              </sequence>
+             </complexType>
+             <complexType name="Map">
+              <sequence>
+               <element maxOccurs="unbounded" minOccurs="0" name="item" type="apachesoap:mapItem"/>
+              </sequence>
+             </complexType>
+            </schema>
+           </wsdl:types>
+          
+             <wsdl:message name="getRecordResponse">
+          
+                <wsdl:part name="getRecordReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getRecordResponse1">
+          
+                <wsdl:part name="getRecordReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="countFacetsRequest">
+          
+                <wsdl:part name="searchRequestStr" type="soapenc:string"/>
+          
+                <wsdl:part name="facets" type="apachesoap:Map"/>
+          
+                <wsdl:part name="searchToken" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="countFacetsResponse">
+          
+                <wsdl:part name="countFacetsReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="searchFullRequest">
+          
+                <wsdl:part name="searchRequestStr" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="executeSearchRequest1">
+          
+                <wsdl:part name="searchRequestStr" type="soapenc:string"/>
+          
+                <wsdl:part name="isXservice" type="xsd:boolean"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getRecordRequest">
+          
+                <wsdl:part name="fullRequest" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="getRecordRequest1">
+          
+                <wsdl:part name="fullRequest" type="soapenc:string"/>
+          
+                <wsdl:part name="isXService" type="xsd:boolean"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="searchFullResponse">
+          
+                <wsdl:part name="searchFullReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="executeSearchRequest">
+          
+                <wsdl:part name="searchRequestStr" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="searchBriefResponse">
+          
+                <wsdl:part name="searchBriefReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="executeSearchResponse1">
+          
+                <wsdl:part name="executeSearchReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="executeSearchResponse">
+          
+                <wsdl:part name="executeSearchReturn" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:message name="searchBriefRequest">
+          
+                <wsdl:part name="searchRequestStr" type="soapenc:string"/>
+          
+             </wsdl:message>
+          
+             <wsdl:portType name="PrimoSearchWS">
+          
+                <wsdl:operation name="getRecord" parameterOrder="fullRequest">
+          
+                   <wsdl:input message="impl:getRecordRequest" name="getRecordRequest"/>
+          
+                   <wsdl:output message="impl:getRecordResponse" name="getRecordResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getRecord" parameterOrder="fullRequest isXService">
+          
+                   <wsdl:input message="impl:getRecordRequest1" name="getRecordRequest1"/>
+          
+                   <wsdl:output message="impl:getRecordResponse1" name="getRecordResponse1"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="countFacets" parameterOrder="searchRequestStr facets searchToken">
+          
+                   <wsdl:input message="impl:countFacetsRequest" name="countFacetsRequest"/>
+          
+                   <wsdl:output message="impl:countFacetsResponse" name="countFacetsResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="executeSearch" parameterOrder="searchRequestStr">
+          
+                   <wsdl:input message="impl:executeSearchRequest" name="executeSearchRequest"/>
+          
+                   <wsdl:output message="impl:executeSearchResponse" name="executeSearchResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="executeSearch" parameterOrder="searchRequestStr isXservice">
+          
+                   <wsdl:input message="impl:executeSearchRequest1" name="executeSearchRequest1"/>
+          
+                   <wsdl:output message="impl:executeSearchResponse1" name="executeSearchResponse1"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="searchBrief" parameterOrder="searchRequestStr">
+          
+                   <wsdl:input message="impl:searchBriefRequest" name="searchBriefRequest"/>
+          
+                   <wsdl:output message="impl:searchBriefResponse" name="searchBriefResponse"/>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="searchFull" parameterOrder="searchRequestStr">
+          
+                   <wsdl:input message="impl:searchFullRequest" name="searchFullRequest"/>
+          
+                   <wsdl:output message="impl:searchFullResponse" name="searchFullResponse"/>
+          
+                </wsdl:operation>
+          
+             </wsdl:portType>
+          
+             <wsdl:binding name="searcherSoapBinding" type="impl:PrimoSearchWS">
+          
+                <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+          
+                <wsdl:operation name="getRecord">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="getRecordRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="getRecordResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="getRecord">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="getRecordRequest1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="getRecordResponse1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="countFacets">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="countFacetsRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="countFacetsResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="executeSearch">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="executeSearchRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="executeSearchResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="executeSearch">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="executeSearchRequest1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="executeSearchResponse1">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="searchBrief">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="searchBriefRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="searchBriefResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+                <wsdl:operation name="searchFull">
+          
+                   <wsdlsoap:operation soapAction=""/>
+          
+                   <wsdl:input name="searchFullRequest">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://api.ws.primo.exlibris.com" use="encoded"/>
+          
+                   </wsdl:input>
+          
+                   <wsdl:output name="searchFullResponse">
+          
+                      <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" use="encoded"/>
+          
+                   </wsdl:output>
+          
+                </wsdl:operation>
+          
+             </wsdl:binding>
+          
+             <wsdl:service name="PrimoSearchWSService">
+          
+                <wsdl:port binding="impl:searcherSoapBinding" name="searcher">
+          
+                   <wsdlsoap:address location="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher"/>
+          
+                </wsdl:port>
+          
+             </wsdl:service>
+          
+          </wsdl:definitions>
+
+      http_version: 
+    recorded_at: Wed, 28 Nov 2012 02:09:58 GMT
+  - request: 
+      method: post
+      uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher
+      body: 
+        string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:impl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://xml.apache.org/xml-soap"><env:Body><impl:searchBrief><request><![CDATA[<searchRequest xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>any</IndexField><PrecisionOperator>exact</PrecisionOperator><Value>Book</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution></searchRequest>]]></request></impl:searchBrief></env:Body></env:Envelope>
+      headers: 
+        Soapaction: 
+          - "\"searchBrief\""
+        Content-Type: 
+          - text/xml;charset=UTF-8
+        Content-Length: 
+          - "971"
+        Accept: 
+          - "*/*"
+    response: 
+      status: 
+        code: 200
+        message: OK
+      headers: 
+        Server: 
+          - Apache-Coyote/1.1
+        X-Powered-By: 
+          - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+        Content-Type: 
+          - text/xml;charset=utf-8
+        Transfer-Encoding: 
+          - chunked
+        Date: 
+          - Wed, 28 Nov 2012 02:10:15 GMT
+      body: 
+        string: |-
+          <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><ns1:searchBriefResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher"><searchBriefReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;SEGMENTS xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;
+            &lt;JAGROOT&gt;
+              &lt;RESULT&gt;
+                &lt;QUERYTRANSFORMS/&gt;
+                &lt;FACETLIST ACCURATE_COUNTERS=&quot;false&quot;&gt;
+                  &lt;FACET NAME=&quot;creator&quot; COUNT=&quot;96&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;Hopkins, J&quot; VALUE=&quot;194&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Hunt, I&quot; VALUE=&quot;45&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Berry, W&quot; VALUE=&quot;115&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;American Council of Learned Societies&quot; VALUE=&quot;93&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Liberty Book Club&quot; VALUE=&quot;4&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Krapp, G&quot; VALUE=&quot;15&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Kennedy, L&quot; VALUE=&quot;56&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Holmes, O&quot; VALUE=&quot;147&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Elder, W&quot; VALUE=&quot;27&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Seignobos, C&quot; VALUE=&quot;16&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Cowper, W&quot; VALUE=&quot;121&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;World Book, Inc&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Erkmen, B&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Stowe, H&quot; VALUE=&quot;136&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Strang, J&quot; VALUE=&quot;25&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Gellman, D&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Cuch, F&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Finkelstein, N&quot; VALUE=&quot;14&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Farnsworth, E&quot; VALUE=&quot;10&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Wilson, D&quot; VALUE=&quot;300&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Farnsworth, D&quot; VALUE=&quot;8&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Leary's Book Store&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Newton, J&quot; VALUE=&quot;186&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Budge, E&quot; VALUE=&quot;78&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Guild of Book Workers&quot; VALUE=&quot;4&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;W&#xFC;rtz, F&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;General Protestant Episcopal Sunday School Union and Church Book Society&quot; VALUE=&quot;16&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;New York Book Society&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Salisbury, H&quot; VALUE=&quot;39&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Dufief, N&quot; VALUE=&quot;5&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Siegel, S&quot; VALUE=&quot;30&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Year Book Medical Publishers&quot; VALUE=&quot;4&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book Industry Study Group&quot; VALUE=&quot;5&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Irving, W&quot; VALUE=&quot;277&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;National Book Foundation (U.S.)&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Berolzheimer, R&quot; VALUE=&quot;12&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Rose, J&quot; VALUE=&quot;170&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Belanger, T&quot; VALUE=&quot;10&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Phillips, J&quot; VALUE=&quot;382&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Kalm&#xE1;r, S&quot; VALUE=&quot;5&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Episcopal Church&quot; VALUE=&quot;144&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;St. Bride Foundation Institute. Library&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Myers, R&quot; VALUE=&quot;130&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;California College of Arts and Crafts&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Honey, M&quot; VALUE=&quot;19&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Commager, H&quot; VALUE=&quot;37&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Radio Blue Book Corp&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Scherman, H&quot; VALUE=&quot;4&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;National Conference on Book Development&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Williams, A&quot; VALUE=&quot;320&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Flaste, R&quot; VALUE=&quot;7&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Miller, B&quot; VALUE=&quot;132&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Washington Square College. Book Club&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Smith, J&quot; VALUE=&quot;1827&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Jones, T&quot; VALUE=&quot;299&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Glaister, G&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Neihardt, J&quot; VALUE=&quot;33&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Callery, B&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Siegel, D&quot; VALUE=&quot;39&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Haubold, J&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Mourning Dove&quot; VALUE=&quot;4&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Ellis, H&quot; VALUE=&quot;155&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Daubeny, C&quot; VALUE=&quot;20&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Beinecke Rare Book and Manuscript Library&quot; VALUE=&quot;32&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;American Institute of Arts&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Hershatter, G&quot; VALUE=&quot;4&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;American Automobile Association&quot; VALUE=&quot;19&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Burstein, A&quot; VALUE=&quot;13&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Church of England&quot; VALUE=&quot;409&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Colonne, G&quot; VALUE=&quot;9&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Delineator Home Institute&quot; VALUE=&quot;5&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Common Prayer Book Society of Pennsylvania&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Doubleday One Dollar Book Club&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Nigerian Book Foundation&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Snow, A&quot; VALUE=&quot;16&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Vanderbilt, G&quot; VALUE=&quot;7&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Nigeria International Book Fair&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Association Book Company of New York&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Conran, T&quot; VALUE=&quot;21&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Albany Prayer Book and Tract Society (N.Y.)&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book-of-the-Month Club&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Williams, S&quot; VALUE=&quot;353&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;McNeal, R&quot; VALUE=&quot;15&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Ike, V&quot; VALUE=&quot;9&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;TakaHashi, N&quot; VALUE=&quot;5&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;National Book Foundation (Pakistan)&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Field, E&quot; VALUE=&quot;75&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Demus, O&quot; VALUE=&quot;15&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Kingman, L&quot; VALUE=&quot;7&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book Works (Organization)&quot; VALUE=&quot;26&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Project Muse&quot; VALUE=&quot;1720&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;American Reform Tract and Book Society&quot; VALUE=&quot;10&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Hobart, J&quot; VALUE=&quot;110&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Pordes, L&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Marshall, A&quot; VALUE=&quot;100&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Society of Book-Plate Bibliophiles&quot; VALUE=&quot;2&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;lcc&quot; COUNT=&quot;14&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;E - History: America&quot; VALUE=&quot;45141&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;H - Social sciences.&quot; VALUE=&quot;205119&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;F - History: America&quot; VALUE=&quot;46232&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Q - Science.&quot; VALUE=&quot;106145&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;T - Technology .&quot; VALUE=&quot;53520&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;M - Music.&quot; VALUE=&quot;25057&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;P - Language and literature.&quot; VALUE=&quot;329173&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;S - Agriculture.&quot; VALUE=&quot;7234&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;B - Philosophy. Psychology. Religion&quot; VALUE=&quot;100265&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;J - Political science.&quot; VALUE=&quot;43796&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Z - Bibliography. Library science. Information resources (general).&quot; VALUE=&quot;25919&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;R - Medicine.&quot; VALUE=&quot;44235&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;D - History (general) and history of europe.&quot; VALUE=&quot;134536&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;N - Fine arts.&quot; VALUE=&quot;78458&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;lang&quot; COUNT=&quot;48&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;ukr&quot; VALUE=&quot;341&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;tgl&quot; VALUE=&quot;9&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;amh&quot; VALUE=&quot;33&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;scr&quot; VALUE=&quot;183&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;syr&quot; VALUE=&quot;210&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;por&quot; VALUE=&quot;25687&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;fin&quot; VALUE=&quot;194&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;hin&quot; VALUE=&quot;124&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;fre&quot; VALUE=&quot;184342&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;heb&quot; VALUE=&quot;14610&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;rum&quot; VALUE=&quot;235&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;kor&quot; VALUE=&quot;1310&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;guj&quot; VALUE=&quot;12&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;rus&quot; VALUE=&quot;30315&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;ara&quot; VALUE=&quot;64885&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;pol&quot; VALUE=&quot;1858&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;cpf&quot; VALUE=&quot;159&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;arm&quot; VALUE=&quot;174&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;yid&quot; VALUE=&quot;601&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;eng&quot; VALUE=&quot;1741249&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;mal&quot; VALUE=&quot;9&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;vie&quot; VALUE=&quot;57&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;egy&quot; VALUE=&quot;283&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;spa&quot; VALUE=&quot;121435&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;lit&quot; VALUE=&quot;79&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;ilo&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;hun&quot; VALUE=&quot;611&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;moh&quot; VALUE=&quot;21&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;ger&quot; VALUE=&quot;137730&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;tur&quot; VALUE=&quot;9737&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;grc&quot; VALUE=&quot;3141&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;ben&quot; VALUE=&quot;53&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;gre&quot; VALUE=&quot;13256&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;pan&quot; VALUE=&quot;6&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;nor&quot; VALUE=&quot;482&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;per&quot; VALUE=&quot;8001&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;mkh&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;tha&quot; VALUE=&quot;43&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;dut&quot; VALUE=&quot;5981&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;sin&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;dan&quot; VALUE=&quot;1170&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;chi&quot; VALUE=&quot;7307&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;ita&quot; VALUE=&quot;75487&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;nav&quot; VALUE=&quot;17&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;jpn&quot; VALUE=&quot;4878&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;hmn&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;gem&quot; VALUE=&quot;75&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;tam&quot; VALUE=&quot;32&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;rtype&quot; COUNT=&quot;11&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;books&quot; VALUE=&quot;2390616&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;journals&quot; VALUE=&quot;2471&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;other&quot; VALUE=&quot;62&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;scores&quot; VALUE=&quot;1266&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;audio&quot; VALUE=&quot;2219&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;maps&quot; VALUE=&quot;66&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;archives&quot; VALUE=&quot;1083&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;text_resources&quot; VALUE=&quot;32&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;images&quot; VALUE=&quot;16&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;websites&quot; VALUE=&quot;4&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;video&quot; VALUE=&quot;1017&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;topic&quot; COUNT=&quot;98&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book collecting&quot; VALUE=&quot;249&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book of the dead&quot; VALUE=&quot;36&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Printing&quot; VALUE=&quot;2117&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Psychology&quot; VALUE=&quot;4635&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Advertising photography&quot; VALUE=&quot;34&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Liberty Book Club&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;African Americans&quot; VALUE=&quot;10091&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Midrash&quot; VALUE=&quot;120&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Libraries&quot; VALUE=&quot;1828&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Oglala Indians&quot; VALUE=&quot;62&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book design&quot; VALUE=&quot;120&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Holy Spirit&quot; VALUE=&quot;166&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Literary prizes&quot; VALUE=&quot;63&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;books&quot; VALUE=&quot;1190&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Women in the book industries and trade&quot; VALUE=&quot;11&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Lawyers&quot; VALUE=&quot;1513&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Slavery&quot; VALUE=&quot;10721&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;American literature&quot; VALUE=&quot;5164&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Slavery and the church&quot; VALUE=&quot;819&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Antislavery movements&quot; VALUE=&quot;1904&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Literature, Modern&quot; VALUE=&quot;2281&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Home economics&quot; VALUE=&quot;589&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Episcopal Church. Book of common prayer (1790)&quot; VALUE=&quot;50&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;United States&quot; VALUE=&quot;77830&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Upper West Side (New York, N.Y.)&quot; VALUE=&quot;78&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Antiquarian booksellers&quot; VALUE=&quot;78&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Indians of North America&quot; VALUE=&quot;8389&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Women&quot; VALUE=&quot;19353&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Great Britain&quot; VALUE=&quot;39053&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Radicalism&quot; VALUE=&quot;1210&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Bookplates&quot; VALUE=&quot;158&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Cooking&quot; VALUE=&quot;3365&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Beinecke Rare Book and Manuscript Library&quot; VALUE=&quot;22&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Illustrators&quot; VALUE=&quot;190&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Illustrated children's books&quot; VALUE=&quot;55&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Illustration of books&quot; VALUE=&quot;488&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Booksellers and bookselling&quot; VALUE=&quot;772&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Commercial photography&quot; VALUE=&quot;49&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book clubs (Discussion groups)&quot; VALUE=&quot;29&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Episcopal Church. Book of common prayer&quot; VALUE=&quot;20&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Entertaining&quot; VALUE=&quot;303&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Mormon Church&quot; VALUE=&quot;280&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Frontier and pioneer life&quot; VALUE=&quot;1687&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Caldecott Medal&quot; VALUE=&quot;9&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Rare books&quot; VALUE=&quot;306&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Rare book libraries&quot; VALUE=&quot;14&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Children's literature&quot; VALUE=&quot;598&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;New York (N.Y.)&quot; VALUE=&quot;9193&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Arriflex 16SR motion picture camera&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Bible. O.T. Genesis&quot; VALUE=&quot;276&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Arts and Humanities&quot; VALUE=&quot;63&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Architecture&quot; VALUE=&quot;10480&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Best books&quot; VALUE=&quot;169&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;West (U.S.)&quot; VALUE=&quot;1740&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Domesday book&quot; VALUE=&quot;45&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Photographers&quot; VALUE=&quot;608&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Anglican Communion&quot; VALUE=&quot;346&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Boston (Mass.)&quot; VALUE=&quot;1182&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Guild of Book Workers&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Meyer, Adolf, 1866-1950&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Cooking, American&quot; VALUE=&quot;1866&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;New York Book Society&quot; VALUE=&quot;2&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book clubs (Bookselling)&quot; VALUE=&quot;9&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Church of England. Book of common prayer&quot; VALUE=&quot;164&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book industries and trade&quot; VALUE=&quot;644&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Bibliography&quot; VALUE=&quot;387&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Artists' books&quot; VALUE=&quot;403&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Newbery Medal&quot; VALUE=&quot;11&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Episcopal Church&quot; VALUE=&quot;2047&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;National Book Awards&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Metallurgy&quot; VALUE=&quot;241&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Subscription libraries&quot; VALUE=&quot;124&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Families&quot; VALUE=&quot;1477&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Clothing workers&quot; VALUE=&quot;115&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Salishan women&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Literature&quot; VALUE=&quot;4124&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Sweatshops&quot; VALUE=&quot;34&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Christian art and symbolism&quot; VALUE=&quot;1982&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Kerbel, Janice, 1969-&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Books and reading&quot; VALUE=&quot;994&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Magic shows&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Mental Disorders&quot; VALUE=&quot;1226&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book of Mormon&quot; VALUE=&quot;39&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Commercial art&quot; VALUE=&quot;590&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Library and Information Sciences&quot; VALUE=&quot;58&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Geology&quot; VALUE=&quot;2964&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Authors, American&quot; VALUE=&quot;2430&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Children's bookplates&quot; VALUE=&quot;8&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Slaves&quot; VALUE=&quot;2314&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Children&quot; VALUE=&quot;4641&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Freedom of speech&quot; VALUE=&quot;423&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Clubs&quot; VALUE=&quot;389&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Publishers and publishing&quot; VALUE=&quot;1870&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Sackner, Ruth&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;America&quot; VALUE=&quot;2917&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Bookbinding&quot; VALUE=&quot;645&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Dulles, John Foster, 1888-1959&quot; VALUE=&quot;21&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Children's literature, American&quot; VALUE=&quot;145&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;tlevel&quot; COUNT=&quot;2&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;online_resources&quot; VALUE=&quot;412660&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;available&quot; VALUE=&quot;1271078&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;pfilter&quot; COUNT=&quot;9&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;books&quot; VALUE=&quot;2390648&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;journals&quot; VALUE=&quot;2471&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;audio&quot; VALUE=&quot;2219&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;scores&quot; VALUE=&quot;1266&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;maps&quot; VALUE=&quot;66&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;archives&quot; VALUE=&quot;1083&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;images&quot; VALUE=&quot;16&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;websites&quot; VALUE=&quot;4&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;video&quot; VALUE=&quot;1017&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;creationdate&quot; COUNT=&quot;75&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;2008&quot; VALUE=&quot;10440&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2009&quot; VALUE=&quot;2012&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2006&quot; VALUE=&quot;40805&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2007&quot; VALUE=&quot;41227&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2004&quot; VALUE=&quot;41985&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2005&quot; VALUE=&quot;47259&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2002&quot; VALUE=&quot;53478&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2003&quot; VALUE=&quot;51580&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1930&quot; VALUE=&quot;55775&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1970&quot; VALUE=&quot;33019&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1971&quot; VALUE=&quot;26822&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1972&quot; VALUE=&quot;28201&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1973&quot; VALUE=&quot;26548&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1974&quot; VALUE=&quot;24587&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1975&quot; VALUE=&quot;24428&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1976&quot; VALUE=&quot;26155&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2012&quot; VALUE=&quot;3163&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1977&quot; VALUE=&quot;29267&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2011&quot; VALUE=&quot;4081&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1978&quot; VALUE=&quot;27391&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2010&quot; VALUE=&quot;6914&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1979&quot; VALUE=&quot;27360&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1900&quot; VALUE=&quot;240766&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1990&quot; VALUE=&quot;40448&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1940&quot; VALUE=&quot;62075&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;500&quot; VALUE=&quot;5&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1982&quot; VALUE=&quot;31726&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1983&quot; VALUE=&quot;34033&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1980&quot; VALUE=&quot;32152&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1&quot; VALUE=&quot;28&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1981&quot; VALUE=&quot;30508&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1986&quot; VALUE=&quot;34179&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1987&quot; VALUE=&quot;33802&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1984&quot; VALUE=&quot;33984&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1985&quot; VALUE=&quot;34006&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1988&quot; VALUE=&quot;34751&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1989&quot; VALUE=&quot;35840&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1000&quot; VALUE=&quot;5&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1910&quot; VALUE=&quot;36626&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1600&quot; VALUE=&quot;8697&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1959&quot; VALUE=&quot;10236&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1958&quot; VALUE=&quot;9975&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1957&quot; VALUE=&quot;9647&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1956&quot; VALUE=&quot;9362&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1955&quot; VALUE=&quot;9113&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1954&quot; VALUE=&quot;8788&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1953&quot; VALUE=&quot;8303&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1952&quot; VALUE=&quot;8197&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1951&quot; VALUE=&quot;8307&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1950&quot; VALUE=&quot;63635&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1995&quot; VALUE=&quot;43574&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1996&quot; VALUE=&quot;50202&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1997&quot; VALUE=&quot;49158&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1998&quot; VALUE=&quot;48522&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1991&quot; VALUE=&quot;38882&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1992&quot; VALUE=&quot;43680&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1500&quot; VALUE=&quot;335&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1993&quot; VALUE=&quot;42208&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1994&quot; VALUE=&quot;46517&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1800&quot; VALUE=&quot;199638&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1999&quot; VALUE=&quot;52408&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1700&quot; VALUE=&quot;57040&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1920&quot; VALUE=&quot;39590&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1967&quot; VALUE=&quot;23737&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1966&quot; VALUE=&quot;22978&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1969&quot; VALUE=&quot;30092&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1968&quot; VALUE=&quot;25799&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1963&quot; VALUE=&quot;14170&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1962&quot; VALUE=&quot;13033&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1965&quot; VALUE=&quot;18932&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1964&quot; VALUE=&quot;16871&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1961&quot; VALUE=&quot;11700&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1960&quot; VALUE=&quot;12053&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2001&quot; VALUE=&quot;51926&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;2000&quot; VALUE=&quot;55170&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;domain&quot; COUNT=&quot;16&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;NYHS&quot; VALUE=&quot;201756&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NIFAC&quot; VALUE=&quot;10234&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;CU&quot; VALUE=&quot;61527&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BRES&quot; VALUE=&quot;6354&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BOBST&quot; VALUE=&quot;1544773&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BAFC&quot; VALUE=&quot;5180&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;WEB&quot; VALUE=&quot;56555&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;TWEB&quot; VALUE=&quot;4784&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;KBHS&quot; VALUE=&quot;22780&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NSGI&quot; VALUE=&quot;42184&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NIFA&quot; VALUE=&quot;84895&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NYSID&quot; VALUE=&quot;8975&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NSFO&quot; VALUE=&quot;110201&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BREF6&quot; VALUE=&quot;46452&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NSSC&quot; VALUE=&quot;6956&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;REF&quot; VALUE=&quot;619&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;genre&quot; COUNT=&quot;77&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;Correspondence&quot; VALUE=&quot;9288&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Bibliography Catalogs&quot; VALUE=&quot;2855&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Catalogs&quot; VALUE=&quot;19705&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Auction catalogues&quot; VALUE=&quot;216&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Hymnals&quot; VALUE=&quot;339&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Controversial literature&quot; VALUE=&quot;6025&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Poetry&quot; VALUE=&quot;12265&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Biography&quot; VALUE=&quot;80878&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Recensions de livres P&#xE9;riodiques&quot; VALUE=&quot;9&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Downtown writers&quot; VALUE=&quot;6256&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Booksellers' advertisements&quot; VALUE=&quot;2626&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Limitation statements (Printing)&quot; VALUE=&quot;16&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Guidebooks&quot; VALUE=&quot;4932&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Portraits&quot; VALUE=&quot;2300&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Dictionaries&quot; VALUE=&quot;14646&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;P&#xE9;riodiqiues&quot; VALUE=&quot;1&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Sacred books&quot; VALUE=&quot;63&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Juvenile literature&quot; VALUE=&quot;6086&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Congresses&quot; VALUE=&quot;73489&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Directories&quot; VALUE=&quot;5319&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Prayer books&quot; VALUE=&quot;165&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Electronic indexes&quot; VALUE=&quot;266&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Bibliography Periodicals&quot; VALUE=&quot;145&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Sources&quot; VALUE=&quot;17447&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Electronic books&quot; VALUE=&quot;384696&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Cookbooks&quot; VALUE=&quot;849&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Legends&quot; VALUE=&quot;771&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Indexes&quot; VALUE=&quot;2924&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Stories, plots, etc&quot; VALUE=&quot;268&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Bibliography&quot; VALUE=&quot;25331&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Prayers&quot; VALUE=&quot;332&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Artists' books&quot; VALUE=&quot;404&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Periodicals&quot; VALUE=&quot;2788&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Guidebooks Periodicals&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Conceptual art&quot; VALUE=&quot;42&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Liturgical books&quot; VALUE=&quot;34&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Games&quot; VALUE=&quot;265&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Copybooks&quot; VALUE=&quot;57&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Early works to 1800&quot; VALUE=&quot;61577&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Reviews Periodicals&quot; VALUE=&quot;47&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Antislavery literature&quot; VALUE=&quot;332&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Handbooks, manuals, etc&quot; VALUE=&quot;10254&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Texts&quot; VALUE=&quot;3211&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Early works to 1900&quot; VALUE=&quot;581&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Psalters&quot; VALUE=&quot;17&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;handbooks&quot; VALUE=&quot;304&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Readers (Primary)&quot; VALUE=&quot;201&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Library catalogues&quot; VALUE=&quot;147&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Color printing (Printing)&quot; VALUE=&quot;1168&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Spellers&quot; VALUE=&quot;251&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Abstracts Databases&quot; VALUE=&quot;6&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Popular works&quot; VALUE=&quot;1402&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Publishers' advertisements&quot; VALUE=&quot;1833&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Alphabets (Primers)&quot; VALUE=&quot;24&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Book reviews Periodicals&quot; VALUE=&quot;155&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Abstracts Periodicals&quot; VALUE=&quot;9&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Pictorial works&quot; VALUE=&quot;10718&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Diaries&quot; VALUE=&quot;2921&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Illustrations&quot; VALUE=&quot;1090&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Reviews Databases&quot; VALUE=&quot;3&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Sermons&quot; VALUE=&quot;13822&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;P&#xE9;riodique &#xE9;lectronique (Descripteur de forme)&quot; VALUE=&quot;5&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Bibliographie (Descripteur de forme)&quot; VALUE=&quot;4&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Specimens&quot; VALUE=&quot;2330&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Concordances&quot; VALUE=&quot;944&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Rare books&quot; VALUE=&quot;164&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Ressource Internet (Descripteur de forme)&quot; VALUE=&quot;5&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Poems&quot; VALUE=&quot;6271&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;P&#xE9;riodiques&quot; VALUE=&quot;31&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Reviews&quot; VALUE=&quot;827&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Electronic journals&quot; VALUE=&quot;501&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Exhibitions&quot; VALUE=&quot;32095&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Electronic encyclopedias, dictionaries and other reference works&quot; VALUE=&quot;246&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Collage&quot; VALUE=&quot;31&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Booksellers' catalogues&quot; VALUE=&quot;197&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Directory&quot; VALUE=&quot;36&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Drama&quot; VALUE=&quot;9631&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;library&quot; COUNT=&quot;27&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;NSKE&quot; VALUE=&quot;4808&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;CREF&quot; VALUE=&quot;1520&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BARCH&quot; VALUE=&quot;34&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BOBST&quot; VALUE=&quot;2052779&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NYHSM&quot; VALUE=&quot;174006&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BFALE&quot; VALUE=&quot;91840&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;WEB&quot; VALUE=&quot;19872&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;IFA&quot; VALUE=&quot;473168&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;CCLOS&quot; VALUE=&quot;876&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NYHSLAN&quot; VALUE=&quot;3753&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BHS&quot; VALUE=&quot;22780&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;ISAW&quot; VALUE=&quot;400014&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NYHSMSS&quot; VALUE=&quot;1446&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NSFO&quot; VALUE=&quot;114742&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BCHIL&quot; VALUE=&quot;1733&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;REI&quot; VALUE=&quot;390026&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;IFAC&quot; VALUE=&quot;398738&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NYUAD&quot; VALUE=&quot;4883&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BREF&quot; VALUE=&quot;69494&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;BTAM&quot; VALUE=&quot;47141&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NSGI&quot; VALUE=&quot;46960&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;CGEN&quot; VALUE=&quot;57718&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NYHSBR&quot; VALUE=&quot;15805&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NYSID&quot; VALUE=&quot;8975&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NYHSPAM&quot; VALUE=&quot;7082&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;NSSC&quot; VALUE=&quot;11736&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;COUR&quot; VALUE=&quot;421401&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;local1&quot; COUNT=&quot;26&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;Closed Stack&quot; VALUE=&quot;2919&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Main Collection&quot; VALUE=&quot;1755646&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;University Archives&quot; VALUE=&quot;34&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Internet Resources&quot; VALUE=&quot;253135&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Adkins&quot; VALUE=&quot;7278&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Reserve Collection&quot; VALUE=&quot;6554&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;United States Documents&quot; VALUE=&quot;33084&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Special Collections&quot; VALUE=&quot;1185&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Annex Collection&quot; VALUE=&quot;1919&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1st Floor Reference - Study&quot; VALUE=&quot;2112&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Microform&quot; VALUE=&quot;112556&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Downtown&quot; VALUE=&quot;7027&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;SpecCol&quot; VALUE=&quot;36200&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;MssRef&quot; VALUE=&quot;463&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Music Reference&quot; VALUE=&quot;3796&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Landauer&quot; VALUE=&quot;3752&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Fales&quot; VALUE=&quot;47039&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Internet Resources - US Documents&quot; VALUE=&quot;21484&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;1st Floor Reference&quot; VALUE=&quot;16207&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Technical Services&quot; VALUE=&quot;199&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Periodicals&quot; VALUE=&quot;213&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;7th Floor South - Children's Literature&quot; VALUE=&quot;1733&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Broadsides&quot; VALUE=&quot;15803&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Egyptian&quot; VALUE=&quot;3534&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Reference&quot; VALUE=&quot;11835&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Pamphlets&quot; VALUE=&quot;7063&quot;/&gt;
+                  &lt;/FACET&gt;
+                  &lt;FACET NAME=&quot;local4&quot; COUNT=&quot;12&quot;&gt;
+                    &lt;FACET_VALUES KEY=&quot;Garden City.&quot; VALUE=&quot;6&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;United States&quot; VALUE=&quot;79087&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Chicago.&quot; VALUE=&quot;155&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Illinois&quot; VALUE=&quot;220&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Massachusetts&quot; VALUE=&quot;17014&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;New York.&quot; VALUE=&quot;28472&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Philadelphia.&quot; VALUE=&quot;14084&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Newburyport.&quot; VALUE=&quot;608&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Cincinnati.&quot; VALUE=&quot;315&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Pennsylvania&quot; VALUE=&quot;15563&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Boston.&quot; VALUE=&quot;12951&quot;/&gt;
+                    &lt;FACET_VALUES KEY=&quot;Ohio&quot; VALUE=&quot;683&quot;/&gt;
+                  &lt;/FACET&gt;
+                &lt;/FACETLIST&gt;
+                &lt;DOCSET HIT_TIME=&quot;2761&quot; TOTALHITS=&quot;2968438&quot; FIRSTHIT=&quot;1&quot; LASTHIT=&quot;5&quot; TOTAL_TIME=&quot;16481&quot; IS_LOCAL=&quot;true&quot;&gt;
+                  &lt;DOC ID=&quot;1791176&quot; RANK=&quot;0.10374828&quot; NO=&quot;1&quot; SEARCH_ENGINE=&quot;Local Search Engine&quot; SEARCH_ENGINE_TYPE=&quot;Local Search Engine&quot;&gt;
+                    &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;
+                      &lt;record&gt;
+                        &lt;control&gt;
+                          &lt;sourcerecordid&gt;001293656&lt;/sourcerecordid&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph001293656&lt;/recordid&gt;
+                          &lt;originalsourceid&gt;NYU01&lt;/originalsourceid&gt;
+                          &lt;ilsapiid&gt;NYU01001293656&lt;/ilsapiid&gt;
+                          &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;
+                          &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;
+                        &lt;/control&gt;
+                        &lt;display&gt;
+                          &lt;type&gt;journal&lt;/type&gt;
+                          &lt;title&gt;Book&lt;/title&gt;
+                          &lt;creator&gt;Society of Mayflower Descendants in the State of New York.&lt;/creator&gt;
+                          &lt;publisher&gt;New York : The Society&lt;/publisher&gt;
+                          &lt;creationdate&gt;1900&lt;/creationdate&gt;
+                          &lt;format&gt;1 v. : ill. ; 24 cm.&lt;/format&gt;
+                          &lt;subject&gt;Society of Mayflower Descendants in the State of New York -- Periodicals; Mayflower (Ship) -- Periodicals; Genealogy -- Societies, etc. -- Periodicals; Massachusetts -- History -- New Plymouth, 1620-1691 -- Societies, etc. -- Periodicals&lt;/subject&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;relation&gt;$$Cearlier_title $$VSociety of Mayflower Descendants. New York (State). Year book&lt;/relation&gt;
+                          &lt;relation&gt;$$Clater_title ; $$VSociety of Mayflower Descendants in the State of New York. Record book&lt;/relation&gt;
+                          &lt;source&gt;nyu_aleph&lt;/source&gt;
+                          &lt;availlibrary&gt;$$INYHS$$LNYHS$$1Main Collection$$2(F68 .S7631 Non-circulating )$$Savailable$$33$$40$$5Y$$60$$XNYU50$$YNYHS$$ZMAIN&lt;/availlibrary&gt;
+                          &lt;lds02&gt;nyu_aleph001293656&lt;/lds02&gt;
+                          &lt;lds01&gt;NYHS&lt;/lds01&gt;
+                          &lt;availinstitution&gt;$$INYHS$$Savailable&lt;/availinstitution&gt;
+                          &lt;availpnx&gt;available&lt;/availpnx&gt;
+                        &lt;/display&gt;
+                        &lt;links&gt;
+                          &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;
+                          &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;
+                          &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;
+                          &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;
+                          &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;
+                          &lt;lln02&gt;$$DClick here to request N-YHS materials.$$Uhttps://nyhs.aeon.atlas-sys.com/aeon/aeon.dll/OpenURL?collection=Main Collection&amp;amp;location=Main Collection&amp;amp;callnumber=F68 .S7631 Non-circulating&amp;amp;bsn=001293656&amp;amp;date=1900&amp;amp;date=1900&lt;/lln02&gt;
+                          &lt;lln03&gt;$$Taeon_nyhs$$DClick here to request N-YHS materials. (TEST)$$1Main Collection$$2F68 .S7631 Non-circulating&lt;/lln03&gt;
+                        &lt;/links&gt;
+                        &lt;search&gt;
+                          &lt;creatorcontrib&gt;Society of Mayflower Descendants in the State of New York.&lt;/creatorcontrib&gt;
+                          &lt;title&gt;Book /&lt;/title&gt;
+                          &lt;subject&gt;Society of Mayflower Descendants in the State of New York  Periodicals&lt;/subject&gt;
+                          &lt;subject&gt;Mayflower (Ship)  Periodicals&lt;/subject&gt;
+                          &lt;subject&gt;Genealogy  Societies, etc. Periodicals&lt;/subject&gt;
+                          &lt;subject&gt;Massachusetts  History New Plymouth, 1620-1691 Societies, etc. Periodicals&lt;/subject&gt;
+                          &lt;subject&gt;Massachusetts-Bay (State)&lt;/subject&gt;
+                          &lt;subject&gt;Province of Massachusetts Bay&lt;/subject&gt;
+                          &lt;subject&gt;Massachusetts Bay (Province)&lt;/subject&gt;
+                          &lt;subject&gt;Commonwealth of Massachusetts&lt;/subject&gt;
+                          &lt;general&gt;The Society,&lt;/general&gt;
+                          &lt;general&gt;Library's copies are nos. 108 and 201 of 800 copies.&lt;/general&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph001293656&lt;/recordid&gt;
+                          &lt;rsrctype&gt;journal&lt;/rsrctype&gt;
+                          &lt;creationdate&gt;1900&lt;/creationdate&gt;
+                          &lt;addtitle&gt;Year book&lt;/addtitle&gt;
+                          &lt;addtitle&gt;Record book&lt;/addtitle&gt;
+                          &lt;searchscope&gt;NYHS&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NYHS Main Collection&lt;/searchscope&gt;
+                          &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NYHSM&lt;/searchscope&gt;
+                          &lt;scope&gt;NYHS&lt;/scope&gt;
+                          &lt;scope&gt;NYHS Main Collection&lt;/scope&gt;
+                          &lt;scope&gt;nyu_aleph&lt;/scope&gt;
+                          &lt;scope&gt;NYHSM&lt;/scope&gt;
+                          &lt;alttitle&gt;The ... book of the Society of Mayflower Descendants in the State of New York&lt;/alttitle&gt;
+                          &lt;lsr01&gt;F68 .S7631&lt;/lsr01&gt;
+                          &lt;lsr01&gt;F68.S7631&lt;/lsr01&gt;
+                          &lt;lsr02&gt;The Society,&lt;/lsr02&gt;
+                        &lt;/search&gt;
+                        &lt;sort&gt;
+                          &lt;title&gt;Book /&lt;/title&gt;
+                          &lt;creationdate&gt;1900&lt;/creationdate&gt;
+                          &lt;author&gt;Society of Mayflower Descendants in the State of New York.&lt;/author&gt;
+                          &lt;lso01&gt;1900&lt;/lso01&gt;
+                        &lt;/sort&gt;
+                        &lt;facets&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;creationdate&gt;1900&lt;/creationdate&gt;
+                          &lt;topic&gt;Society of Mayflower Descendants in the State of New York&#x2013;Periodicals&lt;/topic&gt;
+                          &lt;topic&gt;Mayflower (Ship)&#x2013;Periodicals&lt;/topic&gt;
+                          &lt;topic&gt;Genealogy&#x2013;Societies, etc&#x2013;Periodicals&lt;/topic&gt;
+                          &lt;topic&gt;Massachusetts&#x2013;History&#x2013;New Plymouth, 1620-1691&#x2013;Societies, etc&#x2013;Periodicals&lt;/topic&gt;
+                          &lt;collection&gt;NYHS&lt;/collection&gt;
+                          &lt;toplevel&gt;available&lt;/toplevel&gt;
+                          &lt;prefilter&gt;journals&lt;/prefilter&gt;
+                          &lt;rsrctype&gt;journals&lt;/rsrctype&gt;
+                          &lt;creatorcontrib&gt;Society of Mayflower Descendants in the State of New York&lt;/creatorcontrib&gt;
+                          &lt;genre&gt;Periodicals&lt;/genre&gt;
+                          &lt;library&gt;NYHSM&lt;/library&gt;
+                          &lt;lfc01&gt;Main Collection&lt;/lfc01&gt;
+                          &lt;frbrgroupid&gt;50316522&lt;/frbrgroupid&gt;
+                          &lt;frbrtype&gt;6&lt;/frbrtype&gt;
+                        &lt;/facets&gt;
+                        &lt;dedup&gt;
+                          &lt;t&gt;99&lt;/t&gt;
+                          &lt;c3&gt;book&lt;/c3&gt;
+                          &lt;c4&gt;new&lt;/c4&gt;
+                          &lt;f6&gt;1900&lt;/f6&gt;
+                          &lt;f7&gt;book&lt;/f7&gt;
+                          &lt;f8&gt;book&lt;/f8&gt;
+                          &lt;f9&gt;nyu&lt;/f9&gt;
+                          &lt;f10&gt;new&lt;/f10&gt;
+                          &lt;f11&gt;society of mayflower descendants in the state of new york&lt;/f11&gt;
+                        &lt;/dedup&gt;
+                        &lt;frbr&gt;
+                          &lt;t&gt;1&lt;/t&gt;
+                          &lt;k1&gt;$$Ksociety of mayflower descendants in the state of new york$$AA&lt;/k1&gt;
+                          &lt;k3&gt;$$Kbook$$AT&lt;/k3&gt;
+                        &lt;/frbr&gt;
+                        &lt;delivery&gt;
+                          &lt;institution&gt;NYHS&lt;/institution&gt;
+                          &lt;delcategory&gt;Physical Item&lt;/delcategory&gt;
+                        &lt;/delivery&gt;
+                        &lt;ranking&gt;
+                          &lt;booster1&gt;1&lt;/booster1&gt;
+                          &lt;booster2&gt;1&lt;/booster2&gt;
+                        &lt;/ranking&gt;
+                        &lt;addata&gt;
+                          &lt;aucorp&gt;Society of Mayflower Descendants in the State of New York&lt;/aucorp&gt;
+                          &lt;jtitle&gt;Book&lt;/jtitle&gt;
+                          &lt;addtitle&gt;The ... book of the Society of Mayflower Descendants in the State of New York&lt;/addtitle&gt;
+                          &lt;date&gt;1900&lt;/date&gt;
+                          &lt;risdate&gt;1900.&lt;/risdate&gt;
+                          &lt;format&gt;journal&lt;/format&gt;
+                          &lt;genre&gt;journal&lt;/genre&gt;
+                          &lt;ristype&gt;JOUR&lt;/ristype&gt;
+                          &lt;cop&gt;New York&lt;/cop&gt;
+                          &lt;pub&gt;The Society&lt;/pub&gt;
+                          &lt;lad01&gt;NYHSNYHSNYHS&lt;/lad01&gt;
+                          &lt;lad01&gt;Physical Item&lt;/lad01&gt;
+                        &lt;/addata&gt;
+                      &lt;/record&gt;
+                    &lt;/PrimoNMBib&gt;
+                    &lt;GETIT deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001293656&quot; GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001293656&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=journal&amp;amp;rft.jtitle=Book&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.aufirst=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=Society%20of%20Mayflower%20Descendants%20in%20the%20State%20of%20New%20York&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=The%20Society&amp;amp;rft.place=New%20York&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph001293656&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;001293656&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;
+                    &lt;LIBRARIES&gt;
+                      &lt;LIBRARY&gt;
+                        &lt;institution&gt;NYHS&lt;/institution&gt;
+                        &lt;library&gt;NYHS&lt;/library&gt;
+                        &lt;status&gt;available&lt;/status&gt;
+                        &lt;collection&gt;Main Collection&lt;/collection&gt;
+                        &lt;callNumber&gt;(F68 .S7631 Non-circulating )&lt;/callNumber&gt;
+                        &lt;url&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001293656&lt;/url&gt;
+                      &lt;/LIBRARY&gt;
+                    &lt;/LIBRARIES&gt;
+                    &lt;LINKS&gt;
+                      &lt;openurl&gt;&lt;![CDATA[http://10.1.235.53:3210/lr_3&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001293656&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=Book&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=Society%20of%20Mayflower%20Descendants%20in%20the%20State%20of%20New%20York&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=The%20Society&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph001293656&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;001293656&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;
+                      &lt;backlink&gt;http://alephstage.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001293656&lt;/backlink&gt;
+                      &lt;thumbnail/&gt;
+                      &lt;openurlfulltext&gt;&lt;![CDATA[http://10.1.235.53:3210/lr_3&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001293656&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=journal&amp;rft.jtitle=Book&amp;rft.btitle=&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=Society%20of%20Mayflower%20Descendants%20in%20the%20State%20of%20New%20York&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=The%20Society&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;001293656&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;
+                      &lt;linktoholdings&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001293656&lt;/linktoholdings&gt;
+                      &lt;linktoreview&gt;https://library.nyu.edu/persistent/lcn/nyu_aleph001293656?institution=NYU&amp;amp;persistent&lt;/linktoreview&gt;
+                      &lt;lln02&gt;https://nyhs.aeon.atlas-sys.com/aeon/aeon.dll/OpenURL?collection=Main Collection&amp;amp;location=Main Collection&amp;amp;callnumber=F68 .S7631 Non-circulating&amp;amp;bsn=001293656&amp;amp;date=1900&amp;amp;date=1900&lt;/lln02&gt;
+                      &lt;lln03&gt;&lt;![CDATA[https://nyhs.aeon.atlas-sys.com/aeon/aeon.dll/OpenURL?bsn=001293656&amp;btitle=&amp;jtitle=Book&amp;aulast=Society%20of%20Mayflower%20Descendants%20in%20the%20State%20of%20New%20York.&amp;date=1900&amp;edition=&amp;collection=Main Collection&amp;location=Main Collection&amp;callnumber=F68 .S7631 Non-circulating]]&gt;&lt;/lln03&gt;
+                    &lt;/LINKS&gt;
+                  &lt;/DOC&gt;
+                  &lt;DOC ID=&quot;1210580&quot; RANK=&quot;0.103635415&quot; NO=&quot;2&quot; SEARCH_ENGINE=&quot;Local Search Engine&quot; SEARCH_ENGINE_TYPE=&quot;Local Search Engine&quot;&gt;
+                    &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;
+                      &lt;record&gt;
+                        &lt;control&gt;
+                          &lt;sourcerecordid&gt;001036553&lt;/sourcerecordid&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph001036553&lt;/recordid&gt;
+                          &lt;originalsourceid&gt;NYU01&lt;/originalsourceid&gt;
+                          &lt;ilsapiid&gt;NYU01001036553&lt;/ilsapiid&gt;
+                          &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;
+                          &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;
+                        &lt;/control&gt;
+                        &lt;display&gt;
+                          &lt;type&gt;book&lt;/type&gt;
+                          &lt;title&gt;[Book&lt;/title&gt;
+                          &lt;creator&gt;Ferit  Edg&#xFC;  1936-&lt;/creator&gt;
+                          &lt;contributor&gt;B&#xFC;lent Erkmen&lt;/contributor&gt;
+                          &lt;publisher&gt;&#x130;stanbul : Mas Printing Co.&lt;/publisher&gt;
+                          &lt;creationdate&gt;c1989&lt;/creationdate&gt;
+                          &lt;format&gt;68 p. : col. ill. ; 31 cm.&lt;/format&gt;
+                          &lt;subject&gt;Firdaws&#x12B;. Sh&#x101;hn&#x101;mah -- Illustrations&lt;/subject&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;source&gt;nyu_aleph&lt;/source&gt;
+                          &lt;availlibrary&gt;$$INS$$LNSGI$$1Main Collection$$2(ND3399.F5 E34 1989 )$$Savailable$$31$$40$$5N$$60$$XNYU50$$YTNSGI$$ZMAIN&lt;/availlibrary&gt;
+                          &lt;lds02&gt;nyu_aleph001036553&lt;/lds02&gt;
+                          &lt;lds01&gt;NS&lt;/lds01&gt;
+                          &lt;availinstitution&gt;$$INS$$Savailable&lt;/availinstitution&gt;
+                          &lt;availpnx&gt;available&lt;/availpnx&gt;
+                        &lt;/display&gt;
+                        &lt;links&gt;
+                          &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;
+                          &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;
+                          &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;
+                          &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;
+                          &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;
+                        &lt;/links&gt;
+                        &lt;search&gt;
+                          &lt;creatorcontrib&gt;Ferit,  Edg&#xFC;  1936-&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Edg&#xFC;, Ferit, 1936-&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Edg&#xFC;, F&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;concept by Ferit Edg&#xFC;, B&#xFC;lent Erkmen].&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;B&#xFC;lent  Erkmen&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Erkmen, B&lt;/creatorcontrib&gt;
+                          &lt;title&gt;[Book /&lt;/title&gt;
+                          &lt;subject&gt;Firdaws&#x12B;. Sh&#x101;hn&#x101;mah  Illustrations&lt;/subject&gt;
+                          &lt;general&gt;Mas Printing Co.,&lt;/general&gt;
+                          &lt;general&gt;&quot;Plates: The Shahname of Firdevsi, late 16th century. Text: Ferit Edg&#xFC;, 1989. Design: B&#xFC;lent Erkmen, 1989. Translation: Mary I&#x15F;in, 1989. Publisher: Lokman &#x15E;ahin, Mas&quot;--P. [66].&lt;/general&gt;
+                          &lt;general&gt;&quot;This book was designed and produced in Istanbul in the year nineteen hundred and eighty-nine and printed by Mas Printing Co. in the same year in the same city. The entire impression of 1000 Turkish and 500 English copies has been numbered. Numbers 1 to 500 of the Turkish edition and 1001 to 1250 of the English edition are not for sale&quot;--P. [67].&lt;/general&gt;
+                          &lt;general&gt;Library's copy: 1107 of 1500.&lt;/general&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph001036553&lt;/recordid&gt;
+                          &lt;rsrctype&gt;book&lt;/rsrctype&gt;
+                          &lt;creationdate&gt;1989&lt;/creationdate&gt;
+                          &lt;searchscope&gt;TNSGI&lt;/searchscope&gt;
+                          &lt;searchscope&gt;TNSGI Main Collection&lt;/searchscope&gt;
+                          &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NS&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NSGI&lt;/searchscope&gt;
+                          &lt;scope&gt;TNSGI&lt;/scope&gt;
+                          &lt;scope&gt;TNSGI Main Collection&lt;/scope&gt;
+                          &lt;scope&gt;nyu_aleph&lt;/scope&gt;
+                          &lt;scope&gt;NS&lt;/scope&gt;
+                          &lt;scope&gt;NSGI&lt;/scope&gt;
+                          &lt;lsr01&gt;ND3399.F5 E34 1989&lt;/lsr01&gt;
+                          &lt;lsr01&gt;ND3399 .F5 E34 1989&lt;/lsr01&gt;
+                          &lt;lsr02&gt;Mas Printing Co.,&lt;/lsr02&gt;
+                        &lt;/search&gt;
+                        &lt;sort&gt;
+                          &lt;title&gt;[Book /&lt;/title&gt;
+                          &lt;creationdate&gt;1989&lt;/creationdate&gt;
+                          &lt;author&gt;Edg&#xFC;, Ferit, 1936-&lt;/author&gt;
+                          &lt;lso01&gt;1989&lt;/lso01&gt;
+                        &lt;/sort&gt;
+                        &lt;facets&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;creationdate&gt;1989&lt;/creationdate&gt;
+                          &lt;topic&gt;Firdaws&#x12B;. Sh&#x101;hn&#x101;mah&#x2013;Illustrations&lt;/topic&gt;
+                          &lt;collection&gt;NSGI&lt;/collection&gt;
+                          &lt;toplevel&gt;available&lt;/toplevel&gt;
+                          &lt;prefilter&gt;books&lt;/prefilter&gt;
+                          &lt;rsrctype&gt;books&lt;/rsrctype&gt;
+                          &lt;creatorcontrib&gt;Edg&#xFC;, F&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Erkmen, B&lt;/creatorcontrib&gt;
+                          &lt;genre&gt;Illustrations&lt;/genre&gt;
+                          &lt;library&gt;NSGI&lt;/library&gt;
+                          &lt;lfc01&gt;Main Collection&lt;/lfc01&gt;
+                          &lt;classificationlcc&gt;N - Fine arts.&#x2013;Painting&lt;/classificationlcc&gt;
+                          &lt;frbrgroupid&gt;50359175&lt;/frbrgroupid&gt;
+                          &lt;frbrtype&gt;6&lt;/frbrtype&gt;
+                        &lt;/facets&gt;
+                        &lt;dedup&gt;
+                          &lt;t&gt;1&lt;/t&gt;
+                          &lt;c3&gt;book&lt;/c3&gt;
+                          &lt;c4&gt;1989&lt;/c4&gt;
+                          &lt;f5&gt;book&lt;/f5&gt;
+                          &lt;f6&gt;1989&lt;/f6&gt;
+                          &lt;f7&gt;book&lt;/f7&gt;
+                          &lt;f8&gt;tu&lt;/f8&gt;
+                          &lt;f9&gt;68 p. :&lt;/f9&gt;
+                          &lt;f10&gt;mas printing co&lt;/f10&gt;
+                          &lt;f11&gt;edgue ferit 1936&lt;/f11&gt;
+                        &lt;/dedup&gt;
+                        &lt;frbr&gt;
+                          &lt;t&gt;1&lt;/t&gt;
+                          &lt;k1&gt;$$Kedgue ferit 1936$$AA&lt;/k1&gt;
+                          &lt;k3&gt;$$Kbookbook$$AT&lt;/k3&gt;
+                        &lt;/frbr&gt;
+                        &lt;delivery&gt;
+                          &lt;institution&gt;NS&lt;/institution&gt;
+                          &lt;delcategory&gt;Physical Item&lt;/delcategory&gt;
+                        &lt;/delivery&gt;
+                        &lt;enrichment&gt;
+                          &lt;classificationlcc&gt;ND3399.F5&lt;/classificationlcc&gt;
+                        &lt;/enrichment&gt;
+                        &lt;ranking&gt;
+                          &lt;booster1&gt;1&lt;/booster1&gt;
+                          &lt;booster2&gt;1&lt;/booster2&gt;
+                        &lt;/ranking&gt;
+                        &lt;addata&gt;
+                          &lt;aulast&gt;Edg&#xFC;&lt;/aulast&gt;
+                          &lt;aufirst&gt;Ferit,&lt;/aufirst&gt;
+                          &lt;au&gt;Edg&#xFC;, Ferit, 1936-&lt;/au&gt;
+                          &lt;addau&gt;Erkmen, B&#xFC;lent&lt;/addau&gt;
+                          &lt;btitle&gt;[Book&lt;/btitle&gt;
+                          &lt;date&gt;1989&lt;/date&gt;
+                          &lt;risdate&gt;c1989.&lt;/risdate&gt;
+                          &lt;format&gt;book&lt;/format&gt;
+                          &lt;genre&gt;book&lt;/genre&gt;
+                          &lt;ristype&gt;BOOK&lt;/ristype&gt;
+                          &lt;cop&gt;&#x130;stanbul&lt;/cop&gt;
+                          &lt;pub&gt;Mas Printing Co.&lt;/pub&gt;
+                          &lt;lad01&gt;TNSGI&lt;/lad01&gt;
+                          &lt;lad01&gt;Physical Item&lt;/lad01&gt;
+                        &lt;/addata&gt;
+                      &lt;/record&gt;
+                    &lt;/PrimoNMBib&gt;
+                    &lt;GETIT deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001293656&quot; GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001293656&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=journal&amp;amp;rft.jtitle=Book&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.aufirst=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=Society%20of%20Mayflower%20Descendants%20in%20the%20State%20of%20New%20York&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=The%20Society&amp;amp;rft.place=New%20York&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph001293656&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;001293656&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;
+                    &lt;LIBRARIES&gt;
+                      &lt;LIBRARY&gt;
+                        &lt;institution&gt;NS&lt;/institution&gt;
+                        &lt;library&gt;NSGI&lt;/library&gt;
+                        &lt;status&gt;available&lt;/status&gt;
+                        &lt;collection&gt;Main Collection&lt;/collection&gt;
+                        &lt;callNumber&gt;(ND3399.F5 E34 1989 )&lt;/callNumber&gt;
+                        &lt;url&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001036553&lt;/url&gt;
+                      &lt;/LIBRARY&gt;
+                    &lt;/LIBRARIES&gt;
+                    &lt;LINKS&gt;
+                      &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?umlaut.institution=NS&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001036553&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=[Book&amp;rft.aulast=Edg&#xFC;&amp;rft.aufirst=Ferit%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Edg&#xFC;%2C%20Ferit%2C%201936-&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Mas%20Printing%20Co.&amp;rft.place=&#x130;stanbul&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph001036553&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;001036553&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;
+                      &lt;backlink&gt;http://alephstage.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001036553&lt;/backlink&gt;
+                      &lt;thumbnail/&gt;
+                      &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?umlaut.institution=NS&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001036553&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=[Book&amp;rft.aulast=Edg&#xFC;&amp;rft.aufirst=Ferit%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Edg&#xFC;%2C%20Ferit%2C%201936-&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Mas%20Printing%20Co.&amp;rft.place=&#x130;stanbul&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;001036553&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;
+                      &lt;linktoholdings&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001036553&lt;/linktoholdings&gt;
+                      &lt;linktoreview&gt;https://library.nyu.edu/persistent/lcn/nyu_aleph001036553?institution=NYU&amp;amp;persistent&lt;/linktoreview&gt;
+                    &lt;/LINKS&gt;
+                  &lt;/DOC&gt;
+                  &lt;DOC ID=&quot;1037527&quot; RANK=&quot;0.06909446&quot; NO=&quot;3&quot; SEARCH_ENGINE=&quot;Local Search Engine&quot; SEARCH_ENGINE_TYPE=&quot;Local Search Engine&quot;&gt;
+                    &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;
+                      &lt;record&gt;
+                        &lt;control&gt;
+                          &lt;sourcerecordid&gt;001485480&lt;/sourcerecordid&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph001485480&lt;/recordid&gt;
+                          &lt;originalsourceid&gt;NYU01&lt;/originalsourceid&gt;
+                          &lt;ilsapiid&gt;NYU01001485480&lt;/ilsapiid&gt;
+                          &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;
+                          &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;
+                        &lt;/control&gt;
+                        &lt;display&gt;
+                          &lt;type&gt;audio&lt;/type&gt;
+                          &lt;title&gt;Book [sound recording]&lt;/title&gt;
+                          &lt;creator&gt;R&#xFC;diger  Carl&lt;/creator&gt;
+                          &lt;contributor&gt;Cowws-Quintett.; September Band.&lt;/contributor&gt;
+                          &lt;publisher&gt;Berlin : Free Music Production&lt;/publisher&gt;
+                          &lt;creationdate&gt;p1998&lt;/creationdate&gt;
+                          &lt;format&gt;2 sound discs : digital ; 4 3/4 in.&lt;/format&gt;
+                          &lt;identifier&gt;$$Cmuspub$$VFMP OWN-90007--FMP OWN-90008 Free Music Production&lt;/identifier&gt;
+                          &lt;subject&gt;Jazz -- Germany&lt;/subject&gt;
+                          &lt;description&gt;$$Ccontents$$VBook 1 (58:31) -- Book 2 (60:36).&lt;/description&gt;
+                          &lt;description&gt;$$Ccredits$$VPerformed by the Cowws-Quintet, September Band, and other soloists and ensembles.&lt;/description&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;source&gt;nyu_aleph&lt;/source&gt;
+                          &lt;availlibrary&gt;$$INYU$$LBAFC$$1Main Collection$$2(XCD 14364 )$$Savailable$$31$$40$$5N$$60$$XNYU50$$YBAFC$$ZAFC&lt;/availlibrary&gt;
+                          &lt;lds02&gt;nyu_aleph001485480&lt;/lds02&gt;
+                          &lt;lds01&gt;NYU&lt;/lds01&gt;
+                          &lt;availinstitution&gt;$$INYU$$Savailable&lt;/availinstitution&gt;
+                          &lt;availpnx&gt;available&lt;/availpnx&gt;
+                        &lt;/display&gt;
+                        &lt;links&gt;
+                          &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;
+                          &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;
+                          &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;
+                          &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;
+                          &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;
+                          &lt;linktouc&gt;$$Tworldcat_oclc$$DCheck other libraries (WorldCat&#xAE;)&lt;/linktouc&gt;
+                        &lt;/links&gt;
+                        &lt;search&gt;
+                          &lt;creatorcontrib&gt;R&#xFC;diger  Carl&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Carl, R&#xFC;diger.&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Carl, R&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;R&#xFC;diger Carl.&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Performed by the Cowws-Quintet, September Band, and other soloists and ensembles.&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Cowws-Quintett.&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;September Band.&lt;/creatorcontrib&gt;
+                          &lt;title&gt;Book&lt;/title&gt;
+                          &lt;subject&gt;Jazz  Germany&lt;/subject&gt;
+                          &lt;subject&gt;Xylophone and piano music (Jazz)&lt;/subject&gt;
+                          &lt;subject&gt;Wind instrument and piano music (Jazz)&lt;/subject&gt;
+                          &lt;subject&gt;Saxophone and piano music (Jazz)&lt;/subject&gt;
+                          &lt;subject&gt;Cornet and piano music (Jazz)&lt;/subject&gt;
+                          &lt;subject&gt;Accordion and piano music (Jazz)&lt;/subject&gt;
+                          &lt;subject&gt;Jazz septets&lt;/subject&gt;
+                          &lt;subject&gt;Jazz quartets&lt;/subject&gt;
+                          &lt;subject&gt;Jazz quintets&lt;/subject&gt;
+                          &lt;subject&gt;Jazz sextets&lt;/subject&gt;
+                          &lt;subject&gt;Jazz octets&lt;/subject&gt;
+                          &lt;subject&gt;Jazz trios&lt;/subject&gt;
+                          &lt;subject&gt;Jazz duets&lt;/subject&gt;
+                          &lt;subject&gt;Jazz music&lt;/subject&gt;
+                          &lt;subject&gt;Jazz nonets&lt;/subject&gt;
+                          &lt;subject&gt;Jazz United States&lt;/subject&gt;
+                          &lt;subject&gt;Double bass and piano music (Jazz)&lt;/subject&gt;
+                          &lt;subject&gt;Clarinet and piano music (Jazz)&lt;/subject&gt;
+                          &lt;subject&gt;Vibraphone and piano music (Jazz)&lt;/subject&gt;
+                          &lt;general&gt;Free Music Production,&lt;/general&gt;
+                          &lt;general&gt;Free jazz for various instrumental combinations.&lt;/general&gt;
+                          &lt;general&gt;Primarily English words in selections with text.&lt;/general&gt;
+                          &lt;general&gt;Compact discs.&lt;/general&gt;
+                          &lt;general&gt;Program notes in English and German and details on ensembles and recording dates on insert.&lt;/general&gt;
+                          &lt;general&gt;Recorded 1977-1996 in various locations.&lt;/general&gt;
+                          &lt;general&gt;FMP OWN-90007--FMP OWN-90008&lt;/general&gt;
+                          &lt;general&gt;[sound recording] /&lt;/general&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph001485480&lt;/recordid&gt;
+                          &lt;toc&gt;Book 1 (58:31) -- Book 2 (60:36).&lt;/toc&gt;
+                          &lt;rsrctype&gt;audio&lt;/rsrctype&gt;
+                          &lt;creationdate&gt;1998&lt;/creationdate&gt;
+                          &lt;creationdate&gt;1977&lt;/creationdate&gt;
+                          &lt;searchscope&gt;BAFC&lt;/searchscope&gt;
+                          &lt;searchscope&gt;BAFC Main Collection&lt;/searchscope&gt;
+                          &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NYU&lt;/searchscope&gt;
+                          &lt;searchscope&gt;BOBST&lt;/searchscope&gt;
+                          &lt;scope&gt;BAFC&lt;/scope&gt;
+                          &lt;scope&gt;BAFC Main Collection&lt;/scope&gt;
+                          &lt;scope&gt;nyu_aleph&lt;/scope&gt;
+                          &lt;scope&gt;NYU&lt;/scope&gt;
+                          &lt;scope&gt;BOBST&lt;/scope&gt;
+                          &lt;lsr01&gt;XCD 14364&lt;/lsr01&gt;
+                          &lt;lsr02&gt;Free Music Production,&lt;/lsr02&gt;
+                        &lt;/search&gt;
+                        &lt;sort&gt;
+                          &lt;title&gt;Book&lt;/title&gt;
+                          &lt;creationdate&gt;1998&lt;/creationdate&gt;
+                          &lt;author&gt;Carl, R&#xFC;diger.&lt;/author&gt;
+                          &lt;lso01&gt;1998&lt;/lso01&gt;
+                        &lt;/sort&gt;
+                        &lt;facets&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;creationdate&gt;1998&lt;/creationdate&gt;
+                          &lt;topic&gt;Jazz&#x2013;Germany&lt;/topic&gt;
+                          &lt;collection&gt;BAFC&lt;/collection&gt;
+                          &lt;toplevel&gt;available&lt;/toplevel&gt;
+                          &lt;prefilter&gt;audio&lt;/prefilter&gt;
+                          &lt;rsrctype&gt;audio&lt;/rsrctype&gt;
+                          &lt;creatorcontrib&gt;Carl, R&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Cowws-Quintett&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;September Band&lt;/creatorcontrib&gt;
+                          &lt;library&gt;BOBST&lt;/library&gt;
+                          &lt;lfc01&gt;Main Collection&lt;/lfc01&gt;
+                          &lt;frbrgroupid&gt;50506990&lt;/frbrgroupid&gt;
+                          &lt;frbrtype&gt;6&lt;/frbrtype&gt;
+                        &lt;/facets&gt;
+                        &lt;dedup&gt;
+                          &lt;t&gt;1&lt;/t&gt;
+                          &lt;c3&gt;book&lt;/c3&gt;
+                          &lt;c4&gt;1998&lt;/c4&gt;
+                          &lt;f5&gt;book&lt;/f5&gt;
+                          &lt;f6&gt;1998&lt;/f6&gt;
+                          &lt;f7&gt;book&lt;/f7&gt;
+                          &lt;f8&gt;gw&lt;/f8&gt;
+                          &lt;f9&gt;2 sound discs :&lt;/f9&gt;
+                          &lt;f10&gt;free music production&lt;/f10&gt;
+                          &lt;f11&gt;carl ruediger&lt;/f11&gt;
+                        &lt;/dedup&gt;
+                        &lt;frbr&gt;
+                          &lt;t&gt;1&lt;/t&gt;
+                          &lt;k1&gt;$$Kcarl ruediger$$AA&lt;/k1&gt;
+                          &lt;k3&gt;$$Kaudiobook$$AT&lt;/k3&gt;
+                        &lt;/frbr&gt;
+                        &lt;delivery&gt;
+                          &lt;institution&gt;NYU&lt;/institution&gt;
+                          &lt;delcategory&gt;Physical Item&lt;/delcategory&gt;
+                        &lt;/delivery&gt;
+                        &lt;ranking&gt;
+                          &lt;booster1&gt;1&lt;/booster1&gt;
+                          &lt;booster2&gt;1&lt;/booster2&gt;
+                        &lt;/ranking&gt;
+                        &lt;addata&gt;
+                          &lt;aulast&gt;Carl&lt;/aulast&gt;
+                          &lt;aufirst&gt;R&#xFC;diger&lt;/aufirst&gt;
+                          &lt;au&gt;Carl, R&#xFC;diger&lt;/au&gt;
+                          &lt;addau&gt;Cowws-Quintett&lt;/addau&gt;
+                          &lt;addau&gt;September Band&lt;/addau&gt;
+                          &lt;btitle&gt;Book [sound recording]&lt;/btitle&gt;
+                          &lt;date&gt;1998&lt;/date&gt;
+                          &lt;risdate&gt;p1998.&lt;/risdate&gt;
+                          &lt;format&gt;audio&lt;/format&gt;
+                          &lt;genre&gt;audio&lt;/genre&gt;
+                          &lt;ristype&gt;SOUND&lt;/ristype&gt;
+                          &lt;cop&gt;Berlin&lt;/cop&gt;
+                          &lt;pub&gt;Free Music Production&lt;/pub&gt;
+                          &lt;oclcid&gt;41262620&lt;/oclcid&gt;
+                          &lt;lad01&gt;BAFC&lt;/lad01&gt;
+                          &lt;lad01&gt;Physical Item&lt;/lad01&gt;
+                        &lt;/addata&gt;
+                      &lt;/record&gt;
+                    &lt;/PrimoNMBib&gt;
+                    &lt;GETIT deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001293656&quot; GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001293656&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=journal&amp;amp;rft.jtitle=Book&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.aufirst=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=Society%20of%20Mayflower%20Descendants%20in%20the%20State%20of%20New%20York&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=The%20Society&amp;amp;rft.place=New%20York&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph001293656&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;001293656&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;
+                    &lt;LIBRARIES&gt;
+                      &lt;LIBRARY&gt;
+                        &lt;institution&gt;NYU&lt;/institution&gt;
+                        &lt;library&gt;BAFC&lt;/library&gt;
+                        &lt;status&gt;available&lt;/status&gt;
+                        &lt;collection&gt;Main Collection&lt;/collection&gt;
+                        &lt;callNumber&gt;(XCD 14364 )&lt;/callNumber&gt;
+                        &lt;url&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001485480&lt;/url&gt;
+                      &lt;/LIBRARY&gt;
+                    &lt;/LIBRARIES&gt;
+                    &lt;LINKS&gt;
+                      &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001485480&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:audio&amp;rft.genre=audio&amp;rft.jtitle=&amp;rft.btitle=Book%20[sound%20recording]&amp;rft.aulast=Carl&amp;rft.aufirst=R&#xFC;diger&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Carl%2C%20R&#xFC;diger&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Free%20Music%20Production&amp;rft.place=Berlin&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph001485480&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;001485480&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;
+                      &lt;backlink&gt;http://alephstage.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001485480&lt;/backlink&gt;
+                      &lt;thumbnail/&gt;
+                      &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001485480&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:audio&amp;rft.genre=audio&amp;rft.jtitle=&amp;rft.btitle=Book%20[sound%20recording]&amp;rft.aulast=Carl&amp;rft.aufirst=R&#xFC;diger&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Carl%2C%20R&#xFC;diger&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Free%20Music%20Production&amp;rft.place=Berlin&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;001485480&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;
+                      &lt;linktoholdings&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001485480&lt;/linktoholdings&gt;
+                      &lt;linktoreview&gt;https://library.nyu.edu/persistent/lcn/nyu_aleph001485480?institution=NYU&amp;amp;persistent&lt;/linktoreview&gt;
+                      &lt;linktouc&gt;http://www.worldcat.org/search?q=no%3A41262620&lt;/linktouc&gt;
+                    &lt;/LINKS&gt;
+                  &lt;/DOC&gt;
+                  &lt;DOC ID=&quot;603131&quot; RANK=&quot;0.06907734&quot; NO=&quot;4&quot; SEARCH_ENGINE=&quot;Local Search Engine&quot; SEARCH_ENGINE_TYPE=&quot;Local Search Engine&quot;&gt;
+                    &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;
+                      &lt;record&gt;
+                        &lt;control&gt;
+                          &lt;sourcerecordid&gt;000788071&lt;/sourcerecordid&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph000788071&lt;/recordid&gt;
+                          &lt;originalsourceid&gt;NYU01&lt;/originalsourceid&gt;
+                          &lt;ilsapiid&gt;NYU01000788071&lt;/ilsapiid&gt;
+                          &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;
+                          &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;
+                        &lt;/control&gt;
+                        &lt;display&gt;
+                          &lt;type&gt;book&lt;/type&gt;
+                          &lt;title&gt;Book&lt;/title&gt;
+                          &lt;creator&gt;Ronnie  Wathen&lt;/creator&gt;
+                          &lt;publisher&gt;s.l. : s.n.&lt;/publisher&gt;
+                          &lt;creationdate&gt;1968&lt;/creationdate&gt;
+                          &lt;format&gt;32 p. ; 25 cm.&lt;/format&gt;
+                          &lt;subject&gt;Downtown writers&lt;/subject&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;source&gt;nyu_aleph&lt;/source&gt;
+                          &lt;availlibrary&gt;$$INYU$$LBFALE$$1Downtown$$2(PR6073.A83 B6 1968 Box Non-circulating )$$Savailable$$31$$40$$5N$$60$$XNYU50$$YBFALE$$ZFDOWN&lt;/availlibrary&gt;
+                          &lt;lds02&gt;nyu_aleph000788071&lt;/lds02&gt;
+                          &lt;lds01&gt;NYU&lt;/lds01&gt;
+                          &lt;availinstitution&gt;$$INYU$$Savailable&lt;/availinstitution&gt;
+                          &lt;availpnx&gt;available&lt;/availpnx&gt;
+                        &lt;/display&gt;
+                        &lt;links&gt;
+                          &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;
+                          &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;
+                          &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;
+                          &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;
+                          &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;
+                          &lt;linktouc&gt;$$Tworldcat_oclc$$DCheck other libraries (WorldCat&#xAE;)&lt;/linktouc&gt;
+                        &lt;/links&gt;
+                        &lt;search&gt;
+                          &lt;creatorcontrib&gt;Ronnie  Wathen&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Wathen, Ronnie.&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Wathen, R&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;Ronnie Wathen.&lt;/creatorcontrib&gt;
+                          &lt;title&gt;Book /&lt;/title&gt;
+                          &lt;subject&gt;Downtown writers&lt;/subject&gt;
+                          &lt;general&gt;s.n.],&lt;/general&gt;
+                          &lt;general&gt;Letter by author to Eloise Wilentz, 24 Sept. 68 enclosed.&lt;/general&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph000788071&lt;/recordid&gt;
+                          &lt;rsrctype&gt;book&lt;/rsrctype&gt;
+                          &lt;creationdate&gt;1968&lt;/creationdate&gt;
+                          &lt;searchscope&gt;BFALE&lt;/searchscope&gt;
+                          &lt;searchscope&gt;BFALE Downtown&lt;/searchscope&gt;
+                          &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NYU&lt;/searchscope&gt;
+                          &lt;searchscope&gt;BOBST&lt;/searchscope&gt;
+                          &lt;scope&gt;BFALE&lt;/scope&gt;
+                          &lt;scope&gt;BFALE Downtown&lt;/scope&gt;
+                          &lt;scope&gt;nyu_aleph&lt;/scope&gt;
+                          &lt;scope&gt;NYU&lt;/scope&gt;
+                          &lt;scope&gt;BOBST&lt;/scope&gt;
+                          &lt;lsr01&gt;PR6073.A83 B6 1968 Box&lt;/lsr01&gt;
+                          &lt;lsr01&gt;PR6073 .A83 B6 1968 Box&lt;/lsr01&gt;
+                          &lt;lsr02&gt;s.n.],&lt;/lsr02&gt;
+                        &lt;/search&gt;
+                        &lt;sort&gt;
+                          &lt;title&gt;Book /&lt;/title&gt;
+                          &lt;creationdate&gt;1968&lt;/creationdate&gt;
+                          &lt;author&gt;Wathen, Ronnie.&lt;/author&gt;
+                          &lt;lso01&gt;1968&lt;/lso01&gt;
+                        &lt;/sort&gt;
+                        &lt;facets&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;creationdate&gt;1968&lt;/creationdate&gt;
+                          &lt;toplevel&gt;available&lt;/toplevel&gt;
+                          &lt;prefilter&gt;books&lt;/prefilter&gt;
+                          &lt;rsrctype&gt;books&lt;/rsrctype&gt;
+                          &lt;creatorcontrib&gt;Wathen, R&lt;/creatorcontrib&gt;
+                          &lt;genre&gt;Downtown writers&lt;/genre&gt;
+                          &lt;library&gt;BFALE&lt;/library&gt;
+                          &lt;library&gt;BOBST&lt;/library&gt;
+                          &lt;lfc01&gt;Downtown&lt;/lfc01&gt;
+                          &lt;frbrgroupid&gt;49713319&lt;/frbrgroupid&gt;
+                          &lt;frbrtype&gt;6&lt;/frbrtype&gt;
+                        &lt;/facets&gt;
+                        &lt;dedup&gt;
+                          &lt;t&gt;99&lt;/t&gt;
+                          &lt;c3&gt;book&lt;/c3&gt;
+                          &lt;c4&gt;1968&lt;/c4&gt;
+                          &lt;f5&gt;book&lt;/f5&gt;
+                          &lt;f6&gt;1968&lt;/f6&gt;
+                          &lt;f7&gt;book&lt;/f7&gt;
+                          &lt;f8&gt;xx&lt;/f8&gt;
+                          &lt;f9&gt;32 p. ;&lt;/f9&gt;
+                          &lt;f10&gt;s n&lt;/f10&gt;
+                          &lt;f11&gt;wathen ronnie&lt;/f11&gt;
+                        &lt;/dedup&gt;
+                        &lt;frbr&gt;
+                          &lt;t&gt;1&lt;/t&gt;
+                          &lt;k1&gt;$$Kwathen ronnie$$AA&lt;/k1&gt;
+                          &lt;k3&gt;$$Kbookbook$$AT&lt;/k3&gt;
+                        &lt;/frbr&gt;
+                        &lt;delivery&gt;
+                          &lt;institution&gt;NYU&lt;/institution&gt;
+                          &lt;delcategory&gt;Physical Item&lt;/delcategory&gt;
+                        &lt;/delivery&gt;
+                        &lt;ranking&gt;
+                          &lt;booster1&gt;1&lt;/booster1&gt;
+                          &lt;booster2&gt;1&lt;/booster2&gt;
+                        &lt;/ranking&gt;
+                        &lt;addata&gt;
+                          &lt;aulast&gt;Wathen&lt;/aulast&gt;
+                          &lt;aufirst&gt;Ronnie&lt;/aufirst&gt;
+                          &lt;au&gt;Wathen, Ronnie&lt;/au&gt;
+                          &lt;btitle&gt;Book&lt;/btitle&gt;
+                          &lt;date&gt;1968&lt;/date&gt;
+                          &lt;risdate&gt;1968.&lt;/risdate&gt;
+                          &lt;format&gt;book&lt;/format&gt;
+                          &lt;genre&gt;book&lt;/genre&gt;
+                          &lt;ristype&gt;BOOK&lt;/ristype&gt;
+                          &lt;cop&gt;s.l.&lt;/cop&gt;
+                          &lt;pub&gt;s.n.]&lt;/pub&gt;
+                          &lt;oclcid&gt;05283301&lt;/oclcid&gt;
+                          &lt;lad01&gt;BFALE&lt;/lad01&gt;
+                          &lt;lad01&gt;Physical Item&lt;/lad01&gt;
+                        &lt;/addata&gt;
+                      &lt;/record&gt;
+                    &lt;/PrimoNMBib&gt;
+                    &lt;GETIT deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001293656&quot; GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001293656&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=journal&amp;amp;rft.jtitle=Book&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.aufirst=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=Society%20of%20Mayflower%20Descendants%20in%20the%20State%20of%20New%20York&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=The%20Society&amp;amp;rft.place=New%20York&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph001293656&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;001293656&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;
+                    &lt;LIBRARIES&gt;
+                      &lt;LIBRARY&gt;
+                        &lt;institution&gt;NYU&lt;/institution&gt;
+                        &lt;library&gt;BFALE&lt;/library&gt;
+                        &lt;status&gt;available&lt;/status&gt;
+                        &lt;collection&gt;Downtown&lt;/collection&gt;
+                        &lt;callNumber&gt;(PR6073.A83 B6 1968 Box Non-circulating )&lt;/callNumber&gt;
+                        &lt;url&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000788071&lt;/url&gt;
+                      &lt;/LIBRARY&gt;
+                    &lt;/LIBRARIES&gt;
+                    &lt;LINKS&gt;
+                      &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000788071&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Book&amp;rft.aulast=Wathen&amp;rft.aufirst=Ronnie&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Wathen%2C%20Ronnie&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=s.n.]&amp;rft.place=s.l.&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph000788071&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000788071&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;
+                      &lt;backlink&gt;http://alephstage.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000788071&lt;/backlink&gt;
+                      &lt;thumbnail/&gt;
+                      &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000788071&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Book&amp;rft.aulast=Wathen&amp;rft.aufirst=Ronnie&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Wathen%2C%20Ronnie&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=s.n.]&amp;rft.place=s.l.&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000788071&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;
+                      &lt;linktoholdings&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000788071&lt;/linktoholdings&gt;
+                      &lt;linktoreview&gt;https://library.nyu.edu/persistent/lcn/nyu_aleph000788071?institution=NYU&amp;amp;persistent&lt;/linktoreview&gt;
+                      &lt;linktouc&gt;http://www.worldcat.org/search?q=no%3A05283301&lt;/linktouc&gt;
+                    &lt;/LINKS&gt;
+                  &lt;/DOC&gt;
+                  &lt;DOC ID=&quot;611546&quot; RANK=&quot;0.06907734&quot; NO=&quot;5&quot; SEARCH_ENGINE=&quot;Local Search Engine&quot; SEARCH_ENGINE_TYPE=&quot;Local Search Engine&quot;&gt;
+                    &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;
+                      &lt;record&gt;
+                        &lt;control&gt;
+                          &lt;sourcerecordid&gt;000792393&lt;/sourcerecordid&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph000792393&lt;/recordid&gt;
+                          &lt;originalsourceid&gt;NYU01&lt;/originalsourceid&gt;
+                          &lt;ilsapiid&gt;NYU01000792393&lt;/ilsapiid&gt;
+                          &lt;sourceformat&gt;MARC21&lt;/sourceformat&gt;
+                          &lt;sourcesystem&gt;Aleph&lt;/sourcesystem&gt;
+                        &lt;/control&gt;
+                        &lt;display&gt;
+                          &lt;type&gt;book&lt;/type&gt;
+                          &lt;title&gt;Book&lt;/title&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;source&gt;nyu_aleph&lt;/source&gt;
+                          &lt;availlibrary&gt;$$ICU$$LCU$$1Main Collection$$2(QP491.G5 )$$Sunavailable$$31$$41$$5N$$60$$XNYU50$$YCU$$ZMAIN&lt;/availlibrary&gt;
+                          &lt;lds02&gt;nyu_aleph000792393&lt;/lds02&gt;
+                          &lt;lds01&gt;CU&lt;/lds01&gt;
+                          &lt;availinstitution&gt;$$ICU$$Sunavailable&lt;/availinstitution&gt;
+                          &lt;availpnx&gt;unavailable&lt;/availpnx&gt;
+                        &lt;/display&gt;
+                        &lt;links&gt;
+                          &lt;openurl&gt;$$Topenurl_journal&lt;/openurl&gt;
+                          &lt;backlink&gt;$$Taleph_backlink$$DMore bibliographic information&lt;/backlink&gt;
+                          &lt;openurlfulltext&gt;$$Topenurlfull_journal&lt;/openurlfulltext&gt;
+                          &lt;linktoholdings&gt;$$Taleph_holdings&lt;/linktoholdings&gt;
+                          &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;
+                        &lt;/links&gt;
+                        &lt;search&gt;
+                          &lt;title&gt;Book&lt;/title&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph000792393&lt;/recordid&gt;
+                          &lt;rsrctype&gt;book&lt;/rsrctype&gt;
+                          &lt;searchscope&gt;CU&lt;/searchscope&gt;
+                          &lt;searchscope&gt;CU Main Collection&lt;/searchscope&gt;
+                          &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;
+                          &lt;searchscope&gt;CGEN&lt;/searchscope&gt;
+                          &lt;scope&gt;CU&lt;/scope&gt;
+                          &lt;scope&gt;CU Main Collection&lt;/scope&gt;
+                          &lt;scope&gt;nyu_aleph&lt;/scope&gt;
+                          &lt;scope&gt;CGEN&lt;/scope&gt;
+                          &lt;lsr01&gt;QP491.G5&lt;/lsr01&gt;
+                          &lt;lsr01&gt;QP491 .G5&lt;/lsr01&gt;
+                        &lt;/search&gt;
+                        &lt;sort&gt;
+                          &lt;title&gt;Book&lt;/title&gt;
+                        &lt;/sort&gt;
+                        &lt;facets&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;collection&gt;CU&lt;/collection&gt;
+                          &lt;prefilter&gt;books&lt;/prefilter&gt;
+                          &lt;rsrctype&gt;books&lt;/rsrctype&gt;
+                          &lt;library&gt;CGEN&lt;/library&gt;
+                          &lt;lfc01&gt;Main Collection&lt;/lfc01&gt;
+                          &lt;frbrgroupid&gt;74777472&lt;/frbrgroupid&gt;
+                          &lt;frbrtype&gt;6&lt;/frbrtype&gt;
+                        &lt;/facets&gt;
+                        &lt;dedup&gt;
+                          &lt;t&gt;1&lt;/t&gt;
+                          &lt;c3&gt;book&lt;/c3&gt;
+                          &lt;f5&gt;book&lt;/f5&gt;
+                          &lt;f7&gt;book&lt;/f7&gt;
+                        &lt;/dedup&gt;
+                        &lt;frbr&gt;
+                          &lt;t&gt;1&lt;/t&gt;
+                          &lt;k3&gt;$$Kbookbook$$AT&lt;/k3&gt;
+                        &lt;/frbr&gt;
+                        &lt;delivery&gt;
+                          &lt;institution&gt;CU&lt;/institution&gt;
+                          &lt;delcategory&gt;Physical Item&lt;/delcategory&gt;
+                        &lt;/delivery&gt;
+                        &lt;ranking&gt;
+                          &lt;booster1&gt;1&lt;/booster1&gt;
+                          &lt;booster2&gt;1&lt;/booster2&gt;
+                        &lt;/ranking&gt;
+                        &lt;addata&gt;
+                          &lt;btitle&gt;Book&lt;/btitle&gt;
+                          &lt;format&gt;book&lt;/format&gt;
+                          &lt;genre&gt;book&lt;/genre&gt;
+                          &lt;ristype&gt;BOOK&lt;/ristype&gt;
+                          &lt;lad01&gt;CU&lt;/lad01&gt;
+                          &lt;lad01&gt;Physical Item&lt;/lad01&gt;
+                        &lt;/addata&gt;
+                      &lt;/record&gt;
+                    &lt;/PrimoNMBib&gt;
+                    &lt;GETIT deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=001293656&quot; GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph001293656&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=journal&amp;amp;rft.jtitle=Book&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.aufirst=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=Society%20of%20Mayflower%20Descendants%20in%20the%20State%20of%20New%20York&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=The%20Society&amp;amp;rft.place=New%20York&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph001293656&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;001293656&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;
+                    &lt;LIBRARIES&gt;
+                      &lt;LIBRARY&gt;
+                        &lt;institution&gt;CU&lt;/institution&gt;
+                        &lt;library&gt;CU&lt;/library&gt;
+                        &lt;status&gt;unavailable&lt;/status&gt;
+                        &lt;collection&gt;Main Collection&lt;/collection&gt;
+                        &lt;callNumber&gt;(QP491.G5 )&lt;/callNumber&gt;
+                        &lt;url&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000792393&lt;/url&gt;
+                      &lt;/LIBRARY&gt;
+                    &lt;/LIBRARIES&gt;
+                    &lt;LINKS&gt;
+                      &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?umlaut.institution=CU&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000792393&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Book&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=&amp;rft.place=&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph000792393&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000792393&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;
+                      &lt;backlink&gt;http://alephstage.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000792393&lt;/backlink&gt;
+                      &lt;thumbnail/&gt;
+                      &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?umlaut.institution=CU&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2012-11-27T21%3A10%3A15IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000792393&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Book&amp;rft.aulast=&amp;rft.aufirst=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=&amp;rft.place=&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000792393&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;
+                      &lt;linktoholdings&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000792393&lt;/linktoholdings&gt;
+                      &lt;linktoreview&gt;https://library.nyu.edu/persistent/lcn/nyu_aleph000792393?institution=NYU&amp;amp;persistent&lt;/linktoreview&gt;
+                    &lt;/LINKS&gt;
+                  &lt;/DOC&gt;
+                &lt;/DOCSET&gt;
+              &lt;/RESULT&gt;
+              &lt;searchToken&gt;0&lt;/searchToken&gt;
+            &lt;/JAGROOT&gt;
+          &lt;/SEGMENTS&gt;</searchBriefReturn></ns1:searchBriefResponse></soapenv:Body></soapenv:Envelope>
+      http_version: 
+    recorded_at: Wed, 28 Nov 2012 02:10:15 GMT
+recorded_with: VCR 2.3.0
