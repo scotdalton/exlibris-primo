@@ -31,7 +31,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request searchissn call') do
+          VCR.use_cassette('request search issn call') do
             search_response = search_request.call
             search_response.records
             facets = search_response.facets
@@ -53,7 +53,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request searchisbn call') do
+          VCR.use_cassette('request search isbn call') do
             search_request.call
           end
       end
@@ -73,7 +73,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request searchtitle call') do
+          VCR.use_cassette('request search title call') do
             search_request.call
           end
       end
@@ -94,7 +94,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>true</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request searchdid u mean call') do
+          VCR.use_cassette('request search did u mean call') do
             search_response = search_request.call
             search_response.records
             facets = search_response.facets
@@ -118,7 +118,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request searchauthor call') do
+          VCR.use_cassette('request search author call') do
             search_request.call
           end
       end
@@ -138,7 +138,7 @@ module WebService
             "<BulkSize>5</BulkSize>"+
             "<DidUMeanEnabled>false</DidUMeanEnabled>"+
             "</PrimoSearchRequest>", "<institution>NYU</institution>"
-          VCR.use_cassette('request searchgenre call') do
+          VCR.use_cassette('request search genre call') do
             # search_request.call
           end
       end
@@ -178,7 +178,7 @@ module WebService
             assert_equal "<institution>NYU</institution>", xmlize(child)
           end
         end
-        VCR.use_cassette('request searchtitle author genre call') do
+        VCR.use_cassette('request search title author genre call') do
           search_response = search_request.call
           search_response.records
           search_response.facets
