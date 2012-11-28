@@ -37,21 +37,19 @@ module Exlibris
       def xml
         @xml ||= Nokogiri::XML(raw_xml)
       end
+      protected :xml
 
       def to_hash
         Hash.from_xml(to_xml)
       end
-      protected :to_hash
 
       def to_xml
         xml.to_xml
       end
-      protected :to_xml
 
       def to_json
         to_hash.to_json
       end
-      protected :to_json
     end
   end
 end

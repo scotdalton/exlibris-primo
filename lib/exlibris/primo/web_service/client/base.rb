@@ -7,7 +7,7 @@ module Exlibris
           include Abstract
           include Config::Attributes
           include SavonClient
-          include MagicActions
+          include SoapActions
           include Wsdl
 
           self.abstract = true

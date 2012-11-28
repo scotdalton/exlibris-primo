@@ -56,6 +56,9 @@ class Test::Unit::TestCase
 
   # Reversed expectation and actual because of ruby 1.8
   def assert_request(request, expected_root, *expected_args)
+    document = Nokogiri::XML(request.to_xml)
+    request_document = Nokogiri::XML(document.root.children.first.inner_text)
+    assert_equal(request_document.root.children.size, expected_args.size)
     assert_request_children(request, expected_root) do |child|
       child_xml = xmlize(child)
       assert_equal expected_args.shift, child_xml

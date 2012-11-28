@@ -5,17 +5,16 @@ module Exlibris
         class Base
           include Abstract
           include Namespaces
-          include Request::Action
           include Util
           include XmlUtil
           self.abstract = true
 
-          attr_reader :savon_response, :action
-          protected :savon_response, :action
-          def initialize savon_response, action
+          attr_reader :savon_response, :soap_action
+          protected :savon_response, :soap_action
+          def initialize savon_response, soap_action
             super
             @savon_response = savon_response
-            @action = action
+            @soap_action = soap_action
             @raw_xml = savon_response.body[response_key][return_key]
           end
         end

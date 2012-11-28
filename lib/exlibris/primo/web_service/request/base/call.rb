@@ -10,7 +10,7 @@ module Exlibris
           def call
             # Get the Response class that matches the Request class.
             response_klass = "Exlibris::Primo::WebService::Response::#{self.class.name.demodulize}".constantize
-            response_klass.new(client.send(action, to_xml), action)
+            response_klass.new(client.send(soap_action, to_xml), soap_action)
           end
         end
       end

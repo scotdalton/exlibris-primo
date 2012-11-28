@@ -4,12 +4,12 @@ module Exlibris
       module Response
         module Util
           def response_key
-            "#{action}_response".to_sym
+            "#{soap_action}_response".to_sym
           end
           protected :response_key
           
           def return_key
-            "#{action}_return".to_sym
+            "#{soap_action}_return".to_sym
           end
           protected :response_key
         end

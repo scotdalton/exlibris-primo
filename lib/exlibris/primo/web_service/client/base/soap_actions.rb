@@ -2,7 +2,7 @@ module Exlibris
   module Primo
     module WebService
       module Client
-        module MagicActions
+        module SoapActions
           def self.included(klass)
             klass.class_eval do
               extend Config
@@ -10,19 +10,19 @@ module Exlibris
           end
 
           module Config
-            def add_magic_actions *actions
+            def add_soap_actions *actions
               actions.each do |action|
-                magic_actions << action unless magic_actions.include? action
+                soap_actions << action unless soap_actions.include? action
               end
             end
 
-            def magic_actions
-              @magic_actions ||= []
+            def soap_actions
+              @soap_actions ||= []
             end
           end
 
-          def magic_actions
-            @magic_actions ||= self.class.magic_actions.concat(client.wsdl.soap_actions)
+          def soap_actions
+            @soap_actions ||= self.class.soap_actions.concat(client.wsdl.soap_actions)
           end
           
           # 
@@ -30,7 +30,7 @@ module Exlibris
           # which is set as the body of the SOAP request
           # 
           def method_missing(method, *args, &block)
-            if(magic_actions.include? method)
+            if(soap_actions.include? method)
               self.class.send(:define_method, method) { |request_xml|
                 client.request(method) { soap.body = request_xml }
               }
@@ -44,7 +44,7 @@ module Exlibris
           # Tell users that we respond to SOAP actions.
           #
           def respond_to?(method, include_private=false)
-            (magic_actions.include? method) ? true : super
+            (soap_actions.include? method) ? true : super
           end
         end
       end

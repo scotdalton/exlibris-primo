@@ -1,7 +1,7 @@
 module WebService
   module Client
     require 'test_helper'
-    class MagicActionsTest < Test::Unit::TestCase
+    class SoapActionsTest < Test::Unit::TestCase
       def setup
         @base_url = "http://bobcatdev.library.nyu.edu"
       end

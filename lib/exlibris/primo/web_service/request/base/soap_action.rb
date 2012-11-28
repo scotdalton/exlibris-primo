@@ -2,7 +2,7 @@ module Exlibris
   module Primo
     module WebService
       module Request
-        module Action
+        module SoapAction
           def self.included(klass)
             klass.class_eval do
               extend Config
@@ -10,15 +10,15 @@ module Exlibris
           end
 
           module Config
-            def action
-              @action ||= name.demodulize.underscore.to_sym
+            def soap_action
+              @soap_action ||= name.demodulize.underscore.to_sym
             end
-            attr_writer :action
-            protected :action=
+            attr_writer :soap_action
+            protected :soap_action=
           end
 
-          def action
-            @action ||= self.class.action
+          def soap_action
+            @soap_action ||= self.class.soap_action
           end
         end
       end

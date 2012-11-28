@@ -4,12 +4,12 @@ module Exlibris
       module Request
         class Base
           include Abstract
-          include Action
           include BaseElements
           include Client
           include Call
           include Config::Attributes
           include Namespaces
+          include SoapAction
           include WriteAttributes
           include XmlUtil
           self.abstract = true
