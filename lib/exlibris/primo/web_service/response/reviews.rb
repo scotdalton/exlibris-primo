@@ -12,22 +12,27 @@ module Exlibris
         # 
         # 
         # 
-        class GetReviews < Reviews; end
+        class GetReviews < Reviews
+          def reviews
+            @reviews ||= xml.root.xpath("//tags_reviews:Review", response_namespaces).collect { |review|
+                Exlibris::Primo::Review.new(:raw_xml => review.to_xml) }
+          end
+        end
 
         # 
         # 
         # 
-        class GetAllMyReviews < Reviews; end
+        class GetAllMyReviews < GetReviews; end
 
         # 
         # 
         # 
-        class GetReviewsForRecord < Reviews; end
+        class GetReviewsForRecord < GetReviews; end
 
         # 
         # 
         # 
-        class GetReviewsByRating < Reviews; end
+        class GetReviewsByRating < GetReviews; end
 
         # 
         # 

@@ -12,17 +12,27 @@ module Exlibris
         # 
         # 
         # 
-        class GetTags < Tags; end
+        class GetTags < Tags
+          def my_tags
+            @my_tags ||= xml.root.xpath("//tags_reviews:MyTags/tags_reviews:Tag", response_namespaces).collect { |tag|
+                Exlibris::Primo::Tag.new(:raw_xml => tag.to_xml) }
+          end
+
+          def everybody_tags
+            @everybody_tags ||= xml.root.xpath("//tags_reviews:EverybodyTags/tags_reviews:Tag", response_namespaces).collect { |tag|
+                Exlibris::Primo::Tag.new(:raw_xml => tag.to_xml) }
+          end
+        end
 
         # 
         # 
         # 
-        class GetAllMyTags < Tags; end
+        class GetAllMyTags < GetTags; end
 
         # 
         # 
         # 
-        class GetTagsForRecord < Tags; end
+        class GetTagsForRecord < GetTags; end
 
         # 
         # 

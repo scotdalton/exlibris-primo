@@ -12,7 +12,8 @@ module Exlibris
           @response_namespaces = {
             "search" => "http://www.exlibrisgroup.com/xsd/jaguar/search",
             "eshelf" => "http://www.exlibris.com/primo/xsd/primoeshelffolder",
-            "pnx" => "http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib"
+            "pnx" => "http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib",
+            "tags_reviews" => "http://com/exlibris/primo/xsd/tagsAndReview/config"
           }
         end
 
