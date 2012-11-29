@@ -47,7 +47,7 @@ module Exlibris
           # Dynamically sets attr_accessors for base_elements
           #
           def method_missing(method, *args, &block)
-            if self.class.base_elements.include?(attributize(method))
+            if base_elements.include?(attributize(method))
               self.class.send :attr_accessor, attributize(method)
               send method, *args, &block
             else
@@ -60,10 +60,6 @@ module Exlibris
           #
           def respond_to?(method, include_private = false)
             (base_elements.include?(attributize method)) ? true : super
-          end
-
-          def attributize symbol
-            symbol.id2name.sub(/=$/, "").to_sym
           end
         end
       end

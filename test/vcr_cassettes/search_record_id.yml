@@ -28,7 +28,7 @@ http_interactions:
         Transfer-Encoding: 
           - chunked
         Date: 
-          - Thu, 29 Nov 2012 02:11:30 GMT
+          - Thu, 29 Nov 2012 15:40:05 GMT
       body: 
         string: |-
           <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><getRecordResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><getRecordReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;SEGMENTS xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;
@@ -218,5 +218,5 @@ http_interactions:
             &lt;/JAGROOT&gt;
           &lt;/SEGMENTS&gt;</getRecordReturn></getRecordResponse></soapenv:Body></soapenv:Envelope>
       http_version: 
-    recorded_at: Thu, 29 Nov 2012 02:11:30 GMT
+    recorded_at: Thu, 29 Nov 2012 15:40:05 GMT
 recorded_with: VCR 2.3.0

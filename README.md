@@ -106,7 +106,7 @@ Exlibris::Primo::Config can also read in from a YAML file that specifies the var
 The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf and eshelf structure as well as adding and removing records.
 
 ## Example of Exlibris::Primo::EShelf in action
-    eshelf = Exlibris::Primo::EShelf.new("USER_ID", 
+    eshelf = Exlibris::Primo::EShelf.new(:user_id => "USER_ID", 
       :base_url => "http://primo.institution.edu", :insitution => "INSTITUTION")
     records = eshelf.records
     count = eshelf.count

@@ -4,6 +4,7 @@ module Exlibris
       module Response
         class Base
           include Abstract
+          include Error
           include Namespaces
           include Util
           include XmlUtil

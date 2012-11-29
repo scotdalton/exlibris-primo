@@ -9,7 +9,7 @@ class EshelfTest < Test::Unit::TestCase
 
   def test_eshelf
     VCR.use_cassette('eshelf') do
-      eshelf = Exlibris::Primo::EShelf.new(@user_id, :base_url => @base_url, :institution => @institution)
+      eshelf = Exlibris::Primo::EShelf.new(:user_id => @user_id, :base_url => @base_url, :institution => @institution)
       assert_not_nil eshelf.records
       assert((not eshelf.records.empty?))
       assert_not_nil eshelf.count

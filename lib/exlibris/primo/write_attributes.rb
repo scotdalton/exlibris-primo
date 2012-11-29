@@ -15,6 +15,11 @@ module Exlibris
         end
       end
 
+      def attributize symbol
+        symbol.id2name.sub(/=$/, "").to_sym
+      end
+      protected :attributize
+
       def write_attribute attribute, value
         attribute_writer = writify attribute
         send attribute_writer, value if respond_to? attribute_writer

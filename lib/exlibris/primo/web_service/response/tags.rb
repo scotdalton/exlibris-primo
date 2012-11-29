@@ -37,6 +37,11 @@ module Exlibris
         # 
         # 
         # 
+        class AddTag < Tags; end
+
+        # 
+        # 
+        # 
         class RemoveTag < Tags; end
 
         # 

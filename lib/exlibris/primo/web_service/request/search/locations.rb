@@ -19,7 +19,7 @@ module Exlibris
           end
 
           def add_location(value, kind)
-            query_terms << Location.new(:value => value, :kind => kind)
+            locations << Location.new(:value => value, :kind => kind)
           end
         end
       end

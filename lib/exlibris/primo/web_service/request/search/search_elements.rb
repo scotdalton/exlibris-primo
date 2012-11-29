@@ -5,21 +5,41 @@ module Exlibris
           module SearchElements
           def self.included(klass)
             klass.class_eval do
-              def self.default_search_elements
-                @default_search_elements ||= {
-                  :start_index => "1",
-                  :bulk_size => "5",
-                  :did_u_mean_enabled => "false"
-                }
-              end
+              extend Config
+            end
+          end
 
-              def self.search_elements
-                @search_elements ||= [
-                  :start_index, :bulk_size, :did_u_mean_enabled,
-                  :highlighting_enabled, :get_more, :locations,
-                  :inst_boost ]
+          module Config
+            def search_elements
+              @search_elements ||= self.superclass.respond_to?(:search_elements) ?
+                self.superclass.search_elements.dup : []
+            end
+
+            def add_search_elements *elements
+              elements.each do |element|
+                search_elements << element unless search_elements.include? element
               end
-              attr_accessor *search_elements
+            end
+
+            def remove_search_elements *elements
+              search_elements.delete_if do |element|
+                elements.include? element
+              end
+            end
+
+            def default_search_elements
+              @default_search_elements ||= self.superclass.respond_to?(:default_search_elements) ?
+                self.superclass.default_search_elements.dup : {}
+            end
+
+            def add_default_search_elements elements
+              default_search_elements.merge! elements
+            end
+
+            def remove_default_search_elements *keys
+              keys.each do |key|
+                default_search_elements.delete key
+              end
             end
           end
 
@@ -43,6 +63,25 @@ module Exlibris
             search_elements_xml
           end
           protected :search_elements_xml
+
+          #
+          # Dynamically sets attr_accessors for search_elements
+          #
+          def method_missing(method, *args, &block)
+            if search_elements.include?(attributize(method))
+              self.class.send :attr_accessor, attributize(method)
+              send method, *args, &block
+            else
+              super
+            end
+          end
+
+          #
+          # Tell users that we respond to search elements accessors.
+          #
+          def respond_to?(method, include_private = false)
+            (search_elements.include?(attributize method)) ? true : super
+          end
         end
       end
     end

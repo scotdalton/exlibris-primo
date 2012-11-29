@@ -12,6 +12,12 @@ module Exlibris
           include QueryTerms
           include SearchElements
 
+          add_default_search_elements :start_index => "1", 
+            :bulk_size => "5", :did_u_mean_enabled => "false"
+
+          add_search_elements :start_index, :bulk_size, :did_u_mean_enabled,
+              :highlighting_enabled, :get_more, :inst_boost 
+
           def to_xml
             super { |xml|
               xml.PrimoSearchRequest("xmlns" => "http://www.exlibris.com/primo/xsd/search/request") {

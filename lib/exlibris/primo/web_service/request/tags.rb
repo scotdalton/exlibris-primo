@@ -32,6 +32,13 @@ module Exlibris
         # 
         # 
         # 
+        class AddTag < Tags
+          self.add_base_elements :value
+        end
+
+        # 
+        # 
+        # 
         class RemoveTag < Tags
           self.add_base_elements :value
         end

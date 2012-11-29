@@ -10,9 +10,8 @@ module Exlibris
 
       attr_accessor :user_id
 
-      def initialize user_id, *args
+      def initialize *args
         super
-        @user_id = user_id
       end
 
       #
@@ -81,11 +80,6 @@ module Exlibris
       def remove_record(record_id, folder_id)
         Exlibris::Primo::WebService::Request::RemoveFromEshelf.new(user_request_attributes.merge :folder_id => folder_id, :doc_id => record_id).call
       end
-
-      def user_request_attributes
-        request_attributes.merge :user_id => user_id
-      end
-      private :user_request_attributes
     end
   end
 end
