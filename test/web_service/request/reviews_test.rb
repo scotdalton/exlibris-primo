@@ -18,7 +18,7 @@ module WebService
           "<userId>N12162279</userId>"
         VCR.use_cassette('request get reviews') do
           assert_nothing_raised {
-            request.call
+            response = request.call
           }
         end
       end
