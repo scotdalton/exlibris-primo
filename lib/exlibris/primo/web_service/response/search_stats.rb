@@ -14,10 +14,11 @@ module Exlibris
           alias :search_time :hit_time
 
           def total_hits
-            @total_hits ||= search_set["TOTALHITS"] if search_set
+            @total_hits ||= Integer(search_set["TOTALHITS"]) if search_set
           end
           alias :hits :total_hits
           alias :count :total_hits
+          alias :size :total_hits
 
           def first_hit
             @first_hit ||= search_set["FIRSTHIT"] if search_set

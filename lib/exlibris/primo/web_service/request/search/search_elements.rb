@@ -23,10 +23,18 @@ module Exlibris
             end
           end
 
+          def search_elements
+            @search_elements ||= self.class.search_elements
+          end
+
+          def default_search_elements
+            @default_search_elements ||= self.class.default_search_elements
+          end
+
           def search_elements_xml
             search_elements_xml = ""
-            self.class.search_elements.each do |element|
-              value = send(element) ? send(element) : self.class.default_search_elements[element]
+            search_elements.each do |element|
+              value = (send element) ? (send element) : default_search_elements[element]
               name = element.id2name.camelize
               search_elements_xml << build_xml do |xml|
                 xml.send(name, value) unless value.nil?

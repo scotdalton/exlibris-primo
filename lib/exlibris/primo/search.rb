@@ -41,12 +41,12 @@ module Exlibris
 
       def isbn= isbn
         @isbn = isbn
-        add_query_term author, "isbn", "exact"
+        add_query_term isbn, "isbn", "exact"
       end
 
       def title= title
         @title = title
-        add_query_term author, "title", "exact"
+        add_query_term title, "title", "exact"
       end
 
       def author= author
@@ -60,9 +60,9 @@ module Exlibris
       #     * We have either an isbn OR an issn
       #     * We have a title AND an author AND a genre
       def insufficient_query?
-        return false unless (@primo_id.nil? or @primo_id.empty?)
-        return false unless (@issn.nil? or @issn.empty?) and (@isbn.nil? or @isbn.empty?)
-        return false unless (@title.nil? or @title.empty?) or (@author.nil? or @author.empty?) or (@genre.nil? or @genre.empty?)
+        return false unless (record_id.nil? or record_id.empty?)
+        return false unless (isbn.nil? or isbn.empty?)
+        return false unless (title.nil? or title.empty?) or (author.nil? or author.empty?) or (genre.nil? or genre.empty?)
         return true
       end
       private :insufficient_query?
@@ -73,7 +73,7 @@ module Exlibris
       private :full_view_request
 
       def search_request
-        @full_view_request ||= Exlibris::Primo::WebService::Request::SearchView.new request_attributes
+        @full_view_request ||= Exlibris::Primo::WebService::Request::Search.new request_attributes
       end
       private :search_request
 

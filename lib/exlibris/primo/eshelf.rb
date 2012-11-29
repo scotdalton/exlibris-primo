@@ -19,14 +19,14 @@ module Exlibris
       # Call web service to get Eshelf contents and return
       #
       def eshelf
-        @eshelf ||= Exlibris::Primo::WebService::Request::GetEShelf.new(user_request_attributes).call
+        @eshelf ||= Exlibris::Primo::WebService::Request::GetEshelf.new(user_request_attributes).call
       end
 
       #
       # Call web service to get Eshelf structure and return
       #
       def eshelfStructure
-        @eshelfStructure ||= Exlibris::Primo::WebService::Request::GetEShelfStructure.new(user_request_attributes).call
+        @eshelfStructure ||= Exlibris::Primo::WebService::Request::GetEshelfStructure.new(user_request_attributes).call
       end
 
       #
@@ -47,9 +47,7 @@ module Exlibris
       # Get the default basket id from eshelf structure web service call
       #
       def basket_id
-        @basket_id ||= eshelfStructure.at(
-          "//prim:eshelf_folders//prim:eshelf_folder[./prim:folder_name='Basket']", PRIM_NS).
-          get_attribute("folder_id") unless eshelfStructure.at("//prim:eshelf_folders//prim:eshelf_folder[./prim:folder_name='Basket']", PRIM_NS).nil?
+        @basket_id ||= eshelfStructure.basket_id
       end
 
       #
