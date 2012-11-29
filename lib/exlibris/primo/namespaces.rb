@@ -3,11 +3,11 @@ module Exlibris
     module Namespaces
       def self.included(klass)
         klass.class_eval do
-          extend Config
+          extend ClassAttributes
         end
       end
 
-      module Config
+      module ClassAttributes
         def response_namespaces
           @response_namespaces = {
             "search" => "http://www.exlibrisgroup.com/xsd/jaguar/search",
@@ -28,10 +28,12 @@ module Exlibris
       def response_namespaces
         @response_namespaces ||= self.class.response_namespaces
       end
+      protected :response_namespaces
 
       def request_namespaces
         @request_namespaces ||= self.class.request_namespaces
       end
+      protected :request_namespaces
     end
   end
 end

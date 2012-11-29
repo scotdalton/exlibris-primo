@@ -5,25 +5,27 @@ module Exlibris
         module SoapActions
           def self.included(klass)
             klass.class_eval do
-              extend Config
+              extend ClassAttributes
             end
           end
 
-          module Config
+          module ClassAttributes
+            def soap_actions
+              @soap_actions ||= []
+            end
+
             def add_soap_actions *actions
               actions.each do |action|
                 soap_actions << action unless soap_actions.include? action
               end
             end
-
-            def soap_actions
-              @soap_actions ||= []
-            end
+            protected :add_soap_actions
           end
 
           def soap_actions
             @soap_actions ||= self.class.soap_actions #.concat(client.wsdl.soap_actions)
           end
+          protected :soap_actions
           
           # 
           # Define methods for SOAP actions. SOAP actions take a single String argument, request_xml,

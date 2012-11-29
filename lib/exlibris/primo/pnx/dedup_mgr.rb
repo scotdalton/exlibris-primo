@@ -5,17 +5,29 @@ module Exlibris
 
         def self.included(klass)
           klass.class_eval do
-            extend Config
+            extend ClassAttributes
           end
         end
 
-        module Config
+        module ClassAttributes
           def duplicated_control_attributes
-            @duplicated_control_attributes ||= [
-              :sourcerecordids, :sourceids,
-              :originalsourceids, :sourceformats,
-              :sourcesystems, :ilsapiids ]
+            @duplicated_control_attributes ||= self.superclass.respond_to?(:duplicated_control_attributes) ?
+              self.superclass.duplicated_control_attributes.dup : []
           end
+
+          def add_duplicated_control_attributes *elements
+            elements.each do |element|
+              duplicated_control_attributes << element unless duplicated_control_attributes.include? element
+            end
+          end
+          protected :add_duplicated_control_attributes
+
+          def remove_duplicated_control_attributes *elements
+            duplicated_control_attributes.delete_if do |element|
+              elements.include? element
+            end
+          end
+          protected :remove_duplicated_control_attributes
         end
 
         #
@@ -31,6 +43,7 @@ module Exlibris
         def duplicated_control_attributes
           @duplicated_control_attributes ||= self.class.duplicated_control_attributes
         end
+        protected :duplicated_control_attributes
 
         #
         #

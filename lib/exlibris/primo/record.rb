@@ -16,6 +16,9 @@ module Exlibris
       include Exlibris::Primo::Pnx::Openurl
       include Exlibris::Primo::Pnx::Subfields
 
+      add_duplicated_control_attributes :sourcerecordids, :sourceids,
+          :originalsourceids, :sourceformats, :sourcesystems, :ilsapiids
+
       def initialize *args
         @raw_xml = args.last.delete(:raw_xml)
         super

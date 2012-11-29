@@ -5,11 +5,11 @@ module Exlibris
         module BaseElements
           def self.included(klass)
             klass.class_eval do
-              extend Config
+              extend ClassAttributes
             end
           end
 
-          module Config
+          module ClassAttributes
             def base_elements
               @base_elements ||= self.superclass.respond_to?(:base_elements) ?
                 self.superclass.base_elements.dup : []
@@ -20,17 +20,20 @@ module Exlibris
                 base_elements << element unless base_elements.include? element
               end
             end
+            protected :add_base_elements
 
             def remove_base_elements *elements
               base_elements.delete_if do |element|
                 elements.include? element
               end
             end
+            protected :remove_base_elements
           end
 
           def base_elements
             @base_element ||= self.class.base_elements
           end
+          protected :base_elements
 
           def base_elements_xml
             (base_elements.collect { |opt|

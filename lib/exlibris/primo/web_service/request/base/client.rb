@@ -5,19 +5,16 @@ module Exlibris
         module Client
           def self.included(klass)
             klass.class_eval do
-              extend Config
+              extend ClassAttributes
             end
           end
-          
-          module Config
+
+          module ClassAttributes
             def client
-              @client ||= (has_client?) ? name.demodulize.underscore.to_sym : 
+              @client ||= (has_client?) ? name.demodulize.underscore.to_sym :
                 (self.superclass.respond_to? :client) ?
                   self.superclass.client : nil
             end
-            
-            attr_writer :client
-            protected :client=
 
             # Returns whether this class has a client symbol
             def has_client?
@@ -31,11 +28,12 @@ module Exlibris
             end
             protected :has_client
           end
-          
+
           def client
             @client ||= client_klass.new :base_url => base_url
           end
-          
+          protected :client
+
           def client_klass
             "Exlibris::Primo::WebService::Client::#{self.class.client.to_s.camelize}".constantize
           end

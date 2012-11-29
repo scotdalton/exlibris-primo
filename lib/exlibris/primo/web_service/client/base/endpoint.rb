@@ -5,14 +5,15 @@ module Exlibris
         module Endpoint
           def self.included(klass)
             klass.class_eval do
-              extend Config
+              extend ClassAttributes
             end
           end
 
-          module Config
+          module ClassAttributes
             def endpoint
               @endpoint ||= name.demodulize.downcase
             end
+
             attr_writer :endpoint
             protected :endpoint=
           end

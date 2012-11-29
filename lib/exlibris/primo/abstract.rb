@@ -3,16 +3,18 @@ module Exlibris
     module Abstract
       def self.included(klass)
         klass.class_eval do
-          extend Config
+          extend ClassAttributes
         end
       end
 
-      module Config
-        attr_writer :abstract
+      module ClassAttributes
         def abstract
           @abstract ||= false
         end
         alias :abstract? :abstract
+
+        attr_writer :abstract
+        protected :abstract=
       end
 
       def initialize *args

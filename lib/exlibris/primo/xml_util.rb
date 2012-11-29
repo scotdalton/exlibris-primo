@@ -5,11 +5,11 @@ module Exlibris
 
       def self.included(klass)
         klass.class_eval do
-          extend Config
+          extend ClassAttributes
         end
       end
 
-      module Config
+      module ClassAttributes
         def xml_options
           @xml_options ||= {
             :encoding => 'UTF-8',
@@ -19,7 +19,7 @@ module Exlibris
         end
       end
 
-      attr_accessor :raw_xml
+      attr_reader :raw_xml
       protected :raw_xml
 
       # Returns an XML string and takes any args that are

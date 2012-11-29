@@ -5,11 +5,11 @@ module Exlibris
           module SearchElements
           def self.included(klass)
             klass.class_eval do
-              extend Config
+              extend ClassAttributes
             end
           end
 
-          module Config
+          module ClassAttributes
             def search_elements
               @search_elements ||= self.superclass.respond_to?(:search_elements) ?
                 self.superclass.search_elements.dup : []
@@ -20,12 +20,14 @@ module Exlibris
                 search_elements << element unless search_elements.include? element
               end
             end
+            protected :add_search_elements
 
             def remove_search_elements *elements
               search_elements.delete_if do |element|
                 elements.include? element
               end
             end
+            protected :remove_search_elements
 
             def default_search_elements
               @default_search_elements ||= self.superclass.respond_to?(:default_search_elements) ?
@@ -35,21 +37,25 @@ module Exlibris
             def add_default_search_elements elements
               default_search_elements.merge! elements
             end
+            protected :add_default_search_elements
 
             def remove_default_search_elements *keys
               keys.each do |key|
                 default_search_elements.delete key
               end
             end
+            protected :remove_default_search_elements
           end
 
           def search_elements
             @search_elements ||= self.class.search_elements
           end
+          protected :search_elements
 
           def default_search_elements
             @default_search_elements ||= self.class.default_search_elements
           end
+          protected :default_search_elements
 
           def search_elements_xml
             search_elements_xml = ""
