@@ -4,6 +4,7 @@ module Exlibris
     #
     #
     class EShelf
+      include BaseAttributes
       include Config::Attributes
       include RequestAttributes
       include WriteAttributes

@@ -13,6 +13,9 @@ module Exlibris
 
           self.abstract = true
 
+          attr_writer :base_url, :institution
+
+
           # Returns a new Exlibris::Primo::WebService::Base from the given arguments,
           # base_url and service.
           #   base_url: base URL for Primo Web Service

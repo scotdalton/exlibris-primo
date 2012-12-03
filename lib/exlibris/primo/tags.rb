@@ -4,6 +4,7 @@ module Exlibris
     #
     #
     class Tags
+      include BaseAttributes
       include Config::Attributes
       include RequestAttributes
       include WriteAttributes

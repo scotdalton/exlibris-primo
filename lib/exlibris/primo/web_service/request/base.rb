@@ -19,6 +19,7 @@ module Exlibris
           DEFAULT_WRAPPER = :request
           attr_reader :root, :wrapper
           protected :root, :wrapper
+          attr_writer :base_url, :institution
 
           def initialize *args
             super

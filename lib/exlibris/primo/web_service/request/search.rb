@@ -8,9 +8,11 @@ module Exlibris
         class Search < Base
           self.has_client
           self.soap_action = :search_brief
+          include Languages
           include Locations
           include QueryTerms
           include SearchElements
+          include SortBys
 
           add_default_search_elements :start_index => "1", 
             :bulk_size => "5", :did_u_mean_enabled => "false"

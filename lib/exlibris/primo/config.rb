@@ -17,8 +17,6 @@ module Exlibris
       #
       #
       module Attributes
-        attr_writer :base_url, :institution
-
         def base_url
           @base_url ||= String.new Config.base_url.to_s
         end
