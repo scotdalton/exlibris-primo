@@ -5,7 +5,6 @@ module Exlibris
     # 
     class Facet
       include Config::Attributes
-      include Namespaces
       include WriteAttributes
       include XmlUtil
 
@@ -21,6 +20,10 @@ module Exlibris
         @name = xml.root["NAME"]
       end
 
+      def display_name
+        @display_name ||= (config.facet_labels[name] || name)
+      end
+
       def size
         @size = Integer(xml.root["COUNT"])
       end
@@ -28,7 +31,7 @@ module Exlibris
 
       def facet_values
         @facet_values ||= xml.root.search("//FACET_VALUES").collect do |facet_value|
-          FacetValue.new(:raw_xml => facet_value.to_xml)
+          FacetValue.new(:raw_xml => facet_value.to_xml, :facet => self)
         end
       end
     end

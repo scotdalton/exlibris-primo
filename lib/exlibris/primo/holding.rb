@@ -22,10 +22,6 @@ module Exlibris
         super self.class.defaults.merge(attributes)
       end
 
-      def config
-        @config ||= Config
-      end
-
       def source_config
         @source_config ||= config.sources[source_id]
       end
