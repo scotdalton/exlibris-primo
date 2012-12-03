@@ -3,14 +3,19 @@ module Exlibris
     module WebService
       module Request
         module Locations
+          # 
+          # Returns a lambda that takes a Nokogiri::XML::Builder as an argument
+          # and appends locations XML to it.
+          # 
           def locations_xml
-            build_xml do |xml|
+            lambda { |xml|
+              # Specify the uic namespace. Not great, but adequate.
               xml.Locations {
                 locations.each do |location|
-                  xml << location.to_xml
+                  xml['uic'].Location(:type => location.kind, :value => location.value)
                 end
-              }
-            end
+              } unless locations.empty?
+            }
           end
           protected :locations_xml
 
@@ -18,8 +23,8 @@ module Exlibris
             @locations ||= []
           end
 
-          def add_location(value, kind)
-            locations << Location.new(:value => value, :kind => kind)
+          def add_location(kind, value)
+            locations << Location.new(:kind => kind, :value => value)
           end
         end
       end

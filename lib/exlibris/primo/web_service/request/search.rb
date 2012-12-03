@@ -16,13 +16,14 @@ module Exlibris
             :bulk_size => "5", :did_u_mean_enabled => "false"
 
           add_search_elements :start_index, :bulk_size, :did_u_mean_enabled,
-              :highlighting_enabled, :get_more, :inst_boost 
+              :highlighting_enabled, :get_more, :inst_boost
 
           def to_xml
             super { |xml|
               xml.PrimoSearchRequest("xmlns" => "http://www.exlibris.com/primo/xsd/search/request") {
-                xml << query_terms_xml
-                xml << search_elements_xml
+                query_terms_xml.call xml
+                search_elements_xml.call xml
+                locations_xml.call xml
               }
             }
           end

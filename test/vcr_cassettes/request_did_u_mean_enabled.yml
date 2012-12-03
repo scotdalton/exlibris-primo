@@ -28,7 +28,7 @@ http_interactions:
         Transfer-Encoding: 
           - chunked
         Date: 
-          - Mon, 03 Dec 2012 17:08:32 GMT
+          - Wed, 28 Nov 2012 19:25:29 GMT
       body: 
         string: |-
           <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><searchBriefResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><searchBriefReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;SEGMENTS xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;
@@ -38,11 +38,11 @@ http_interactions:
                   &lt;QUERYTRANSFORM ACTION=&quot;did_u_mean&quot; QUERY=&quot;digital d vide &quot;/&gt;
                 &lt;/QUERYTRANSFORMS&gt;
                 &lt;FACETLIST/&gt;
-                &lt;DOCSET HIT_TIME=&quot;61&quot; TOTALHITS=&quot;0&quot; FIRSTHIT=&quot;1&quot; LASTHIT=&quot;0&quot; TOTAL_TIME=&quot;228&quot; IS_LOCAL=&quot;true&quot;/&gt;
+                &lt;DOCSET HIT_TIME=&quot;33&quot; TOTALHITS=&quot;0&quot; FIRSTHIT=&quot;1&quot; LASTHIT=&quot;0&quot; TOTAL_TIME=&quot;44&quot; IS_LOCAL=&quot;true&quot;/&gt;
               &lt;/RESULT&gt;
               &lt;searchToken&gt;0&lt;/searchToken&gt;
             &lt;/JAGROOT&gt;
           &lt;/SEGMENTS&gt;</searchBriefReturn></searchBriefResponse></soapenv:Body></soapenv:Envelope>
       http_version: 
-    recorded_at: Mon, 03 Dec 2012 17:08:31 GMT
+    recorded_at: Wed, 28 Nov 2012 19:25:30 GMT
 recorded_with: VCR 2.3.0

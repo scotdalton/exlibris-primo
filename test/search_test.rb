@@ -11,7 +11,7 @@ class SearchTest < Test::Unit::TestCase
   def test_search_isbn
     VCR.use_cassette('search isbn') do
       search = Exlibris::Primo::Search.new(:base_url => @base_url, :institution => @institution, :isbn => @isbn)
-      assert_not_nil search.count
+      assert_not_nil search.size
       assert_not_nil search.facets
       assert((not search.facets.empty?))
       assert_not_nil search.records
@@ -29,7 +29,7 @@ class SearchTest < Test::Unit::TestCase
   def test_search_record_id
     VCR.use_cassette('search record id') do
       search = Exlibris::Primo::Search.new(:base_url => @base_url, :institution => @institution, :record_id => @record_id)
-      assert_not_nil search.count
+      assert_not_nil search.size
       assert_not_nil search.facets
       assert search.facets.empty?
       assert_not_nil search.records

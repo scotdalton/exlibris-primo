@@ -3,8 +3,17 @@ module Exlibris
     module WebService
       module Request
         module QueryTerms
-          def query_terms_xml(bool_operator="AND")
-            build_xml do |xml|
+          def boolean_operator
+            @boolean_operator ||= "AND"
+          end
+          
+          # 
+          # Returns a lambda that takes a Nokogiri::XML::Builder as an argument
+          # and appends query terms XML to it.
+          # 
+          def query_terms_xml
+            bool_operator = boolean_operator
+            lambda do |xml|
               xml.QueryTerms {
                 xml.BoolOpeator bool_operator
                 query_terms.each do |query_term|

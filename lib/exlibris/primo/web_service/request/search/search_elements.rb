@@ -57,16 +57,18 @@ module Exlibris
           end
           protected :default_search_elements
 
+          # 
+          # Returns a lambda that takes a Nokogiri::XML::Builder as an argument
+          # and appends search elements XML to it.
+          # 
           def search_elements_xml
-            search_elements_xml = ""
-            search_elements.each do |element|
-              value = (send element) ? (send element) : default_search_elements[element]
-              name = element.id2name.camelize
-              search_elements_xml << build_xml do |xml|
+            lambda { |xml|
+              search_elements.each do |element|
+                value = (send element) ? (send element) : default_search_elements[element]
+                name = element.id2name.camelize
                 xml.send(name, value) unless value.nil?
               end
-            end
-            search_elements_xml
+            }
           end
           protected :search_elements_xml
 

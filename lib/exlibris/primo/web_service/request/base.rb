@@ -17,17 +17,17 @@ module Exlibris
             :on_campus, :is_logged_in, :pds_handle
 
           DEFAULT_WRAPPER = :request
-          attr_reader :root, :namespaces, :wrapper
-          protected :root, :namespaces, :wrapper
+          attr_reader :root, :wrapper
+          protected :root, :wrapper
 
           def initialize *args
             super
             @root = "#{self.class.name.demodulize}Request".camelize(:lower).to_sym
-            @namespaces = request_namespaces
             @wrapper = DEFAULT_WRAPPER.id2name.camelize(:lower).to_sym
           end
 
           def to_xml &block
+            namespaces = request_namespaces
             build_xml { |xml|
               xml.send(wrapper) {
                 xml.cdata build_xml { |xml|

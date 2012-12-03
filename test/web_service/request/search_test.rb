@@ -163,6 +163,30 @@ module WebService
             }
           end
       end
+      
+      def test_search_locations
+        request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url
+        request.institution = @institution
+        request.add_query_term @isbn, "isbn", "exact"
+        request.add_location "local", "scope:(NYU)"
+        assert_request request, "searchRequest",
+          "<PrimoSearchRequest xmlns=\"http://www.exlibris.com/primo/xsd/search/request\">"+
+          "<QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm>"+
+          "<IndexField>isbn</IndexField>"+
+          "<PrecisionOperator>exact</PrecisionOperator>"+
+          "<Value>0143039008</Value>"+
+          "</QueryTerm></QueryTerms>"+
+          "<StartIndex>1</StartIndex>"+
+          "<BulkSize>5</BulkSize>"+
+          "<DidUMeanEnabled>false</DidUMeanEnabled>"+
+          "<Locations><uic:Location type=\"local\" value=\"scope:(NYU)\"/></Locations>"+
+          "</PrimoSearchRequest>", "<institution>NYU</institution>"
+        VCR.use_cassette('request search locations') do
+          assert_nothing_raised {
+            response = request.call
+          }
+        end
+      end
 
       def test_request_search_title_author_genre
         request = Exlibris::Primo::WebService::Request::Search.new :base_url => @base_url

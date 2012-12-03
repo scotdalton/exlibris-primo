@@ -13,8 +13,8 @@ module WebService
         @did_u_mean_title = "Digital dvide"
       end
 
-      def test_search
-        VCR.use_cassette('response search did u mean') {
+      def test_did_u_mean_enabled
+        VCR.use_cassette('response did u mean enabled') {
           soap_action = :search_brief
           request = Exlibris::Primo::WebService::Request::Search.new(:user_id => @user_id, 
             :institution => @institution, :did_u_mean_enabled => "true")
@@ -24,6 +24,19 @@ module WebService
             client.send(soap_action, request.to_xml), soap_action)
           assert_not_nil response.did_u_mean
           assert_equal "digital d vide", response.did_u_mean
+        }
+      end
+
+      def test_did_u_mean_disabled
+        VCR.use_cassette('response did u mean disabled') {
+          soap_action = :search_brief
+          request = Exlibris::Primo::WebService::Request::Search.new(:user_id => @user_id, 
+            :institution => @institution)
+          request.add_query_term(@did_u_mean_title, "title")
+          client = Exlibris::Primo::WebService::Client::Search.new(:base_url => @base_url)
+          response = Exlibris::Primo::WebService::Response::Search.new(
+            client.send(soap_action, request.to_xml), soap_action)
+          assert_nil response.did_u_mean
         }
       end
     end
