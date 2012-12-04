@@ -1,8 +1,24 @@
 module Exlibris
   module Primo
     #
-    #
-    #
+    # Search Primo using Exlibris::Primo::Search
+    # 
+    # 
+    #     search = Search.new.base_url=("http://primo.library.edu").
+    #       add_query_term("Digital divide", "any", "contains")
+    #     search.records => Array of Primo records
+    #     search.facets => Array of Primo facets
+    #     search.size => Total number of records in the search
+    # 
+    # There are a several configuration setting for the search
+    #  
+    #     search = Search.new.base_url=("http://primo.library.edu").institution=("PRIMO").
+    #       enable_did_u_mean.on_campus.page_size=(20).start_index=(21).add_sort_by("stitle")
+    #       add_query_term("Digital divide", "any", "contains")
+    #     search.records => Array of Primo records
+    #     search.facets => Array of Primo facets
+    #     search.size => Total number of records in the search
+    # 
     class Search
       include BaseAttributes
       include Config::Attributes

@@ -1,7 +1,8 @@
 module Exlibris
   module Primo
     # 
-    # 
+    # Primo facet holds the name of the facet
+    # and size (often approximate).
     # 
     class Facet
       include Config::Attributes

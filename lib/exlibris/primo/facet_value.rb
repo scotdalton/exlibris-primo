@@ -4,7 +4,7 @@ module Exlibris
     #
     # Primo facet value that holds the name of the value
     # and the number of records that limiting by this facet
-    # value contains.
+    # value would return.
     #
     class FacetValue
       include WriteAttributes
