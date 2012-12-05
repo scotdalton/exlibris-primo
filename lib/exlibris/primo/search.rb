@@ -34,6 +34,10 @@ module Exlibris
       # Not really intended for public consumption.
       # 
       def search
+        request_attributes.each_pair do |key, value|
+          writer = "#{key}=".to_sym
+          request.send(writer, value) if request.respond_to? writer
+        end
         @search ||= request.call
       end
 
@@ -79,17 +83,17 @@ module Exlibris
       private :insufficient_query?
 
       def full_view_request
-        @full_view_request ||= Exlibris::Primo::WebService::Request::FullView.new request_attributes
+        @full_view_request ||= Exlibris::Primo::WebService::Request::FullView.new
       end
       private :full_view_request
 
       def search_request
-        @full_view_request ||= Exlibris::Primo::WebService::Request::Search.new request_attributes
+        @full_view_request ||= Exlibris::Primo::WebService::Request::Search.new
       end
       private :search_request
 
       def request
-        (record_id) ? full_view_request : search_request
+        @request ||= (record_id) ? full_view_request : search_request
       end
       private :request
     end
