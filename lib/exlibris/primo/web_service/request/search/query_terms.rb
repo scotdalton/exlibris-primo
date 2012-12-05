@@ -3,6 +3,8 @@ module Exlibris
     module WebService
       module Request
         module QueryTerms
+          attr_writer :boolean_operator
+
           def boolean_operator
             @boolean_operator ||= "AND"
           end

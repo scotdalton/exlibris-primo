@@ -57,7 +57,11 @@ Or
     search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
       :institution => "INSTITUTION", :record_id = "aleph0123456789")
 
-    
+Search can also be chained using the ! version of a attribute writer
+
+    search = Exlibris::Primo::Search.new.base_url!("http://primo.institution.edu"). 
+      institution!("INSTITUTION").record_id!("aleph0123456789")
+
 ## Exlibris::Primo::Record
 Exlibris::Primo::Record is an object representation of a Primo record.
 

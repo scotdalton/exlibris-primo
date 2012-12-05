@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
+  s.add_dependency "rake", "~> 0.9.2.2"
   s.add_dependency "require_all", "~> 1.2.1"
   # Leverage ActiveSupport core extensions.
   s.add_dependency "activesupport", "~> 3.2.0"
@@ -24,7 +25,6 @@ Gem::Specification.new do |s|
   s.add_dependency "savon", "~> 1.2.0"
   s.add_dependency "iso-639", "~> 0.1.0"
   s.add_development_dependency "rdoc"
-  s.add_development_dependency "rake", "~> 0.9.2.2"
   s.add_development_dependency "vcr", "~> 2.3.0"
   s.add_development_dependency "webmock", "~> 1.8.0"
 end

@@ -4,8 +4,10 @@ module Exlibris
     #
     #
     class Reviews
-      include BaseAttributes
+      # Config::Attributes need to be first because of inheritance
+      # of Ruby modules. This is a shitty, shitty hack.
       include Config::Attributes
+      include BaseAttributes
       include RequestAttributes
       include WriteAttributes
 

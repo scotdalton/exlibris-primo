@@ -34,8 +34,8 @@ module Exlibris
       #     Search.new.add_query_term("Travels", "title", "contains").
       #       add_query_term("Greene", "creator", "contains").search
       # 
-      def add_query_term *args
-        search_request.add_query_term *args
+      def add_query_term(*args)
+        search_request.add_query_term(*args)
         self
       end
 
@@ -43,72 +43,78 @@ module Exlibris
       # Sets the record id to search for.
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.record_id=("aleph0123456789").search
+      #     Search.new.record_id!("aleph0123456789").search
       # 
-      def record_id= record_id
+      def record_id!(record_id)
         @record_id = record_id
         full_view_request.doc_id = record_id
         self
       end
+      alias :record_id= :record_id!
 
       # 
       # Equivalent to Search.new.add_query_term(title, "title", "exact")
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.isbn=("0143039008").search
+      #     Search.new.isbn!("0143039008").search
       # 
-      def isbn= isbn
+      def isbn!(isbn)
         @isbn = isbn
-        add_query_term isbn, "isbn", "exact"
+        add_query_term(isbn, "isbn", "exact")
       end
+      alias :isbn= :isbn!
 
       # 
       # Equivalent to Search.new.add_query_term(title, "title", "exact")
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.author=("Graham Greene").title=("Travels with My Aunt").search
+      #     Search.new.author!("Graham Greene").title!("Travels with My Aunt").search
       # 
-      def title= title
+      def title!(title)
         @title = title
-        add_query_term title, "title", "exact"
+        add_query_term(title, "title", "exact")
       end
+      alias :title= :title!
 
       # 
       # Equivalent to add_query_term(author, "creator", "exact")
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.author=("Graham Greene").title=("Travels with My Aunt").search
+      #     Search.new.author!("Graham Greene").title!("Travels with My Aunt").search
       # 
-      def author= author
+      def author!(author)
         @author = author
-        add_query_term author, "creator", "exact"
+        add_query_term(author, "creator", "exact")
       end
+      alias :author= :author!
 
       # 
       # Set start index for the search.
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.start_index=(11).
+      #     Search.new.start_index!(11).
       #       add_query_term("Digital divide", "any", "contains").
       #         search.records.first => 11th record from the search
       # 
-      def start_index= start_index
+      def start_index!(start_index)
         request_attributes[:start_index] = "#{start_index}"
         self
       end
+      alias :start_index= :start_index!
 
       # 
       # Set page size for the search.
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.page_size=(10).
+      #     Search.new.page_size!(10).
       #       add_query_term("Digital divide", "any", "contains").
       #         search.records.size => 10
       # 
-      def page_size= page_size
+      def page_size!(page_size)
         request_attributes[:bulk_size] = "#{page_size}"
         self
       end
+      alias :page_size= :page_size!
 
       # 
       # Enable "Did U Mean" functionality for the search.
@@ -165,8 +171,8 @@ module Exlibris
       #     Search.new.add_language("eng").
       #       add_query_term("Greene", "creator", "contains").search
       # 
-      def add_language *args
-        search_request.add_language *args
+      def add_language(*args)
+        search_request.add_language(*args)
         self
       end
 
@@ -180,8 +186,8 @@ module Exlibris
       #     Search.new.add_sort_by("stitle").
       #       add_query_term("Greene", "creator", "contains").search
       # 
-      def add_sort_by *args
-        search_request.add_sort_by *args
+      def add_sort_by(*args)
+        search_request.add_sort_by(*args)
         self
       end
 
@@ -192,8 +198,8 @@ module Exlibris
       #     Search.new.add_display_field("creator").
       #       add_query_term("Greene", "creator", "contains").search
       # 
-      def add_display_field *args
-        search_request.add_display_field *args
+      def add_display_field(*args)
+        search_request.add_display_field(*args)
         self
       end
 
@@ -204,8 +210,8 @@ module Exlibris
       #     Search.new.add_location("local", "scope:(VOLCANO)").
       #       add_query_term("Greene", "creator", "contains").search
       # 
-      def add_location *args
-        search_request.add_location *args
+      def add_location(*args)
+        search_request.add_location(*args)
         self
       end
 
@@ -216,8 +222,8 @@ module Exlibris
       #     Search.new.add_local_location("scope:(VOLCANO)").
       #       add_query_term("Greene", "creator", "contains").search
       # 
-      def add_local_location location
-        add_location "local", location
+      def add_local_location(location)
+        add_location("local", location)
       end
 
       # 
@@ -227,8 +233,8 @@ module Exlibris
       #     Search.new.add_adaptor_location("primo_central_multiple_fe").
       #       add_query_term("Greene", "creator", "contains").search
       # 
-      def add_adaptor_location location
-        add_location "adaptor", location
+      def add_adaptor_location(location)
+        add_location("adaptor", location)
       end
 
       # 
@@ -238,8 +244,8 @@ module Exlibris
       #     Search.new.add_remote_location("quickset_name").
       #       add_query_term("Greene", "creator", "contains").search
       # 
-      def add_remote_location location
-        add_location "remote", location
+      def add_remote_location(location)
+        add_location("remote", location)
       end
     end
   end

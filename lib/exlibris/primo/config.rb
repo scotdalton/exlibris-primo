@@ -1,7 +1,7 @@
 module Exlibris
   module Primo
     #
-    # Specify global configuration settings for 
+    # Specify global configuration settings for
     #
     module Config
       class << self

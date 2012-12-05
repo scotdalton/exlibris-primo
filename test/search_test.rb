@@ -6,6 +6,46 @@ class SearchTest < Test::Unit::TestCase
     @user_id = "N12162279"
     @institution = "NYU"
     @record_id = "nyu_aleph000062856"
+    @title = "Travels with My Aunt"
+    @author = "Graham Greene"
+  end
+
+  def test_chaining
+    VCR.use_cassette('search chaining isbn') do
+      search = Exlibris::Primo::Search.new();
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).institution!(@institution).isbn!(@isbn)
+      assert_not_nil search.size
+      assert_not_nil search.facets
+      assert((not search.facets.empty?))
+      assert_not_nil search.records
+      assert((not search.records.empty?))
+      search.records.each do |record|
+        assert_not_nil record.holdings
+        assert((not record.holdings.empty?))
+        assert_not_nil record.fulltexts
+        assert_not_nil record.tables_of_contents
+        assert_not_nil record.related_links
+      end
+    end
+  end
+
+  def test_chaining
+    VCR.use_cassette('search chaining author title') do
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).
+        institution!(@institution).author!(@author).and.title!(@title)
+      assert_not_nil search.size
+      assert_not_nil search.facets
+      assert((not search.facets.empty?))
+      assert_not_nil search.records
+      assert((not search.records.empty?))
+      search.records.each do |record|
+        assert_not_nil record.holdings
+        assert((not record.holdings.empty?))
+        assert_not_nil record.fulltexts
+        assert_not_nil record.tables_of_contents
+        assert_not_nil record.related_links
+      end
+    end
   end
 
   def test_search_isbn

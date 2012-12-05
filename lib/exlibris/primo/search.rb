@@ -20,8 +20,10 @@ module Exlibris
     #     search.size => Total number of records in the search
     # 
     class Search
-      include BaseAttributes
+      # Config::Attributes need to be first because of inheritance
+      # of Ruby modules. This is a shitty, shitty hack.
       include Config::Attributes
+      include BaseAttributes
       include RequestAttributes
       include SearchAttributes
       include WriteAttributes

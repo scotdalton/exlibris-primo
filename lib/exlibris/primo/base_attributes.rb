@@ -5,62 +5,70 @@ module Exlibris
       # Set base URL for the search.
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.base_url=("http://primo.library.edu").
+      #     Search.new.base_url!("http://primo.library.edu").
       #       add_query_term("Digital divide", "any", "contains").search
       # 
-      def base_url= base_url
+      def base_url!(base_url)
+        @base_url = base_url
         request_attributes[:base_url] = "#{base_url}"
         self
       end
+      alias :base_url= :base_url!
 
       # 
       # Set institution for the search.
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.institution=("PRIMO").
+      #     Search.new.institution!("PRIMO").
       #       add_query_term("Digital divide", "any", "contains").search
       # 
-      def institution= institution
+      def institution!(institution)
+        @institution = institution
         request_attributes[:institution] = "#{institution}"
         self
       end
+      alias :institution= :institution!
 
       # 
       # Set client IP for the search.
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.ip=("127.0.0.1").
+      #     Search.new.ip!("127.0.0.1").
       #       add_query_term("Digital divide", "any", "contains").search
       # 
-      def ip= ip
+      def ip!(ip)
         request_attributes[:ip] = "#{ip}"
         self
       end
-      alias :client_ip= :ip=
+      alias :ip= :ip!
+      alias :client_ip! :ip!
+      alias :client_ip= :ip!
 
       # 
       # Set the group for the search.
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.group=("Department").
+      #     Search.new.group!("Department").
       #       add_query_term("Digital divide", "any", "contains").search
       # 
-      def group= group
+      def group!(group)
         request_attributes[:group] = "#{group}"
         self
       end
+      alias :group= :group!
 
       # 
       # Set the PDS handle for the search.
       # Suitable for chaining, e.g. 
       # 
-      #     Search.new.pds_handle=("PDS_HANDLE").
+      #     Search.new.pds_handle!("PDS_HANDLE").
       #       add_query_term("Digital divide", "any", "contains").search
       # 
-      def pds_handle= pds_handle
+      def pds_handle!(pds_handle)
         request_attributes[:pds_handle] = "#{pds_handle}"
         self
       end
+      alias :pds_handle= :pds_handle!
 
       # 
       # Specifies that the search is coming from on campus.
