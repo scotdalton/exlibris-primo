@@ -44,15 +44,11 @@ Search has some methods for setting search params
 
     search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu",
       :institution => "INSTITUTION")
-    search.isbn_is = "0143039008" #=> Equivalent to search.add_query_term "0143039008", "isbn", "exact"
-    search.title_begins_with = "Travels" #=> Equivalent to search.add_query_term "Travels", "title", "begins_with"
-    search.creator_contains = "Greene" #=> Equivalent to search.add_query_term "Greene", "creator", "contains"
+    search.isbn_is "0143039008" #=> Equivalent to search.add_query_term "0143039008", "isbn", "exact"
+    search.title_begins_with "Travels" #=> Equivalent to search.add_query_term "Travels", "title", "begins_with"
+    search.creator_contains "Greene" #=> Equivalent to search.add_query_term "Greene", "creator", "contains"
 
-Search can take search elements in the initial hash
-
-    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu",
-      :institution => "INSTITUTION", :isbn_is = "0143039008")
-Or
+Search can take a record id the initial hash
 
     search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu",
       :institution => "INSTITUTION", :record_id = "aleph0123456789")
@@ -61,6 +57,12 @@ Search can also be chained using the ! version of the attribute writer
 
     search = Exlibris::Primo::Search.new.base_url!("http://primo.institution.edu").
       institution!("INSTITUTION").record_id!("aleph0123456789")
+
+Or
+
+    search = Exlibris::Primo::Search.new.base_url!("http://primo.institution.edu").
+      institution!("INSTITUTION").title_begins_with("Travels").
+        creator_contains("Greene").genre_is("Book")
 
 ## Exlibris::Primo::Config
 Exlibris::Primo::Config allows you to specify global configuration parameter for Exlibris::Primo
