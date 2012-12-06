@@ -12,83 +12,55 @@ and exposes the set of holdings, fulltext links, table of contents links, and re
 ### Example of Exlibris::Primo::Search in action
 Search can search by a query
 
-    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
-      :institution => "INSTITUTION")
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu",
+      :institution => "INSTITUTION", :page_size => "20")
     search.add_query_term "0143039008", "isbn", "exact"
-    count search.count
-    facets = search.facets
-    records = search.search.records
+    count = search.size #=> 20+ (assuming there are 20+ records with this isbn)
+    facets = search.facets #=> Array of Primo facets
+    records = search.records #=> Array of Primo records
+    records.size #=> 20 (assuming there are 20+ records with this isbn)
     records.each do |record_id, record|
-      holdings = record.holdings
-      fulltexts = record.fulltexts
-      table_of_contents = record.table_of_contents
-      related_links = record.related_links
+      holdings = record.holdings #=> Array of Primo holdings
+      fulltexts = record.fulltexts #=> Array of Primo full texts
+      table_of_contents = record.table_of_contents #=> Array of Primo tables of contents
+      related_links = record.related_links #=> Array of Primo related links
     end
 
 Or by a given record id
 
-    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu",
       :institution => "INSTITUTION")
-    search.record_id= "aleph0123456789"
-    count = search.count
-    facets = search.facets
-    records = search.search.records
-    records.each do |record_id, record|
-      holdings = record.holdings
-      fulltexts = record.fulltexts
-      table_of_contents = record.table_of_contents
-      related_links = record.related_links
-    end
+    search.record_id! "aleph0123456789"
+    count = search.size #=> 1
+    records = search.records #=> Array of Primo records
+    records.size #=> 1
+    record = records.first #=> Primo record
+    holdings = record.holdings #=> Array of Primo holdings
+    fulltexts = record.fulltexts #=> Array of Primo full texts
+    table_of_contents = record.table_of_contents #=> Array of Primo tables of contents
+    related_links = record.related_links #=> Array of Primo related links
 
-Search has some convenience methods for setting search params
+Search has some methods for setting search params
 
-    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu",
       :institution => "INSTITUTION")
-    search.isbn = "0143039008" # Equivalent to search.add_query_term "0143039008", "isbn", "exact"
-    search.title = "Travels with My Aunt" # Equivalent to search.add_query_term "Travels with My Aunt", "title", "exact"
-    search.author = "Graham Greene" # Equivalent to search.add_query_term "Graham Greene", "creator", "exact"
-    
-Search also takes search elements in the initial hash
+    search.isbn_is = "0143039008" #=> Equivalent to search.add_query_term "0143039008", "isbn", "exact"
+    search.title_begins_with = "Travels" #=> Equivalent to search.add_query_term "Travels", "title", "begins_with"
+    search.creator_contains = "Greene" #=> Equivalent to search.add_query_term "Greene", "creator", "contains"
 
-    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
-      :institution => "INSTITUTION", :isbn = "0143039008")
-Or  
+Search can take search elements in the initial hash
 
-    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu",
+      :institution => "INSTITUTION", :isbn_is = "0143039008")
+Or
+
+    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu",
       :institution => "INSTITUTION", :record_id = "aleph0123456789")
 
-Search can also be chained using the ! version of a attribute writer
+Search can also be chained using the ! version of the attribute writer
 
-    search = Exlibris::Primo::Search.new.base_url!("http://primo.institution.edu"). 
+    search = Exlibris::Primo::Search.new.base_url!("http://primo.institution.edu").
       institution!("INSTITUTION").record_id!("aleph0123456789")
-
-## Exlibris::Primo::Record
-Exlibris::Primo::Record is an object representation of a Primo record.
-
-### Example of Exlibris::Primo::Record in action
-    search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu", 
-      :institution => "INSTITUTION")
-    search.record_id= "aleph0123456789"
-    count = search.count
-    facets = search.facets
-    records = search.search.records
-    records.each do |record_id, record|
-      holdings = record.holdings
-      fulltexts = record.fulltexts
-      table_of_contents = record.table_of_contents
-      related_links = record.related_links
-    end
-
-## Exlibris::Primo::RemoteRecord
-Exlibris::Primo::RemoteRecord is an object representation of a Primo record for the given record_id.
-
-### Example of Exlibris::Primo::RemoteRecord in action
-    remote_record = Exlibris::Primo::RemoteRecord.new("aleph0123456789", 
-      :base_url => @base_url, :institution => @institution)
-    holdings = remote_record.holdings
-    fulltexts = remote_record.fulltexts
-    table_of_contents = remote_record.table_of_contents
-    related_links = remote_record.related_links
 
 ## Exlibris::Primo::Config
 Exlibris::Primo::Config allows you to specify global configuration parameter for Exlibris::Primo
@@ -107,12 +79,31 @@ Exlibris::Primo::Config can also read in from a YAML file that specifies the var
     end
 
 ## Exlibris::Primo::EShelf
-The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf and eshelf structure as well as adding and removing records.
+The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf 
+and eshelf structure as well as adding and removing records.
 
 ## Example of Exlibris::Primo::EShelf in action
-    eshelf = Exlibris::Primo::EShelf.new(:user_id => "USER_ID", 
+    eshelf = Exlibris::Primo::EShelf.new(:user_id => "USER_ID",
       :base_url => "http://primo.institution.edu", :insitution => "INSTITUTION")
     records = eshelf.records
-    count = eshelf.count
+    size = eshelf.size
     basket_id = eshelf.basket_id
     eshelf.add_records(["PrimoRecordId","PrimoRecordId2"], basket_id)
+
+## Exlibris::Primo::Reviews
+The Exlibris::Primo::Reviews class provides methods for reading a given user's Primo reviews 
+features.
+
+## Example of Exlibris::Primo::Reviews in action
+    reviews = Exlibris::Primo::Reviews.new(:record_id => "aleph0123456789", :user_id => "USER_ID",
+      :base_url => "http://primo.institution.edu", :insitution => "INSTITUTION")
+    user_record_reviews = reviews.reviews #=> Array of Primo reviews
+
+## Exlibris::Primo::Tags
+The Exlibris::Primo::Tags class provides methods for reading a given user's Primo tags 
+features.
+
+## Example of Exlibris::Primo::Tags in action
+    tags = Exlibris::Primo::Tags.new(:record_id => "aleph0123456789", :user_id => "USER_ID",
+      :base_url => "http://primo.institution.edu", :insitution => "INSTITUTION")
+    user_record_tags = tags.tags #=> Array of Primo tags
