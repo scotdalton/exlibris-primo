@@ -1,5 +1,8 @@
 module Exlibris
   module Primo
+    # 
+    # Primo namespaces used in Primo XML
+    # 
     module Namespaces
       def self.included(klass)
         klass.class_eval do
@@ -25,11 +28,13 @@ module Exlibris
         end
       end
 
+      # Returns response namespaces
       def response_namespaces
         @response_namespaces ||= self.class.response_namespaces
       end
       protected :response_namespaces
 
+      # Returns request namespaces
       def request_namespaces
         @request_namespaces ||= self.class.request_namespaces
       end

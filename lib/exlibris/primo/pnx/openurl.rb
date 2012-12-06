@@ -1,9 +1,12 @@
 module Exlibris
   module Primo
     module Pnx
+      # 
+      # Handle OpenURL elements
+      # 
       module Openurl
         #
-        #
+        # Parse addata to provide an OpenURL query string
         #
         def openurl
           @openurl ||= ""

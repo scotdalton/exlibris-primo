@@ -1,6 +1,9 @@
 module Exlibris
   module Primo
     module Pnx
+      # 
+      # Handle holdings in availlibrary tags.
+      # 
       module Holdings
         #
         # Gather Holdings for this record.

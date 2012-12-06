@@ -8,12 +8,19 @@ class TagsTest < Test::Unit::TestCase
   end
 
   def test_tags
+    tags = Exlibris::Primo::Tags.new(:base_url => @base_url, 
+      :institution => @institution, :user_id => @user_id, :record_id => @record_id)
     VCR.use_cassette('tags') do
-      tags = Exlibris::Primo::Tags.new(:base_url => @base_url, :institution => @institution, :user_id => @user_id, :record_id => @record_id)
-      assert_not_nil tags.my_tags
-      assert((not tags.my_tags.empty?))
-      assert_not_nil tags.everybody_tags
-      assert((not tags.everybody_tags.empty?))
+      assert_not_nil tags.tags
+      assert((not tags.tags.empty?))
+    end
+    VCR.use_cassette('tags user') do
+      assert_not_nil tags.user_tags
+      assert((not tags.user_tags.empty?))
+    end
+    VCR.use_cassette('tags record') do
+      assert_not_nil tags.record_tags
+      assert((not tags.record_tags.empty?))
     end
   end
 end

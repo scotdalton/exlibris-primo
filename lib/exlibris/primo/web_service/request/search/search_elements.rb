@@ -2,7 +2,7 @@ module Exlibris
   module Primo
     module WebService
       module Request
-          module SearchElements
+        module SearchElements
           def self.included(klass)
             klass.class_eval do
               extend ClassAttributes

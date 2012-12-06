@@ -1,7 +1,7 @@
 module Exlibris
   module Primo
     #
-    #
+    # Primo holding
     #
     class Holding
       include Config::Attributes

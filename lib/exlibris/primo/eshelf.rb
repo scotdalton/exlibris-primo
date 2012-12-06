@@ -1,17 +1,19 @@
 module Exlibris
   module Primo
     #
+    # Manipulate a user's Primo eshelf using Exlibris::Primo::Eshelf
     #
+    #     eshelf = Eshelf.new.base_url!("http://primo.library.edu").institution!("PRIMO").user_id!("USER_ID")
+    #     eshelf.records #=> Array for Primo records
     #
     class EShelf
-      # Config::Attributes need to be first because of inheritance
-      # of Ruby modules. This is a shitty, shitty hack.
       include Config::Attributes
-      include BaseAttributes
+      include ChainGang::Base
+      include ChainGang::User
       include RequestAttributes
       include WriteAttributes
 
-      attr_accessor :user_id
+      attr_reader :user_id
 
       def initialize *args
         super
@@ -21,21 +23,23 @@ module Exlibris
       # Call web service to get Eshelf contents and return
       #
       def eshelf
-        @eshelf ||= Exlibris::Primo::WebService::Request::GetEshelf.new(user_request_attributes).call
+        @eshelf ||= Exlibris::Primo::WebService::Request::GetEshelf.
+          new(user_request_attributes).call
       end
 
       #
       # Call web service to get Eshelf structure and return
       #
       def eshelfStructure
-        @eshelfStructure ||= Exlibris::Primo::WebService::Request::GetEshelfStructure.new(user_request_attributes).call
+        @eshelfStructure ||= Exlibris::Primo::WebService::Request::GetEshelfStructure.
+          new(user_request_attributes).call
       end
 
       #
       # Get the number of records in user's eshelf
       #
-      def count
-        @count ||= eshelf.count
+      def size
+        @size ||= eshelf.size
       end
 
       #
@@ -65,11 +69,12 @@ module Exlibris
       # Call web service to add record to eshelf
       #
       def add_record(record_id, folder_id)
-        Exlibris::Primo::WebService::Request::AddToEshelf.new(user_request_attributes.merge :folder_id => folder_id, :doc_id => record_id).call
+        Exlibris::Primo::WebService::Request::AddToEshelf.
+          new(user_request_attributes.merge :folder_id => folder_id, :doc_id => record_id).call
       end
 
       #
-      # Call web service to add records to eshelf
+      # Call web service to remove records from the eshelf
       #
       def remove_records(record_ids, folder_id)
         record_ids.each do |record_id|
@@ -78,10 +83,27 @@ module Exlibris
       end
 
       #
-      # Call web service to remove record from eshelf
+      # Call web service to remove a record from eshelf
       #
       def remove_record(record_id, folder_id)
-        Exlibris::Primo::WebService::Request::RemoveFromEshelf.new(user_request_attributes.merge :folder_id => folder_id, :doc_id => record_id).call
+        Exlibris::Primo::WebService::Request::RemoveFromEshelf.
+          new(user_request_attributes.merge :folder_id => folder_id, :doc_id => record_id).call
+      end
+
+      #
+      # Call web service to add folder to eshelf
+      #
+      def add_folder(folder_name, parent_id)
+        Exlibris::Primo::WebService::Request::AddFolderToEshelf.
+          new(user_request_attributes.merge :folder_name => folder_name, :parent_folder => parent_id).call
+      end
+
+      #
+      # Call web service to remove folder from eshelf
+      #
+      def remove_folder(folder_id)
+        Exlibris::Primo::WebService::Request::RemoveFolderFromEshelf.
+          new(user_request_attributes.merge :folder_id => folder_id).call
       end
     end
   end

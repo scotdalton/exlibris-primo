@@ -1,5 +1,8 @@
 module Exlibris
   module Primo
+    # 
+    # If a class is abstract, it can't be instantiated.
+    # 
     module Abstract
       def self.included(klass)
         klass.class_eval do

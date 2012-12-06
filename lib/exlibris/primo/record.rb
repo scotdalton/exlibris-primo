@@ -1,7 +1,10 @@
 module Exlibris
   module Primo
     #
-    #
+    # Primo record
+    # Includes PNX elements such as
+    # holdings, links, openurl, frbr status
+    # dedupmgr status.
     #
     class Record
       include Config::Attributes

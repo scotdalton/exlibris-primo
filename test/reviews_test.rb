@@ -8,10 +8,24 @@ class ReviewsTest < Test::Unit::TestCase
   end
 
   def test_reviews
+    reviews = Exlibris::Primo::Reviews.
+      new(:base_url => @base_url, :institution => @institution, 
+        :user_id => @user_id, :record_id => @record_id)
     VCR.use_cassette('reviews') do
-      reviews = Exlibris::Primo::Reviews.new(:base_url => @base_url, :institution => @institution, :user_id => @user_id, :record_id => @record_id)
       assert_not_nil reviews.reviews
       assert((not reviews.reviews.empty?))
+    end
+    VCR.use_cassette('reviews user') do
+      assert_not_nil reviews.user_reviews
+      assert((not reviews.user_reviews.empty?))
+    end
+    VCR.use_cassette('reviews record') do
+      assert_not_nil reviews.record_reviews
+      assert((not reviews.record_reviews.empty?))
+    end
+    VCR.use_cassette('reviews rating') do
+      assert_not_nil reviews.rating_reviews("1")
+      assert((not reviews.rating_reviews("1").empty?))
     end
   end
 end

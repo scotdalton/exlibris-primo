@@ -15,7 +15,8 @@ module Exlibris
       end
 
       #
-      #
+      # These attributes default to the global config settings if not 
+      # specified locally.
       #
       module Attributes
         def config

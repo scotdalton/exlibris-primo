@@ -1,7 +1,7 @@
 module Exlibris
   module Primo
     #
-    #
+    # Primo Tag
     #
     class Tag
       include Config::Attributes

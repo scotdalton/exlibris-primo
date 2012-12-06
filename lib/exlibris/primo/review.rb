@@ -1,7 +1,7 @@
 module Exlibris
   module Primo
     #
-    #
+    # Primo Review
     #
     class Review
       include Config::Attributes

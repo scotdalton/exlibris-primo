@@ -1,5 +1,8 @@
 module Exlibris
   module Primo
+    # 
+    # Utility for parsing and building XML
+    # 
     module XmlUtil
       require 'nokogiri'
 

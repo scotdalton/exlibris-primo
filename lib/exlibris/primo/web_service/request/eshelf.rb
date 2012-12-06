@@ -3,7 +3,7 @@ module Exlibris
     module WebService
       module Request
         # 
-        # 
+        # Abstract class for eshelf interaction
         # 
         class Eshelf < User
           self.add_base_elements :folder_id
@@ -12,7 +12,7 @@ module Exlibris
         end
 
         # 
-        # 
+        # Abstract class for eshelf record interaction
         # 
         class EshelfRecord < Eshelf
           self.add_base_elements :doc_id
@@ -20,7 +20,7 @@ module Exlibris
         end
 
         # 
-        # 
+        # Abstract class for eshelf structure interaction
         # 
         class EshelfStructure < Eshelf
           self.add_base_elements :include_basket_items
@@ -29,19 +29,19 @@ module Exlibris
         end
 
         # 
-        # 
+        # Get eshelf structure from Primo for a specified user
         # 
         class GetEshelfStructure < EshelfStructure; end
 
         # 
-        # 
+        # Get eshelf from Primo for a specified user
         # 
         class GetEshelf < Eshelf
           self.add_base_elements :get_delivery
         end
 
         # 
-        # 
+        # Add given record to Primo for a specified user
         # 
         class AddToEshelf < EshelfRecord
           self.add_base_elements :searchkey
@@ -49,12 +49,12 @@ module Exlibris
         end
 
         # 
-        # 
+        # Remove given record from Primo for a specified user
         # 
         class RemoveFromEshelf < EshelfRecord; end
 
         # 
-        # 
+        # Add given folder name to Primo for a specified user
         # 
         class AddFolderToEshelf < Eshelf
           self.add_base_elements :folder_name, :parent_folder
@@ -62,7 +62,7 @@ module Exlibris
         end
 
         # 
-        # 
+        # Remove given folder from Primo for a specified user
         # 
         class RemoveFolderFromEshelf < Eshelf; end
       end

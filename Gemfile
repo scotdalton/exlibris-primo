@@ -6,5 +6,5 @@ source "http://rubygems.org"
 gemspec
 
 platforms :jruby do
-  gem 'jruby-openssl'
+  gem 'jruby-openssl', "~> 0.8.0"
 end

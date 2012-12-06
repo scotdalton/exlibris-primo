@@ -17,19 +17,16 @@ module Exlibris
     # 
     # Primo fulltext link.
     # 
-    class Fulltext < Link
-    end
+    class Fulltext < Link; end
 
     # 
     # Primo table of contents link.
     # 
-    class TableOfContents < Link
-    end
+    class TableOfContents < Link; end
 
     # 
     # Primo related link.
     # 
-    class RelatedLink < Link
-    end
+    class RelatedLink < Link; end
   end
 end

@@ -13,7 +13,8 @@ class SearchTest < Test::Unit::TestCase
   def test_chaining
     VCR.use_cassette('search chaining isbn') do
       search = Exlibris::Primo::Search.new();
-      search = Exlibris::Primo::Search.new.base_url!(@base_url).institution!(@institution).isbn!(@isbn)
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).
+        institution!(@institution).isbn!(@isbn)
       assert_not_nil search.size
       assert_not_nil search.facets
       assert((not search.facets.empty?))
@@ -29,7 +30,7 @@ class SearchTest < Test::Unit::TestCase
     end
   end
 
-  def test_chaining
+  def test_chaining_author_title
     VCR.use_cassette('search chaining author title') do
       search = Exlibris::Primo::Search.new.base_url!(@base_url).
         institution!(@institution).author!(@author).and.title!(@title)
@@ -48,9 +49,23 @@ class SearchTest < Test::Unit::TestCase
     end
   end
 
+  def test_chaining_page_size
+    VCR.use_cassette('search chaining page size author') do
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).
+        institution!(@institution).page_size!(30).author!(@author)
+      assert_not_nil search.size
+      assert_not_nil search.facets
+      assert((not search.facets.empty?))
+      assert_not_nil search.records
+      assert((not search.records.empty?))
+      assert_equal 30, search.records.size
+    end
+  end
+
   def test_search_isbn
     VCR.use_cassette('search isbn') do
-      search = Exlibris::Primo::Search.new(:base_url => @base_url, :institution => @institution, :isbn => @isbn)
+      search = Exlibris::Primo::Search.
+        new(:base_url => @base_url, :institution => @institution, :isbn => @isbn)
       assert_not_nil search.size
       assert_not_nil search.facets
       assert((not search.facets.empty?))
@@ -68,7 +83,8 @@ class SearchTest < Test::Unit::TestCase
 
   def test_search_record_id
     VCR.use_cassette('search record id') do
-      search = Exlibris::Primo::Search.new(:base_url => @base_url, :institution => @institution, :record_id => @record_id)
+      search = Exlibris::Primo::Search.
+        new(:base_url => @base_url, :institution => @institution, :record_id => @record_id)
       assert_not_nil search.size
       assert_not_nil search.facets
       assert search.facets.empty?

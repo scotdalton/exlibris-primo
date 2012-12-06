@@ -3,41 +3,35 @@ module Exlibris
     #
     # Search Primo using Exlibris::Primo::Search
     # 
-    # 
-    #     search = Search.new.base_url=("http://primo.library.edu").
+    #     search = Search.new.base_url!("http://primo.library.edu").
     #       add_query_term("Digital divide", "any", "contains")
-    #     search.records => Array of Primo records
-    #     search.facets => Array of Primo facets
-    #     search.size => Total number of records in the search
+    #     search.records #=> Array of Primo records
+    #     search.facets #=> Array of Primo facets
+    #     search.size #=> Total number of records in the search
     # 
     # There are a several configuration setting for the search
     #  
-    #     search = Search.new.base_url=("http://primo.library.edu").institution=("PRIMO").
-    #       enable_did_u_mean.on_campus.page_size=(20).start_index=(21).add_sort_by("stitle")
-    #       add_query_term("Digital divide", "any", "contains")
-    #     search.records => Array of Primo records
-    #     search.facets => Array of Primo facets
-    #     search.size => Total number of records in the search
+    #     search = Search.new.base_url!("http://primo.library.edu").institution!("PRIMO").
+    #       enable_did_u_mean.on_campus.page_size!(20).start_index!(21).add_sort_by("stitle")
+    #         add_query_term("Digital divide", "any", "contains")
+    #     search.records #=> Array of Primo records
+    #     search.facets #=> Array of Primo facets
+    #     search.size #=> Total number of records in the search
     # 
     class Search
-      # Config::Attributes need to be first because of inheritance
-      # of Ruby modules. This is a shitty, shitty hack.
       include Config::Attributes
-      include BaseAttributes
+      include ChainGang::Base
+      include ChainGang::Record
+      include ChainGang::Search
       include RequestAttributes
-      include SearchAttributes
       include WriteAttributes
-      attr_reader :record_id, :isbn, :title, :author
 
       # 
       # Returns the Response from the search.
       # Not really intended for public consumption.
       # 
       def search
-        request_attributes.each_pair do |key, value|
-          writer = "#{key}=".to_sym
-          request.send(writer, value) if request.respond_to? writer
-        end
+        request.write_attributes request_attributes
         @search ||= request.call
       end
 

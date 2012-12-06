@@ -3,7 +3,7 @@ module Exlibris
     module WebService
       module Request
         # 
-        # 
+        # Search Primo
         # 
         class Search < Base
           self.has_client
@@ -32,7 +32,7 @@ module Exlibris
         end
 
         # 
-        # 
+        # Get a specific record from Primo.
         # 
         class FullView < Search
           # Add doc_id to the base elements

@@ -1,6 +1,9 @@
 module Exlibris
   module Primo
     module Pnx
+      # 
+      # Handle PNX dedupmgr elements
+      # 
       module DedupMgr
 
         def self.included(klass)

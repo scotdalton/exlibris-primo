@@ -1,5 +1,8 @@
 module Exlibris
   module Primo
+    # 
+    # Write passed in arguments to instance attributes
+    # 
     module WriteAttributes
 
       def initialize *args
