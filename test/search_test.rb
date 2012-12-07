@@ -146,6 +146,7 @@ class SearchTest < Test::Unit::TestCase
     assert_kind_of Exlibris::Primo::Search, search.add_sort_by("stitle")
     assert_kind_of Exlibris::Primo::Search, search.add_local_location("scope:(VOLCANO)")
     assert_kind_of Exlibris::Primo::Search, search.record_id!(@record_id)
+    assert_equal search.send(:search_request).boolean_operator, "AND"
   end
 
   def test_and_or_methods
@@ -153,9 +154,9 @@ class SearchTest < Test::Unit::TestCase
       search = Exlibris::Primo::Search.new
       assert search.class.public_instance_methods.include? :and
       assert search.class.public_instance_methods.include? :or
-      assert_equal search.send(:search_request).boolean_operator, "AND"
-      assert_equal search.or.send(:search_request).boolean_operator, "OR"
-      assert_equal search.and.send(:search_request).boolean_operator, "AND"
+      assert_equal "AND", search.send(:search_request).boolean_operator
+      assert_equal "OR", search.or.send(:search_request).boolean_operator
+      assert_equal "AND", search.and.send(:search_request).boolean_operator
     }
   end
 end

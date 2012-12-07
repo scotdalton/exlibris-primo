@@ -7,6 +7,7 @@ module Exlibris
     # value would return.
     #
     class FacetValue
+      include Config::Attributes
       include WriteAttributes
       include XmlUtil
 
