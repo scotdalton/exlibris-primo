@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Exlibris-primo by scotdalton</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Exlibris-primo</h1>
+        <p class="header">Library to work with Exlibris' Primo discovery system.</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/scotdalton/exlibris-primo/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/scotdalton/exlibris-primo/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/scotdalton/exlibris-primo">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/scotdalton">scotdalton</a></p>
+
+
+      </header>
+      <section>
+        <p>= Exlibris::Primo
+{<img src="https://secure.travis-ci.org/scotdalton/exlibris-primo.png" alt="Build Status">}[<a href="https://secure.travis-ci.org/scotdalton/exlibris-primo">https://secure.travis-ci.org/scotdalton/exlibris-primo</a>]
+{<img src="https://gemnasium.com/scotdalton/exlibris-primo.png" alt="Dependency Status">}[<a href="https://gemnasium.com/scotdalton/exlibris-primo">https://gemnasium.com/scotdalton/exlibris-primo</a>]
+{<img src="https://codeclimate.com/badge.png">}[<a href="https://codeclimate.com/github/scotdalton/exlibris-primo">https://codeclimate.com/github/scotdalton/exlibris-primo</a>]</p>
+
+<p>Exlibris::Primo offers a set of libraries for interacting with the ExLibris Primo APIs.</p>
+
+<p>== Exlibris::Primo::Searcher
+The Exlibris::Primo::Searcher class performs a search against Primo for given parameters
+and exposes the set of holdings (availibrary elements), rsrcs, tocs, and related links (addlink elements).</p>
+
+<p>=== Example of Exlibris::Primo::Searcher in action
+  setup = {
+    :base_url =&gt; "<a href="http://primo.institution.edu">http://primo.institution.edu</a>", :vid =&gt; "VID", :institution =&gt; "INSTITUTION",
+    :config =&gt; {
+      "libraries" =&gt; 
+        {"library_code1" =&gt; "library_display_1", "library_code2" =&gt; "library_display_1"}, 
+      "statuses" =&gt; 
+        {"status_code1" =&gt; "status_display_1", "status_code2" =&gt; "status_display_2"}}
+  }
+  params = {
+     :primo_id =&gt; primo_id,
+     :isbn =&gt; isbn, 
+     :issn =&gt; issn,
+     :title =&gt; title,
+     :author =&gt; author,
+     :genre =&gt; genre
+  }
+  searcher = Exlibris::Primo::Searcher.new(setup, params)
+  count = search.count
+  holdings = searcher.holdings
+  rsrcs = searcher.rsrcs
+  tocs = searcher.tocs
+  related_links = searcher.related_links</p>
+
+<p>== Exlibris::Primo::Record
+The Exlibris::Primo::Record class creates an object representation of a Primo record for given parameters
+and exposes the record's primary attributes (format, title, author, url, openurl) and full record Xml (raw_xml)
+as instance variables.</p>
+
+<p>=== Example of Exlibris::Primo::Record in action
+  setup = { 
+    :base_url =&gt; "<a href="http://primo.institution.edu">http://primo.institution.edu</a>", 
+    :resolver_base_url =&gt; "<a href="http://resolver.institution.edu">http://resolver.institution.edu</a>", 
+    :vid =&gt; "VID", 
+    :institution =&gt; "DEFAULT", 
+    :record_id =&gt; "PrimoRecordId" 
+  }
+  record = Exlibris::Primo::Record.new(setup)
+  raw_xml = record.instance_variable_get(:@raw_xml)
+  record_hash = record.to_h
+  openurl = record_hash["openurl"]</p>
+
+<p>== Exlibris::Primo::EShelf
+The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf and eshelf structure as well as adding and removing records.</p>
+
+<p>=== Example of Exlibris::Primo::EShelf in action
+  setup = { 
+    :base_url =&gt; "<a href="http://primo.institution.edu">http://primo.institution.edu</a>", 
+    :vid =&gt; "VID", 
+    :resolver_base_url =&gt; "<a href="http://resolver.institution.edu">http://resolver.institution.edu</a>"
+  }
+  eshelf = Exlibris::Primo::EShelf.new(setup, "USER_ID", "PRIMO")
+  records = eshelf.records
+  p records.first.class
+  record_count = eshelf.count
+  basket_id = eshelf.basket_id
+  eshelf.add_records(["PrimoRecordId","PrimoRecordId2"], basket_id)</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
