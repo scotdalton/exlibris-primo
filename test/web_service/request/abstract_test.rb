@@ -27,6 +27,9 @@ module WebService
           Exlibris::Primo::WebService::Request::Eshelf.new
         }
         assert_raise(NotImplementedError) {
+          Exlibris::Primo::WebService::Request::EshelfStructure.new
+        }
+        assert_raise(NotImplementedError) {
           Exlibris::Primo::WebService::Request::EshelfRecord.new
         }
         assert_raise(NotImplementedError) {
@@ -39,12 +42,8 @@ module WebService
 
       def test_non_abstract_nothing_raised
         assert_nothing_raised {
-          # 
-          # The eshelf structure action is not specified in Primo's WSDL and 
-          # is therefore not supported for the time being.
-          # 
-          # Exlibris::Primo::WebService::Request::EshelfStructure.new
           Exlibris::Primo::WebService::Request::AddFolderToEshelf.new
+          Exlibris::Primo::WebService::Request::GetEshelfStructure.new
           Exlibris::Primo::WebService::Request::GetEshelf.new
           Exlibris::Primo::WebService::Request::AddToEshelf.new
           Exlibris::Primo::WebService::Request::RemoveFromEshelf.new
@@ -57,6 +56,7 @@ module WebService
           Exlibris::Primo::WebService::Request::GetTags.new
           Exlibris::Primo::WebService::Request::GetAllMyTags.new
           Exlibris::Primo::WebService::Request::GetTagsForRecord.new
+          Exlibris::Primo::WebService::Request::AddTag.new
           Exlibris::Primo::WebService::Request::RemoveTag.new
           Exlibris::Primo::WebService::Request::RemoveUserTags.new
           Exlibris::Primo::WebService::Request::Search.new

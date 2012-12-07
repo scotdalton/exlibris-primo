@@ -114,7 +114,8 @@ module WebService
           VCR.use_cassette('response add review') {
             soap_action = :add_review
             request = Exlibris::Primo::WebService::Request::AddReview.new(:user_id => @user_id, 
-              :institution => @institution)
+              :institution => @institution, :doc_id => @doc_id, :value => "Test reviews", :rating => "1", :user_display_name => "Test user display name", 
+                :allow_user_name => "true", :status => "2")
             client = Exlibris::Primo::WebService::Client::Reviews.new(:base_url => @base_url)
             response =Exlibris::Primo::WebService::Response::AddReview.new(
               client.send(soap_action, request.to_xml), soap_action)
@@ -122,7 +123,7 @@ module WebService
           VCR.use_cassette('response remove review') {
             soap_action = :remove_review
             request = Exlibris::Primo::WebService::Request::RemoveReview.new(:user_id => @user_id, 
-              :institution => @institution)
+              :institution => @institution, :doc_id => @doc_id)
             client = Exlibris::Primo::WebService::Client::Reviews.new(:base_url => @base_url)
             response =Exlibris::Primo::WebService::Response::RemoveReview.new(
               client.send(soap_action, request.to_xml), soap_action)
@@ -151,10 +152,18 @@ module WebService
             response =Exlibris::Primo::WebService::Response::GetTagsForRecord.new(
               client.send(soap_action, request.to_xml), soap_action)
           }
+          VCR.use_cassette('response add tag') {
+            soap_action = :add_tag
+            request = Exlibris::Primo::WebService::Request::AddTag.new(:user_id => @user_id, 
+              :institution => @institution, :doc_id => @doc_id, :value => "test tag")
+            client = Exlibris::Primo::WebService::Client::Tags.new(:base_url => @base_url)
+            response =Exlibris::Primo::WebService::Response::AddTag.new(
+              client.send(soap_action, request.to_xml), soap_action)
+          }
           VCR.use_cassette('response remove tag') {
             soap_action = :remove_tag
             request = Exlibris::Primo::WebService::Request::RemoveTag.new(:user_id => @user_id, 
-              :institution => @institution)
+              :institution => @institution, :doc_id => @doc_id, :value => "test tag")
             client = Exlibris::Primo::WebService::Client::Tags.new(:base_url => @base_url)
             response =Exlibris::Primo::WebService::Response::RemoveTag.new(
               client.send(soap_action, request.to_xml), soap_action)

@@ -152,8 +152,8 @@ class SearchTest < Test::Unit::TestCase
   def test_and_or_methods
     assert_nothing_raised {
       search = Exlibris::Primo::Search.new
-      assert search.class.public_instance_methods.include? :and
-      assert search.class.public_instance_methods.include? :or
+      assert search.class.public_instance_methods.collect{|m|m.to_sym}.include? :and
+      assert search.class.public_instance_methods.collect{|m|m.to_sym}.include? :or
       assert_equal "AND", search.send(:search_request).boolean_operator
       assert_equal "OR", search.or.send(:search_request).boolean_operator
       assert_equal "AND", search.and.send(:search_request).boolean_operator
