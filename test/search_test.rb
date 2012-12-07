@@ -12,7 +12,7 @@ class SearchTest < Test::Unit::TestCase
     @author_contains = "Greene"
   end
 
-  def test_chaining
+  def test_chaining_isbn
     VCR.use_cassette('search chaining isbn') do
       search = Exlibris::Primo::Search.new();
       search = Exlibris::Primo::Search.new.base_url!(@base_url).
