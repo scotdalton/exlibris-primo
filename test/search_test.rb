@@ -121,4 +121,41 @@ class SearchTest < Test::Unit::TestCase
       end
     end
   end
+
+  def test_chaining
+    search = Exlibris::Primo::Search.new
+    assert_kind_of Exlibris::Primo::Search, search.base_url!(@base_url)
+    assert_kind_of Exlibris::Primo::Search, search.institution!(@institution)
+    assert_kind_of Exlibris::Primo::Search, search.ip!("127.0.0.1")
+    assert_kind_of Exlibris::Primo::Search, search.group!("Deparment")
+    assert_kind_of Exlibris::Primo::Search, search.pds_handle!("PDS_HANDLE_TEST")
+    assert_kind_of Exlibris::Primo::Search, search.on_campus
+    assert_kind_of Exlibris::Primo::Search, search.off_campus
+    assert_kind_of Exlibris::Primo::Search, search.logged_in
+    assert_kind_of Exlibris::Primo::Search, search.logged_out
+    assert_kind_of Exlibris::Primo::Search, search.logged_off
+    assert_kind_of Exlibris::Primo::Search, search.or
+    assert_kind_of Exlibris::Primo::Search, search.and
+    assert_kind_of Exlibris::Primo::Search, search.start_index!(1)
+    assert_kind_of Exlibris::Primo::Search, search.page_size!(20)
+    assert_kind_of Exlibris::Primo::Search, search.enable_did_u_mean
+    assert_kind_of Exlibris::Primo::Search, search.disable_did_u_mean
+    assert_kind_of Exlibris::Primo::Search, search.enable_highlighting
+    assert_kind_of Exlibris::Primo::Search, search.disable_highlighting
+    assert_kind_of Exlibris::Primo::Search, search.add_language("en")
+    assert_kind_of Exlibris::Primo::Search, search.add_sort_by("stitle")
+    assert_kind_of Exlibris::Primo::Search, search.add_local_location("scope:(VOLCANO)")
+    assert_kind_of Exlibris::Primo::Search, search.record_id!(@record_id)
+  end
+
+  def test_and_or_methods
+    assert_nothing_raised {
+      search = Exlibris::Primo::Search.new
+      assert search.class.public_instance_methods.include? :and
+      assert search.class.public_instance_methods.include? :or
+      assert_equal search.send(:search_request).boolean_operator, "AND"
+      assert_equal search.or.send(:search_request).boolean_operator, "OR"
+      assert_equal search.and.send(:search_request).boolean_operator, "AND"
+    }
+  end
 end

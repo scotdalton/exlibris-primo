@@ -34,14 +34,14 @@ module Exlibris
         end
 
         #
+        # Is the record a dedupmrg record?
         #
-        #
-        def dedup_mgr?
-          @dedup_mgr ||= recordid.match /\Adedupmrg/
+        def dedupmgr?
+          @dedupmgr ||= recordid.match /\Adedupmrg/
         end
 
         #
-        #
+        # Return the class level duplicated control attributes
         #
         def duplicated_control_attributes
           @duplicated_control_attributes ||= self.class.duplicated_control_attributes
@@ -49,13 +49,13 @@ module Exlibris
         protected :duplicated_control_attributes
 
         #
-        #
+        # Dynamically set the duplicated control attributes.
         #
         def method_missing(method, *args, &block)
           if(duplicated_control_attributes.include? method)
             control_attribute = method.id2name.singularize
             self.class.send(:define_method, method) do
-              eval("@#{method} ||= (dedup_mgr?) ?
+              eval("@#{method} ||= (dedupmgr?) ?
                 map_values_to_origins(\"#{control_attribute}\") : {recordid => #{control_attribute}}")
             end
             send method, *args, &block
@@ -68,13 +68,11 @@ module Exlibris
         # Tell users we respond to pluralized PNX control elements
         #
         def respond_to?(method, include_private=false)
-          # WARNING: We should be calling `super` here, but that gives 
-          # us an infinite loop for some reason.  Not sure why
           (duplicated_control_attributes.include? method) ? true : super
         end
 
         #
-        #
+        # Map values to origins for the given field
         #
         def map_values_to_origins(field)
           values_to_origins_map = {}

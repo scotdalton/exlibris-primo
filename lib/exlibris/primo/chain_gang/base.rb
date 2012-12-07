@@ -114,6 +114,7 @@ module Exlibris
           request_attributes[:is_logged_in] = "false"
           self
         end
+        alias :logged_off :logged_out
       end
     end
   end

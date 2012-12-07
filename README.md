@@ -51,7 +51,7 @@ Search has some methods for setting search params
 Search can take a record id the initial hash
 
     search = Exlibris::Primo::Search.new(:base_url => "http://primo.institution.edu",
-      :institution => "INSTITUTION", :record_id = "aleph0123456789")
+      :institution => "INSTITUTION", :record_id => "aleph0123456789")
 
 Search can also be chained using the ! version of the attribute writer
 
