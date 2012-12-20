@@ -24,7 +24,7 @@ module Exlibris
           if(attr_read(method))
             self.class.send(:define_method, method) {
               if "#{method}".start_with? "all_"
-                eval("@#{method} ||= #{attr_read method}")
+                eval("@#{method} ||= #{attr_read(method).inspect}")
               else
                 eval("@#{method} ||= \"#{attr_read method}\"")
               end
