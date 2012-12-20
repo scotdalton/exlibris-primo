@@ -26,7 +26,7 @@ module Exlibris
               if "#{method}".start_with? "all_"
                 eval("@#{method} ||= #{attr_read(method).inspect}")
               else
-                eval("@#{method} ||= \"#{attr_read method}\"")
+                eval("@#{method} ||= #{attr_read(method).inspect}")
               end
             }
             send method, *args, &block

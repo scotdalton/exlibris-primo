@@ -441,6 +441,7 @@ class Test::Unit::TestCase
     "<recordid>nyu_aleph000062856</recordid>"+
     "<isbn>0143039008</isbn>"+
     "<isbn>9780143039006</isbn>"+
+    "<isbn>9780143&quot;0390069</isbn>"+
     "<rsrctype>book</rsrctype>"+
     "<creationdate>2004</creationdate>"+
     "<creationdate>1969</creationdate>"+
