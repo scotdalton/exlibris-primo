@@ -42,6 +42,11 @@ module Exlibris
       end
       protected :xml
 
+      def xml_without_namespaces
+        xml.clone.remove_namespaces!
+      end
+      protected :xml_without_namespaces
+
       def to_hash
         Hash.from_xml(to_xml)
       end

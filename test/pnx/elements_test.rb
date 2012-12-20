@@ -5,6 +5,7 @@ module Pnx
       record = Exlibris::Primo::Record.new(:raw_xml => record_xml)
       assert record.respond_to? :display_title
       assert record.respond_to? :recordid
+      assert record.respond_to? :all_search_creatorcontrib
       assert_equal "Travels with my aunt", record.display_title
       assert_equal "nyu_aleph000062856", record.recordid
     end
