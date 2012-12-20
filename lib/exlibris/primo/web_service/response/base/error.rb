@@ -4,7 +4,7 @@ module Exlibris
       module Response
         module Error
           def error?
-            false
+            (error_code && (not error_code.eql? "0"))
           end
 
           def error_code

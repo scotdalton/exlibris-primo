@@ -21,6 +21,7 @@ module WebService
           client = Exlibris::Primo::WebService::Client::Tags.new(:base_url => @base_url)
           response =Exlibris::Primo::WebService::Response::AddTag.new(
             client.send(soap_action, request.to_xml), soap_action)
+            assert((not response.error?))
             assert_equal("0", response.error_code)
             assert_equal("Add tag action completed successfully", response.error_message)
         }

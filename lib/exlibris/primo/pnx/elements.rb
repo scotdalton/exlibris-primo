@@ -23,7 +23,11 @@ module Exlibris
         def method_missing(method, *args, &block)
           if(attr_read(method))
             self.class.send(:define_method, method) {
-              eval("@#{method} ||= \"#{attr_read method}\"")
+              if "#{method}".start_with? "all_"
+                eval("@#{method} ||= #{attr_read method}")
+              else
+                eval("@#{method} ||= \"#{attr_read method}\"")
+              end
             }
             send method, *args, &block
           else
@@ -48,11 +52,9 @@ module Exlibris
         private :attr_read
 
         def inner_text_all xpath
-          all = []
-          xml.root.xpath(xpath).each do |element|
-            all << element.inner_text
+          xml.root.xpath(xpath).collect do |element|
+            element.inner_text
           end
-          all
         end
         private :inner_text_all
 
@@ -68,7 +70,7 @@ module Exlibris
         private :controlize
 
         def xpathize s
-          "#{s.to_s}".gsub(/_/, "/").gsub(/[=\[\]]/, "")
+          "#{s.to_s}".gsub(/^all_/, "").gsub(/_/, "/").gsub(/[=\[\]]/, "")
         end
         private :xpathize
       end
