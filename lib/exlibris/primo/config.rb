@@ -24,39 +24,39 @@ module Exlibris
         end
 
         def base_url
-          @base_url ||= String.new Config.base_url.to_s
+          @base_url ||= String.new config.base_url.to_s
         end
 
         def institution
-          @institution ||= String.new Config.institution.to_s
+          @institution ||= String.new config.institution.to_s
         end
 
         def libraries
-          @libraries ||= Config.libraries.dup
+          @libraries ||= config.libraries.dup
         end
 
         def availability_statuses
-          @availability_statuses ||= Config.availability_statuses.dup
+          @availability_statuses ||= config.availability_statuses.dup
         end
 
         def sources
-          @sources ||= Config.sources.dup
+          @sources ||= config.sources.dup
         end
 
         def facet_labels
-          @facet_labels ||= Config.facet_labels.dup
+          @facet_labels ||= config.facet_labels.dup
         end
 
         def facet_top_level
-          @facet_top_level ||= Config.facet_top_level.dup
+          @facet_top_level ||= config.facet_top_level.dup
         end
 
         def facet_collections
-          @facet_collections ||= Config.facet_collections.dup
+          @facet_collections ||= config.facet_collections.dup
         end
 
         def facet_resource_types
-          @facet_resource_types ||= Config.facet_resource_types.dup
+          @facet_resource_types ||= config.facet_resource_types.dup
         end
       end
     end
