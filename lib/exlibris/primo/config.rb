@@ -6,11 +6,12 @@ module Exlibris
     module Config
       class << self
         include WriteAttributes
-        attr_accessor :base_url, :institution, :libraries, :availability_statuses,
-          :sources, :facet_labels, :facet_top_level, :facet_collections, :facet_resource_types
+        attr_accessor :base_url, :institution, :libraries, :availability_statuses, :sources, 
+          :facet_labels, :facet_top_level, :facet_collections, :facet_resource_types, :load_time
 
         def load_yaml file
           write_attributes YAML.load_file(file)
+          self.load_time = Time.now
         end
       end
 
