@@ -8,3 +8,6 @@ gemspec
 platforms :jruby do
   gem 'jruby-openssl', "~> 0.8.0"
 end
+
+# Use simplecov for ruby 1.9
+gem 'simplecov', :require => false, :group => :test
