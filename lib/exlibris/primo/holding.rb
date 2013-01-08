@@ -11,9 +11,9 @@ module Exlibris
         @defaults ||= { :coverage => [], :source_data => {} }
       end
 
-      attr_accessor :record_id, :original_id,
+      attr_accessor :availlibrary, :record_id, :original_id,
         :title, :author, :display_type, :source_id, :original_source_id,
-        :source_record_id, :ils_api_id,
+        :source_record_id, :ils_api_id, :institution_code,
         :library_code, :availability_status_code,
         :collection, :call_number, :coverage, :notes,
         :subfields, :source_data
@@ -23,15 +23,19 @@ module Exlibris
       end
 
       def source_config
-        @source_config ||= config.sources[source_id]
+        @source_config ||= sources[source_id]
       end
 
       def library
-        @library ||= (config.libraries[library_code] || library_code)
+        @library ||= (libraries[library_code] || library_code)
+      end
+
+      def institution
+        @institution ||= (institutions[institution_code] || institution_code)
       end
 
       def availability_status
-        @availability_status ||= (config.availability_statuses[availability_status_code] || availability_status_code)
+        @availability_status ||= (availability_statuses[availability_status_code] || availability_status_code)
       end
       alias availability availability_status
 

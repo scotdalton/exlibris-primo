@@ -105,6 +105,25 @@ class SearchTest < Test::Unit::TestCase
 
   def test_search_record_id
     VCR.use_cassette('search record id') do
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).
+        institution!(@institution).record_id!(@record_id)
+      assert_not_nil search.size
+      assert_not_nil search.facets
+      assert search.facets.empty?
+      assert_not_nil search.records
+      assert((not search.records.empty?))
+      search.records.each do |record|
+        assert_not_nil record.holdings
+        assert((not record.holdings.empty?))
+        assert_not_nil record.fulltexts
+        assert_not_nil record.tables_of_contents
+        assert_not_nil record.related_links
+      end
+    end
+  end
+
+  def test_search_record_id_chaining
+    VCR.use_cassette('search record id') do
       search = Exlibris::Primo::Search.
         new(:base_url => @base_url, :institution => @institution, :record_id => @record_id)
       assert_not_nil search.size

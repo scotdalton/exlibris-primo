@@ -6,7 +6,7 @@ module Exlibris
     module Config
       class << self
         include WriteAttributes
-        attr_accessor :base_url, :institution, :libraries, :availability_statuses, :sources, 
+        attr_accessor :base_url, :institution, :institutions, :libraries, :availability_statuses, :sources, 
           :facet_labels, :facet_top_level, :facet_collections, :facet_resource_types, :load_time
 
         def load_yaml file
@@ -32,32 +32,36 @@ module Exlibris
           @institution ||= String.new config.institution.to_s
         end
 
+        def institutions
+          @institutions ||= (config.institutions) ? config.institutions.dup : {}
+        end
+
         def libraries
-          @libraries ||= config.libraries.dup
+          @libraries ||= (config.libraries) ? config.libraries.dup : {}
         end
 
         def availability_statuses
-          @availability_statuses ||= config.availability_statuses.dup
+          @availability_statuses ||= (config.availability_statuses) ? config.availability_statuses.dup : {}
         end
 
         def sources
-          @sources ||= config.sources.dup
+          @sources ||= (config.sources) ? config.sources.dup : {}
         end
 
         def facet_labels
-          @facet_labels ||= config.facet_labels.dup
+          @facet_labels ||= (config.facet_labels) ? config.facet_labels.dup : {}
         end
 
         def facet_top_level
-          @facet_top_level ||= config.facet_top_level.dup
+          @facet_top_level ||= (config.facet_top_level) ? config.facet_top_level.dup : {}
         end
 
         def facet_collections
-          @facet_collections ||= config.facet_collections.dup
+          @facet_collections ||= (config.facet_collections) ? config.facet_collections.dup : {}
         end
 
         def facet_resource_types
-          @facet_resource_types ||= config.facet_resource_types.dup
+          @facet_resource_types ||= (config.facet_resource_types) ? config.facet_resource_types.dup : {}
         end
       end
     end
