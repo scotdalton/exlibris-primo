@@ -139,6 +139,8 @@ class Test::Unit::TestCase
     "<linktorsrc>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://web.lexis-nexis.com/universe$$DOnline access via Lexis-Nexis Academic Universe: Full-text available from 1980-$$INYUAD$$Onyu_aleph002959842</linktorsrc>"+
     "<linktorsrc>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.umi.com/pqdauto$$DOnline access via ProQuest:$$INYU$$Onyu_aleph002959842</linktorsrc>"+
     "<linktorsrc>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.umi.com/pqdauto$$DOnline access via ProQuest:$$INYUAD$$Onyu_aleph002959842</linktorsrc>"+
+    "<linktotoc>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://toc.example.com$$DExample TOC$$INYUAD$$Onyu_aleph002959842</linktotoc>"+
+    "<addlink>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://addlink.example.com$$DExample Related Link$$INYUAD$$Onyu_aleph002959842</linktotoc>"+
     "<openurl>$$V$$Topenurl_journal$$Onyu_aleph000932393</openurl>"+
     "<openurl>$$V$$Topenurl_journal$$Onyu_aleph002959842</openurl>"+
     "<openurlfulltext>$$V$$Topenurlfull_journal$$Onyu_aleph000932393</openurlfulltext>"+
