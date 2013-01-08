@@ -43,7 +43,7 @@ module Exlibris
             # We're not interested if we don't have a URL
             next if subfields["U"].nil?
             { :institution => subfields["I"],
-              :recordid => recordid, :original_id => original_id,
+              :record_id => recordid, :original_id => original_id,
               :url => subfields["U"], :display => subfields["D"] }
           end
         end
