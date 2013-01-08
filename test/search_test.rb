@@ -123,7 +123,7 @@ class SearchTest < Test::Unit::TestCase
   end
 
   def test_search_record_id_chaining
-    VCR.use_cassette('search record id') do
+    VCR.use_cassette('search record id chaining') do
       search = Exlibris::Primo::Search.
         new(:base_url => @base_url, :institution => @institution, :record_id => @record_id)
       assert_not_nil search.size
