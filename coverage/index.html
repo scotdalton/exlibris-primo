@@ -14,14 +14,14 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-09T12:37:03-05:00">2013-01-09T12:37:03-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-09T12:43:33-05:00">2013-01-09T12:43:33-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.19%</span></span>
+    (<span class="covered_percent"><span class="green">98.26%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>116</b> files in total.
-    <b>2820</b> relevant lines. 
-    <span class="green"><b>2769</b> lines covered</span> and
-    <span class="red"><b>51</b> lines missed </span>
+    <b>2824</b> relevant lines. 
+    <span class="green"><b>2775</b> lines covered</span> and
+    <span class="red"><b>49</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -162,12 +162,12 @@
       
       <tr>
         <td class="strong"><a href="#c7bcf210435a5f311da80ab07f70edad0a09922b" class="src_link" title="lib/exlibris/primo/holding.rb">lib/exlibris/primo/holding.rb</a></td>
-        <td class="green strong">94.29 %</td>
+        <td class="green strong">100.0 %</td>
         <td>110</td>
         <td>35</td>
-        <td>33</td>
-        <td>2</td>
-        <td>5.4</td>
+        <td>35</td>
+        <td>0</td>
+        <td>5.5</td>
       </tr>
       
       <tr>
@@ -783,9 +783,9 @@
       <tr>
         <td class="strong"><a href="#892c91cc7962ef583552692f9e02677551678706" class="src_link" title="test/holding_test.rb">test/holding_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>24</td>
-        <td>17</td>
-        <td>17</td>
+        <td>26</td>
+        <td>19</td>
+        <td>19</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -903,9 +903,9 @@
       <tr>
         <td class="strong"><a href="#763e3dc570fee4dac4717395284be50d4b8bc2ab" class="src_link" title="test/source/aleph_test.rb">test/source/aleph_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>50</td>
-        <td>36</td>
-        <td>36</td>
+        <td>52</td>
+        <td>38</td>
+        <td>38</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -6107,11 +6107,11 @@
         <div class="source_table" id="c7bcf210435a5f311da80ab07f70edad0a09922b">
   <div class="header">
     <h3>lib/exlibris/primo/holding.rb</h3>
-    <h4><span class="green">94.29 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>35</b> relevant lines. 
-      <span class="green"><b>33</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <span class="green"><b>35</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -6604,8 +6604,8 @@
           <code class="ruby">      def expand</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="82">
-          
+        <li class="covered" data-hits="2" data-linenumber="82">
+          <span class="hits">2</span>
           
           <code class="ruby">        return [self]</code>
         </li>
@@ -6640,8 +6640,8 @@
           <code class="ruby">      def dedup?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="88">
-          
+        <li class="covered" data-hits="2" data-linenumber="88">
+          <span class="hits">2</span>
           
           <code class="ruby">        return false</code>
         </li>
@@ -22933,8 +22933,8 @@
     <h3>test/holding_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>17</b> relevant lines. 
-      <span class="green"><b>17</b> lines covered</span> and
+      <b>19</b> relevant lines. 
+      <span class="green"><b>19</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -23068,19 +23068,31 @@
           <code class="ruby">      assert_equal(holding, holding.to_source)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      assert_equal([holding], holding.expand)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      assert((not holding.dedup?))</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">    }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">end</code>
@@ -25927,8 +25939,8 @@
     <h3>test/source/aleph_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>36</b> relevant lines. 
-      <span class="green"><b>36</b> lines covered</span> and
+      <b>38</b> relevant lines. 
+      <span class="green"><b>38</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -26101,136 +26113,148 @@
         <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
-          <code class="ruby">        source = holding.to_source</code>
+          <code class="ruby">        aleph = holding.to_source</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
-          <code class="ruby">        assert_kind_of Exlibris::Primo::Source::Aleph, source</code>
+          <code class="ruby">        assert_kind_of Exlibris::Primo::Source::Aleph, aleph</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
-          <code class="ruby">        assert_equal &quot;http://aleph.library.edu&quot;, source.aleph_url</code>
+          <code class="ruby">        assert_equal &quot;http://aleph.library.edu&quot;, aleph.aleph_url</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
-          <code class="ruby">        assert_equal &quot;http://aleph.library.edu:1891/rest-dlf&quot;, source.aleph_rest_url</code>
+          <code class="ruby">        assert_equal &quot;http://aleph.library.edu:1891/rest-dlf&quot;, aleph.aleph_rest_url</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">        assert_equal &quot;AlephSubLibrary1&quot;, source.sub_library_code</code>
+          <code class="ruby">        assert_equal &quot;AlephSubLibrary1&quot;, aleph.sub_library_code</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">        assert_equal &quot;Library Decoded 2&quot;, source.sub_library</code>
+          <code class="ruby">        assert_equal &quot;Library Decoded 2&quot;, aleph.sub_library</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">        assert_equal &quot;LIB_CODE2&quot;, source.library_code</code>
+          <code class="ruby">        assert_equal &quot;LIB_CODE2&quot;, aleph.library_code</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
-          <code class="ruby">        assert_equal &quot;Library Decoded 2&quot;, source.library</code>
+          <code class="ruby">        assert_equal &quot;Library Decoded 2&quot;, aleph.library</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
-          <code class="ruby">        assert_equal &quot;LOCAL01&quot;, source.local_base</code>
+          <code class="ruby">        assert_equal &quot;LOCAL01&quot;, aleph.local_base</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        assert_equal([aleph], aleph.expand)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        assert((not aleph.dedup?))</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">        assert_equal &quot;http://aleph.library.edu/F?func=item-global&quot;+</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="38">
-          
-          
-          <code class="ruby">          &quot;&amp;doc_library=USM01&amp;local_base=LOCAL01&amp;doc_number=002895625&quot;+</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            &quot;&amp;sub_library=AlephSubLibrary1&quot;, source.url</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
           
           
+          <code class="ruby">          &quot;&amp;doc_library=USM01&amp;local_base=LOCAL01&amp;doc_number=002895625&quot;+</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
+          
+          <code class="ruby">            &quot;&amp;sub_library=AlephSubLibrary1&quot;, aleph.url</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
           <code class="ruby">        assert_equal &quot;http://aleph.library.edu/F?func=item-global&quot;+</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">          &quot;&amp;doc_library=USM01&amp;local_base=LOCAL01&amp;doc_number=002895625&quot;+</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            &quot;&amp;sub_library=AlephSubLibrary1&quot;, source.request_url</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        assert_equal &quot;http://aleph.library.edu:1891/rest-dlf/record/USM01002895625&quot;, source.rest_url</code>
-        </li>
-      
         <li class="covered" data-hits="1" data-linenumber="44">
           <span class="hits">1</span>
           
-          <code class="ruby">        holding.availability_status_code = &quot;unavailable&quot;</code>
+          <code class="ruby">            &quot;&amp;sub_library=AlephSubLibrary1&quot;, aleph.request_url</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">        source = holding.to_source</code>
+          <code class="ruby">        assert_equal &quot;http://aleph.library.edu:1891/rest-dlf/record/USM01002895625&quot;, aleph.rest_url</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
-          <code class="ruby">        assert_nil source.request_url</code>
+          <code class="ruby">        holding.availability_status_code = &quot;unavailable&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      }</code>
+          <code class="ruby">        aleph = holding.to_source</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">        assert_nil aleph.request_url</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
           
           
           <code class="ruby">end</code>
