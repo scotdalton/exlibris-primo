@@ -162,7 +162,10 @@ class SearchTest < Test::Unit::TestCase
     assert_kind_of Exlibris::Primo::Search, search.disable_highlighting
     assert_kind_of Exlibris::Primo::Search, search.add_language("en")
     assert_kind_of Exlibris::Primo::Search, search.add_sort_by("stitle")
+    assert_kind_of Exlibris::Primo::Search, search.add_display_field("stitle")
     assert_kind_of Exlibris::Primo::Search, search.add_local_location("scope:(VOLCANO)")
+    assert_kind_of Exlibris::Primo::Search, search.add_remote_location("scope:(VOLCANO)")
+    assert_kind_of Exlibris::Primo::Search, search.add_adaptor_location("scope:(VOLCANO)")
     assert_kind_of Exlibris::Primo::Search, search.record_id!(@record_id)
     assert_equal search.send(:search_request).boolean_operator, "AND"
   end
