@@ -8,6 +8,7 @@ module Exlibris
         class Search < Base
           self.has_client
           self.soap_action = :search_brief
+          include DisplayFields
           include Languages
           include Locations
           include QueryTerms
