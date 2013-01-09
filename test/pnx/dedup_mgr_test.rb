@@ -8,6 +8,9 @@ module Pnx
       assert_equal "The New York times", record.display_title
       assert_equal "dedupmrg17343091", record.recordid
       assert((not record.sourceids.keys.include?("dedupmrg17343091")))
+      assert_raise(NoMethodError) {
+        record.non_existent_method
+      }
     end
   end
 end
