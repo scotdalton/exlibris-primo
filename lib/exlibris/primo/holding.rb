@@ -16,7 +16,7 @@ module Exlibris
         :source_record_id, :ils_api_id, :institution_code,
         :library_code, :availability_status_code,
         :collection, :call_number, :coverage, :notes,
-        :subfields, :source_data
+        :subfields, :source_class, :source_data
 
       def initialize attributes={}
         super self.class.defaults.merge(attributes)
@@ -26,12 +26,12 @@ module Exlibris
         @source_config ||= sources[source_id]
       end
 
-      def library
-        @library ||= (libraries[library_code] || library_code)
-      end
-
       def institution
         @institution ||= (institutions[institution_code] || institution_code)
+      end
+
+      def library
+        @library ||= (libraries[library_code] || library_code)
       end
 
       def availability_status

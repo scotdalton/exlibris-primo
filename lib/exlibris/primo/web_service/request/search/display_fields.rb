@@ -7,14 +7,14 @@ module Exlibris
           # Returns a lambda that takes a Nokogiri::XML::Builder as an argument
           # and appends display fields XML to it.
           # 
-          def sort_bys_xml
+          def display_fields_xml
             lambda { |xml|
               display_fields.each do |display_field|
                 xml.DisplayFields display_field
               end
             }
           end
-          protected :sort_bys_xml
+          protected :display_fields_xml
 
           def display_fields
             @display_fields ||= []

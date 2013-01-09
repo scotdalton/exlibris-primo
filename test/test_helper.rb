@@ -71,6 +71,16 @@ class Test::Unit::TestCase
   end
   protected :assert_request
 
+
+  def reset_primo_configuration
+    Exlibris::Primo.configure do |config|
+      config.institutions = {}
+      config.libraries = {}
+      config.availability_statuses = {}
+    end
+  end
+  protected :reset_primo_configuration
+
   def xmlize(element)
     element.to_xml(
       :encoding => 'UTF-8',
