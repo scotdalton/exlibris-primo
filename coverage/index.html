@@ -14,14 +14,14 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-09T13:27:55-05:00">2013-01-09T13:27:55-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-01-09T13:34:22-05:00">2013-01-09T13:34:22-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.38%</span></span>
+    (<span class="covered_percent"><span class="green">98.42%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>117</b> files in total.
-    <b>2837</b> relevant lines. 
-    <span class="green"><b>2791</b> lines covered</span> and
-    <span class="red"><b>46</b> lines missed </span>
+    <b>2848</b> relevant lines. 
+    <span class="green"><b>2803</b> lines covered</span> and
+    <span class="red"><b>45</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -102,12 +102,12 @@
       
       <tr>
         <td class="strong"><a href="#071bd1d30fbcfa2ac56f59a5fa5e00584292bf2a" class="src_link" title="lib/exlibris/primo/chain_gang/search.rb">lib/exlibris/primo/chain_gang/search.rb</a></td>
-        <td class="green strong">94.06 %</td>
+        <td class="green strong">95.05 %</td>
         <td>319</td>
         <td>101</td>
-        <td>95</td>
-        <td>6</td>
-        <td>3.0</td>
+        <td>96</td>
+        <td>5</td>
+        <td>3.4</td>
       </tr>
       
       <tr>
@@ -727,7 +727,7 @@
         <td>19</td>
         <td>19</td>
         <td>0</td>
-        <td>326.7</td>
+        <td>326.8</td>
       </tr>
       
       <tr>
@@ -893,11 +893,11 @@
       <tr>
         <td class="strong"><a href="#4f0b70d2fe5c07ad7f8079d239c0017534e78f1e" class="src_link" title="test/search_test.rb">test/search_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>191</td>
-        <td>146</td>
-        <td>146</td>
+        <td>207</td>
+        <td>157</td>
+        <td>157</td>
         <td>0</td>
-        <td>3.9</td>
+        <td>3.7</td>
       </tr>
       
       <tr>
@@ -2433,11 +2433,11 @@
         <div class="source_table" id="071bd1d30fbcfa2ac56f59a5fa5e00584292bf2a">
   <div class="header">
     <h3>lib/exlibris/primo/chain_gang/search.rb</h3>
-    <h4><span class="green">94.06 %</span> covered</h4>
+    <h4><span class="green">95.05 %</span> covered</h4>
     <div>
       <b>101</b> relevant lines. 
-      <span class="green"><b>95</b> lines covered</span> and
-      <span class="red"><b>6</b> lines missed.</span>
+      <span class="green"><b>96</b> lines covered</span> and
+      <span class="red"><b>5</b> lines missed.</span>
     </div>
   </div>
   
@@ -2570,8 +2570,8 @@
           <code class="ruby">          def indexes</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="22">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="22">
+          <span class="hits">7</span>
           
           <code class="ruby">            @indexes ||= [:any, :stitle, :title, :creator, :genre, :author, :isbn]</code>
         </li>
@@ -2618,8 +2618,8 @@
           <code class="ruby">          def precisions</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="30">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="30">
+          <span class="hits">5</span>
           
           <code class="ruby">            @precisions ||= [:is, :begins_with, :contains, :starts_with]</code>
         </li>
@@ -2948,8 +2948,8 @@
           <code class="ruby">        def method_missing(method, *args, &amp;block)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="85">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="9" data-linenumber="85">
+          <span class="hits">9</span>
           
           <code class="ruby">          if matches? method</code>
         </li>
@@ -3008,8 +3008,8 @@
           <code class="ruby">          else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="95">
-          
+        <li class="covered" data-hits="3" data-linenumber="95">
+          <span class="hits">3</span>
           
           <code class="ruby">            super</code>
         </li>
@@ -3050,8 +3050,8 @@
           <code class="ruby">        def respond_to? method, include_private=false</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="102">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="102">
+          <span class="hits">8</span>
           
           <code class="ruby">          if(matches? method)</code>
         </li>
@@ -3068,8 +3068,8 @@
           <code class="ruby">          else</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="105">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="105">
+          <span class="hits">8</span>
           
           <code class="ruby">            super</code>
         </li>
@@ -3104,8 +3104,8 @@
           <code class="ruby">        def indexes</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="111">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="17" data-linenumber="111">
+          <span class="hits">17</span>
           
           <code class="ruby">          @indexes ||= self.class.indexes</code>
         </li>
@@ -3176,8 +3176,8 @@
           <code class="ruby">        def precisions</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="123">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="8" data-linenumber="123">
+          <span class="hits">8</span>
           
           <code class="ruby">          @precisions ||= self.class.precisions</code>
         </li>
@@ -3248,8 +3248,8 @@
           <code class="ruby">        def indexize(method)</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="135">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="25" data-linenumber="135">
+          <span class="hits">25</span>
           
           <code class="ruby">          parse_method(method).first.to_sym</code>
         </li>
@@ -3284,8 +3284,8 @@
           <code class="ruby">        def precisionize(method)</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="141">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="16" data-linenumber="141">
+          <span class="hits">16</span>
           
           <code class="ruby">          parse_method(method).last.to_sym</code>
         </li>
@@ -3320,8 +3320,8 @@
           <code class="ruby">        def parse_method(method, delimiter=&quot;_&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="33" data-linenumber="147">
-          <span class="hits">33</span>
+        <li class="covered" data-hits="41" data-linenumber="147">
+          <span class="hits">41</span>
           
           <code class="ruby">          method.to_s.split(delimiter, 2)</code>
         </li>
@@ -3356,8 +3356,8 @@
           <code class="ruby">        def matches? method</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="153">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="17" data-linenumber="153">
+          <span class="hits">17</span>
           
           <code class="ruby">          indexes.include? indexize(method) and precisions.include? precisionize(method)</code>
         </li>
@@ -21602,14 +21602,14 @@
           <code class="ruby">        # self.class.superclass.instance_method(:initialize).arity.eql? self.class.instance_method(:initialize).arity</code>
         </li>
       
-        <li class="covered" data-hits="539" data-linenumber="11">
-          <span class="hits">539</span>
+        <li class="covered" data-hits="540" data-linenumber="11">
+          <span class="hits">540</span>
           
           <code class="ruby">        super()</code>
         </li>
       
-        <li class="covered" data-hits="529" data-linenumber="12">
-          <span class="hits">529</span>
+        <li class="covered" data-hits="530" data-linenumber="12">
+          <span class="hits">530</span>
           
           <code class="ruby">        write_attributes args.last unless args.last.nil?</code>
         </li>
@@ -24779,8 +24779,8 @@
     <h3>test/search_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>146</b> relevant lines. 
-      <span class="green"><b>146</b> lines covered</span> and
+      <b>157</b> relevant lines. 
+      <span class="green"><b>157</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -24806,56 +24806,56 @@
           <code class="ruby">  def setup</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="4">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="4">
+          <span class="hits">11</span>
           
           <code class="ruby">    @base_url = &quot;http://bobcatdev.library.nyu.edu&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="5">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="5">
+          <span class="hits">11</span>
           
           <code class="ruby">    @isbn = &quot;0143039008&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="6">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="6">
+          <span class="hits">11</span>
           
           <code class="ruby">    @user_id = &quot;N12162279&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="7">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="7">
+          <span class="hits">11</span>
           
           <code class="ruby">    @institution = &quot;NYU&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="8">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="8">
+          <span class="hits">11</span>
           
           <code class="ruby">    @record_id = &quot;nyu_aleph000062856&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="9">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="9">
+          <span class="hits">11</span>
           
           <code class="ruby">    @title = &quot;Travels with My Aunt&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="10">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="10">
+          <span class="hits">11</span>
           
           <code class="ruby">    @author = &quot;Graham Greene&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="11">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="11">
+          <span class="hits">11</span>
           
           <code class="ruby">    @title_starts_with = &quot;Travels&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="12">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="12">
+          <span class="hits">11</span>
           
           <code class="ruby">    @author_contains = &quot;Greene&quot;</code>
         </li>
@@ -25805,130 +25805,226 @@
         <li class="covered" data-hits="1" data-linenumber="170">
           <span class="hits">1</span>
           
-          <code class="ruby">  def test_and_or_methods</code>
+          <code class="ruby">  def test_nonexistent_search_methods</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="171">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_nothing_raised {</code>
+          <code class="ruby">    search = Exlibris::Primo::Search.new</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="172">
           <span class="hits">1</span>
           
-          <code class="ruby">      search = Exlibris::Primo::Search.new</code>
+          <code class="ruby">    assert((not search.respond_to? :google_is))</code>
         </li>
       
-        <li class="covered" data-hits="156" data-linenumber="173">
-          <span class="hits">156</span>
-          
-          <code class="ruby">      assert search.class.public_instance_methods.collect{|m|m.to_sym}.include? :and</code>
-        </li>
-      
-        <li class="covered" data-hits="156" data-linenumber="174">
-          <span class="hits">156</span>
-          
-          <code class="ruby">      assert search.class.public_instance_methods.collect{|m|m.to_sym}.include? :or</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="175">
+        <li class="covered" data-hits="1" data-linenumber="173">
           <span class="hits">1</span>
           
-          <code class="ruby">      assert_equal &quot;AND&quot;, search.send(:search_request).boolean_operator</code>
+          <code class="ruby">    assert_raise(NoMethodError) {</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="176">
+        <li class="covered" data-hits="1" data-linenumber="174">
           <span class="hits">1</span>
           
-          <code class="ruby">      assert_equal &quot;OR&quot;, search.or.send(:search_request).boolean_operator</code>
+          <code class="ruby">      search.google_is</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="177">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      assert_equal &quot;AND&quot;, search.and.send(:search_request).boolean_operator</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="178">
+        <li class="never" data-hits="" data-linenumber="175">
           
           
           <code class="ruby">    }</code>
         </li>
       
+        <li class="covered" data-hits="1" data-linenumber="176">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    assert((not search.respond_to? :author_wants))</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="177">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    assert_raise(NoMethodError) {</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="178">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      search.author_wants</code>
+        </li>
+      
         <li class="never" data-hits="" data-linenumber="179">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="180">
+        <li class="covered" data-hits="1" data-linenumber="180">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    assert((not search.respond_to? :no_match))</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="181">
           <span class="hits">1</span>
           
-          <code class="ruby">  def test_did_u_mean</code>
+          <code class="ruby">    assert_raise(NoMethodError) {</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="182">
           <span class="hits">1</span>
           
-          <code class="ruby">    VCR.use_cassette('search did u mean') do</code>
+          <code class="ruby">      search.no_match</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="183">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="183">
           
-          <code class="ruby">      search = Exlibris::Primo::Search.new.base_url!(@base_url).</code>
+          
+          <code class="ruby">    }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="184">
           
           
-          <code class="ruby">        institution!(@institution).title_contains(&quot;digital dvide&quot;).enable_did_u_mean</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="185">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="185">
           
-          <code class="ruby">      assert_not_nil search.size</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="186">
           <span class="hits">1</span>
           
-          <code class="ruby">      assert_equal 0, search.size</code>
+          <code class="ruby">  def test_and_or_methods</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="187">
           <span class="hits">1</span>
           
-          <code class="ruby">      assert_not_nil search.did_u_mean</code>
+          <code class="ruby">    assert_nothing_raised {</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="188">
           <span class="hits">1</span>
           
-          <code class="ruby">      assert_equal &quot;digital video&quot;, search.did_u_mean</code>
+          <code class="ruby">      search = Exlibris::Primo::Search.new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="189">
+        <li class="covered" data-hits="156" data-linenumber="189">
+          <span class="hits">156</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      assert search.class.public_instance_methods.collect{|m|m.to_sym}.include? :and</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="190">
+        <li class="covered" data-hits="156" data-linenumber="190">
+          <span class="hits">156</span>
+          
+          <code class="ruby">      assert search.class.public_instance_methods.collect{|m|m.to_sym}.include? :or</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="191">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      assert_equal &quot;AND&quot;, search.send(:search_request).boolean_operator</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="192">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      assert_equal &quot;OR&quot;, search.or.send(:search_request).boolean_operator</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="193">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      assert_equal &quot;AND&quot;, search.and.send(:search_request).boolean_operator</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="194">
+          
+          
+          <code class="ruby">    }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="195">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="191">
+        <li class="never" data-hits="" data-linenumber="196">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="197">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def test_did_u_mean</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="198">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    VCR.use_cassette('search did u mean') do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="199">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      search = Exlibris::Primo::Search.new.base_url!(@base_url).</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="200">
+          
+          
+          <code class="ruby">        institution!(@institution).title_contains(&quot;digital dvide&quot;).enable_did_u_mean</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="201">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      assert_not_nil search.size</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="202">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      assert_equal 0, search.size</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="203">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      assert_not_nil search.did_u_mean</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="204">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      assert_equal &quot;digital video&quot;, search.did_u_mean</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="205">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="206">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="207">
           
           
           <code class="ruby">end</code>
