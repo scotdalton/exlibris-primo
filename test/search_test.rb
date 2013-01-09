@@ -156,6 +156,19 @@ class SearchTest < Test::Unit::TestCase
     end
   end
 
+  def test_search_languages
+    VCR.use_cassette('search languages') do
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).
+        institution!(@institution).title_contains("digital divide").
+          add_language("en")
+      assert_not_nil search.size
+      assert_not_nil search.facets
+      assert((not search.facets.empty?))
+      assert_not_nil search.records
+      assert((not search.records.empty?))
+    end
+  end
+
   def test_search_record_id_chaining
     VCR.use_cassette('search record id chaining') do
       search = Exlibris::Primo::Search.
