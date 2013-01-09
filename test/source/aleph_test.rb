@@ -25,25 +25,27 @@ module Source
         assert_equal "LOCAL01", holding.source_config["local_base"]
         assert_equal "Aleph", holding.source_config["class_name"]
         assert_equal "Aleph", holding.source_class
-        source = holding.to_source
-        assert_kind_of Exlibris::Primo::Source::Aleph, source
-        assert_equal "http://aleph.library.edu", source.aleph_url
-        assert_equal "http://aleph.library.edu:1891/rest-dlf", source.aleph_rest_url
-        assert_equal "AlephSubLibrary1", source.sub_library_code
-        assert_equal "Library Decoded 2", source.sub_library
-        assert_equal "LIB_CODE2", source.library_code
-        assert_equal "Library Decoded 2", source.library
-        assert_equal "LOCAL01", source.local_base
+        aleph = holding.to_source
+        assert_kind_of Exlibris::Primo::Source::Aleph, aleph
+        assert_equal "http://aleph.library.edu", aleph.aleph_url
+        assert_equal "http://aleph.library.edu:1891/rest-dlf", aleph.aleph_rest_url
+        assert_equal "AlephSubLibrary1", aleph.sub_library_code
+        assert_equal "Library Decoded 2", aleph.sub_library
+        assert_equal "LIB_CODE2", aleph.library_code
+        assert_equal "Library Decoded 2", aleph.library
+        assert_equal "LOCAL01", aleph.local_base
+        assert_equal([aleph], aleph.expand)
+        assert((not aleph.dedup?))
         assert_equal "http://aleph.library.edu/F?func=item-global"+
           "&doc_library=USM01&local_base=LOCAL01&doc_number=002895625"+
-            "&sub_library=AlephSubLibrary1", source.url
+            "&sub_library=AlephSubLibrary1", aleph.url
         assert_equal "http://aleph.library.edu/F?func=item-global"+
           "&doc_library=USM01&local_base=LOCAL01&doc_number=002895625"+
-            "&sub_library=AlephSubLibrary1", source.request_url
-        assert_equal "http://aleph.library.edu:1891/rest-dlf/record/USM01002895625", source.rest_url
+            "&sub_library=AlephSubLibrary1", aleph.request_url
+        assert_equal "http://aleph.library.edu:1891/rest-dlf/record/USM01002895625", aleph.rest_url
         holding.availability_status_code = "unavailable"
-        source = holding.to_source
-        assert_nil source.request_url
+        aleph = holding.to_source
+        assert_nil aleph.request_url
       }
     end
   end

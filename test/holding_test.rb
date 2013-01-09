@@ -19,6 +19,8 @@ class HoldingTest < Test::Unit::TestCase
       assert_nil(holding.source_class)
       assert_equal({}, holding.source_data)
       assert_equal(holding, holding.to_source)
+      assert_equal([holding], holding.expand)
+      assert((not holding.dedup?))
     }
   end
 end
