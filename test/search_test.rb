@@ -14,7 +14,6 @@ class SearchTest < Test::Unit::TestCase
 
   def test_chaining_isbn
     VCR.use_cassette('search chaining isbn') do
-      search = Exlibris::Primo::Search.new();
       search = Exlibris::Primo::Search.new.base_url!(@base_url).
         institution!(@institution).isbn_is(@isbn)
       assert_not_nil search.size
