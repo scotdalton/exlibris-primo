@@ -31,7 +31,7 @@ module Exlibris
       # Not really intended for public consumption.
       #
       def search
-        # request.write_attributes request_attributes
+        request.write_attributes request_attributes
         @search ||= request.call
       end
 
@@ -69,7 +69,7 @@ module Exlibris
       private :full_view_request
 
       def search_request
-        @full_view_request ||= Exlibris::Primo::WebService::Request::Search.new request_attributes
+        @search_request ||= Exlibris::Primo::WebService::Request::Search.new
       end
       private :search_request
 

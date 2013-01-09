@@ -178,4 +178,15 @@ class SearchTest < Test::Unit::TestCase
       assert_equal "AND", search.and.send(:search_request).boolean_operator
     }
   end
+
+  def test_did_u_mean
+    VCR.use_cassette('search did u mean') do
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).
+        institution!(@institution).title_contains("digital dvide").enable_did_u_mean
+      assert_not_nil search.size
+      assert_equal 0, search.size
+      assert_not_nil search.did_u_mean
+      assert_equal "digital video", search.did_u_mean
+    end
+  end
 end

@@ -187,7 +187,7 @@ module Exlibris
         # Suitable for chaining, e.g.
         #
         #     Search.new.enable_did_u_mean.add_query_term("Digital dvide", "any", "contains").
-        #       search.did_u_mean => "digital d vide"
+        #       search.did_u_mean => "digital video"
         #
         def enable_did_u_mean
           request_attributes[:did_u_mean_enabled] = "true"
