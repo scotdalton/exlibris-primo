@@ -167,6 +167,22 @@ class SearchTest < Test::Unit::TestCase
     assert_equal search.send(:search_request).boolean_operator, "AND"
   end
 
+  def test_nonexistent_search_methods
+    search = Exlibris::Primo::Search.new
+    assert((not search.respond_to? :google_is))
+    assert_raise(NoMethodError) {
+      search.google_is
+    }
+    assert((not search.respond_to? :author_wants))
+    assert_raise(NoMethodError) {
+      search.author_wants
+    }
+    assert((not search.respond_to? :no_match))
+    assert_raise(NoMethodError) {
+      search.no_match
+    }
+  end
+
   def test_and_or_methods
     assert_nothing_raised {
       search = Exlibris::Primo::Search.new
