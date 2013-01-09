@@ -15,6 +15,17 @@ availability_statuses:
   "processing": "In Processing"
   "in_transit": "In Processing"
 sources:
+  aleph:
+    class_name: Aleph
+    base_url: http://aleph.library.edu
+    rest_url: http://aleph.library.edu:1891/rest-dlf
+    local_base: LOCAL01
+    requestable_statuses:
+      - available
+    sub_library_codes:
+      LIB_CODE1: AlephSubLibrary1
+      LIB_CODE2: AlephSubLibrary1
+      LIB_CODE3: AlephSubLibrary2
   source1:
      class_name: Source1ClassName
      source_config1: Some source 1 config

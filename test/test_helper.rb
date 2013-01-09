@@ -71,12 +71,19 @@ class Test::Unit::TestCase
   end
   protected :assert_request
 
+  def yaml_primo_configuration
+    Exlibris::Primo.configure do |config|
+      config.load_yaml File.expand_path("../support/config.yml",  __FILE__)
+    end
+  end
 
   def reset_primo_configuration
     Exlibris::Primo.configure do |config|
-      config.institutions = {}
-      config.libraries = {}
-      config.availability_statuses = {}
+      config.base_url = nil
+      config.institution = nil
+      config.institutions = nil
+      config.libraries = nil
+      config.availability_statuses = nil
     end
   end
   protected :reset_primo_configuration
