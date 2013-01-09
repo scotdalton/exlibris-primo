@@ -14,6 +14,11 @@ class HoldingTest < Test::Unit::TestCase
       assert_equal "Holding Title", holding.title
       assert_equal "Holding Author", holding.author
       assert_equal "Book", holding.display_type
+      assert_equal([], holding.coverage)
+      assert_nil(holding.source_config)
+      assert_nil(holding.source_class)
+      assert_equal({}, holding.source_data)
+      assert_equal(holding, holding.to_source)
     }
   end
 end

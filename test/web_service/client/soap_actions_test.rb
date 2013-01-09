@@ -6,6 +6,14 @@ module WebService
         @base_url = "http://bobcatdev.library.nyu.edu"
       end
 
+      def test_respond_to
+        VCR.use_cassette('client nonexistent method') do
+          client = Exlibris::Primo::WebService::Client::Search.new :base_url => @base_url
+          assert(client.respond_to? :get_record)
+          assert((not client.respond_to?(:nonexistent_action)))
+        end
+      end
+
       def test_nonexistent_action
         VCR.use_cassette('client nonexistent method') do
           client = Exlibris::Primo::WebService::Client::Search.new :base_url => @base_url

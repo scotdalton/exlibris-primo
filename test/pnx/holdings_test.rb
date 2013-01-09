@@ -31,6 +31,7 @@ module Pnx
       assert_nil(holding.source_config)
       assert_nil(holding.source_class)
       assert_equal({}, holding.source_data)
+      assert_equal(holding, holding.to_source)
       Exlibris::Primo.configure do |config|
         config.institutions = {"NYU" => "New York University"}
         config.libraries = {"BOBST" => "Elmer Holmes Bobst Library"}
