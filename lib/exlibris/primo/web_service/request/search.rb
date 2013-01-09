@@ -27,6 +27,9 @@ module Exlibris
                 query_terms_xml.call xml
                 search_elements_xml.call xml
                 locations_xml.call xml
+                languages_xml.call xml
+                display_fields_xml.call xml
+                sort_bys_xml.call xml
               }
             }
           end

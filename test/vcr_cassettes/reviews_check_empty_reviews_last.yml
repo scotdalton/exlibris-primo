@@ -1,0 +1,39 @@
+--- 
+recorded_with: VCR 2.3.0
+http_interactions: 
+- request: 
+    method: post
+    uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/reviews
+    body: 
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/reviews" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><getReviews><request><![CDATA[<getReviewsRequest xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><institution>NYU</institution><docId>nyu_aleph000062856</docId><userId>N12162279</userId></getReviewsRequest>]]></request></getReviews></env:Body></env:Envelope>
+    headers: 
+      Accept: 
+      - "*/*"
+      Soapaction: 
+      - "\"getReviews\""
+      Content-Type: 
+      - text/xml;charset=UTF-8
+      Content-Length: 
+      - "626"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 09 Jan 2013 22:10:13 GMT
+      Content-Type: 
+      - text/xml;charset=utf-8
+      X-Powered-By: 
+      - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+      Transfer-Encoding: 
+      - chunked
+      Server: 
+      - Apache-Coyote/1.1
+    body: 
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><getReviewsResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><getReviewsReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;TagsAndReviews xmlns=&quot;http://com/exlibris/primo/xsd/tagsAndReview/config&quot;&gt;
+          &lt;Reviews/&gt;
+        &lt;/TagsAndReviews&gt;</getReviewsReturn></getReviewsResponse></soapenv:Body></soapenv:Envelope>
+    http_version: 
+  recorded_at: Wed, 09 Jan 2013 22:10:14 GMT

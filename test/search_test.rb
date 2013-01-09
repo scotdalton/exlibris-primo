@@ -121,6 +121,41 @@ class SearchTest < Test::Unit::TestCase
     end
   end
 
+  def test_search_enable_highlighting
+    VCR.use_cassette('search enable highlighting') do
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).
+        institution!(@institution).title_contains("digital divide").
+          enable_highlighting.add_display_field("title")
+      assert_not_nil search.size
+      assert_not_nil search.facets
+      assert((not search.facets.empty?))
+      assert_not_nil search.records
+      assert((not search.records.empty?))
+      search.records.each do |record|
+        assert(/<span class="searchword">/ === record.display_title)
+      end
+    end
+  end
+
+  def test_search_sort_by
+    VCR.use_cassette('search sort by') do
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).
+        institution!(@institution).title_contains("digital divide").
+          add_sort_by("stitle")
+      assert_not_nil search.size
+      assert_not_nil search.facets
+      assert((not search.facets.empty?))
+      assert_not_nil search.records
+      assert((not search.records.empty?))
+      sorted_titles = []
+      search.records.each do |record|
+        sorted_titles<< record.display_title
+      end
+      sorted_titles.sort.each_index {|index|
+        assert(sorted_titles[index].eql?(sorted_titles.sort[index]), "Sort failed.")}
+    end
+  end
+
   def test_search_record_id_chaining
     VCR.use_cassette('search record id chaining') do
       search = Exlibris::Primo::Search.
@@ -162,10 +197,10 @@ class SearchTest < Test::Unit::TestCase
     assert_kind_of Exlibris::Primo::Search, search.disable_highlighting
     assert_kind_of Exlibris::Primo::Search, search.add_language("en")
     assert_kind_of Exlibris::Primo::Search, search.add_sort_by("stitle")
-    assert_kind_of Exlibris::Primo::Search, search.add_display_field("stitle")
+    assert_kind_of Exlibris::Primo::Search, search.add_display_field("title")
     assert_kind_of Exlibris::Primo::Search, search.add_local_location("scope:(VOLCANO)")
-    assert_kind_of Exlibris::Primo::Search, search.add_remote_location("scope:(VOLCANO)")
-    assert_kind_of Exlibris::Primo::Search, search.add_adaptor_location("scope:(VOLCANO)")
+    assert_kind_of Exlibris::Primo::Search, search.add_remote_location("quickset_name")
+    assert_kind_of Exlibris::Primo::Search, search.add_adaptor_location("primo_central_multiple_fe")
     assert_kind_of Exlibris::Primo::Search, search.record_id!(@record_id)
     assert_equal search.send(:search_request).boolean_operator, "AND"
   end

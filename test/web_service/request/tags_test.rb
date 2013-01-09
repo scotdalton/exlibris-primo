@@ -9,7 +9,7 @@ module WebService
         @doc_id = "nyu_aleph000062856"
       end
 
-      def test_get_reviews
+      def test_get_tags
         request = Exlibris::Primo::WebService::Request::GetTags.new :base_url => @base_url,
           :institution => @institution, :doc_id => @doc_id, :user_id => @user_id
         assert_request request, "getTagsRequest",

@@ -39,8 +39,8 @@ module Exlibris
       # Get all tags for the specified user
       #
       def user_tags
-        @user_tags ||= Exlibris::Primo::WebService::Request::GetAllMyTags.
-          new(user_request_attributes).call.my_tags
+        @user_tags ||= 
+          Exlibris::Primo::WebService::Request::GetAllMyTags.new(user_request_attributes).call.my_tags
       end
 
       #
@@ -56,8 +56,8 @@ module Exlibris
       # Call web service to add a tag to Primo for the specified record
       #
       def add_tag(tag)
-        Exlibris::Primo::WebService::Request::AddTag.
-          new(user_record_request_attributes.merge :value => tag).call
+        Exlibris::Primo::WebService::Request::AddTag.new(user_record_request_attributes.merge :value => tag).call
+        reset_tags
       end
 
       #
@@ -69,27 +69,35 @@ module Exlibris
         end
       end
 
-      # 
-      # Remove all users tags
-      # 
-      def remove_user_tags
-        Exlibris::Primo::WebService::Request::RemoveUserTags.
-          new(user_request_attributes).call
-      end
-
       #
       # Call web service to remove tag from Primo for the specified record
       #
       def remove_tag(tag)
-        Exlibris::Primo::WebService::Request::RemoveTag.
-          new(user_record_request_attributes.merge :value => tag).call
+        Exlibris::Primo::WebService::Request::RemoveTag.new(user_record_request_attributes.merge :value => tag).call
+        reset_tags
+      end
+
+      # 
+      # Remove all users tags
+      # 
+      def remove_user_tags
+        Exlibris::Primo::WebService::Request::RemoveUserTags.new(user_request_attributes).call
+        reset_tags
       end
 
       def get_tags
-        @get_tags ||= Exlibris::Primo::WebService::Request::GetTags.
-          new(user_record_request_attributes).call
+        @get_tags ||= 
+          Exlibris::Primo::WebService::Request::GetTags.new(user_record_request_attributes).call
       end
       private :get_tags
+
+      def reset_tags
+        @tags = nil
+        @record_tags = nil
+        @user_tags = nil
+        @get_tags = nil
+      end
+      private :reset_tags
     end
   end
 end

@@ -1,4 +1,5 @@
 --- 
+recorded_with: VCR 2.3.0
 http_interactions: 
 - request: 
     method: post
@@ -6,29 +7,29 @@ http_interactions:
     body: 
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:wsdl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><searchBrief><request><![CDATA[<searchRequest xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents" xmlns="http://www.exlibris.com/primo/xsd/wsRequest"><PrimoSearchRequest xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>isbn</IndexField><PrecisionOperator>exact</PrecisionOperator><Value>0143039008</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution></searchRequest>]]></request></searchBrief></env:Body></env:Envelope>
     headers: 
-      Content-Length: 
-      - "924"
-      Accept: 
-      - "*/*"
-      Soapaction: 
-      - "\"searchBrief\""
       Content-Type: 
       - text/xml;charset=UTF-8
+      Soapaction: 
+      - "\"searchBrief\""
+      Accept: 
+      - "*/*"
+      Content-Length: 
+      - "924"
   response: 
     status: 
       code: 200
       message: OK
     headers: 
+      Date: 
+      - Wed, 09 Jan 2013 19:00:06 GMT
+      Content-Type: 
+      - text/xml;charset=utf-8
       X-Powered-By: 
       - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
-      Date: 
-      - Tue, 08 Jan 2013 20:10:22 GMT
       Server: 
       - Apache-Coyote/1.1
       Transfer-Encoding: 
       - chunked
-      Content-Type: 
-      - text/xml;charset=utf-8
     body: 
       string: |-
         <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><searchBriefResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><searchBriefReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;SEGMENTS xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;
@@ -76,8 +77,8 @@ http_interactions:
                   &lt;FACET_VALUES KEY=&quot;Main Collection&quot; VALUE=&quot;1&quot;/&gt;
                 &lt;/FACET&gt;
               &lt;/FACETLIST&gt;
-              &lt;DOCSET HIT_TIME=&quot;6&quot; TOTALHITS=&quot;1&quot; FIRSTHIT=&quot;1&quot; LASTHIT=&quot;1&quot; TOTAL_TIME=&quot;36&quot; IS_LOCAL=&quot;true&quot;&gt;
-                &lt;DOC ID=&quot;3578035&quot; RANK=&quot;1.0&quot; NO=&quot;1&quot; SEARCH_ENGINE=&quot;Local Search Engine&quot; SEARCH_ENGINE_TYPE=&quot;Local Search Engine&quot;&gt;
+              &lt;DOCSET HIT_TIME=&quot;20&quot; TOTALHITS=&quot;1&quot; FIRSTHIT=&quot;1&quot; LASTHIT=&quot;1&quot; TOTAL_TIME=&quot;62&quot; IS_LOCAL=&quot;true&quot;&gt;
+                &lt;DOC ID=&quot;3583835&quot; RANK=&quot;1.0&quot; NO=&quot;1&quot; SEARCH_ENGINE=&quot;Local Search Engine&quot; SEARCH_ENGINE_TYPE=&quot;Local Search Engine&quot;&gt;
                   &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;
                     &lt;record&gt;
                       &lt;control&gt;
@@ -255,7 +256,7 @@ http_interactions:
                       &lt;/addata&gt;
                     &lt;/record&gt;
                   &lt;/PrimoNMBib&gt;
-                  &lt;GETIT deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000062856&quot; GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-01-08T15%3A10%3A22IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;amp;rft.genre=book&amp;amp;rft.jtitle=&amp;amp;rft.btitle=Travels%20with%20my%20aunt&amp;amp;rft.aulast=Greene&amp;amp;rft.aufirst=Graham%2C&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;amp;rft.aucorp=&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=Penguin%20Books&amp;amp;rft.place=New%20York&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=0143039008&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph000062856&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;000062856&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;
+                  &lt;GETIT deliveryCategory=&quot;Physical Item&quot; GetIt1=&quot;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000062856&quot; GetIt2=&quot;https://webdev1.library.nyu.edu/getit/resolve?&amp;amp;ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-01-09T14%3A00%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;amp;rft.genre=book&amp;amp;rft.jtitle=&amp;amp;rft.btitle=Travels%20with%20my%20aunt&amp;amp;rft.aulast=Greene&amp;amp;rft.aufirst=Graham%2C&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;amp;rft.aucorp=&amp;amp;rft.volume=&amp;amp;rft.issue=&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.pub=Penguin%20Books&amp;amp;rft.place=New%20York&amp;amp;rft.issn=&amp;amp;rft.eissn=&amp;amp;rft.isbn=0143039008&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;rft.primo=nyu_aleph000062856&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;nyu_aleph&gt;000062856&amp;lt;/nyu_aleph&gt;&amp;amp;rft_id=info:oai/&quot;/&gt;
                   &lt;LIBRARIES&gt;
                     &lt;LIBRARY&gt;
                       &lt;institution&gt;NYU&lt;/institution&gt;
@@ -267,11 +268,11 @@ http_interactions:
                     &lt;/LIBRARY&gt;
                   &lt;/LIBRARIES&gt;
                   &lt;LINKS&gt;
-                    &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-01-08T15%3A10%3A22IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Travels%20with%20my%20aunt&amp;rft.aulast=Greene&amp;rft.aufirst=Graham%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Penguin%20Books&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=0143039008&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph000062856&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000062856&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;
+                    &lt;openurl&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-01-09T14%3A00%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Travels%20with%20my%20aunt&amp;rft.aulast=Greene&amp;rft.aufirst=Graham%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Penguin%20Books&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=0143039008&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.primo=nyu_aleph000062856&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000062856&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurl&gt;
                     &lt;backlink&gt;http://alephstage.library.nyu.edu/F?func=direct&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000062856&lt;/backlink&gt;
                     &lt;thumbnail&gt;http://images.amazon.com/images/P/0143039008.01._SSTHUM_.jpg&lt;/thumbnail&gt;
                     &lt;linktotoc&gt;http://www.amazon.com/gp/reader/0143039008&lt;/linktotoc&gt;
-                    &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-01-08T15%3A10%3A22IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Travels%20with%20my%20aunt&amp;rft.aulast=Greene&amp;rft.aufirst=Graham%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Penguin%20Books&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=0143039008&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000062856&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;
+                    &lt;openurlfulltext&gt;&lt;![CDATA[https://webdev1.library.nyu.edu/getit/resolve?&amp;ctx_ver=Z39.88-2004&amp;sfx.ignore_date_threshold=1&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-01-09T14%3A00%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo-nyu_aleph000062856&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.jtitle=&amp;rft.btitle=Travels%20with%20my%20aunt&amp;rft.aulast=Greene&amp;rft.aufirst=Graham%2C&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Greene%2C%20Graham%2C%201904-1991&amp;rft.aucorp=&amp;rft.volume=&amp;rft.issue=&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.pub=Penguin%20Books&amp;rft.place=New%20York&amp;rft.issn=&amp;rft.eissn=&amp;rft.isbn=0143039008&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=yes&amp;rft.eisbn=&amp;rft_dat=&lt;nyu_aleph&gt;000062856&lt;/nyu_aleph&gt;&amp;rft_id=info:oai/]]&gt;&lt;/openurlfulltext&gt;
                     &lt;linktoholdings&gt;http://alephstage.library.nyu.edu/F?func=item-global&amp;amp;doc_library=NYU01&amp;amp;local_base=PRIMOCOMMON&amp;amp;doc_number=000062856&lt;/linktoholdings&gt;
                     &lt;linktoreview&gt;https://library.nyu.edu/persistent/lcn/nyu_aleph000062856?institution=NYU&amp;amp;persistent&lt;/linktoreview&gt;
                     &lt;linktouc&gt;http://www.amazon.com/s/?search-alias=aps&amp;amp;field-keywords=0143039008&lt;/linktouc&gt;
@@ -284,5 +285,4 @@ http_interactions:
           &lt;/JAGROOT&gt;
         &lt;/SEGMENTS&gt;</searchBriefReturn></searchBriefResponse></soapenv:Body></soapenv:Envelope>
     http_version: 
-  recorded_at: Tue, 08 Jan 2013 20:10:22 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Wed, 09 Jan 2013 19:00:06 GMT
