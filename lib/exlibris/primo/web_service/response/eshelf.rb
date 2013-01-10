@@ -18,11 +18,19 @@ module Exlibris
           end
 
           def basket_folder
-            @basket_folder ||= folders.at_xpath("//eshelf:eshelf_folder[./eshelf:folder_name='Basket']", response_namespaces)
+            @basket_folder ||= folder("Basket")
           end
 
           def folders
             @folders ||= xml.xpath("//eshelf:eshelf_folders", response_namespaces)
+          end
+
+          def folder_id(folder_name)
+            folder(folder_name)["folder_id"] unless folder(folder_name).nil?
+          end
+
+          def folder(folder_name)
+            folders.at_xpath("//eshelf:eshelf_folder[./eshelf:folder_name='#{folder_name}']", response_namespaces)
           end
         end
 

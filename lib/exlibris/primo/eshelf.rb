@@ -23,16 +23,16 @@ module Exlibris
       # Call web service to get Eshelf contents and return
       #
       def eshelf
-        @eshelf ||= Exlibris::Primo::WebService::Request::GetEshelf.
-          new(user_request_attributes).call
+        @eshelf ||= 
+          Exlibris::Primo::WebService::Request::GetEshelf.new(user_request_attributes).call
       end
 
       #
       # Call web service to get Eshelf structure and return
       #
-      def eshelfStructure
-        @eshelfStructure ||= Exlibris::Primo::WebService::Request::GetEshelfStructure.
-          new(user_request_attributes).call
+      def eshelf_structure
+        @eshelf_structure ||= 
+          Exlibris::Primo::WebService::Request::GetEshelfStructure.new(user_request_attributes).call
       end
 
       #
@@ -53,7 +53,15 @@ module Exlibris
       # Get the default basket id from eshelf structure web service call
       #
       def basket_id
-        @basket_id ||= eshelfStructure.basket_id
+        @basket_id ||= eshelf_structure.basket_id
+      end
+
+      #
+      # Get the folder id from eshelf structure web service call
+      # for the given folder name.
+      #
+      def folder_id(folder_name)
+        eshelf_structure.folder_id(folder_name)
       end
 
       #
@@ -63,14 +71,16 @@ module Exlibris
         record_ids.each do |record_id|
           add_record record_id, folder_id
         end
+        reset_eshelf
       end
 
       #
       # Call web service to add record to eshelf
       #
       def add_record(record_id, folder_id)
-        Exlibris::Primo::WebService::Request::AddToEshelf.
-          new(user_request_attributes.merge :folder_id => folder_id, :doc_id => record_id).call
+        Exlibris::Primo::WebService::Request::AddToEshelf.new(
+          user_request_attributes.merge :folder_id => folder_id, :doc_id => record_id).call
+        reset_eshelf
       end
 
       #
@@ -80,31 +90,45 @@ module Exlibris
         record_ids.each do |record_id|
           remove_record record_id, folder_id
         end
+        reset_eshelf
       end
 
       #
       # Call web service to remove a record from eshelf
       #
       def remove_record(record_id, folder_id)
-        Exlibris::Primo::WebService::Request::RemoveFromEshelf.
-          new(user_request_attributes.merge :folder_id => folder_id, :doc_id => record_id).call
+        Exlibris::Primo::WebService::Request::RemoveFromEshelf.new(
+          user_request_attributes.merge :folder_id => folder_id, :doc_id => record_id).call
+        reset_eshelf
       end
 
       #
       # Call web service to add folder to eshelf
       #
       def add_folder(folder_name, parent_id)
-        Exlibris::Primo::WebService::Request::AddFolderToEshelf.
-          new(user_request_attributes.merge :folder_name => folder_name, :parent_folder => parent_id).call
+        Exlibris::Primo::WebService::Request::AddFolderToEshelf.new(
+          user_request_attributes.merge :folder_name => folder_name, :parent_folder => parent_id).call
+        reset_eshelf
       end
 
       #
       # Call web service to remove folder from eshelf
       #
       def remove_folder(folder_id)
-        Exlibris::Primo::WebService::Request::RemoveFolderFromEshelf.
-          new(user_request_attributes.merge :folder_id => folder_id).call
+        Exlibris::Primo::WebService::Request::RemoveFolderFromEshelf.new(
+          user_request_attributes.merge :folder_id => folder_id).call
+        reset_eshelf
       end
+
+      # Reset eshelf instance variables
+      def reset_eshelf
+        @eshelf = nil
+        @eshelf_structure = nil
+        @size = nil
+        @records = nil
+        @basket_id = nil
+      end
+      private :reset_eshelf
     end
   end
 end
