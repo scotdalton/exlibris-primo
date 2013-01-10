@@ -25,6 +25,6 @@ Gem::Specification.new do |s|
   s.add_dependency "savon", "~> 1.2.0"
   s.add_dependency "iso-639", "~> 0.1.0"
   s.add_development_dependency "rdoc"
-  s.add_development_dependency "vcr", "~> 2.3.0"
-  s.add_development_dependency "webmock", "~> 1.8.0"
+  s.add_development_dependency "vcr", "~> 2.4.0"
+  s.add_development_dependency "webmock", "~> 1.9.0"
 end
