@@ -1,0 +1,35 @@
+base_url: "yaml_url"
+institution: "YAML_INSTITUTION"
+libraries:
+  "LIB_CODE1": "Library Decoded 1"
+  "LIB_CODE2": "Library Decoded 2"
+  "LIB_CODE3": "Library Decoded 3"
+availability_statuses:
+  "available": "Available"
+  "requested": "Requested"
+  "unavailable": "Unavailable"
+  "check_holdings": "Check Availability"
+  "request_ill": "Request ILL"
+  "billed_as_lost": "Billed as Lost"
+  "offsite": "Available Offsite"
+  "processing": "In Processing"
+  "in_transit": "In Processing"
+sources:
+  aleph:
+    class_name: Aleph
+    base_url: http://aleph.library.edu
+    rest_url: http://aleph.library.edu:1891/rest-dlf
+    local_base: LOCAL01
+    requestable_statuses:
+      - available
+    sub_library_codes:
+      LIB_CODE1: AlephSubLibrary1
+      LIB_CODE2: AlephSubLibrary1
+      LIB_CODE3: AlephSubLibrary2
+  source1:
+     class_name: Source1ClassName
+     source_config1: Some source 1 config
+     source_config2: Some other 1 source config
+  source2:
+    source_config1: Some source 2 config
+    source_config2: Some other source 2 config

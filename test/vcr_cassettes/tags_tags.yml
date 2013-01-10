@@ -1,0 +1,104 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags
+    body: 
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:wsdl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/tags" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><getTags><request><![CDATA[<getTagsRequest xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents" xmlns="http://www.exlibris.com/primo/xsd/wsRequest"><institution>NYU</institution><docId>nyu_aleph000062856</docId><userId>N12162279</userId></getTagsRequest>]]></request></getTags></env:Body></env:Envelope>
+    headers: 
+      Accept: 
+      - "*/*"
+      Content-Length: 
+      - "611"
+      Content-Type: 
+      - text/xml;charset=UTF-8
+      Soapaction: 
+      - "\"getTags\""
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Server: 
+      - Apache-Coyote/1.1
+      X-Powered-By: 
+      - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+      Date: 
+      - Wed, 09 Jan 2013 21:17:04 GMT
+      Content-Type: 
+      - text/xml;charset=utf-8
+      Transfer-Encoding: 
+      - chunked
+    body: 
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><getTagsResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><getTagsReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;TagsAndReviews xmlns=&quot;http://com/exlibris/primo/xsd/tagsAndReview/config&quot;&gt;
+          &lt;Tags&gt;
+            &lt;MyTags&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag2&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag1&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag 3&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag4&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag 5&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+            &lt;/MyTags&gt;
+            &lt;EverybodyTags&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag2&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag1&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag 3&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag4&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+              &lt;Tag&gt;
+                &lt;value&gt;tag 5&lt;/value&gt;
+                &lt;docId&gt;nyu_aleph000062856&lt;/docId&gt;
+                &lt;userId/&gt;
+                &lt;status/&gt;
+              &lt;/Tag&gt;
+            &lt;/EverybodyTags&gt;
+          &lt;/Tags&gt;
+        &lt;/TagsAndReviews&gt;</getTagsReturn></getTagsResponse></soapenv:Body></soapenv:Envelope>
+    http_version: 
+  recorded_at: Wed, 09 Jan 2013 21:17:05 GMT
+recorded_with: VCR 2.3.0

@@ -1,0 +1,76 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/eshelf
+    body: 
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/eshelf" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><env:Body><removeFolderFromEshelf><request><![CDATA[<removeFolderFromEshelfRequest xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents" xmlns="http://www.exlibris.com/primo/xsd/wsRequest"><institution>NYU</institution><userId>N12162279</userId><folderId>378000039</folderId></removeFolderFromEshelfRequest>]]></request></removeFolderFromEshelf></env:Body></env:Envelope>
+    headers: 
+      Content-Type: 
+      - text/xml;charset=UTF-8
+      Content-Length: 
+      - "670"
+      Soapaction: 
+      - "\"removeFolderFromEshelf\""
+      Accept: 
+      - "*/*"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Transfer-Encoding: 
+      - chunked
+      X-Powered-By: 
+      - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+      Content-Type: 
+      - text/xml;charset=utf-8
+      Server: 
+      - Apache-Coyote/1.1
+      Date: 
+      - Thu, 10 Jan 2013 16:06:30 GMT
+    body: 
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><removeFolderFromEshelfResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><removeFolderFromEshelfReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;SEGMENTS xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;
+          &lt;JAGROOT&gt;
+            &lt;RESULT&gt;
+              &lt;ERROR CODE=&quot;0&quot; MESSAGE=&quot;Remove Folder from eshelf action completed successfully&quot;/&gt;
+            &lt;/RESULT&gt;
+          &lt;/JAGROOT&gt;
+        &lt;/SEGMENTS&gt;</removeFolderFromEshelfReturn></removeFolderFromEshelfResponse></soapenv:Body></soapenv:Envelope>
+    http_version: 
+  recorded_at: Thu, 10 Jan 2013 16:06:30 GMT
+- request: 
+    method: post
+    uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/eshelfstructure
+    body: 
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/eshelfstructure" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><env:Body><getEshelfStructure><request><![CDATA[<getEshelfStructureRequest xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents" xmlns="http://www.exlibris.com/primo/xsd/wsRequest"><institution>NYU</institution><userId>N12162279</userId></getEshelfStructureRequest>]]></request></getEshelfStructure></env:Body></env:Envelope>
+    headers: 
+      Content-Type: 
+      - text/xml;charset=UTF-8
+      Content-Length: 
+      - "633"
+      Soapaction: 
+      - "\"getEshelfStructure\""
+      Accept: 
+      - "*/*"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Transfer-Encoding: 
+      - chunked
+      X-Powered-By: 
+      - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+      Content-Type: 
+      - text/xml;charset=utf-8
+      Server: 
+      - Apache-Coyote/1.1
+      Date: 
+      - Thu, 10 Jan 2013 16:06:30 GMT
+    body: 
+      string: <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><getEshelfStructureResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><getEshelfStructureReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;prim:eshelf_folders xmlns:prim=&quot;http://www.exlibris.com/primo/xsd/primoeshelffolder&quot;&gt;&lt;prim:eshelf_folder folder_id=&quot;210075761&quot; parent_id=&quot;210075761&quot;&gt;&lt;prim:folder_name&gt;Basket&lt;/prim:folder_name&gt;&lt;prim:eshelf_folder_set&gt;&lt;prim:eshelf_folder folder_id=&quot;377995053&quot; parent_id=&quot;210075761&quot;&gt;&lt;prim:folder_name&gt;new folder&lt;/prim:folder_name&gt;&lt;/prim:eshelf_folder&gt;&lt;/prim:eshelf_folder_set&gt;&lt;/prim:eshelf_folder&gt;&lt;/prim:eshelf_folders&gt;</getEshelfStructureReturn></getEshelfStructureResponse></soapenv:Body></soapenv:Envelope>
+    http_version: 
+  recorded_at: Thu, 10 Jan 2013 16:06:30 GMT
+recorded_with: VCR 2.3.0

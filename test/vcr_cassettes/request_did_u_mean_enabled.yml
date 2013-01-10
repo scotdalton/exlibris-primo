@@ -1,0 +1,48 @@
+--- 
+http_interactions: 
+  - request: 
+      method: post
+      uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher
+      body: 
+        string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><searchBrief><request><![CDATA[<searchRequest xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>title</IndexField><PrecisionOperator>contains</PrecisionOperator><Value>Digital dvide</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>true</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution></searchRequest>]]></request></searchBrief></env:Body></env:Envelope>
+      headers: 
+        Soapaction: 
+          - "\"searchBrief\""
+        Content-Type: 
+          - text/xml;charset=UTF-8
+        Content-Length: 
+          - "930"
+        Accept: 
+          - "*/*"
+    response: 
+      status: 
+        code: 200
+        message: OK
+      headers: 
+        Server: 
+          - Apache-Coyote/1.1
+        X-Powered-By: 
+          - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+        Content-Type: 
+          - text/xml;charset=utf-8
+        Transfer-Encoding: 
+          - chunked
+        Date: 
+          - Wed, 28 Nov 2012 19:25:29 GMT
+      body: 
+        string: |-
+          <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><searchBriefResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><searchBriefReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;SEGMENTS xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;
+            &lt;JAGROOT&gt;
+              &lt;RESULT&gt;
+                &lt;QUERYTRANSFORMS&gt;
+                  &lt;QUERYTRANSFORM ACTION=&quot;did_u_mean&quot; QUERY=&quot;digital d vide &quot;/&gt;
+                &lt;/QUERYTRANSFORMS&gt;
+                &lt;FACETLIST/&gt;
+                &lt;DOCSET HIT_TIME=&quot;33&quot; TOTALHITS=&quot;0&quot; FIRSTHIT=&quot;1&quot; LASTHIT=&quot;0&quot; TOTAL_TIME=&quot;44&quot; IS_LOCAL=&quot;true&quot;/&gt;
+              &lt;/RESULT&gt;
+              &lt;searchToken&gt;0&lt;/searchToken&gt;
+            &lt;/JAGROOT&gt;
+          &lt;/SEGMENTS&gt;</searchBriefReturn></searchBriefResponse></soapenv:Body></soapenv:Envelope>
+      http_version: 
+    recorded_at: Wed, 28 Nov 2012 19:25:30 GMT
+recorded_with: VCR 2.3.0

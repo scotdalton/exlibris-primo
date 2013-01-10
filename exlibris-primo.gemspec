@@ -13,14 +13,18 @@ Gem::Specification.new do |s|
   s.summary     = "Library to work with Exlibris' Primo discovery system."
   s.description = "Library to work with Exlibris' Primo discovery system. Does not require Rails."
 
-  s.files = Dir["{lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  # Leverage ActiveSupport's Hash#from_xml method to transform PNX to JSON.
+  s.add_dependency "rake", "~> 10.0.3"
+  s.add_dependency "require_all", "~> 1.2.1"
+  # Leverage ActiveSupport core extensions.
   s.add_dependency "activesupport", "~> 3.2.0"
-  s.add_dependency "nokogiri"
-  s.add_dependency "json"
-  s.add_dependency "soap4r-ruby1.9"
-  s.add_development_dependency "vcr"
-  s.add_development_dependency "webmock"
+  s.add_dependency "nokogiri", "~> 1.5.3"
+  s.add_dependency "json", "~> 1.7.5"
+  s.add_dependency "savon", "~> 1.2.0"
+  s.add_dependency "iso-639", "~> 0.1.0"
+  s.add_development_dependency "rdoc"
+  s.add_development_dependency "vcr", "~> 2.3.0"
+  s.add_development_dependency "webmock", "~> 1.8.0"
 end
