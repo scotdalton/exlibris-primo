@@ -1,0 +1,335 @@
+--- 
+http_interactions: 
+  - request: 
+      method: post
+      uri: http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher
+      body: 
+        string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://bobcatdev.library.nyu.edu/PrimoWebServices/services/searcher" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><getRecord><request><![CDATA[<fullViewRequest xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled></PrimoSearchRequest><institution>NYU</institution><docId>dedupmrg17343091</docId></fullViewRequest>]]></request></getRecord></env:Body></env:Envelope>
+      headers: 
+        Soapaction: 
+          - "\"getRecord\""
+        Content-Type: 
+          - text/xml;charset=UTF-8
+        Content-Length: 
+          - "834"
+        Accept: 
+          - "*/*"
+    response: 
+      status: 
+        code: 200
+        message: OK
+      headers: 
+        Server: 
+          - Apache-Coyote/1.1
+        X-Powered-By: 
+          - Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+        Content-Type: 
+          - text/xml;charset=utf-8
+        Transfer-Encoding: 
+          - chunked
+        Date: 
+          - Wed, 28 Nov 2012 19:22:09 GMT
+      body: 
+        string: |-
+          <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><getRecordResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><getRecordReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;SEGMENTS xmlns=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;
+            &lt;JAGROOT&gt;
+              &lt;RESULT&gt;
+                &lt;DOCSET TOTALHITS=&quot;1&quot;&gt;
+                  &lt;DOC LOCAL=&quot;true&quot;&gt;
+                    &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;
+                      &lt;record&gt;
+                        &lt;control&gt;
+                          &lt;sourcerecordid&gt;$$V000932393$$Onyu_aleph000932393&lt;/sourcerecordid&gt;
+                          &lt;sourcerecordid&gt;$$V002959842$$Onyu_aleph002959842&lt;/sourcerecordid&gt;
+                          &lt;sourceid&gt;$$Vnyu_aleph$$Onyu_aleph000932393&lt;/sourceid&gt;
+                          &lt;sourceid&gt;$$Vnyu_aleph$$Onyu_aleph002959842&lt;/sourceid&gt;
+                          &lt;recordid&gt;dedupmrg17343091&lt;/recordid&gt;
+                          &lt;originalsourceid&gt;$$VNYU01$$Onyu_aleph000932393&lt;/originalsourceid&gt;
+                          &lt;originalsourceid&gt;$$VNYU01$$Onyu_aleph002959842&lt;/originalsourceid&gt;
+                          &lt;sourceformat&gt;$$VMARC21$$Onyu_aleph000932393&lt;/sourceformat&gt;
+                          &lt;sourceformat&gt;$$VMARC21$$Onyu_aleph002959842&lt;/sourceformat&gt;
+                          &lt;sourcesystem&gt;$$VAleph$$Onyu_aleph000932393&lt;/sourcesystem&gt;
+                          &lt;sourcesystem&gt;$$VAleph$$Onyu_aleph002959842&lt;/sourcesystem&gt;
+                          &lt;ilsapiid&gt;$$VNYU01000932393$$Onyu_aleph000932393&lt;/ilsapiid&gt;
+                          &lt;ilsapiid&gt;$$VNYU01002959842$$Onyu_aleph002959842&lt;/ilsapiid&gt;
+                        &lt;/control&gt;
+                        &lt;display&gt;
+                          &lt;type&gt;journal&lt;/type&gt;
+                          &lt;title&gt;The New York times&lt;/title&gt;
+                          &lt;publisher&gt;New-York N.Y. : H.J. Raymond &amp;amp; Co.&lt;/publisher&gt;
+                          &lt;creationdate&gt;1857-&lt;/creationdate&gt;
+                          &lt;subject&gt;New York (N.Y.) -- Newspapers; New York County (N.Y.) -- Newspapers; Electronic journals&lt;/subject&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;relation&gt;$$Cearlier_title $$VNew-York daily times&lt;/relation&gt;
+                          &lt;rights&gt;Access is restricted to users affiliated with licensed institutions.&lt;/rights&gt;
+                          &lt;source&gt;$$Vnyu_aleph$$Onyu_aleph000932393&lt;/source&gt;
+                          &lt;source&gt;$$Vnyu_aleph$$Onyu_aleph002959842&lt;/source&gt;
+                          &lt;availlibrary&gt;$$INYU$$LBWEB$$1Internet Resources$$2(Newspaper Electronic access )$$Scheck_holdings$$XNYU50$$YBWEB$$ZBNYUI$$Onyu_aleph000932393&lt;/availlibrary&gt;
+                          &lt;availlibrary&gt;$$INYU$$LBOBST$$1Microform$$2(Film/Per Non-circulating )$$Scheck_holdings$$5N$$XNYU50$$YBOBST$$ZMFORM$$Onyu_aleph002959842&lt;/availlibrary&gt;
+                          &lt;availlibrary&gt;$$ICU$$LCU$$1Microform Periodicals$$2(Non-circulating )$$Savailable$$31$$40$$5N$$60$$XNYU50$$YCU$$ZMICRP$$Onyu_aleph002959842&lt;/availlibrary&gt;
+                          &lt;availlibrary&gt;$$ICU$$LCU$$1Periodicals$$2(Non-circulating )$$Savailable$$31$$40$$5N$$60$$XNYU50$$YCU$$ZPERIO$$Onyu_aleph002959842&lt;/availlibrary&gt;
+                          &lt;availlibrary&gt;$$INYU$$LBWEB$$1Internet Resources$$2(Newspaper Electronic access )$$Scheck_holdings$$XNYU50$$YBWEB$$ZBNYUI$$Onyu_aleph002959842&lt;/availlibrary&gt;
+                          &lt;availlibrary&gt;$$INYU$$LREI$$1Reference$$2(Newspaper Non-circulating )$$Scheck_holdings$$XNYU50$$YNREI$$ZREF$$Onyu_aleph002959842&lt;/availlibrary&gt;
+                          &lt;availlibrary&gt;$$INS$$LNSSC$$1Periodicals$$2(Non-circulating )$$Scheck_holdings$$XNYU50$$YTNSSC$$ZPERIO$$Onyu_aleph002959842&lt;/availlibrary&gt;
+                          &lt;availinstitution&gt;$$ICU$$Savailable&lt;/availinstitution&gt;
+                          &lt;availinstitution&gt;$$INYU$$Scheck_holdings&lt;/availinstitution&gt;
+                          &lt;availinstitution&gt;$$INS$$Scheck_holdings&lt;/availinstitution&gt;
+                          &lt;availpnx&gt;available&lt;/availpnx&gt;
+                          &lt;lds01&gt;NYU&lt;/lds01&gt;
+                          &lt;lds01&gt;NYUAD&lt;/lds01&gt;
+                          &lt;lds01&gt;NYU&lt;/lds01&gt;
+                          &lt;lds01&gt;CU&lt;/lds01&gt;
+                          &lt;lds01&gt;NS&lt;/lds01&gt;
+                          &lt;lds01&gt;NYUAD&lt;/lds01&gt;
+                          &lt;lds02&gt;nyu_aleph000932393&lt;/lds02&gt;
+                          &lt;lds02&gt;nyu_aleph002959842&lt;/lds02&gt;
+                        &lt;/display&gt;
+                        &lt;links&gt;
+                          &lt;linktoholdings&gt;$$V$$Taleph_holdings$$Onyu_aleph000932393&lt;/linktoholdings&gt;
+                          &lt;linktoholdings&gt;$$V$$Taleph_holdings$$Onyu_aleph002959842&lt;/linktoholdings&gt;
+                          &lt;backlink&gt;$$V$$Taleph_backlink$$DMore bibliographic information$$Onyu_aleph000932393&lt;/backlink&gt;
+                          &lt;backlink&gt;$$V$$Taleph_backlink$$DMore bibliographic information$$Onyu_aleph002959842&lt;/backlink&gt;
+                          &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://proquest.umi.com/pqdweb?RQT=318&amp;amp;VName=PQD&amp;amp;clientid=9269&amp;amp;pmid=7818$$D1995 - Current Access via Proquest$$INYU$$Onyu_aleph000932393&lt;/linktorsrc&gt;
+                          &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://proquest.umi.com/pqdweb?RQT=318&amp;amp;VName=PQD&amp;amp;clientid=9269&amp;amp;pmid=7818$$D1995 - Current Access via Proquest$$INYUAD$$Onyu_aleph000932393&lt;/linktorsrc&gt;
+                          &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.nytimes.com/$$DOnline version:$$INYU$$Onyu_aleph002959842&lt;/linktorsrc&gt;
+                          &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.nytimes.com/$$DOnline version:$$INYUAD$$Onyu_aleph002959842&lt;/linktorsrc&gt;
+                          &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://web.lexis-nexis.com/universe$$DOnline access via Lexis-Nexis Academic Universe: Full-text available from 1980-$$INYU$$Onyu_aleph002959842&lt;/linktorsrc&gt;
+                          &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://web.lexis-nexis.com/universe$$DOnline access via Lexis-Nexis Academic Universe: Full-text available from 1980-$$INYUAD$$Onyu_aleph002959842&lt;/linktorsrc&gt;
+                          &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.umi.com/pqdauto$$DOnline access via ProQuest:$$INYU$$Onyu_aleph002959842&lt;/linktorsrc&gt;
+                          &lt;linktorsrc&gt;$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.umi.com/pqdauto$$DOnline access via ProQuest:$$INYUAD$$Onyu_aleph002959842&lt;/linktorsrc&gt;
+                          &lt;openurl&gt;$$V$$Topenurl_journal$$Onyu_aleph000932393&lt;/openurl&gt;
+                          &lt;openurl&gt;$$V$$Topenurl_journal$$Onyu_aleph002959842&lt;/openurl&gt;
+                          &lt;openurlfulltext&gt;$$V$$Topenurlfull_journal$$Onyu_aleph000932393&lt;/openurlfulltext&gt;
+                          &lt;openurlfulltext&gt;$$V$$Topenurlfull_journal$$Onyu_aleph002959842&lt;/openurlfulltext&gt;
+                          &lt;linktoreview&gt;$$TpersistentUrl$$DCopy item link&lt;/linktoreview&gt;
+                          &lt;linktouc&gt;$$Tworldcat_oclc$$DCheck other libraries (WorldCat&#xAE;)&lt;/linktouc&gt;
+                        &lt;/links&gt;
+                        &lt;search&gt;
+                          &lt;creatorcontrib&gt;Mellon Project.&lt;/creatorcontrib&gt;
+                          &lt;creatorcontrib&gt;ProQuest Information and Learning Company.&lt;/creatorcontrib&gt;
+                          &lt;title&gt;The New York times&lt;/title&gt;
+                          &lt;subject&gt;New York (N.Y.)  Newspapers&lt;/subject&gt;
+                          &lt;subject&gt;New York County (N.Y.)  Newspapers&lt;/subject&gt;
+                          &lt;subject&gt;Electronic journals&lt;/subject&gt;
+                          &lt;subject&gt;Niy&#x16B; Y&#x16B;rk (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Niu-y&#xFC;eh (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Nyuyok (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Nyu-Yor&#x1E33; (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;New York City (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;New Amsterdam (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Nu Yor&#x1E33; (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Nuyor&#x1E33; (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Novi Jork (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Nowy Jork (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Nova Iorque (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Ni&#x361;u &#x12C;ork (N.Y.)&lt;/subject&gt;
+                          &lt;subject&gt;Nueva York (N.Y.)&lt;/subject&gt;
+                          &lt;general&gt;H.J. Raymond &amp;amp; Co.],&lt;/general&gt;
+                          &lt;general&gt;Latest issue consulted: Vol. 151, no. 52,028 (Feb. 13, 2002).&lt;/general&gt;
+                          &lt;general&gt;[electronic resource].&lt;/general&gt;
+                          &lt;general&gt;United States New York New York New York.&lt;/general&gt;
+                          &lt;sourceid&gt;nyu_aleph&lt;/sourceid&gt;
+                          &lt;recordid&gt;nyu_aleph000932393&lt;/recordid&gt;
+                          &lt;isbn&gt;0362-4331&lt;/isbn&gt;
+                          &lt;rsrctype&gt;journal&lt;/rsrctype&gt;
+                          &lt;creationdate&gt;1857&lt;/creationdate&gt;
+                          &lt;creationdate&gt;9999&lt;/creationdate&gt;
+                          &lt;addtitle&gt;New York times on the web.&lt;/addtitle&gt;
+                          &lt;addtitle&gt;New York times large type weekly&lt;/addtitle&gt;
+                          &lt;addtitle&gt;New-York semi-weekly times&lt;/addtitle&gt;
+                          &lt;addtitle&gt;New-York weekly times&lt;/addtitle&gt;
+                          &lt;addtitle&gt;Semi-weekly times (New York, N.Y.)&lt;/addtitle&gt;
+                          &lt;addtitle&gt;New York times on the Web&lt;/addtitle&gt;
+                          &lt;addtitle&gt;Little times&lt;/addtitle&gt;
+                          &lt;addtitle&gt;New-York daily times&lt;/addtitle&gt;
+                          &lt;searchscope&gt;BWEB&lt;/searchscope&gt;
+                          &lt;searchscope&gt;BWEB Internet Resources&lt;/searchscope&gt;
+                          &lt;searchscope&gt;nyu_aleph&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NYU&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NYUAD&lt;/searchscope&gt;
+                          &lt;searchscope&gt;BOBST&lt;/searchscope&gt;
+                          &lt;searchscope&gt;IFA&lt;/searchscope&gt;
+                          &lt;searchscope&gt;IFAC&lt;/searchscope&gt;
+                          &lt;searchscope&gt;ISAW&lt;/searchscope&gt;
+                          &lt;searchscope&gt;COUR&lt;/searchscope&gt;
+                          &lt;searchscope&gt;REI&lt;/searchscope&gt;
+                          &lt;scope&gt;BWEB&lt;/scope&gt;
+                          &lt;scope&gt;BWEB Internet Resources&lt;/scope&gt;
+                          &lt;scope&gt;nyu_aleph&lt;/scope&gt;
+                          &lt;scope&gt;NYU&lt;/scope&gt;
+                          &lt;scope&gt;NYUAD&lt;/scope&gt;
+                          &lt;scope&gt;BOBST&lt;/scope&gt;
+                          &lt;scope&gt;IFA&lt;/scope&gt;
+                          &lt;scope&gt;IFAC&lt;/scope&gt;
+                          &lt;scope&gt;ISAW&lt;/scope&gt;
+                          &lt;scope&gt;COUR&lt;/scope&gt;
+                          &lt;scope&gt;REI&lt;/scope&gt;
+                          &lt;alttitle&gt;Combined New York morning newspapers&lt;/alttitle&gt;
+                          &lt;alttitle&gt;Combined New York Sunday newspapers&lt;/alttitle&gt;
+                          &lt;lsr01&gt;Newspaper&lt;/lsr01&gt;
+                          &lt;lsr02&gt;H.J. Raymond &amp;amp; Co.],&lt;/lsr02&gt;
+                          &lt;title&gt;The New York times.&lt;/title&gt;
+                          &lt;subject&gt;History&lt;/subject&gt;
+                          &lt;subject&gt;History  Africa&lt;/subject&gt;
+                          &lt;subject&gt;History  East Asia&lt;/subject&gt;
+                          &lt;subject&gt;History  Europe&lt;/subject&gt;
+                          &lt;subject&gt;History  Latin America and Caribbean&lt;/subject&gt;
+                          &lt;subject&gt;History  Middle East&lt;/subject&gt;
+                          &lt;subject&gt;History  North America&lt;/subject&gt;
+                          &lt;subject&gt;History  Slavic&lt;/subject&gt;
+                          &lt;subject&gt;Dance&lt;/subject&gt;
+                          &lt;subject&gt;Performing arts&lt;/subject&gt;
+                          &lt;subject&gt;Theater&lt;/subject&gt;
+                          &lt;subject&gt;Government information  New York State and City Recommended&lt;/subject&gt;
+                          &lt;subject&gt;Electronic indexes&lt;/subject&gt;
+                          &lt;subject&gt;Electronic newspapers&lt;/subject&gt;
+                          &lt;subject&gt;Dancing&lt;/subject&gt;
+                          &lt;subject&gt;Information, Government&lt;/subject&gt;
+                          &lt;subject&gt;Show business&lt;/subject&gt;
+                          &lt;subject&gt;Professional theater&lt;/subject&gt;
+                          &lt;subject&gt;Theatre&lt;/subject&gt;
+                          &lt;subject&gt;Dramatics&lt;/subject&gt;
+                          &lt;recordid&gt;nyu_aleph002959842&lt;/recordid&gt;
+                          &lt;addtitle&gt;New York semi-weekly times&lt;/addtitle&gt;
+                          &lt;addtitle&gt;New York times on the web&lt;/addtitle&gt;
+                          &lt;searchscope&gt;BOBST Microform&lt;/searchscope&gt;
+                          &lt;searchscope&gt;CU&lt;/searchscope&gt;
+                          &lt;searchscope&gt;CU Microform Periodicals&lt;/searchscope&gt;
+                          &lt;searchscope&gt;CU Periodicals&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NREI&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NREI Reference&lt;/searchscope&gt;
+                          &lt;searchscope&gt;TNSSC&lt;/searchscope&gt;
+                          &lt;searchscope&gt;TNSSC Periodicals&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NS&lt;/searchscope&gt;
+                          &lt;searchscope&gt;NSSC&lt;/searchscope&gt;
+                          &lt;searchscope&gt;CPER&lt;/searchscope&gt;
+                          &lt;scope&gt;BOBST Microform&lt;/scope&gt;
+                          &lt;scope&gt;CU&lt;/scope&gt;
+                          &lt;scope&gt;CU Microform Periodicals&lt;/scope&gt;
+                          &lt;scope&gt;CU Periodicals&lt;/scope&gt;
+                          &lt;scope&gt;NREI&lt;/scope&gt;
+                          &lt;scope&gt;NREI Reference&lt;/scope&gt;
+                          &lt;scope&gt;TNSSC&lt;/scope&gt;
+                          &lt;scope&gt;TNSSC Periodicals&lt;/scope&gt;
+                          &lt;scope&gt;NS&lt;/scope&gt;
+                          &lt;scope&gt;NSSC&lt;/scope&gt;
+                          &lt;scope&gt;CPER&lt;/scope&gt;
+                          &lt;alttitle&gt;N.Y. times&lt;/alttitle&gt;
+                          &lt;lsr01&gt;Film/Per&lt;/lsr01&gt;
+                        &lt;/search&gt;
+                        &lt;sort&gt;
+                          &lt;title&gt;New York times&lt;/title&gt;
+                          &lt;creationdate&gt;1857&lt;/creationdate&gt;
+                          &lt;lso01&gt;1857&lt;/lso01&gt;
+                        &lt;/sort&gt;
+                        &lt;facets&gt;
+                          &lt;language&gt;eng&lt;/language&gt;
+                          &lt;creationdate&gt;1857&lt;/creationdate&gt;
+                          &lt;topic&gt;New York (N.Y.)&#x2013;Newspapers&lt;/topic&gt;
+                          &lt;topic&gt;New York County (N.Y.)&#x2013;Newspapers&lt;/topic&gt;
+                          &lt;toplevel&gt;available&lt;/toplevel&gt;
+                          &lt;toplevel&gt;online_resources&lt;/toplevel&gt;
+                          &lt;prefilter&gt;journals&lt;/prefilter&gt;
+                          &lt;rsrctype&gt;journals&lt;/rsrctype&gt;
+                          &lt;genre&gt;Newspapers&lt;/genre&gt;
+                          &lt;genre&gt;Electronic journals&lt;/genre&gt;
+                          &lt;library&gt;BOBST&lt;/library&gt;
+                          &lt;library&gt;IFA&lt;/library&gt;
+                          &lt;library&gt;IFAC&lt;/library&gt;
+                          &lt;library&gt;ISAW&lt;/library&gt;
+                          &lt;library&gt;COUR&lt;/library&gt;
+                          &lt;library&gt;REI&lt;/library&gt;
+                          &lt;lfc01&gt;Internet Resources&lt;/lfc01&gt;
+                          &lt;lfc04&gt;United States&lt;/lfc04&gt;
+                          &lt;lfc04&gt;New York&lt;/lfc04&gt;
+                          &lt;lfc04&gt;New York.&lt;/lfc04&gt;
+                          &lt;topic&gt;History&lt;/topic&gt;
+                          &lt;topic&gt;History&#x2013;Africa&lt;/topic&gt;
+                          &lt;topic&gt;History&#x2013;East Asia&lt;/topic&gt;
+                          &lt;topic&gt;History&#x2013;Europe&lt;/topic&gt;
+                          &lt;topic&gt;History&#x2013;Latin America and Caribbean&lt;/topic&gt;
+                          &lt;topic&gt;History&#x2013;Middle East&lt;/topic&gt;
+                          &lt;topic&gt;History&#x2013;North America&lt;/topic&gt;
+                          &lt;topic&gt;History&#x2013;Slavic&lt;/topic&gt;
+                          &lt;topic&gt;Dance&lt;/topic&gt;
+                          &lt;topic&gt;Performing arts&lt;/topic&gt;
+                          &lt;topic&gt;Theater&lt;/topic&gt;
+                          &lt;topic&gt;Government information&#x2013;New York State and City&#x2013;Recommended&lt;/topic&gt;
+                          &lt;collection&gt;BOBST&lt;/collection&gt;
+                          &lt;collection&gt;CU&lt;/collection&gt;
+                          &lt;collection&gt;NREI&lt;/collection&gt;
+                          &lt;collection&gt;NSSC&lt;/collection&gt;
+                          &lt;genre&gt;Electronic indexes&lt;/genre&gt;
+                          &lt;genre&gt;Electronic newspapers&lt;/genre&gt;
+                          &lt;library&gt;NSSC&lt;/library&gt;
+                          &lt;library&gt;CPER&lt;/library&gt;
+                          &lt;lfc01&gt;Microform&lt;/lfc01&gt;
+                          &lt;lfc01&gt;Microform Periodicals&lt;/lfc01&gt;
+                          &lt;lfc01&gt;Periodicals&lt;/lfc01&gt;
+                          &lt;lfc01&gt;Reference&lt;/lfc01&gt;
+                          &lt;frbrgroupid&gt;21490924&lt;/frbrgroupid&gt;
+                          &lt;frbrtype&gt;5&lt;/frbrtype&gt;
+                        &lt;/facets&gt;
+                        &lt;dedup&gt;
+                          &lt;t&gt;2&lt;/t&gt;
+                          &lt;c2&gt;0362-4331&lt;/c2&gt;
+                          &lt;c3&gt;newyorktimes&lt;/c3&gt;
+                          &lt;c4&gt;new&lt;/c4&gt;
+                          &lt;f4&gt;0362-4331&lt;/f4&gt;
+                          &lt;f6&gt;1857&lt;/f6&gt;
+                          &lt;f7&gt;new york times&lt;/f7&gt;
+                          &lt;f8&gt;new york times&lt;/f8&gt;
+                          &lt;f9&gt;nyu&lt;/f9&gt;
+                          &lt;f10&gt;new&lt;/f10&gt;
+                        &lt;/dedup&gt;
+                        &lt;frbr&gt;
+                          &lt;t&gt;1&lt;/t&gt;
+                          &lt;k3&gt;$$Knew york times$$AT&lt;/k3&gt;
+                        &lt;/frbr&gt;
+                        &lt;delivery&gt;
+                          &lt;institution&gt;$$VNYU$$Onyu_aleph000932393&lt;/institution&gt;
+                          &lt;institution&gt;$$VNYUAD$$Onyu_aleph000932393&lt;/institution&gt;
+                          &lt;delcategory&gt;$$VOnline Resource$$Onyu_aleph000932393&lt;/delcategory&gt;
+                          &lt;institution&gt;$$VNYU$$Onyu_aleph002959842&lt;/institution&gt;
+                          &lt;institution&gt;$$VCU$$Onyu_aleph002959842&lt;/institution&gt;
+                          &lt;institution&gt;$$VNS$$Onyu_aleph002959842&lt;/institution&gt;
+                          &lt;institution&gt;$$VNYUAD$$Onyu_aleph002959842&lt;/institution&gt;
+                          &lt;delcategory&gt;$$VOnline Resource$$Onyu_aleph002959842&lt;/delcategory&gt;
+                        &lt;/delivery&gt;
+                        &lt;enrichment&gt;
+                          &lt;classificationlcc&gt;Newspaper&lt;/classificationlcc&gt;
+                        &lt;/enrichment&gt;
+                        &lt;ranking&gt;
+                          &lt;booster1&gt;1&lt;/booster1&gt;
+                          &lt;booster2&gt;1&lt;/booster2&gt;
+                        &lt;/ranking&gt;
+                        &lt;addata&gt;
+                          &lt;jtitle&gt;The New York times&lt;/jtitle&gt;
+                          &lt;addtitle&gt;Combined New York morning newspapers&lt;/addtitle&gt;
+                          &lt;date&gt;1857&lt;/date&gt;
+                          &lt;risdate&gt;1857-&lt;/risdate&gt;
+                          &lt;coden&gt;NYTIAO&lt;/coden&gt;
+                          &lt;format&gt;journal&lt;/format&gt;
+                          &lt;genre&gt;journal&lt;/genre&gt;
+                          &lt;ristype&gt;JOUR&lt;/ristype&gt;
+                          &lt;cop&gt;New-York [N.Y.&lt;/cop&gt;
+                          &lt;pub&gt;H.J. Raymond &amp;amp; Co.]&lt;/pub&gt;
+                          &lt;lad01&gt;BWEB&lt;/lad01&gt;
+                          &lt;lad01&gt;Online Resource&lt;/lad01&gt;
+                          &lt;jtitle&gt;The New York times.&lt;/jtitle&gt;
+                          &lt;stitle&gt;N.Y. times&lt;/stitle&gt;
+                          &lt;issn&gt;0362-4331&lt;/issn&gt;
+                          &lt;oclcid&gt;1645522&lt;/oclcid&gt;
+                          &lt;lccn&gt;sn 78004456&lt;/lccn&gt;
+                          &lt;lad01&gt;BOBSTBOBSTBWEBNREICUCUTNSSC&lt;/lad01&gt;
+                        &lt;/addata&gt;
+                      &lt;/record&gt;
+                    &lt;/PrimoNMBib&gt;
+                  &lt;/DOC&gt;
+                &lt;/DOCSET&gt;
+              &lt;/RESULT&gt;
+            &lt;/JAGROOT&gt;
+          &lt;/SEGMENTS&gt;</getRecordReturn></getRecordResponse></soapenv:Body></soapenv:Envelope>
+      http_version: 
+    recorded_at: Wed, 28 Nov 2012 19:22:09 GMT
+recorded_with: VCR 2.3.0
