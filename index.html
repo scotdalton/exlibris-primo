@@ -30,74 +30,138 @@
 
       </header>
       <section>
-        <p>= Exlibris::Primo
-{<img src="https://secure.travis-ci.org/scotdalton/exlibris-primo.png" alt="Build Status">}[<a href="https://secure.travis-ci.org/scotdalton/exlibris-primo">https://secure.travis-ci.org/scotdalton/exlibris-primo</a>]
-{<img src="https://gemnasium.com/scotdalton/exlibris-primo.png" alt="Dependency Status">}[<a href="https://gemnasium.com/scotdalton/exlibris-primo">https://gemnasium.com/scotdalton/exlibris-primo</a>]
-{<img src="https://codeclimate.com/badge.png">}[<a href="https://codeclimate.com/github/scotdalton/exlibris-primo">https://codeclimate.com/github/scotdalton/exlibris-primo</a>]</p>
+        <h1>Exlibris::Primo</h1>
 
-<p>Exlibris::Primo offers a set of libraries for interacting with the ExLibris Primo APIs.</p>
+<p><a href="https://secure.travis-ci.org/scotdalton/exlibris-primo"><img src="https://secure.travis-ci.org/scotdalton/exlibris-primo.png" alt="Build Status"></a>
+<a href="https://gemnasium.com/scotdalton/exlibris-primo"><img src="https://gemnasium.com/scotdalton/exlibris-primo.png" alt="Dependency Status"></a>
+<a href="https://codeclimate.com/github/scotdalton/exlibris-primo"><img src="https://codeclimate.com/badge.png" alt="Code Climate"></a></p>
 
-<p>== Exlibris::Primo::Searcher
-The Exlibris::Primo::Searcher class performs a search against Primo for given parameters
-and exposes the set of holdings (availibrary elements), rsrcs, tocs, and related links (addlink elements).</p>
+<p>Exlibris::Primo offers a set of classes for interacting with the ExLibris Primo APIs.</p>
 
-<p>=== Example of Exlibris::Primo::Searcher in action
-  setup = {
-    :base_url =&gt; "<a href="http://primo.institution.edu">http://primo.institution.edu</a>", :vid =&gt; "VID", :institution =&gt; "INSTITUTION",
-    :config =&gt; {
-      "libraries" =&gt; 
-        {"library_code1" =&gt; "library_display_1", "library_code2" =&gt; "library_display_1"}, 
-      "statuses" =&gt; 
-        {"status_code1" =&gt; "status_display_1", "status_code2" =&gt; "status_display_2"}}
-  }
-  params = {
-     :primo_id =&gt; primo_id,
-     :isbn =&gt; isbn, 
-     :issn =&gt; issn,
-     :title =&gt; title,
-     :author =&gt; author,
-     :genre =&gt; genre
-  }
-  searcher = Exlibris::Primo::Searcher.new(setup, params)
-  count = search.count
-  holdings = searcher.holdings
-  rsrcs = searcher.rsrcs
-  tocs = searcher.tocs
-  related_links = searcher.related_links</p>
+<h2>Exlibris::Primo::Search</h2>
 
-<p>== Exlibris::Primo::Record
-The Exlibris::Primo::Record class creates an object representation of a Primo record for given parameters
-and exposes the record's primary attributes (format, title, author, url, openurl) and full record Xml (raw_xml)
-as instance variables.</p>
+<p>The Exlibris::Primo::Search class performs a search against Primo for given parameters
+and exposes the set of holdings, fulltext links, table of contents links, and related links for each record retrieved.</p>
 
-<p>=== Example of Exlibris::Primo::Record in action
-  setup = { 
-    :base_url =&gt; "<a href="http://primo.institution.edu">http://primo.institution.edu</a>", 
-    :resolver_base_url =&gt; "<a href="http://resolver.institution.edu">http://resolver.institution.edu</a>", 
-    :vid =&gt; "VID", 
-    :institution =&gt; "DEFAULT", 
-    :record_id =&gt; "PrimoRecordId" 
-  }
-  record = Exlibris::Primo::Record.new(setup)
-  raw_xml = record.instance_variable_get(:@raw_xml)
-  record_hash = record.to_h
-  openurl = record_hash["openurl"]</p>
+<h3>Example of Exlibris::Primo::Search in action</h3>
 
-<p>== Exlibris::Primo::EShelf
-The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf and eshelf structure as well as adding and removing records.</p>
+<p>Search can search by a query</p>
 
-<p>=== Example of Exlibris::Primo::EShelf in action
-  setup = { 
-    :base_url =&gt; "<a href="http://primo.institution.edu">http://primo.institution.edu</a>", 
-    :vid =&gt; "VID", 
-    :resolver_base_url =&gt; "<a href="http://resolver.institution.edu">http://resolver.institution.edu</a>"
-  }
-  eshelf = Exlibris::Primo::EShelf.new(setup, "USER_ID", "PRIMO")
-  records = eshelf.records
-  p records.first.class
-  record_count = eshelf.count
-  basket_id = eshelf.basket_id
-  eshelf.add_records(["PrimoRecordId","PrimoRecordId2"], basket_id)</p>
+<pre><code>search = Exlibris::Primo::Search.new(:base_url =&gt; "http://primo.institution.edu",
+  :institution =&gt; "INSTITUTION", :page_size =&gt; "20")
+search.add_query_term "0143039008", "isbn", "exact"
+count = search.size #=&gt; 20+ (assuming there are 20+ records with this isbn)
+facets = search.facets #=&gt; Array of Primo facets
+records = search.records #=&gt; Array of Primo records
+records.size #=&gt; 20 (assuming there are 20+ records with this isbn)
+records.each do |record_id, record|
+  holdings = record.holdings #=&gt; Array of Primo holdings
+  fulltexts = record.fulltexts #=&gt; Array of Primo full texts
+  table_of_contents = record.table_of_contents #=&gt; Array of Primo tables of contents
+  related_links = record.related_links #=&gt; Array of Primo related links
+end
+</code></pre>
+
+<p>Or by a given record id</p>
+
+<pre><code>search = Exlibris::Primo::Search.new(:base_url =&gt; "http://primo.institution.edu",
+  :institution =&gt; "INSTITUTION")
+search.record_id! "aleph0123456789"
+count = search.size #=&gt; 1
+records = search.records #=&gt; Array of Primo records
+records.size #=&gt; 1
+record = records.first #=&gt; Primo record
+holdings = record.holdings #=&gt; Array of Primo holdings
+fulltexts = record.fulltexts #=&gt; Array of Primo full texts
+table_of_contents = record.table_of_contents #=&gt; Array of Primo tables of contents
+related_links = record.related_links #=&gt; Array of Primo related links
+</code></pre>
+
+<p>Search has some methods for setting search params</p>
+
+<pre><code>search = Exlibris::Primo::Search.new(:base_url =&gt; "http://primo.institution.edu",
+  :institution =&gt; "INSTITUTION")
+search.isbn_is "0143039008" #=&gt; Equivalent to search.add_query_term "0143039008", "isbn", "exact"
+search.title_begins_with "Travels" #=&gt; Equivalent to search.add_query_term "Travels", "title", "begins_with"
+search.creator_contains "Greene" #=&gt; Equivalent to search.add_query_term "Greene", "creator", "contains"
+</code></pre>
+
+<p>Search can take a record id the initial hash</p>
+
+<pre><code>search = Exlibris::Primo::Search.new(:base_url =&gt; "http://primo.institution.edu",
+  :institution =&gt; "INSTITUTION", :record_id =&gt; "aleph0123456789")
+</code></pre>
+
+<p>Search can also be chained using the ! version of the attribute writer</p>
+
+<pre><code>search = Exlibris::Primo::Search.new.base_url!("http://primo.institution.edu").
+  institution!("INSTITUTION").record_id!("aleph0123456789")
+</code></pre>
+
+<p>Or</p>
+
+<pre><code>search = Exlibris::Primo::Search.new.base_url!("http://primo.institution.edu").
+  institution!("INSTITUTION").title_begins_with("Travels").
+    creator_contains("Greene").genre_is("Book")
+</code></pre>
+
+<h2>Exlibris::Primo::Config</h2>
+
+<p>Exlibris::Primo::Config allows you to specify global configuration parameter for Exlibris::Primo</p>
+
+<pre><code>Exlibris::Primo.configure do |config|
+  config.base_url = "http://primo.institution.edu"
+  config.institution = "INSTITUTION"
+  config.libraries = { "LIB_CODE1" =&gt; "Library Decoded 1", "LIB_CODE2" =&gt; "Library Decoded 2",
+    "LIB_CODE3" =&gt; "Library Decoded 3" }
+end
+</code></pre>
+
+<p>Exlibris::Primo::Config can also read in from a YAML file that specifies the various config elements</p>
+
+<pre><code>Exlibris::Primo.configure do |config|
+  config.load_yaml "./config/primo.yml"
+end
+</code></pre>
+
+<h2>Exlibris::Primo::EShelf</h2>
+
+<p>The Exlibris::Primo::EShelf class provides methods for reading a given user's Primo eshelf 
+and eshelf structure as well as adding and removing records.</p>
+
+<h2>Example of Exlibris::Primo::EShelf in action</h2>
+
+<pre><code>eshelf = Exlibris::Primo::EShelf.new(:user_id =&gt; "USER_ID",
+  :base_url =&gt; "http://primo.institution.edu", :insitution =&gt; "INSTITUTION")
+records = eshelf.records
+size = eshelf.size
+basket_id = eshelf.basket_id
+eshelf.add_records(["PrimoRecordId","PrimoRecordId2"], basket_id)
+</code></pre>
+
+<h2>Exlibris::Primo::Reviews</h2>
+
+<p>The Exlibris::Primo::Reviews class provides methods for reading a given user's Primo reviews 
+features.</p>
+
+<h2>Example of Exlibris::Primo::Reviews in action</h2>
+
+<pre><code>reviews = Exlibris::Primo::Reviews.new(:record_id =&gt; "aleph0123456789", :user_id =&gt; "USER_ID",
+  :base_url =&gt; "http://primo.institution.edu", :insitution =&gt; "INSTITUTION")
+user_record_reviews = reviews.reviews #=&gt; Array of Primo reviews
+</code></pre>
+
+<h2>Exlibris::Primo::Tags</h2>
+
+<p>The Exlibris::Primo::Tags class provides methods for reading a given user's Primo tags 
+features.</p>
+
+<h2>Example of Exlibris::Primo::Tags in action</h2>
+
+<pre><code>tags = Exlibris::Primo::Tags.new(:record_id =&gt; "aleph0123456789", :user_id =&gt; "USER_ID",
+  :base_url =&gt; "http://primo.institution.edu", :insitution =&gt; "INSTITUTION")
+user_record_tags = tags.tags #=&gt; Array of Primo tags
+</code></pre>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
