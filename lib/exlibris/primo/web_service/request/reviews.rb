@@ -5,7 +5,7 @@ module Exlibris
         # 
         # Abstract class for reviews interaction
         # 
-        class Reviews < UserRecord
+        class Reviews < Exlibris::Primo::WebService::Request::UserRecord
           self.abstract = true
           self.has_client
         end
@@ -14,26 +14,26 @@ module Exlibris
         # Get reviews from from Primo for a specified user
         # and record
         # 
-        class GetReviews < Reviews; end
+        class GetReviews < Exlibris::Primo::WebService::Request::Reviews; end
 
         # 
         # Get all reviews for a specified user from Primo
         # 
-        class GetAllMyReviews < Reviews
+        class GetAllMyReviews < Exlibris::Primo::WebService::Request::Reviews
           self.remove_base_elements :doc_id
         end
 
         # 
         # Get reviews for a specified record from Primo
         # 
-        class GetReviewsForRecord < Reviews
+        class GetReviewsForRecord < Exlibris::Primo::WebService::Request::Reviews
           self.remove_base_elements :user_id
         end
 
         # 
         # Get reviews of a given rating for a specified user from Primo
         # 
-        class GetReviewsByRating < Reviews
+        class GetReviewsByRating < Exlibris::Primo::WebService::Request::Reviews
           self.add_base_elements :rating
           self.remove_base_elements :doc_id
         end
@@ -41,7 +41,7 @@ module Exlibris
         # 
         # Add given review to Primo for a specified record and user
         # 
-        class AddReview < Reviews
+        class AddReview < Exlibris::Primo::WebService::Request::Reviews
           # Add review elements to the base elements
           self.add_base_elements :value, :rating, :user_display_name, 
             :allow_user_name, :status
@@ -50,7 +50,7 @@ module Exlibris
         # 
         # Remove review from Primo for a specified record and user
         # 
-        class RemoveReview < Reviews; end
+        class RemoveReview < Exlibris::Primo::WebService::Request::Reviews; end
       end
     end
   end
