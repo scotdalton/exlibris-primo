@@ -35,6 +35,7 @@ module Exlibris
         :subfields, :source_class, :source_data
 
       alias :status_code :availability_status_code
+      alias :status_code= :availability_status_code=
 
       # Initialize with a set of attributes and/or another :holding.
       def initialize(attributes={})
