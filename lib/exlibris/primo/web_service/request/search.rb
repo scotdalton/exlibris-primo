@@ -5,7 +5,7 @@ module Exlibris
         # 
         # Search Primo
         # 
-        class Search < Exlibris::Primo::WebService::Request::Base
+        class Search < Base
           self.has_client
           self.soap_action = :search_brief
           include DisplayFields
@@ -38,7 +38,7 @@ module Exlibris
         # 
         # Get a specific record from Primo.
         # 
-        class FullView < Exlibris::Primo::WebService::Request::Search
+        class FullView < Search
           # Add doc_id to the base elements
           self.add_base_elements :doc_id
           self.soap_action = :get_record

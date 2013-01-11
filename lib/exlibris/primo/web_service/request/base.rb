@@ -48,7 +48,7 @@ module Exlibris
         # 
         # Abstract class for Primo user interactions
         # 
-        class User < Exlibris::Primo::WebService::Request::Base
+        class UserBase < Base
           # Add user_id to the base elements
           self.add_base_elements :user_id
           self.abstract = true
@@ -57,7 +57,7 @@ module Exlibris
         # 
         # Abstract class for Primo record interactions
         # 
-        class Record < Exlibris::Primo::WebService::Request::Base
+        class Record < Base
           # Add doc_id to the base elements
           self.add_base_elements :doc_id
           self.abstract = true
@@ -66,7 +66,7 @@ module Exlibris
         # 
         # Abstract class for Primo user/record interactions
         # 
-        class UserRecord < Exlibris::Primo::WebService::Request::Record
+        class UserRecord < Record
           # Add user_id to the base elements
           self.add_base_elements :user_id
           self.abstract = true

@@ -22,7 +22,7 @@ module WebService
         assert_equal [:institution, :ip, :group, :on_campus, :is_logged_in, :pds_handle],
           Exlibris::Primo::WebService::Request::Base.base_elements
         assert_equal [:institution, :ip, :group, :on_campus, :is_logged_in, :pds_handle, :user_id],
-          Exlibris::Primo::WebService::Request::User.base_elements
+          Exlibris::Primo::WebService::Request::UserBase.base_elements
         assert_equal [:institution, :ip, :group, :on_campus, :is_logged_in, :pds_handle, :doc_id],
           Exlibris::Primo::WebService::Request::Record.base_elements
         assert_equal [:institution, :ip, :group, :on_campus, :is_logged_in, :pds_handle, :doc_id, :user_id],

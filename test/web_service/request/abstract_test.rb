@@ -15,7 +15,7 @@ module WebService
           Exlibris::Primo::WebService::Request::Base.new
         }
         assert_raise(NotImplementedError) {
-          Exlibris::Primo::WebService::Request::User.new
+          Exlibris::Primo::WebService::Request::UserBase.new
         }
         assert_raise(NotImplementedError) {
           Exlibris::Primo::WebService::Request::Record.new
