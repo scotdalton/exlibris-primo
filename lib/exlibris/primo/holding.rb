@@ -43,11 +43,8 @@ module Exlibris
         holding = attributes.delete(:holding)
         # Instantiate new holding from input holding
         # if it exists.
-        unless holding.nil?
-          super holding.to_h.merge(attributes)
-        else
-          super self.class.defaults.merge(attributes)
-        end
+        super((holding.nil?) ? self.class.defaults.merge(attributes) : 
+          holding.to_h.merge(attributes))
       end
 
       # Get the source config from the Primo config, based on source_id, if not already set.
@@ -72,7 +69,8 @@ module Exlibris
 
       # Get the availability status from the Primo config based on availability status code, if not already set.
       def availability_status
-        @availability_status ||= (availability_statuses[availability_status_code] || availability_status_code)
+        @availability_status ||= 
+          (availability_statuses[availability_status_code] || availability_status_code)
       end
       alias :availability :availability_status
       alias :status :availability_status
