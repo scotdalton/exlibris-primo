@@ -1,5 +1,5 @@
 # Exlibris::Primo
-[![Build Status](https://secure.travis-ci.org/scotdalton/exlibris-primo.png)](https://travis-ci.org/scotdalton/exlibris-primo)
+[![Build Status](https://api.travis-ci.org/scotdalton/exlibris-primo.png?branch=master)](https://travis-ci.org/scotdalton/exlibris-primo)
 [![Dependency Status](https://gemnasium.com/scotdalton/exlibris-primo.png)](https://gemnasium.com/scotdalton/exlibris-primo)
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/scotdalton/exlibris-primo)
 
