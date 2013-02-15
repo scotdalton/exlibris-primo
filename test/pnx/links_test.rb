@@ -5,6 +5,8 @@ module Pnx
       record = Exlibris::Primo::Record.new(:raw_xml => dedupmgr_record_xml)
       assert_not_nil record.fulltexts
       assert((not record.fulltexts.empty?))
+      assert_not_nil(record.fulltexts.first.institution)
+      assert_equal("NYU", record.fulltexts.first.institution)
       assert_not_nil(record.fulltexts.first.record_id)
       assert_equal("dedupmrg17343091", record.fulltexts.first.record_id)
       assert_not_nil(record.fulltexts.first.original_id)
@@ -17,6 +19,8 @@ module Pnx
       record = Exlibris::Primo::Record.new(:raw_xml => dedupmgr_record_xml)
       assert_not_nil record.tables_of_contents
       assert((not record.tables_of_contents.empty?))
+      assert_not_nil(record.tables_of_contents.first.institution)
+      assert_equal("NYUAD", record.tables_of_contents.first.institution)
       assert_not_nil(record.tables_of_contents.first.record_id)
       assert_equal("dedupmrg17343091", record.tables_of_contents.first.record_id)
       assert_not_nil(record.tables_of_contents.first.original_id)
@@ -31,6 +35,8 @@ module Pnx
       record = Exlibris::Primo::Record.new(:raw_xml => dedupmgr_record_xml)
       assert_not_nil record.related_links
       assert((not record.related_links.empty?))
+      assert_equal("NYUAD", record.related_links.first.institution)
+      assert_not_nil(record.related_links.first.record_id)
       assert_not_nil(record.related_links.first.record_id)
       assert_equal("dedupmrg17343091", record.related_links.first.record_id)
       assert_not_nil(record.related_links.first.original_id)

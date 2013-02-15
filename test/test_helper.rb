@@ -19,12 +19,10 @@ require 'webmock'
 # have to tell webmock to let us.
 WebMock.allow_net_connect!(:net_http_connect_on_start => true)
 
-without_ctx_tim = VCR.request_matchers.uri_without_param(:ctx_tim)
 VCR.configure do |c|
   c.cassette_library_dir = 'test/vcr_cassettes'
   # webmock needed for HTTPClient testing
   c.hook_into :webmock
-  c.register_request_matcher(:uri_without_ctx_tim, &without_ctx_tim)
   # c.debug_logger = $stderr
 end
 

@@ -1,6 +1,7 @@
 require 'test_helper'
 class LinkTest < Test::Unit::TestCase
   def setup
+    @institution = "INSTITUTION"
     @record_id = "aleph002895625"
     @url = "http://example.com"
   end
@@ -13,8 +14,9 @@ class LinkTest < Test::Unit::TestCase
 
   def test_new_fulltext
     assert_nothing_raised {
-      link = Exlibris::Primo::Fulltext.new :record_id => @record_id,
+      link = Exlibris::Primo::Fulltext.new :institution => @institution, :record_id => @record_id,
         :original_id => @record_id, :url => @url, :display => "Fulltext Instance"
+      assert_equal "INSTITUTION", link.institution
       assert_equal "aleph002895625", link.record_id
       assert_equal "aleph002895625", link.original_id
       assert_equal "http://example.com", link.url
@@ -23,8 +25,9 @@ class LinkTest < Test::Unit::TestCase
   end
 
   def test_new_table_of_contents
-    link = Exlibris::Primo::TableOfContents.new :record_id => @record_id,
+    link = Exlibris::Primo::TableOfContents.new :institution => @institution, :record_id => @record_id,
       :original_id => @record_id, :url => @url, :display => "Table of Contents Instance"
+    assert_equal "INSTITUTION", link.institution
     assert_equal "aleph002895625", link.record_id
     assert_equal "aleph002895625", link.original_id
     assert_equal "http://example.com", link.url
@@ -32,8 +35,9 @@ class LinkTest < Test::Unit::TestCase
   end
 
   def test_new_related_link
-    link = Exlibris::Primo::RelatedLink.new :record_id => @record_id,
+    link = Exlibris::Primo::RelatedLink.new :institution => @institution, :record_id => @record_id,
       :original_id => @record_id, :url => @url, :display => "Related Link Instance"
+    assert_equal "INSTITUTION", link.institution
     assert_equal "aleph002895625", link.record_id
     assert_equal "aleph002895625", link.original_id
     assert_equal "http://example.com", link.url

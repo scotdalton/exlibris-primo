@@ -10,7 +10,7 @@ module Exlibris
 
       self.abstract = true
 
-      attr_accessor :record_id, :original_id,
+      attr_accessor :institution, :record_id, :original_id,
         :url, :display, :notes, :subfields
     end
 
