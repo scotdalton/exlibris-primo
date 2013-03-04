@@ -1,11 +1,5 @@
-# Ignore simplecov when running on travis.
-unless ENV['CI']
-  require 'simplecov'
-  SimpleCov.start
-else
-  require 'coveralls'
-  Coveralls.wear!
-end
+require 'coveralls'
+Coveralls.wear!
 require 'test/unit'
 require File.expand_path("../../lib/exlibris-primo.rb",  __FILE__)
 

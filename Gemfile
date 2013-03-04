@@ -9,5 +9,4 @@ platforms :jruby do
   gem 'jruby-openssl', "~> 0.8.0"
 end
 
-# Use simplecov for ruby 1.9
-gem 'simplecov', :require => false, :group => :test
+gem "coveralls", "~> 0.6.0", :require => false, :group => :test

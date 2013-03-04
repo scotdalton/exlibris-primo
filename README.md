@@ -2,6 +2,7 @@
 [![Build Status](https://api.travis-ci.org/scotdalton/exlibris-primo.png?branch=master)](https://travis-ci.org/scotdalton/exlibris-primo)
 [![Dependency Status](https://gemnasium.com/scotdalton/exlibris-primo.png)](https://gemnasium.com/scotdalton/exlibris-primo)
 [![Code Climate](https://codeclimate.com/github/scotdalton/exlibris-primo.png)](https://codeclimate.com/github/scotdalton/exlibris-primo)
+[![Coverage Status](https://coveralls.io/repos/scotdalton/exlibris-primo/badge.png?branch=master)](https://coveralls.io/r/scotdalton/exlibris-primo)
 
 Exlibris::Primo offers a set of classes for interacting with the ExLibris Primo APIs.
 
