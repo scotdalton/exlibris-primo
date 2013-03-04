@@ -2,6 +2,9 @@
 unless ENV['CI']
   require 'simplecov'
   SimpleCov.start
+else
+  require 'coveralls'
+  Coveralls.wear!
 end
 require 'test/unit'
 require File.expand_path("../../lib/exlibris-primo.rb",  __FILE__)
