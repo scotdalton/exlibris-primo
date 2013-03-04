@@ -78,13 +78,13 @@ module Exlibris
       # Returns an array of self.
       # Should be overridden by source subclasses if appropriate.
       def expand
-        return [self]
+        [self]
       end
 
-      # Determine if we're de-duplicating.
-      # Should be overridden by source subclasses if appropriate.
-      def dedup?
-        return false
+      # Returns self merged with the holding.
+      # No actual merging happens in the default implementation.
+      def merge!(holding)
+        self
       end
 
       # Return this holding as a new holdings subclass instance based on source

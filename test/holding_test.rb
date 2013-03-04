@@ -20,7 +20,10 @@ class HoldingTest < Test::Unit::TestCase
       assert_equal({}, holding.source_data)
       assert_equal(holding, holding.to_source)
       assert_equal([holding], holding.expand)
-      assert((not holding.dedup?))
+      assert((not holding.eql?(Exlibris::Primo::Holding.new)))
+      assert(holding.eql?(holding))
+      assert(holding, holding.merge!(holding))
+      assert(holding.expand.include?(holding))
     }
   end
 end

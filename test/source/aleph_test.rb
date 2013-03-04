@@ -35,7 +35,7 @@ module Source
         assert_equal "Library Decoded 2", aleph.library
         assert_equal "LOCAL01", aleph.local_base
         assert_equal([aleph], aleph.expand)
-        assert((not aleph.dedup?))
+        assert((not aleph.eql?(Exlibris::Primo::Source::Aleph.new)))
         assert_equal "http://aleph.library.edu/F?func=item-global"+
           "&doc_library=USM01&local_base=LOCAL01&doc_number=002895625"+
             "&sub_library=AlephSubLibrary1", aleph.url
