@@ -1,4 +1,5 @@
 # Exlibris::Primo
+[![Gem Version](https://badge.fury.io/rb/exlibris-primo.png)](http://badge.fury.io/rb/exlibris-primo)
 [![Build Status](https://api.travis-ci.org/scotdalton/exlibris-primo.png?branch=master)](https://travis-ci.org/scotdalton/exlibris-primo)
 [![Dependency Status](https://gemnasium.com/scotdalton/exlibris-primo.png)](https://gemnasium.com/scotdalton/exlibris-primo)
 [![Code Climate](https://codeclimate.com/github/scotdalton/exlibris-primo.png)](https://codeclimate.com/github/scotdalton/exlibris-primo)
