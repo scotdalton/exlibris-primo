@@ -9,11 +9,15 @@ module Exlibris
     # Primo holdings can be extended to create Primo source holdings.
     # create a local class representing the source in the
     # module Exlibris::Primo::Source which extends Exlibris::Primo::Holding.
-    # Two methods are then available for overriding:
+    # Holding methods are then available for overriding.
+    # 
+    # A special use case occurs when Primo normalization rules contract record
+    # holdings, e.g. in the case of multiple holdings in a single Aleph collection.
+    # In these cases, a source holding can "expand" itself and return an Array of
+    # holdings.
+    # 
     #     :expand -   expand holdings based on information from the source
     #                 default: [self]
-    #     :dedup? -   if this data source contain duplicate holdings that need to be deduped, set to true
-    #                 default: false
     #
     # ==Examples
     # An examples of a customized source is:
