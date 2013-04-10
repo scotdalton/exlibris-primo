@@ -1,8 +1,8 @@
 module Exlibris
   module Primo
-    # 
+    #
     # Utility for parsing and building XML
-    # 
+    #
     module XmlUtil
       require 'nokogiri'
 
@@ -46,6 +46,18 @@ module Exlibris
         xml.clone.remove_namespaces!
       end
       protected :xml_without_namespaces
+
+      def remove_namespaces_from_raw_xml(raw_xml, namespaces)
+        tmp_xml_with_namespaces = build_xml do |xml|
+          xml.root(namespaces) do
+            xml << raw_xml
+          end
+        end
+        tmp_xml = Nokogiri::XML(tmp_xml_with_namespaces)
+        tmp_xml.remove_namespaces!
+        tmp_xml.root.children.first.to_xml(xml_options)
+      end
+      protected :remove_namespaces_from_raw_xml
 
       def to_hash
         Hash.from_xml(to_xml)

@@ -1,0 +1,661 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://onesearch.library.nd.edu/PrimoWebServices/services/searcher
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://onesearch.library.nd.edu/PrimoWebServices/services/searcher"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><searchBrief><request><![CDATA[<searchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>any</IndexField><PrecisionOperator>contains</PrecisionOperator><Value>van
+        gogh</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled><Locations><uic:Location
+        type="adaptor" value="primo_central_multiple_fe"/></Locations></PrimoSearchRequest><institution>NDU</institution></searchRequest>]]></request></searchBrief></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - ! '"searchBrief"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '1010'
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - ! 'Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1 (build: CVSTag=JBoss_4_0_1 date=200412230944)'
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 10 Apr 2013 18:24:06 GMT
+      Server:
+      - Apache-Coyote/1.1
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><soapenv:Body><searchBriefResponse
+        soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><searchBriefReturn
+        xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">&lt;sear:SEGMENTS
+        xmlns:prim=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;
+        xmlns:sear=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;\n
+        \ &lt;sear:JAGROOT&gt;\n    &lt;sear:RESULT&gt;\n      &lt;sear:FACETLIST
+        ACCURATE_COUNTERS=&quot;true&quot;&gt;\n        &lt;sear:FACET COUNT=&quot;20&quot;
+        NAME=&quot;creator&quot;&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;2&quot;
+        KEY=&quot;Tian, He&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;3&quot;
+        KEY=&quot;Radepont, Marie&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;11&quot;
+        KEY=&quot;Potter, Polyxeni&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;2&quot;
+        KEY=&quot;Gomes, Jos&#xE9;-eduardo&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;6&quot; KEY=&quot;Janssens, K&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;3&quot; KEY=&quot;Cotte, M&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;3&quot; KEY=&quot;Monico, Letizia&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;5&quot; KEY=&quot;Van Der Snickt, Geert&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;2&quot; KEY=&quot;Vanmeert, Frederik&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;3&quot; KEY=&quot;Miliani, Costanza&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;2&quot; KEY=&quot;Verbeeck, Johan&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;5&quot; KEY=&quot;Hendriks, Ella&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;6&quot; KEY=&quot;Cotte, Marine&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;9&quot; KEY=&quot;Janssens, Koen&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;3&quot; KEY=&quot;Yang, Yingzi&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;2&quot; KEY=&quot;Brunetti, Brunetto Giovanni&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;2&quot; KEY=&quot;Brunetti, BG&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;6&quot; KEY=&quot;Dik, Joris&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;3&quot; KEY=&quot;Van Der Loeff, Luuk&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;14&quot; KEY=&quot;Griessen, R&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;15&quot; NAME=&quot;lang&quot;&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;hun&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;172&quot; KEY=&quot;ger&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;7&quot; KEY=&quot;por&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;146&quot; KEY=&quot;fre&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;heb&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;2&quot; KEY=&quot;rum&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;nor&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;2&quot; KEY=&quot;dan&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;rus&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;44&quot; KEY=&quot;dut&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;3&quot; KEY=&quot;ita&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;chi&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;2&quot; KEY=&quot;pol&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;4182&quot; KEY=&quot;eng&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;35&quot; KEY=&quot;spa&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;10&quot; NAME=&quot;rtype&quot;&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;145&quot; KEY=&quot;books&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;620&quot; KEY=&quot;reviews&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;4&quot; KEY=&quot;other&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;51&quot; KEY=&quot;dissertations&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;5095&quot; KEY=&quot;articles&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;461&quot; KEY=&quot;text_resources&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;291&quot; KEY=&quot;conference_proceedings&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;websites&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;media&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;394&quot; KEY=&quot;newspaper_articles&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;20&quot; NAME=&quot;topic&quot;&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;18&quot; KEY=&quot;Body Patterning&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;72&quot; KEY=&quot;Artists&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;112&quot; KEY=&quot;Literature&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;85&quot; KEY=&quot;Famous Persons&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;21&quot; KEY=&quot;Brain&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;5&quot; KEY=&quot;Meniere Disease&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;43&quot; KEY=&quot;Museums&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;12&quot; KEY=&quot;Suicide&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;16&quot; KEY=&quot;Wnt Proteins&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;39&quot; KEY=&quot;Van Gogh&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;65&quot; KEY=&quot;Creativity&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;40&quot; KEY=&quot;Membrane Proteins&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;10&quot; KEY=&quot;Vincent Van Gogh&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;13&quot; KEY=&quot;Nerve Tissue Proteins&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;11&quot; KEY=&quot;About The Cover&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;157&quot; KEY=&quot;Art&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;55&quot; KEY=&quot;Cell Polarity&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;12&quot; KEY=&quot;Universities And Colleges&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;66&quot; KEY=&quot;Paintings&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;30&quot; KEY=&quot;Drosophila Proteins&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;2&quot; NAME=&quot;tlevel&quot;&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;4546&quot; KEY=&quot;online_resources&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;4902&quot; KEY=&quot;peer_reviewed&quot;/&gt;\n        &lt;/sear:FACET&gt;\n
+        \       &lt;sear:FACET COUNT=&quot;8&quot; NAME=&quot;pfilter&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;149&quot; KEY=&quot;books&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;620&quot; KEY=&quot;reviews&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;51&quot; KEY=&quot;dissertations&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;5458&quot; KEY=&quot;articles&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;audio_video&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;291&quot; KEY=&quot;conference_proceedings&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;websites&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;394&quot; KEY=&quot;newspaper_articles&quot;/&gt;\n
+        \       &lt;/sear:FACET&gt;\n        &lt;sear:FACET COUNT=&quot;70&quot; NAME=&quot;creationdate&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;464&quot; KEY=&quot;2008&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;392&quot; KEY=&quot;2009&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;387&quot; KEY=&quot;2006&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;372&quot; KEY=&quot;2007&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;204&quot; KEY=&quot;2004&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;308&quot; KEY=&quot;2005&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;263&quot; KEY=&quot;2002&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;218&quot; KEY=&quot;2003&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;45&quot; KEY=&quot;1930&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;19&quot; KEY=&quot;1970&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;24&quot; KEY=&quot;1971&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;36&quot; KEY=&quot;1972&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;22&quot; KEY=&quot;1973&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;24&quot; KEY=&quot;1974&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;28&quot; KEY=&quot;1975&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;39&quot; KEY=&quot;1976&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;481&quot; KEY=&quot;2012&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;33&quot; KEY=&quot;1977&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;343&quot; KEY=&quot;2011&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;31&quot; KEY=&quot;1978&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;396&quot; KEY=&quot;2010&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;28&quot; KEY=&quot;1979&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;229&quot; KEY=&quot;2013&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;13&quot; KEY=&quot;1900&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;102&quot; KEY=&quot;1990&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;56&quot; KEY=&quot;1940&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;29&quot; KEY=&quot;1982&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;55&quot; KEY=&quot;1983&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;3&quot; KEY=&quot;1&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;34&quot; KEY=&quot;1980&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;38&quot; KEY=&quot;1981&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;66&quot; KEY=&quot;1986&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;79&quot; KEY=&quot;1987&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;53&quot; KEY=&quot;1984&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;55&quot; KEY=&quot;1985&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;73&quot; KEY=&quot;1988&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;75&quot; KEY=&quot;1989&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;3&quot; KEY=&quot;1910&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;11&quot; KEY=&quot;1959&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;10&quot; KEY=&quot;1958&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;6&quot; KEY=&quot;1957&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;6&quot; KEY=&quot;1956&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;3&quot; KEY=&quot;1955&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;4&quot; KEY=&quot;1954&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;10&quot; KEY=&quot;1953&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;8&quot; KEY=&quot;1952&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;6&quot; KEY=&quot;1951&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;57&quot; KEY=&quot;1950&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;107&quot; KEY=&quot;1995&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;121&quot; KEY=&quot;1996&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;138&quot; KEY=&quot;1997&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;135&quot; KEY=&quot;1998&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;144&quot; KEY=&quot;1991&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;104&quot; KEY=&quot;1992&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;104&quot; KEY=&quot;1993&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;80&quot; KEY=&quot;1994&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;122&quot; KEY=&quot;1999&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;10&quot; KEY=&quot;1920&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;14&quot; KEY=&quot;1967&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;21&quot; KEY=&quot;1966&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;12&quot; KEY=&quot;1969&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;20&quot; KEY=&quot;1968&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;16&quot; KEY=&quot;1963&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;18&quot; KEY=&quot;1962&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;9&quot; KEY=&quot;1965&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;14&quot; KEY=&quot;1964&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;15&quot; KEY=&quot;1961&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;8&quot; KEY=&quot;1960&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;160&quot; KEY=&quot;2001&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;165&quot; KEY=&quot;2000&quot;/&gt;\n
+        \       &lt;/sear:FACET&gt;\n        &lt;sear:FACET COUNT=&quot;20&quot; NAME=&quot;domain&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;6&quot; KEY=&quot;Energy Citations
+        Database (OSTI)&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;226&quot;
+        KEY=&quot;Cambridge Journals (Cambridge University Press)&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;17&quot; KEY=&quot;IEEE Periodicals&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;11&quot; KEY=&quot;SwePub (National Library of Sweden)&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;1&quot; KEY=&quot;Jazz Music Library
+        (Alexander Street Press)&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;815&quot;
+        KEY=&quot;Taylor &amp;amp; Francis Online - Journals&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;55&quot; KEY=&quot;Informit Humanities &amp;amp; Social Sciences
+        (RMIT)&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;19&quot; KEY=&quot;PLoS&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;470&quot; KEY=&quot;Project MUSE&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;361&quot; KEY=&quot;Arts &amp;amp;
+        Sciences (JSTOR)&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;1559&quot;
+        KEY=&quot;SciVerse ScienceDirect (Elsevier)&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;525&quot; KEY=&quot;SpringerLink&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;133&quot; KEY=&quot;Duke University Press Journals Online&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;720&quot; KEY=&quot;MEDLINE (NLM)&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;104&quot; KEY=&quot;ACM Digital
+        Library&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;35&quot; KEY=&quot;Directory
+        of Open Access Journals (DOAJ)&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;6&quot; KEY=&quot;RACO&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;8&quot; KEY=&quot;Ireland (JSTOR)&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;80&quot; KEY=&quot;PMC (PubMed Central)&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;21&quot; KEY=&quot;Maney Publishing (IngentaConnect)&quot;/&gt;\n
+        \       &lt;/sear:FACET&gt;\n        &lt;sear:FACET COUNT=&quot;20&quot; NAME=&quot;jtitle&quot;&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;14&quot; KEY=&quot;New Scientist&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;16&quot; KEY=&quot;Emerging Infectious
+        Diseases&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;15&quot;
+        KEY=&quot;Financial Times&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;2&quot;
+        KEY=&quot;Electrochimica Acta&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;1&quot; KEY=&quot;Frontiers Of Neurology And Neuroscience&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;11&quot; KEY=&quot;Applied Physics
+        A&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;2&quot; KEY=&quot;Journal
+        Of Cultural Heritage&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;1&quot;
+        KEY=&quot;the minnesota review&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;20&quot; KEY=&quot;Plos One&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;7&quot; KEY=&quot;Development (cambridge, england)&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;17&quot; KEY=&quot;International
+        Herald Tribune&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;4&quot;
+        KEY=&quot;Neuroscience Letters&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;43&quot; KEY=&quot;Developmental Biology&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;6&quot; KEY=&quot;Analytical Chemistry&quot;/&gt;\n          &lt;sear:FACET_VALUES
+        VALUE=&quot;9&quot; KEY=&quot;Jama : The Journal Of The American Medical Association&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;12&quot; KEY=&quot;Nederlands
+        Tijdschrift Voor Geneeskunde&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;2&quot;
+        KEY=&quot;Proceedings Of The National Academy Of Sciences Of The United States
+        Of America&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;57&quot;
+        KEY=&quot;Telegraph Online&quot;/&gt;\n          &lt;sear:FACET_VALUES VALUE=&quot;2&quot;
+        KEY=&quot;European Annals Of Otorhinolaryngology, Head And Neck Diseases&quot;/&gt;\n
+        \         &lt;sear:FACET_VALUES VALUE=&quot;2&quot; KEY=&quot;Journal Of Adult
+        Development&quot;/&gt;\n        &lt;/sear:FACET&gt;\n      &lt;/sear:FACETLIST&gt;\n
+        \     &lt;sear:DOCSET TOTAL_TIME=&quot;114&quot; LASTHIT=&quot;5&quot; FIRSTHIT=&quot;1&quot;
+        TOTALHITS=&quot;6781&quot; HIT_TIME=&quot;59&quot;&gt;\n        &lt;sear:DOC
+        LOCAL=&quot;false&quot; SEARCH_ENGINE_TYPE=&quot;Primo Central Search Engine&quot;
+        SEARCH_ENGINE=&quot;PrimoCentralThirdNode&quot; NO=&quot;1&quot; RANK=&quot;0.42358816&quot;
+        ID=&quot;402844075&quot;&gt;\n          &lt;prim:PrimoNMBib&gt;\n            &lt;prim:record&gt;\n
+        \             &lt;prim:control&gt;\n                &lt;prim:sourcerecordid&gt;S0262-4079(12)60794-5&lt;/prim:sourcerecordid&gt;\n
+        \               &lt;prim:sourceid&gt;sciversesciencedirect_elsevier&lt;/prim:sourceid&gt;\n
+        \               &lt;prim:recordid&gt;TN_sciversesciencedirect_elsevierS0262-4079(12)60794-5&lt;/prim:recordid&gt;\n
+        \               &lt;prim:sourcesystem&gt;Other&lt;/prim:sourcesystem&gt;\n
+        \             &lt;/prim:control&gt;\n              &lt;prim:display&gt;\n
+        \               &lt;prim:type&gt;article&lt;/prim:type&gt;\n                &lt;prim:title&gt;Disputed
+        painting revealed as a Van Gogh&lt;/prim:title&gt;\n                &lt;prim:ispartof&gt;New
+        Scientist, 2012, Vol.213(2858), pp.7-7&lt;/prim:ispartof&gt;\n                &lt;prim:identifier&gt;&amp;lt;b&gt;ISSN:
+        &amp;lt;/b&gt;0262-4079 ; &amp;lt;b&gt;DOI: &amp;lt;/b&gt;10.1016/S0262-4079(12)60794-5&lt;/prim:identifier&gt;\n
+        \               &lt;prim:description&gt;High-energy radiation reveals that
+        a painting of a bouquet considered too flowery to be done by Van Gogh was
+        actually his&lt;/prim:description&gt;\n                &lt;prim:language&gt;eng&lt;/prim:language&gt;\n
+        \               &lt;prim:source&gt;SciVerse ScienceDirect Journals&lt;/prim:source&gt;\n
+        \             &lt;/prim:display&gt;\n              &lt;prim:links&gt;\n                &lt;prim:openurl&gt;$$Topenurl_article&lt;/prim:openurl&gt;\n
+        \               &lt;prim:backlink&gt;$$Uhttp://dx.doi.org/10.1016/S0262-4079(12)60794-5$$EView_record_in_SciVerse_ScienceDirect
+        _Journals_(Elsevier)&lt;/prim:backlink&gt;\n                &lt;prim:openurlfulltext&gt;$$Topenurlfull_article&lt;/prim:openurlfulltext&gt;\n
+        \             &lt;/prim:links&gt;\n              &lt;prim:search&gt;\n                &lt;prim:title&gt;Disputed
+        painting revealed as a Van Gogh&lt;/prim:title&gt;\n                &lt;prim:description&gt;High-energy
+        radiation reveals that a painting of a bouquet considered too flowery to be
+        done by Van Gogh was actually his&lt;/prim:description&gt;\n                &lt;prim:general&gt;English&lt;/prim:general&gt;\n
+        \               &lt;prim:general&gt;10.1016/S0262-4079(12)60794-5&lt;/prim:general&gt;\n
+        \               &lt;prim:general&gt;SciVerse ScienceDirect Journals&lt;/prim:general&gt;\n
+        \               &lt;prim:sourceid&gt;sciversesciencedirect_elsevier&lt;/prim:sourceid&gt;\n
+        \               &lt;prim:recordid&gt;sciversesciencedirect_elsevierS0262-4079(12)60794-5&lt;/prim:recordid&gt;\n
+        \               &lt;prim:issn&gt;02624079&lt;/prim:issn&gt;\n                &lt;prim:issn&gt;0262-4079&lt;/prim:issn&gt;\n
+        \               &lt;prim:rsrctype&gt;article&lt;/prim:rsrctype&gt;\n                &lt;prim:creationdate&gt;31
+        March 2012&lt;/prim:creationdate&gt;\n                &lt;prim:creationdate&gt;2012&lt;/prim:creationdate&gt;\n
+        \               &lt;prim:addtitle&gt;New Scientist&lt;/prim:addtitle&gt;\n
+        \               &lt;prim:searchscope&gt;sciversesciencedirect_elsevier&lt;/prim:searchscope&gt;\n
+        \               &lt;prim:searchscope&gt;elsevier_sciencedirect&lt;/prim:searchscope&gt;\n
+        \               &lt;prim:scope&gt;sciversesciencedirect_elsevier&lt;/prim:scope&gt;\n
+        \               &lt;prim:scope&gt;elsevier_sciencedirect&lt;/prim:scope&gt;\n
+        \             &lt;/prim:search&gt;\n              &lt;prim:sort&gt;\n                &lt;prim:title&gt;Disputed
+        painting revealed as a Van Gogh&lt;/prim:title&gt;\n                &lt;prim:creationdate&gt;20120331&lt;/prim:creationdate&gt;\n
+        \             &lt;/prim:sort&gt;\n              &lt;prim:facets&gt;\n                &lt;prim:language&gt;eng&lt;/prim:language&gt;\n
+        \               &lt;prim:creationdate&gt;2012&lt;/prim:creationdate&gt;\n
+        \               &lt;prim:collection&gt;ScienceDirect (Elsevier)&lt;/prim:collection&gt;\n
+        \               &lt;prim:collection&gt;SciVerse ScienceDirect (Elsevier)&lt;/prim:collection&gt;\n
+        \               &lt;prim:prefilter&gt;articles&lt;/prim:prefilter&gt;\n                &lt;prim:rsrctype&gt;articles&lt;/prim:rsrctype&gt;\n
+        \               &lt;prim:jtitle&gt;New Scientist&lt;/prim:jtitle&gt;\n                &lt;prim:frbrgroupid&gt;485703486&lt;/prim:frbrgroupid&gt;\n
+        \               &lt;prim:frbrtype&gt;6&lt;/prim:frbrtype&gt;\n              &lt;/prim:facets&gt;\n
+        \             &lt;prim:frbr&gt;\n                &lt;prim:t&gt;2&lt;/prim:t&gt;\n
+        \               &lt;prim:k1&gt;2012&lt;/prim:k1&gt;\n                &lt;prim:k2&gt;02624079&lt;/prim:k2&gt;\n
+        \               &lt;prim:k3&gt;10.1016/S0262-4079(12)60794-5&lt;/prim:k3&gt;\n
+        \               &lt;prim:k4&gt;213&lt;/prim:k4&gt;\n                &lt;prim:k5&gt;2858&lt;/prim:k5&gt;\n
+        \               &lt;prim:k6&gt;7&lt;/prim:k6&gt;\n                &lt;prim:k7&gt;new
+        scientist&lt;/prim:k7&gt;\n                &lt;prim:k8&gt;disputed painting
+        revealed as van gogh&lt;/prim:k8&gt;\n                &lt;prim:k9&gt;disputedpaintingrevengogh&lt;/prim:k9&gt;\n
+        \               &lt;prim:k12&gt;disputedpaintingrevealeda&lt;/prim:k12&gt;\n
+        \             &lt;/prim:frbr&gt;\n              &lt;prim:delivery&gt;\n                &lt;prim:delcategory&gt;Remote
+        Search Resource&lt;/prim:delcategory&gt;\n                &lt;prim:fulltext&gt;fulltext&lt;/prim:fulltext&gt;\n
+        \             &lt;/prim:delivery&gt;\n              &lt;prim:ranking&gt;\n
+        \               &lt;prim:booster1&gt;1&lt;/prim:booster1&gt;\n                &lt;prim:booster2&gt;1&lt;/prim:booster2&gt;\n
+        \               &lt;prim:pcg_type&gt;publisher&lt;/prim:pcg_type&gt;\n              &lt;/prim:ranking&gt;\n
+        \             &lt;prim:addata&gt;\n                &lt;prim:atitle&gt;Disputed
+        painting revealed as a Van Gogh&lt;/prim:atitle&gt;\n                &lt;prim:jtitle&gt;New
+        Scientist&lt;/prim:jtitle&gt;\n                &lt;prim:date&gt;20120331&lt;/prim:date&gt;\n
+        \               &lt;prim:risdate&gt;20120331&lt;/prim:risdate&gt;\n                &lt;prim:volume&gt;213&lt;/prim:volume&gt;\n
+        \               &lt;prim:issue&gt;2858&lt;/prim:issue&gt;\n                &lt;prim:spage&gt;7&lt;/prim:spage&gt;\n
+        \               &lt;prim:epage&gt;7&lt;/prim:epage&gt;\n                &lt;prim:pages&gt;7-7&lt;/prim:pages&gt;\n
+        \               &lt;prim:issn&gt;0262-4079&lt;/prim:issn&gt;\n                &lt;prim:genre&gt;article&lt;/prim:genre&gt;\n
+        \               &lt;prim:ristype&gt;JOUR&lt;/prim:ristype&gt;\n                &lt;prim:abstract&gt;High-energy
+        radiation reveals that a painting of a bouquet considered too flowery to be
+        done by Van Gogh was actually his&lt;/prim:abstract&gt;\n                &lt;prim:doi&gt;10.1016/S0262-4079(12)60794-5&lt;/prim:doi&gt;\n
+        \             &lt;/prim:addata&gt;\n            &lt;/prim:record&gt;\n          &lt;/prim:PrimoNMBib&gt;\n
+        \         &lt;sear:GETIT GetIt2=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&quot;
+        GetIt1=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;amp;svc.fulltext=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&amp;amp;template=openurlfull_article&quot;
+        deliveryCategory=&quot;Remote Search Resource&quot;/&gt;\n          &lt;sear:LINKS&gt;\n
+        \           &lt;sear:openurl&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;rft.genre=article&amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;rft.jtitle=New%20Scientist&amp;rft.btitle=&amp;rft.aulast=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.date=20120331&amp;rft.volume=213&amp;rft.issue=2858&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=7&amp;rft.epage=7&amp;rft.pages=7-7&amp;rft.artnum=&amp;rft.issn=0262-4079&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;rft.object_id=&amp;rft.eisbn=&amp;rft_dat=&lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&lt;/sciversesciencedirect_elsevier&gt;&amp;rft_id=info:oai/]]&gt;&lt;/sear:openurl&gt;\n
+        \           &lt;sear:backlink&gt;http://dx.doi.org/10.1016/S0262-4079(12)60794-5&lt;/sear:backlink&gt;\n
+        \           &lt;sear:thumbnail/&gt;\n            &lt;sear:openurlfulltext&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;rft.genre=article&amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;rft.jtitle=New%20Scientist&amp;rft.btitle=&amp;rft.aulast=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.date=20120331&amp;rft.volume=213&amp;rft.issue=2858&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=7&amp;rft.epage=7&amp;rft.pages=7-7&amp;rft.artnum=&amp;rft.issn=0262-4079&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=&amp;rft.eisbn=&amp;rft_dat=&lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&lt;/sciversesciencedirect_elsevier&gt;&amp;rft_id=info:oai/&amp;template=openurlfull_article]]&gt;&lt;/sear:openurlfulltext&gt;\n
+        \         &lt;/sear:LINKS&gt;\n        &lt;/sear:DOC&gt;\n        &lt;sear:DOC
+        LOCAL=&quot;false&quot; SEARCH_ENGINE_TYPE=&quot;Primo Central Search Engine&quot;
+        SEARCH_ENGINE=&quot;PrimoCentralThirdNode&quot; NO=&quot;2&quot; RANK=&quot;0.2986234&quot;
+        ID=&quot;145966088&quot;&gt;\n          &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;\n
+        \           &lt;record&gt;\n              &lt;control&gt;\n                &lt;sourcerecordid&gt;S0262-4079(11)60359-X&lt;/sourcerecordid&gt;\n
+        \               &lt;sourceid&gt;sciversesciencedirect_elsevier&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;TN_sciversesciencedirect_elsevierS0262-4079(11)60359-X&lt;/recordid&gt;\n
+        \               &lt;sourcesystem&gt;Other&lt;/sourcesystem&gt;\n              &lt;/control&gt;\n
+        \             &lt;display&gt;\n                &lt;type&gt;article&lt;/type&gt;\n
+        \               &lt;title&gt;X-rays show why van Gogh's yellows have darkened&lt;/title&gt;\n
+        \               &lt;ispartof&gt;New Scientist, 2011, Vol.209(2800), pp.5-5&lt;/ispartof&gt;\n
+        \               &lt;identifier&gt;&amp;lt;b&gt;ISSN: &amp;lt;/b&gt;0262-4079
+        ; &amp;lt;b&gt;DOI: &amp;lt;/b&gt;10.1016/S0262-4079(11)60359-X&lt;/identifier&gt;\n
+        \               &lt;description&gt;Van Gogh may have made his paint last longer
+        by adding barium sulphate, X-ray synchrotron reveals &#x2013; an addition
+        that has made the paint darken&lt;/description&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;source&gt;SciVerse ScienceDirect Journals&lt;/source&gt;\n
+        \             &lt;/display&gt;\n              &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_article&lt;/openurl&gt;\n
+        \               &lt;backlink&gt;$$Uhttp://dx.doi.org/10.1016/S0262-4079(11)60359-X$$EView_record_in_SciVerse_ScienceDirect
+        _Journals_(Elsevier)&lt;/backlink&gt;\n                &lt;openurlfulltext&gt;$$Topenurlfull_article&lt;/openurlfulltext&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;title&gt;X-rays
+        show why van Gogh's yellows have darkened&lt;/title&gt;\n                &lt;description&gt;Van
+        Gogh may have made his paint last longer by adding barium sulphate, X-ray
+        synchrotron reveals &#x2013; an addition that has made the paint darken&lt;/description&gt;\n
+        \               &lt;general&gt;English&lt;/general&gt;\n                &lt;general&gt;10.1016/S0262-4079(11)60359-X&lt;/general&gt;\n
+        \               &lt;general&gt;SciVerse ScienceDirect Journals&lt;/general&gt;\n
+        \               &lt;sourceid&gt;sciversesciencedirect_elsevier&lt;/sourceid&gt;\n
+        \               &lt;recordid&gt;sciversesciencedirect_elsevierS0262-4079(11)60359-X&lt;/recordid&gt;\n
+        \               &lt;issn&gt;02624079&lt;/issn&gt;\n                &lt;issn&gt;0262-4079&lt;/issn&gt;\n
+        \               &lt;rsrctype&gt;article&lt;/rsrctype&gt;\n                &lt;creationdate&gt;2011&lt;/creationdate&gt;\n
+        \               &lt;addtitle&gt;New Scientist&lt;/addtitle&gt;\n                &lt;searchscope&gt;sciversesciencedirect_elsevier&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;elsevier_sciencedirect&lt;/searchscope&gt;\n
+        \               &lt;scope&gt;sciversesciencedirect_elsevier&lt;/scope&gt;\n
+        \               &lt;scope&gt;elsevier_sciencedirect&lt;/scope&gt;\n              &lt;/search&gt;\n
+        \             &lt;sort&gt;\n                &lt;title&gt;X-rays show why van
+        Gogh's yellows have darkened&lt;/title&gt;\n                &lt;creationdate&gt;20110000&lt;/creationdate&gt;\n
+        \             &lt;/sort&gt;\n              &lt;facets&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;creationdate&gt;2011&lt;/creationdate&gt;\n                &lt;collection&gt;ScienceDirect
+        (Elsevier)&lt;/collection&gt;\n                &lt;collection&gt;SciVerse
+        ScienceDirect (Elsevier)&lt;/collection&gt;\n                &lt;prefilter&gt;articles&lt;/prefilter&gt;\n
+        \               &lt;rsrctype&gt;articles&lt;/rsrctype&gt;\n                &lt;jtitle&gt;New
+        Scientist&lt;/jtitle&gt;\n                &lt;frbrgroupid&gt;16083819&lt;/frbrgroupid&gt;\n
+        \               &lt;frbrtype&gt;6&lt;/frbrtype&gt;\n              &lt;/facets&gt;\n
+        \             &lt;frbr&gt;\n                &lt;t&gt;2&lt;/t&gt;\n                &lt;k1&gt;2011&lt;/k1&gt;\n
+        \               &lt;k2&gt;02624079&lt;/k2&gt;\n                &lt;k3&gt;10.1016/S0262-4079(11)60359-X&lt;/k3&gt;\n
+        \               &lt;k4&gt;209&lt;/k4&gt;\n                &lt;k5&gt;2800&lt;/k5&gt;\n
+        \               &lt;k6&gt;5&lt;/k6&gt;\n                &lt;k7&gt;new scientist&lt;/k7&gt;\n
+        \               &lt;k8&gt;x rays show why van gogh apos s yellows have darkened&lt;/k8&gt;\n
+        \               &lt;k9&gt;xraysshowwhyvangoghakened&lt;/k9&gt;\n                &lt;k12&gt;xraysshowwhyvangoghapossy&lt;/k12&gt;\n
+        \             &lt;/frbr&gt;\n              &lt;delivery&gt;\n                &lt;delcategory&gt;Remote
+        Search Resource&lt;/delcategory&gt;\n                &lt;fulltext&gt;fulltext&lt;/fulltext&gt;\n
+        \             &lt;/delivery&gt;\n              &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n                &lt;pcg_type&gt;publisher&lt;/pcg_type&gt;\n
+        \             &lt;/ranking&gt;\n              &lt;addata&gt;\n                &lt;atitle&gt;X-rays
+        show why van Gogh's yellows have darkened&lt;/atitle&gt;\n                &lt;jtitle&gt;New
+        Scientist&lt;/jtitle&gt;\n                &lt;date&gt;2011&lt;/date&gt;\n
+        \               &lt;risdate&gt;2011&lt;/risdate&gt;\n                &lt;volume&gt;209&lt;/volume&gt;\n
+        \               &lt;issue&gt;2800&lt;/issue&gt;\n                &lt;spage&gt;5&lt;/spage&gt;\n
+        \               &lt;epage&gt;5&lt;/epage&gt;\n                &lt;pages&gt;5-5&lt;/pages&gt;\n
+        \               &lt;issn&gt;0262-4079&lt;/issn&gt;\n                &lt;genre&gt;article&lt;/genre&gt;\n
+        \               &lt;ristype&gt;JOUR&lt;/ristype&gt;\n                &lt;abstract&gt;Van
+        Gogh may have made his paint last longer by adding barium sulphate, X-ray
+        synchrotron reveals &#x2013; an addition that has made the paint darken&lt;/abstract&gt;\n
+        \               &lt;doi&gt;10.1016/S0262-4079(11)60359-X&lt;/doi&gt;\n              &lt;/addata&gt;\n
+        \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n          &lt;sear:GETIT
+        GetIt2=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&quot;
+        GetIt1=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;amp;svc.fulltext=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&amp;amp;template=openurlfull_article&quot;
+        deliveryCategory=&quot;Remote Search Resource&quot;/&gt;\n          &lt;sear:LINKS&gt;\n
+        \           &lt;sear:openurl&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;rft.genre=article&amp;rft.atitle=X-rays%20show%20why%20van%20Gogh%27s%20yellows%20have%20darkened&amp;rft.jtitle=New%20Scientist&amp;rft.btitle=&amp;rft.aulast=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.date=2011&amp;rft.volume=209&amp;rft.issue=2800&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=5&amp;rft.epage=5&amp;rft.pages=5-5&amp;rft.artnum=&amp;rft.issn=0262-4079&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/10.1016/S0262-4079(11)60359-X&amp;rft.object_id=&amp;rft.eisbn=&amp;rft_dat=&lt;sciversesciencedirect_elsevier&gt;S0262-4079(11)60359-X&lt;/sciversesciencedirect_elsevier&gt;&amp;rft_id=info:oai/]]&gt;&lt;/sear:openurl&gt;\n
+        \           &lt;sear:backlink&gt;http://dx.doi.org/10.1016/S0262-4079(11)60359-X&lt;/sear:backlink&gt;\n
+        \           &lt;sear:thumbnail/&gt;\n            &lt;sear:openurlfulltext&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;rft.genre=article&amp;rft.atitle=X-rays%20show%20why%20van%20Gogh%27s%20yellows%20have%20darkened&amp;rft.jtitle=New%20Scientist&amp;rft.btitle=&amp;rft.aulast=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=&amp;rft.aucorp=&amp;rft.date=2011&amp;rft.volume=209&amp;rft.issue=2800&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=5&amp;rft.epage=5&amp;rft.pages=5-5&amp;rft.artnum=&amp;rft.issn=0262-4079&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/10.1016/S0262-4079(11)60359-X&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=&amp;rft.eisbn=&amp;rft_dat=&lt;sciversesciencedirect_elsevier&gt;S0262-4079(11)60359-X&lt;/sciversesciencedirect_elsevier&gt;&amp;rft_id=info:oai/&amp;template=openurlfull_article]]&gt;&lt;/sear:openurlfulltext&gt;\n
+        \         &lt;/sear:LINKS&gt;\n        &lt;/sear:DOC&gt;\n        &lt;sear:DOC
+        LOCAL=&quot;false&quot; SEARCH_ENGINE_TYPE=&quot;Primo Central Search Engine&quot;
+        SEARCH_ENGINE=&quot;PrimoCentralThirdNode&quot; NO=&quot;3&quot; RANK=&quot;0.2361394&quot;
+        ID=&quot;233740531&quot;&gt;\n          &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;\n
+        \           &lt;record&gt;\n              &lt;control&gt;\n                &lt;sourcerecordid&gt;10.2307/25579974&lt;/sourcerecordid&gt;\n
+        \               &lt;sourceid&gt;jstor&lt;/sourceid&gt;\n                &lt;recordid&gt;TN_jstor10.2307/25579974&lt;/recordid&gt;\n
+        \               &lt;sourceformat&gt;XML&lt;/sourceformat&gt;\n                &lt;sourcesystem&gt;Other&lt;/sourcesystem&gt;\n
+        \             &lt;/control&gt;\n              &lt;display&gt;\n                &lt;type&gt;article&lt;/type&gt;\n
+        \               &lt;title&gt;Van Gogh&lt;/title&gt;\n                &lt;creator&gt;Smyth,
+        Gerard&lt;/creator&gt;\n                &lt;ispartof&gt;The Poetry Ireland
+        Review, 2002(72), pp.85&lt;/ispartof&gt;\n                &lt;identifier&gt;&amp;lt;b&gt;ISSN:&amp;lt;/b&gt;
+        03322998&lt;/identifier&gt;\n                &lt;subject&gt;Literature&lt;/subject&gt;\n
+        \               &lt;language&gt;eng&lt;/language&gt;\n                &lt;source&gt;JSTOR&lt;/source&gt;\n
+        \             &lt;/display&gt;\n              &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_article&lt;/openurl&gt;\n
+        \               &lt;backlink&gt;$$Uhttp://www.jstor.org/stable/10.2307/25579974?origin=api$$EView_this_record_in_JSTOR&lt;/backlink&gt;\n
+        \               &lt;openurlfulltext&gt;$$Topenurlfull_article&lt;/openurlfulltext&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;creatorcontrib&gt;Smyth,
+        Gerard&lt;/creatorcontrib&gt;\n                &lt;title&gt;Van Gogh&lt;/title&gt;\n
+        \               &lt;subject&gt;literature&lt;/subject&gt;\n                &lt;general&gt;10.2307/25579974&lt;/general&gt;\n
+        \               &lt;general&gt;English&lt;/general&gt;\n                &lt;general&gt;JSOTR&lt;/general&gt;\n
+        \               &lt;sourceid&gt;jstor&lt;/sourceid&gt;\n                &lt;recordid&gt;jstor10.2307/25579974&lt;/recordid&gt;\n
+        \               &lt;issn&gt;0332-2998&lt;/issn&gt;\n                &lt;issn&gt;03322998&lt;/issn&gt;\n
+        \               &lt;rsrctype&gt;article&lt;/rsrctype&gt;\n                &lt;creationdate&gt;2002&lt;/creationdate&gt;\n
+        \               &lt;recordtype&gt;article&lt;/recordtype&gt;\n                &lt;addtitle&gt;The
+        Poetry Ireland Review&lt;/addtitle&gt;\n                &lt;searchscope&gt;jstor&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;jstor_ic&lt;/searchscope&gt;\n                &lt;scope&gt;jstor&lt;/scope&gt;\n
+        \               &lt;scope&gt;jstor_ic&lt;/scope&gt;\n              &lt;/search&gt;\n
+        \             &lt;sort&gt;\n                &lt;title&gt;Van Gogh&lt;/title&gt;\n
+        \               &lt;author&gt;Smyth, Gerard&lt;/author&gt;\n                &lt;creationdate&gt;20020401&lt;/creationdate&gt;\n
+        \             &lt;/sort&gt;\n              &lt;facets&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;creationdate&gt;2002&lt;/creationdate&gt;\n                &lt;topic&gt;Literature&lt;/topic&gt;\n
+        \               &lt;collection&gt;Ireland (JSTOR)&lt;/collection&gt;\n                &lt;prefilter&gt;articles&lt;/prefilter&gt;\n
+        \               &lt;rsrctype&gt;articles&lt;/rsrctype&gt;\n                &lt;creatorcontrib&gt;Smyth,
+        Gerard&lt;/creatorcontrib&gt;\n                &lt;jtitle&gt;Poetry Ireland
+        Review&lt;/jtitle&gt;\n                &lt;frbrgroupid&gt;593784593&lt;/frbrgroupid&gt;\n
+        \               &lt;frbrtype&gt;6&lt;/frbrtype&gt;\n              &lt;/facets&gt;\n
+        \             &lt;frbr&gt;\n                &lt;t&gt;2&lt;/t&gt;\n                &lt;k1&gt;2002&lt;/k1&gt;\n
+        \               &lt;k2&gt;03322998&lt;/k2&gt;\n                &lt;k5&gt;72&lt;/k5&gt;\n
+        \               &lt;k6&gt;85&lt;/k6&gt;\n                &lt;k7&gt;poetry
+        ireland review&lt;/k7&gt;\n                &lt;k8&gt;van gogh&lt;/k8&gt;\n
+        \               &lt;k9&gt;vangogh&lt;/k9&gt;\n                &lt;k15&gt;gerardsmyth&lt;/k15&gt;\n
+        \               &lt;k16&gt;smythgerard&lt;/k16&gt;\n              &lt;/frbr&gt;\n
+        \             &lt;delivery&gt;\n                &lt;delcategory&gt;Remote
+        Search Resource&lt;/delcategory&gt;\n                &lt;fulltext&gt;fulltext&lt;/fulltext&gt;\n
+        \             &lt;/delivery&gt;\n              &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n                &lt;pcg_type&gt;aggregator&lt;/pcg_type&gt;\n
+        \             &lt;/ranking&gt;\n              &lt;addata&gt;\n                &lt;aulast&gt;Smyth&lt;/aulast&gt;\n
+        \               &lt;aufirst&gt;Gerard&lt;/aufirst&gt;\n                &lt;au&gt;Smyth,
+        Gerard&lt;/au&gt;\n                &lt;atitle&gt;Van Gogh&lt;/atitle&gt;\n
+        \               &lt;jtitle&gt;The Poetry Ireland Review&lt;/jtitle&gt;\n                &lt;issue&gt;72&lt;/issue&gt;\n
+        \               &lt;spage&gt;85&lt;/spage&gt;\n                &lt;epage&gt;85&lt;/epage&gt;\n
+        \               &lt;pages&gt;85-85&lt;/pages&gt;\n                &lt;issn&gt;03322998&lt;/issn&gt;\n
+        \               &lt;genre&gt;article&lt;/genre&gt;\n                &lt;ristype&gt;JOUR&lt;/ristype&gt;\n
+        \               &lt;pub&gt;Poetry Ireland&lt;/pub&gt;\n                &lt;url&gt;http://www.jstor.org/stable/10.2307/25579974?origin=api&lt;/url&gt;\n
+        \               &lt;lad02&gt;20020401&lt;/lad02&gt;\n                &lt;date&gt;20020401&lt;/date&gt;\n
+        \               &lt;risdate&gt;20020401&lt;/risdate&gt;\n              &lt;/addata&gt;\n
+        \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n          &lt;sear:GETIT
+        GetIt2=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&quot;
+        GetIt1=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;amp;svc.fulltext=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&amp;amp;template=openurlfull_article&quot;
+        deliveryCategory=&quot;Remote Search Resource&quot;/&gt;\n          &lt;sear:LINKS&gt;\n
+        \           &lt;sear:openurl&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-jstor&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;rft.genre=article&amp;rft.atitle=Van%20Gogh&amp;rft.jtitle=The%20Poetry%20Ireland%20Review&amp;rft.btitle=&amp;rft.aulast=Smyth&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Smyth%2C%20Gerard&amp;rft.aucorp=&amp;rft.date=20020401&amp;rft.volume=&amp;rft.issue=72&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=85&amp;rft.epage=85&amp;rft.pages=85-85&amp;rft.artnum=&amp;rft.issn=03322998&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.eisbn=&amp;rft_dat=&lt;jstor&gt;10.2307/25579974&lt;/jstor&gt;&amp;rft_id=info:oai/]]&gt;&lt;/sear:openurl&gt;\n
+        \           &lt;sear:backlink&gt;http://www.jstor.org/stable/10.2307/25579974?origin=api&lt;/sear:backlink&gt;\n
+        \           &lt;sear:thumbnail/&gt;\n            &lt;sear:openurlfulltext&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-jstor&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;rft.genre=article&amp;rft.atitle=Van%20Gogh&amp;rft.jtitle=The%20Poetry%20Ireland%20Review&amp;rft.btitle=&amp;rft.aulast=Smyth&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Smyth%2C%20Gerard&amp;rft.aucorp=&amp;rft.date=20020401&amp;rft.volume=&amp;rft.issue=72&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=85&amp;rft.epage=85&amp;rft.pages=85-85&amp;rft.artnum=&amp;rft.issn=03322998&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=&amp;rft.eisbn=&amp;rft_dat=&lt;jstor&gt;10.2307/25579974&lt;/jstor&gt;&amp;rft_id=info:oai/&amp;template=openurlfull_article]]&gt;&lt;/sear:openurlfulltext&gt;\n
+        \         &lt;/sear:LINKS&gt;\n        &lt;/sear:DOC&gt;\n        &lt;sear:DOC
+        LOCAL=&quot;false&quot; SEARCH_ENGINE_TYPE=&quot;Primo Central Search Engine&quot;
+        SEARCH_ENGINE=&quot;PrimoCentralThirdNode&quot; NO=&quot;4&quot; RANK=&quot;0.1680907&quot;
+        ID=&quot;52122192&quot;&gt;\n          &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;\n
+        \           &lt;record&gt;\n              &lt;control&gt;\n                &lt;sourcerecordid&gt;10.1080/03017605.2011.561634&lt;/sourcerecordid&gt;\n
+        \               &lt;sourceid&gt;tayfranc&lt;/sourceid&gt;\n                &lt;recordid&gt;TN_tayfranc10.1080/03017605.2011.561634&lt;/recordid&gt;\n
+        \               &lt;sourceformat&gt;XML&lt;/sourceformat&gt;\n                &lt;sourcesystem&gt;Other&lt;/sourcesystem&gt;\n
+        \             &lt;/control&gt;\n              &lt;display&gt;\n                &lt;type&gt;article&lt;/type&gt;\n
+        \               &lt;title&gt;Vincent van Gogh&lt;/title&gt;\n                &lt;creator&gt;Mckenna,
+        Tony&lt;/creator&gt;\n                &lt;publisher&gt;Taylor &amp;amp; Francis
+        Group&lt;/publisher&gt;\n                &lt;ispartof&gt;Critique, 2011, Vol.39(2),
+        p.295-303&lt;/ispartof&gt;\n                &lt;identifier&gt;&lt;![CDATA[&lt;b&gt;ISSN:
+        &lt;/b&gt;0301-7605 ; &lt;b&gt;E-ISSN: &lt;/b&gt;1748-8605 ; &lt;b&gt;DOI:
+        &lt;/b&gt;10.1080/03017605.2011.561634]]&gt;&lt;/identifier&gt;\n                &lt;subject&gt;Van
+        Gogh ; Alienation ; Religion ; Art&lt;/subject&gt;\n                &lt;description&gt;Van
+        Gogh's story is beautifully sad. It was only in the last ten years of his
+        life that he took up painting. During that time he produced works of such
+        vehement intensity that their reproductions are to be found across the globe;
+        those signature images of sunflowers and blazing stars which have since passed
+        into permanence, resonating the thoughts and feelings of each successive generation.
+        Yet in his own lifetime Vincent experienced dismal failure and was unable
+        to sell a single work. He was no more successful in his personal life; the
+        few friends he did manage to make were quickly lost, and he was never able
+        to start a family. Vincent's life faltered between hope and despair; each
+        new connection he tried to forge was brutally disappointed. It is the writer's
+        contention that the art of Van Gogh can be better understood by referencing
+        the historical context of his life. That the loneliness Vincent experienced
+        was at the same time the pre-condition for the beauty, melancholy and power
+        of the art he produced. It was the relentless and alienating objectivities
+        of the world he encountered which forced him to turn inward, to develop a
+        rich mental life which was to culminate in both genius and madness. Vincent
+        committed suicide at the age of 37.&lt;/description&gt;\n                &lt;source&gt;Routledge,
+        Taylor &amp;amp; Francis Group&amp;lt;img src=&quot;https://exlibris-pub.s3.amazonaws.com/Routledge_RGB.jpg&quot;
+        style=&quot;vertical-align:middle;margin-left:7px&quot;&gt;&lt;/source&gt;\n
+        \               &lt;lds50&gt;peer_reviewed&lt;/lds50&gt;\n                &lt;version&gt;1&lt;/version&gt;\n
+        \             &lt;/display&gt;\n              &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_article&lt;/openurl&gt;\n
+        \               &lt;openurlfulltext&gt;$$Topenurlfull_article&lt;/openurlfulltext&gt;\n
+        \               &lt;addlink&gt;$$Uhttps://exlibris-pub.s3.amazonaws.com/aboutTaylorFrancis.html$$EView_Taylor_&amp;amp;_Francis_Group_Copyright_Statement&lt;/addlink&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;creatorcontrib&gt;McKenna,
+        Tony&lt;/creatorcontrib&gt;\n                &lt;title&gt;Vincent van Gogh&lt;/title&gt;\n
+        \               &lt;description&gt;Van Gogh's story is beautifully sad. It
+        was only in the last ten years of his life that he took up painting. During
+        that time he produced works of such vehement intensity that their reproductions
+        are to be found across the globe; those signature images of sunflowers and
+        blazing stars which have since passed into permanence, resonating the thoughts
+        and feelings of each successive generation. Yet in his own lifetime Vincent
+        experienced dismal failure and was unable to sell a single work. He was no
+        more successful in his personal life; the few friends he did manage to make
+        were quickly lost, and he was never able to start a family. Vincent's life
+        faltered between hope and despair; each new connection he tried to forge was
+        brutally disappointed. It is the writer's contention that the art of Van Gogh
+        can be better understood by referencing the historical context of his life.
+        That the loneliness Vincent experienced was at the same time the pre-condition
+        for the beauty, melancholy and power of the art he produced. It was the relentless
+        and alienating objectivities of the world he encountered which forced him
+        to turn inward, to develop a rich mental life which was to culminate in both
+        genius and madness. Vincent committed suicide at the age of 37.&lt;/description&gt;\n
+        \               &lt;subject&gt;Van Gogh&lt;/subject&gt;\n                &lt;subject&gt;Alienation&lt;/subject&gt;\n
+        \               &lt;subject&gt;Religion&lt;/subject&gt;\n                &lt;subject&gt;Art&lt;/subject&gt;\n
+        \               &lt;general&gt;10.1080/03017605.2011.561634&lt;/general&gt;\n
+        \               &lt;general&gt;Critique, Vol. 39, No. 2, May 2011, pp. 295&#x2013;303&lt;/general&gt;\n
+        \               &lt;general&gt;Taylor &amp;amp; Francis Group&lt;/general&gt;\n
+        \               &lt;sourceid&gt;tayfranc&lt;/sourceid&gt;\n                &lt;recordid&gt;tayfranc10.1080/03017605.2011.561634&lt;/recordid&gt;\n
+        \               &lt;issn&gt;0301-7605&lt;/issn&gt;\n                &lt;issn&gt;03017605&lt;/issn&gt;\n
+        \               &lt;issn&gt;1748-8605&lt;/issn&gt;\n                &lt;issn&gt;17488605&lt;/issn&gt;\n
+        \               &lt;rsrctype&gt;article&lt;/rsrctype&gt;\n                &lt;creationdate&gt;2011&lt;/creationdate&gt;\n
+        \               &lt;addtitle&gt;Critique: Journal of Socialist Theory&lt;/addtitle&gt;\n
+        \               &lt;searchscope&gt;tayfranc&lt;/searchscope&gt;\n                &lt;searchscope&gt;taylor_francis&lt;/searchscope&gt;\n
+        \               &lt;scope&gt;tayfranc&lt;/scope&gt;\n                &lt;scope&gt;taylor_francis&lt;/scope&gt;\n
+        \             &lt;/search&gt;\n              &lt;sort&gt;\n                &lt;title&gt;Vincent
+        van Gogh&lt;/title&gt;\n                &lt;author&gt;Mckenna, Tony&lt;/author&gt;\n
+        \               &lt;creationdate&gt;20110501&lt;/creationdate&gt;\n              &lt;/sort&gt;\n
+        \             &lt;facets&gt;\n                &lt;creationdate&gt;2011&lt;/creationdate&gt;\n
+        \               &lt;topic&gt;Van Gogh&lt;/topic&gt;\n                &lt;topic&gt;Alienation&lt;/topic&gt;\n
+        \               &lt;topic&gt;Religion&lt;/topic&gt;\n                &lt;topic&gt;Art&lt;/topic&gt;\n
+        \               &lt;collection&gt;Taylor &amp;amp; Francis Online - Journals&lt;/collection&gt;\n
+        \               &lt;prefilter&gt;articles&lt;/prefilter&gt;\n                &lt;rsrctype&gt;articles&lt;/rsrctype&gt;\n
+        \               &lt;creatorcontrib&gt;Mckenna, Tony&lt;/creatorcontrib&gt;\n
+        \               &lt;jtitle&gt;Critique&lt;/jtitle&gt;\n                &lt;toplevel&gt;peer_reviewed&lt;/toplevel&gt;\n
+        \               &lt;frbrgroupid&gt;8381996817650573379&lt;/frbrgroupid&gt;\n
+        \               &lt;frbrtype&gt;5&lt;/frbrtype&gt;\n              &lt;/facets&gt;\n
+        \             &lt;frbr&gt;\n                &lt;t&gt;2&lt;/t&gt;\n                &lt;k1&gt;2011&lt;/k1&gt;\n
+        \               &lt;k2&gt;03017605&lt;/k2&gt;\n                &lt;k2&gt;17488605&lt;/k2&gt;\n
+        \               &lt;k3&gt;10.1080/03017605.2011.561634&lt;/k3&gt;\n                &lt;k4&gt;39&lt;/k4&gt;\n
+        \               &lt;k5&gt;2&lt;/k5&gt;\n                &lt;k6&gt;295&lt;/k6&gt;\n
+        \               &lt;k7&gt;critique&lt;/k7&gt;\n                &lt;k8&gt;vincent
+        van gogh&lt;/k8&gt;\n                &lt;k9&gt;vincentvangogh&lt;/k9&gt;\n
+        \               &lt;k15&gt;tonymckenna&lt;/k15&gt;\n                &lt;k16&gt;mckennatony&lt;/k16&gt;\n
+        \             &lt;/frbr&gt;\n              &lt;delivery&gt;\n                &lt;delcategory&gt;Remote
+        Search Resource&lt;/delcategory&gt;\n                &lt;fulltext&gt;no_fulltext&lt;/fulltext&gt;\n
+        \             &lt;/delivery&gt;\n              &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n                &lt;pcg_type&gt;publisher&lt;/pcg_type&gt;\n
+        \             &lt;/ranking&gt;\n              &lt;addata&gt;\n                &lt;aulast&gt;McKenna&lt;/aulast&gt;\n
+        \               &lt;aufirst&gt;Tony&lt;/aufirst&gt;\n                &lt;au&gt;Mckenna,
+        Tony&lt;/au&gt;\n                &lt;atitle&gt;Vincent van Gogh&lt;/atitle&gt;\n
+        \               &lt;jtitle&gt;Critique&lt;/jtitle&gt;\n                &lt;addtitle&gt;Journal
+        of Socialist Theory&lt;/addtitle&gt;\n                &lt;date&gt;20110501&lt;/date&gt;\n
+        \               &lt;volume&gt;39&lt;/volume&gt;\n                &lt;issue&gt;2&lt;/issue&gt;\n
+        \               &lt;spage&gt;295&lt;/spage&gt;\n                &lt;epage&gt;303&lt;/epage&gt;\n
+        \               &lt;issn&gt;0301-7605&lt;/issn&gt;\n                &lt;eissn&gt;1748-8605&lt;/eissn&gt;\n
+        \               &lt;format&gt;article&lt;/format&gt;\n                &lt;genre&gt;article&lt;/genre&gt;\n
+        \               &lt;ristype&gt;JOUR&lt;/ristype&gt;\n                &lt;abstract&gt;Van
+        Gogh's story is beautifully sad. It was only in the last ten years of his
+        life that he took up painting. During that time he produced works of such
+        vehement intensity that their reproductions are to be found across the globe;
+        those signature images of sunflowers and blazing stars which have since passed
+        into permanence, resonating the thoughts and feelings of each successive generation.
+        Yet in his own lifetime Vincent experienced dismal failure and was unable
+        to sell a single work. He was no more successful in his personal life; the
+        few friends he did manage to make were quickly lost, and he was never able
+        to start a family. Vincent's life faltered between hope and despair; each
+        new connection he tried to forge was brutally disappointed. It is the writer's
+        contention that the art of Van Gogh can be better understood by referencing
+        the historical context of his life. That the loneliness Vincent experienced
+        was at the same time the pre-condition for the beauty, melancholy and power
+        of the art he produced. It was the relentless and alienating objectivities
+        of the world he encountered which forced him to turn inward, to develop a
+        rich mental life which was to culminate in both genius and madness. Vincent
+        committed suicide at the age of 37.&lt;/abstract&gt;\n                &lt;pub&gt;Taylor
+        &amp;amp; Francis Group&lt;/pub&gt;\n                &lt;doi&gt;10.1080/03017605.2011.561634&lt;/doi&gt;\n
+        \             &lt;/addata&gt;\n            &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n
+        \         &lt;sear:GETIT GetIt2=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&quot;
+        GetIt1=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;amp;svc.fulltext=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&amp;amp;template=openurlfull_article&quot;
+        deliveryCategory=&quot;Remote Search Resource&quot;/&gt;\n          &lt;sear:LINKS&gt;\n
+        \           &lt;sear:openurl&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-tayfranc&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:article&amp;rft.genre=article&amp;rft.atitle=Vincent%20van%20Gogh&amp;rft.jtitle=Critique&amp;rft.btitle=&amp;rft.aulast=McKenna&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Mckenna%2C%20Tony&amp;rft.aucorp=&amp;rft.date=20110501&amp;rft.volume=39&amp;rft.issue=2&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=295&amp;rft.epage=303&amp;rft.pages=&amp;rft.artnum=&amp;rft.issn=0301-7605&amp;rft.eissn=1748-8605&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/10.1080/03017605.2011.561634&amp;rft.object_id=&amp;rft.eisbn=&amp;rft_dat=&lt;tayfranc&gt;10.1080/03017605.2011.561634&lt;/tayfranc&gt;&amp;rft_id=info:oai/]]&gt;&lt;/sear:openurl&gt;\n
+        \           &lt;sear:thumbnail/&gt;\n            &lt;sear:openurlfulltext&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-tayfranc&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:article&amp;rft.genre=article&amp;rft.atitle=Vincent%20van%20Gogh&amp;rft.jtitle=Critique&amp;rft.btitle=&amp;rft.aulast=McKenna&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Mckenna%2C%20Tony&amp;rft.aucorp=&amp;rft.date=20110501&amp;rft.volume=39&amp;rft.issue=2&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=295&amp;rft.epage=303&amp;rft.pages=&amp;rft.artnum=&amp;rft.issn=0301-7605&amp;rft.eissn=1748-8605&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/10.1080/03017605.2011.561634&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=&amp;rft.eisbn=&amp;rft_dat=&lt;tayfranc&gt;10.1080/03017605.2011.561634&lt;/tayfranc&gt;&amp;rft_id=info:oai/&amp;template=openurlfull_article]]&gt;&lt;/sear:openurlfulltext&gt;\n
+        \           &lt;sear:addlink&gt;https://exlibris-pub.s3.amazonaws.com/aboutTaylorFrancis.html&lt;/sear:addlink&gt;\n
+        \         &lt;/sear:LINKS&gt;\n        &lt;/sear:DOC&gt;\n        &lt;sear:DOC
+        LOCAL=&quot;false&quot; SEARCH_ENGINE_TYPE=&quot;Primo Central Search Engine&quot;
+        SEARCH_ENGINE=&quot;PrimoCentralThirdNode&quot; NO=&quot;5&quot; RANK=&quot;0.15742625&quot;
+        ID=&quot;48605838&quot;&gt;\n          &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;\n
+        \           &lt;record&gt;\n              &lt;control&gt;\n                &lt;sourcerecordid&gt;10.2307/4611194&lt;/sourcerecordid&gt;\n
+        \               &lt;sourceid&gt;jstor&lt;/sourceid&gt;\n                &lt;recordid&gt;TN_jstor10.2307/4611194&lt;/recordid&gt;\n
+        \               &lt;sourceformat&gt;XML&lt;/sourceformat&gt;\n                &lt;sourcesystem&gt;Other&lt;/sourcesystem&gt;\n
+        \             &lt;/control&gt;\n              &lt;display&gt;\n                &lt;type&gt;article&lt;/type&gt;\n
+        \               &lt;title&gt;Van Gogh&lt;/title&gt;\n                &lt;creator&gt;Moore,
+        Barbara&lt;/creator&gt;\n                &lt;ispartof&gt;The Antioch Review,
+        1983, Vol.41(1), pp.73&lt;/ispartof&gt;\n                &lt;identifier&gt;&amp;lt;b&gt;ISSN:&amp;lt;/b&gt;
+        00035769&lt;/identifier&gt;\n                &lt;subject&gt;Literature&lt;/subject&gt;\n
+        \               &lt;language&gt;eng&lt;/language&gt;\n                &lt;source&gt;JSTOR&lt;/source&gt;\n
+        \               &lt;lds50&gt;peer_reviewed&lt;/lds50&gt;\n              &lt;/display&gt;\n
+        \             &lt;links&gt;\n                &lt;openurl&gt;$$Topenurl_article&lt;/openurl&gt;\n
+        \               &lt;backlink&gt;$$Uhttp://www.jstor.org/stable/10.2307/4611194?origin=api$$EView_this_record_in_JSTOR&lt;/backlink&gt;\n
+        \               &lt;openurlfulltext&gt;$$Topenurlfull_article&lt;/openurlfulltext&gt;\n
+        \             &lt;/links&gt;\n              &lt;search&gt;\n                &lt;creatorcontrib&gt;Moore,
+        Barbara&lt;/creatorcontrib&gt;\n                &lt;title&gt;Van Gogh&lt;/title&gt;\n
+        \               &lt;subject&gt;literature&lt;/subject&gt;\n                &lt;general&gt;10.2307/4611194&lt;/general&gt;\n
+        \               &lt;general&gt;English&lt;/general&gt;\n                &lt;general&gt;JSOTR&lt;/general&gt;\n
+        \               &lt;sourceid&gt;jstor&lt;/sourceid&gt;\n                &lt;recordid&gt;jstor10.2307/4611194&lt;/recordid&gt;\n
+        \               &lt;issn&gt;0003-5769&lt;/issn&gt;\n                &lt;issn&gt;00035769&lt;/issn&gt;\n
+        \               &lt;rsrctype&gt;article&lt;/rsrctype&gt;\n                &lt;creationdate&gt;1983&lt;/creationdate&gt;\n
+        \               &lt;recordtype&gt;article&lt;/recordtype&gt;\n                &lt;addtitle&gt;The
+        Antioch Review&lt;/addtitle&gt;\n                &lt;searchscope&gt;jstor&lt;/searchscope&gt;\n
+        \               &lt;searchscope&gt;jstor_asc5&lt;/searchscope&gt;\n                &lt;scope&gt;jstor&lt;/scope&gt;\n
+        \               &lt;scope&gt;jstor_asc5&lt;/scope&gt;\n              &lt;/search&gt;\n
+        \             &lt;sort&gt;\n                &lt;title&gt;Van Gogh&lt;/title&gt;\n
+        \               &lt;author&gt;Moore, Barbara&lt;/author&gt;\n                &lt;creationdate&gt;19830101&lt;/creationdate&gt;\n
+        \             &lt;/sort&gt;\n              &lt;facets&gt;\n                &lt;language&gt;eng&lt;/language&gt;\n
+        \               &lt;creationdate&gt;1983&lt;/creationdate&gt;\n                &lt;topic&gt;Literature&lt;/topic&gt;\n
+        \               &lt;collection&gt;Arts &amp;amp; Sciences (JSTOR)&lt;/collection&gt;\n
+        \               &lt;prefilter&gt;articles&lt;/prefilter&gt;\n                &lt;rsrctype&gt;articles&lt;/rsrctype&gt;\n
+        \               &lt;creatorcontrib&gt;Moore, Barbara&lt;/creatorcontrib&gt;\n
+        \               &lt;jtitle&gt;Antioch Review&lt;/jtitle&gt;\n                &lt;toplevel&gt;peer_reviewed&lt;/toplevel&gt;\n
+        \               &lt;frbrgroupid&gt;591692547&lt;/frbrgroupid&gt;\n                &lt;frbrtype&gt;6&lt;/frbrtype&gt;\n
+        \             &lt;/facets&gt;\n              &lt;frbr&gt;\n                &lt;t&gt;2&lt;/t&gt;\n
+        \               &lt;k1&gt;1983&lt;/k1&gt;\n                &lt;k2&gt;00035769&lt;/k2&gt;\n
+        \               &lt;k4&gt;41&lt;/k4&gt;\n                &lt;k5&gt;1&lt;/k5&gt;\n
+        \               &lt;k6&gt;73&lt;/k6&gt;\n                &lt;k7&gt;antioch
+        review&lt;/k7&gt;\n                &lt;k8&gt;van gogh&lt;/k8&gt;\n                &lt;k9&gt;vangogh&lt;/k9&gt;\n
+        \               &lt;k15&gt;barbaramoore&lt;/k15&gt;\n                &lt;k16&gt;moorebarbara&lt;/k16&gt;\n
+        \             &lt;/frbr&gt;\n              &lt;delivery&gt;\n                &lt;delcategory&gt;Remote
+        Search Resource&lt;/delcategory&gt;\n                &lt;fulltext&gt;fulltext&lt;/fulltext&gt;\n
+        \             &lt;/delivery&gt;\n              &lt;ranking&gt;\n                &lt;booster1&gt;1&lt;/booster1&gt;\n
+        \               &lt;booster2&gt;1&lt;/booster2&gt;\n                &lt;pcg_type&gt;aggregator&lt;/pcg_type&gt;\n
+        \             &lt;/ranking&gt;\n              &lt;addata&gt;\n                &lt;aulast&gt;Moore&lt;/aulast&gt;\n
+        \               &lt;aufirst&gt;Barbara&lt;/aufirst&gt;\n                &lt;au&gt;Moore,
+        Barbara&lt;/au&gt;\n                &lt;atitle&gt;Van Gogh&lt;/atitle&gt;\n
+        \               &lt;jtitle&gt;The Antioch Review&lt;/jtitle&gt;\n                &lt;volume&gt;41&lt;/volume&gt;\n
+        \               &lt;issue&gt;1&lt;/issue&gt;\n                &lt;spage&gt;73&lt;/spage&gt;\n
+        \               &lt;epage&gt;73&lt;/epage&gt;\n                &lt;pages&gt;73-73&lt;/pages&gt;\n
+        \               &lt;issn&gt;00035769&lt;/issn&gt;\n                &lt;genre&gt;article&lt;/genre&gt;\n
+        \               &lt;ristype&gt;JOUR&lt;/ristype&gt;\n                &lt;pub&gt;Antioch
+        Review&lt;/pub&gt;\n                &lt;url&gt;http://www.jstor.org/stable/10.2307/4611194?origin=api&lt;/url&gt;\n
+        \               &lt;lad02&gt;19830101&lt;/lad02&gt;\n                &lt;date&gt;19830101&lt;/date&gt;\n
+        \               &lt;risdate&gt;19830101&lt;/risdate&gt;\n              &lt;/addata&gt;\n
+        \           &lt;/record&gt;\n          &lt;/PrimoNMBib&gt;\n          &lt;sear:GETIT
+        GetIt2=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&quot;
+        GetIt1=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-sciversesciencedirect_elsevier&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;amp;rft.genre=article&amp;amp;rft.atitle=Disputed%20painting%20revealed%20as%20a%20Van%20Gogh&amp;amp;rft.jtitle=New%20Scientist&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=&amp;amp;rft.aucorp=&amp;amp;rft.date=20120331&amp;amp;rft.volume=213&amp;amp;rft.issue=2858&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=7&amp;amp;rft.epage=7&amp;amp;rft.pages=7-7&amp;amp;rft.artnum=&amp;amp;rft.issn=0262-4079&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/10.1016/S0262-4079(12)60794-5&amp;amp;rft.object_id=&amp;amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;amp;svc.fulltext=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;sciversesciencedirect_elsevier&gt;S0262-4079(12)60794-5&amp;lt;/sciversesciencedirect_elsevier&gt;&amp;amp;rft_id=info:oai/&amp;amp;template=openurlfull_article&quot;
+        deliveryCategory=&quot;Remote Search Resource&quot;/&gt;\n          &lt;sear:LINKS&gt;\n
+        \           &lt;sear:openurl&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-jstor&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;rft.genre=article&amp;rft.atitle=Van%20Gogh&amp;rft.jtitle=The%20Antioch%20Review&amp;rft.btitle=&amp;rft.aulast=Moore&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Moore%2C%20Barbara&amp;rft.aucorp=&amp;rft.date=19830101&amp;rft.volume=41&amp;rft.issue=1&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=73&amp;rft.epage=73&amp;rft.pages=73-73&amp;rft.artnum=&amp;rft.issn=00035769&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.eisbn=&amp;rft_dat=&lt;jstor&gt;10.2307/4611194&lt;/jstor&gt;&amp;rft_id=info:oai/]]&gt;&lt;/sear:openurl&gt;\n
+        \           &lt;sear:backlink&gt;http://www.jstor.org/stable/10.2307/4611194?origin=api&lt;/sear:backlink&gt;\n
+        \           &lt;sear:thumbnail/&gt;\n            &lt;sear:openurlfulltext&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2013-04-10T14%3A24%3A06IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-jstor&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:&amp;rft.genre=article&amp;rft.atitle=Van%20Gogh&amp;rft.jtitle=The%20Antioch%20Review&amp;rft.btitle=&amp;rft.aulast=Moore&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Moore%2C%20Barbara&amp;rft.aucorp=&amp;rft.date=19830101&amp;rft.volume=41&amp;rft.issue=1&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=73&amp;rft.epage=73&amp;rft.pages=73-73&amp;rft.artnum=&amp;rft.issn=00035769&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=&amp;rft.eisbn=&amp;rft_dat=&lt;jstor&gt;10.2307/4611194&lt;/jstor&gt;&amp;rft_id=info:oai/&amp;template=openurlfull_article]]&gt;&lt;/sear:openurlfulltext&gt;\n
+        \         &lt;/sear:LINKS&gt;\n        &lt;/sear:DOC&gt;\n      &lt;/sear:DOCSET&gt;\n
+        \   &lt;/sear:RESULT&gt;\n  &lt;/sear:JAGROOT&gt;\n&lt;/sear:SEGMENTS&gt;\n</searchBriefReturn></searchBriefResponse></soapenv:Body></soapenv:Envelope>"
+    http_version:
+  recorded_at: Wed, 10 Apr 2013 18:24:06 GMT
+recorded_with: VCR 2.4.0
