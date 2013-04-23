@@ -38,7 +38,7 @@ module Exlibris
       protected :xml_options
 
       def xml
-        @xml ||= Nokogiri::XML(raw_xml)
+        @xml ||= Nokogiri::XML(raw_xml, nil, 'UTF-8')
       end
       protected :xml
 
