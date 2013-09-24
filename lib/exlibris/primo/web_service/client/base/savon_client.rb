@@ -10,11 +10,8 @@ module Exlibris
             # We're not using WSDL at the moment, since
             # we don't want to make an extra HTTP call.
             # 
-            # @client ||= Savon.client(wsdl)
-            @client ||= Savon.client do
-              wsdl.endpoint = endpoint
-              wsdl.namespace = endpoint
-            end
+            # @client ||= Savon.client(wsdl: wsdl)
+            @client ||= Savon.client(endpoint: endpoint, namespace: endpoint, log: false, log_level: :warn)
           end
           protected :client
         end

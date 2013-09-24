@@ -34,7 +34,7 @@ module Exlibris
           def method_missing(method, *args, &block)
             if(soap_actions.include? method)
               self.class.send(:define_method, method) { |request_xml|
-                client.request(method) { soap.body = request_xml }
+                client.call(method, message: request_xml)
               }
               send method, *args, &block
             else

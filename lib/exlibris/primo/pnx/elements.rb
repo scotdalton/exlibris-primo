@@ -44,25 +44,25 @@ module Exlibris
 
         def attr_read method
           if("#{method}".start_with? "all_")
-            (inner_text_all(xpathize(method)) || inner_text_all(controlize(method)))
+            (inner_html_all(xpathize(method)) || inner_html_all(controlize(method)))
           else
-            (inner_text_at(xpathize(method)) || inner_text_at(controlize(method)))
+            (inner_html_at(xpathize(method)) || inner_html_at(controlize(method)))
           end
         end
         private :attr_read
 
-        def inner_text_all xpath
+        def inner_html_all xpath
           xml.root.xpath(xpath).collect do |element|
-            element.inner_text
+            element.inner_html
           end
         end
-        private :inner_text_all
+        private :inner_html_all
 
-        def inner_text_at xpath
+        def inner_html_at xpath
           xml_at = xml.root.at_xpath(xpath)
-          xml_at.inner_text if xml_at
+          xml_at.inner_html if xml_at
         end
-        private :inner_text_at
+        private :inner_html_at
 
         def controlize s
           "control/#{xpathize s.to_s}"

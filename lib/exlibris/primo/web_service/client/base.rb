@@ -3,7 +3,6 @@ module Exlibris
     module WebService
       module Client
         class Base
-          extend SavonConfig
           include Abstract
           include Config::Attributes
           include Endpoint

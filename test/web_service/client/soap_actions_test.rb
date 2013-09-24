@@ -26,7 +26,7 @@ module WebService
       def test_no_arguments
         VCR.use_cassette('client action no arguments') do
           client = Exlibris::Primo::WebService::Client::Search.new :base_url => @base_url
-          assert_raise(ArgumentError, Savon::SOAP::Fault) {
+          assert_raise(ArgumentError, Savon::SOAPFault) {
             client.get_record
           }
         end
@@ -35,7 +35,7 @@ module WebService
       def test_too_many_arguments
         VCR.use_cassette('client too many arguments') do
           client = Exlibris::Primo::WebService::Client::Search.new :base_url => @base_url
-          assert_raise(ArgumentError, Savon::SOAP::Fault) {
+          assert_raise(ArgumentError, Savon::SOAPFault) {
             client.get_record "1", "2"
           }
         end

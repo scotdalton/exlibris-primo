@@ -6,7 +6,7 @@ source "http://rubygems.org"
 gemspec
 
 platforms :jruby do
-  gem 'jruby-openssl', "~> 0.8.0"
+  gem 'jruby-openssl', "~> 0.9.0"
 end
 
-gem "coveralls", "~> 0.6.0", :require => false, :group => :test
+gem "coveralls", "~> 0.7.0", :require => false, :group => :test

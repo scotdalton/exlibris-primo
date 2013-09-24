@@ -19,11 +19,11 @@ module Exlibris
 
         module ClassAttributes
           def indexes
-            @indexes ||= [:any, :stitle, :title, :creator, :genre, :author, :isbn]
+            @indexes ||= [:any, :stitle, :title, :creator, :genre, :rsrctype, :author, :isbn]
           end
 
           def indexes_map
-            @indexes_map ||= {:author => :creator}
+            @indexes_map ||= {:author => :creator, :genre => :rsrctype}
           end
 
           def precisions
