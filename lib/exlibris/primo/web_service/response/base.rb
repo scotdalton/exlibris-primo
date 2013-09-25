@@ -19,7 +19,12 @@ module Exlibris
             @code = savon_response.http.code
             @body = savon_response.http.body
             @soap_action = soap_action
-            @raw_xml = savon_response.body[response_key][return_key]
+            # Since there seem to be a problem parsing strings with unescaped 
+            # ampersands in Nokogiri for java/jruby we need to
+            # force ' & ' to ' &amp; '; may have to do with
+            # https://github.com/sparklemotion/nokogiri/issues/614
+            @raw_xml = 
+              savon_response.body[response_key][return_key].gsub(' & ', ' &amp; ')
           end
         end
       end

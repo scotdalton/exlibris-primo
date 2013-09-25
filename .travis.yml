@@ -4,3 +4,6 @@ rvm:
   - 2.0.0
   - jruby-19mode # JRuby (1.9)
   - rbx-19mode
+jdk:
+  - openjdk6
+  - openjdk7

@@ -31,6 +31,25 @@ class SearchTest < Test::Unit::TestCase
     end
   end
 
+  def test_title_with_ampersand
+    VCR.use_cassette('search title with ampersand') do
+      search = Exlibris::Primo::Search.new.base_url!(@base_url).
+        institution!(@institution).title_is("wallace & gromit")
+      assert_not_nil search.size
+      assert_not_nil search.facets
+      assert((not search.facets.empty?))
+      assert_not_nil search.records
+      assert((not search.records.empty?))
+      search.records.each do |record|
+        assert_not_nil record.holdings
+        assert((not record.holdings.empty?))
+        assert_not_nil record.fulltexts
+        assert_not_nil record.tables_of_contents
+        assert_not_nil record.related_links
+      end
+    end
+  end
+
   def test_chaining_author_title
     VCR.use_cassette('search chaining author title') do
       search = Exlibris::Primo::Search.new.base_url!(@base_url).
