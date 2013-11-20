@@ -12,6 +12,13 @@ module Exlibris
 
       attr_accessor :institution, :record_id, :original_id,
         :url, :display, :notes, :subfields
+
+      def initialize *args
+        # URLs may have XML escaped ampersands
+        # so we need to account for that.
+        args.last[:url].gsub!("&amp;", "&") unless args.last.nil?
+        super(*args)
+      end
     end
 
     # 
