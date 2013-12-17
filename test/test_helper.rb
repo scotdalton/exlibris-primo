@@ -559,5 +559,183 @@ class Test::Unit::TestCase
     "</addata>"+
     "</record>"
   end
+
+  def record_invalid_frbr_xml
+    "<record>"+
+    "<control>"+
+    "<sourcerecordid>000062856</sourcerecordid>"+
+    "<sourceid>nyu_aleph</sourceid>"+
+    "<recordid>nyu_aleph000062856</recordid>"+
+    "<originalsourceid>NYU01</originalsourceid>"+
+    "<ilsapiid>NYU01000062856</ilsapiid>"+
+    "<sourceformat>MARC21</sourceformat>"+
+    "<sourcesystem>Aleph</sourcesystem>"+
+    "</control>"+
+    "<display>"+
+    "<type>book</type>"+
+    "<title>Travels with my aunt</title>"+
+    "<creator>Graham  Greene  1904-1991.</creator>"+
+    "<edition>Deluxe ed.</edition>"+
+    "<publisher>New York : Penguin Books</publisher>"+
+    "<creationdate>2004</creationdate>"+
+    "<format>xvi, 254 p. ; 22 cm.</format>"+
+    "<identifier>$$Cisbn$$V0143039008; $$Cisbn$$V9780143039006</identifier>"+
+    "<subject>British -- Foreign countries -- Fiction; Women travelers -- Fiction; Older women -- Fiction; Travelers -- Fiction; Retirees -- Fiction; Aunts -- Fiction; Humorous stories</subject>"+
+    "<language>eng</language>"+
+    "<relation>$$Cseries $$VPenguin classics</relation>"+
+    "<source>nyu_aleph</source>"+
+    "<availlibrary>$$INYU$$LBOBST$$1Main Collection$$2(PR6013.R44 T7 2004 )$$Sunavailable$$31$$41$$5N$$61$$XNYU50$$YBOBST$$ZMAIN</availlibrary>"+
+    "<lds02>nyu_aleph000062856</lds02>"+
+    "<lds01>NYU</lds01>"+
+    "<availinstitution>$$INYU$$Sunavailable</availinstitution>"+
+    "<availpnx>unavailable</availpnx>"+
+    "</display>"+
+    "<links>"+
+    "<openurl>$$Topenurl_journal</openurl>"+
+    "<backlink>$$Taleph_backlink$$DMore bibliographic information</backlink>"+
+    "<thumbnail>$$Tamazon_thumb</thumbnail>"+
+    "<linktotoc>$$Tamazon_toc$$DCheck for Amazon Search Inside</linktotoc>"+
+    "<openurlfulltext>$$Topenurlfull_journal</openurlfulltext>"+
+    "<linktoholdings>$$Taleph_holdings</linktoholdings>"+
+    "<linktoreview>$$TpersistentUrl$$DCopy item link</linktoreview>"+
+    "<linktouc>$$Tamazon_uc$$DCheck Amazon</linktouc>"+
+    "<linktouc>$$Tworldcat_isbn$$DCheck other libraries (WorldCat&#xAE;)</linktouc>"+
+    "<linktoexcerpt>$$Tsyndetics_excerpt$$DExcerpt from item</linktoexcerpt>"+
+    "</links>"+
+    "<search>"+
+    "<creatorcontrib>Graham,  Greene  1904-1991.</creatorcontrib>"+
+    "<creatorcontrib>Greene, Graham, 1904-1991.</creatorcontrib>"+
+    "<creatorcontrib>Greene, G</creatorcontrib>"+
+    "<creatorcontrib>Graham Greene ; introduction by Gloria Emerson.</creatorcontrib>"+
+    "<creatorcontrib>Greene, Henry Graham, 1904-1991</creatorcontrib>"+
+    "<creatorcontrib>G&#x16D;rin, G&#x16D;re&#x14F;m, 1904-1991</creatorcontrib>"+
+    "<creatorcontrib>Grin, Greham, 1904-1991</creatorcontrib>"+
+    "<creatorcontrib>Gr&#x12B;na, Gr&#x101;hama, 1904-1991</creatorcontrib>"+
+    "<creatorcontrib>Grin, Gr&#x117;m, 1904-1991</creatorcontrib>"+
+    "<creatorcontrib>&#x683C;&#x62C9;&#x59C6;&#x30FB;&#x845B;&#x6797;, 1904-1991</creatorcontrib>"+
+    "<creatorcontrib>Gr&#x12B;ns, Greiems, 1904-1991</creatorcontrib>"+
+    "<creatorcontrib>Gr&#x12B;ns, G. (Greiems), 1904-1991</creatorcontrib>"+
+    "<title>Travels with my aunt /</title>"+
+    "<subject>British  Foreign countries Fiction</subject>"+
+    "<subject>Women travelers  Fiction</subject>"+
+    "<subject>Older women  Fiction</subject>"+
+    "<subject>Travelers  Fiction</subject>"+
+    "<subject>Retirees  Fiction</subject>"+
+    "<subject>Aunts  Fiction</subject>"+
+    "<subject>Humorous stories</subject>"+
+    "<subject>People, Retired</subject>"+
+    "<subject>Retired persons</subject>"+
+    "<subject>Retired people</subject>"+
+    "<subject>Travelers, Women</subject>"+
+    "<subject>Britishers</subject>"+
+    "<subject>British people</subject>"+
+    "<subject>Britons (British)</subject>"+
+    "<subject>Brits</subject>"+
+    "<subject>Aged women</subject>"+
+    "<general>Penguin Books,</general>"+
+    "<general>\"Graham Greene centennial, 1904-2004\"--Cover.</general>"+
+    "<sourceid>nyu_aleph</sourceid>"+
+    "<recordid>nyu_aleph000062856</recordid>"+
+    "<isbn>0143039008</isbn>"+
+    "<isbn>9780143039006</isbn>"+
+    "<isbn>9780143&quot;0390069</isbn>"+
+    "<rsrctype>book</rsrctype>"+
+    "<creationdate>2004</creationdate>"+
+    "<creationdate>1969</creationdate>"+
+    "<addtitle>Penguin classics</addtitle>"+
+    "<searchscope>BOBST</searchscope>"+
+    "<searchscope>BOBST Main Collection</searchscope>"+
+    "<searchscope>nyu_aleph</searchscope>"+
+    "<searchscope>NYU</searchscope>"+
+    "<scope>BOBST</scope>"+
+    "<scope>BOBST Main Collection</scope>"+
+    "<scope>nyu_aleph</scope>"+
+    "<scope>NYU</scope>"+
+    "<lsr01>PR6013.R44 T7 2004</lsr01>"+
+    "<lsr01>PR6013 .R44 T7 2004</lsr01>"+
+    "<lsr02>Penguin Books,</lsr02>"+
+    "</search>"+
+    "<sort>"+
+    "<title>Travels with my aunt /</title>"+
+    "<creationdate>2004</creationdate>"+
+    "<author>Greene, Graham, 1904-1991.</author>"+
+    "<lso01>2004</lso01>"+
+    "</sort>"+
+    "<facets>"+
+    "<language>eng</language>"+
+    "<creationdate>2004</creationdate>"+
+    "<topic>British&#x2013;Foreign countries&#x2013;Fiction</topic>"+
+    "<topic>Women travelers&#x2013;Fiction</topic>"+
+    "<topic>Older women&#x2013;Fiction</topic>"+
+    "<topic>Travelers&#x2013;Fiction</topic>"+
+    "<topic>Retirees&#x2013;Fiction</topic>"+
+    "<topic>Aunts&#x2013;Fiction</topic>"+
+    "<collection>BOBST</collection>"+
+    "<prefilter>books</prefilter>"+
+    "<rsrctype>books</rsrctype>"+
+    "<creatorcontrib>Greene, G</creatorcontrib>"+
+    "<genre>Fiction</genre>"+
+    "<genre>Humorous stories</genre>"+
+    "<library>BOBST</library>"+
+    "<lfc01>Main Collection</lfc01>"+
+    "<classificationlcc>P - Language and literature.&#x2013;English literature</classificationlcc>"+
+    "<frbrgroupid>49340863</frbrgroupid>"+
+    "<frbrtype>6</frbrtype>"+
+    "</facets>"+
+    "<dedup>"+
+    "<t>1</t>"+
+    "<c1>2004559272</c1>"+
+    "<c2>0143039008;9780143039006</c2>"+
+    "<c3>travelswithmyaunt</c3>"+
+    "<c4>2004</c4>"+
+    "<f1>2004559272</f1>"+
+    "<f3>0143039008;9780143039006</f3>"+
+    "<f5>travelswithmyaunt</f5>"+
+    "<f6>2004</f6>"+
+    "<f7>travels with my aunt</f7>"+
+    "<f8>nyu</f8>"+
+    "<f9>xvi, 254 p. ;</f9>"+
+    "<f10>penguin books</f10>"+
+    "<f11>greene graham 1904 1991</f11>"+
+    "</dedup>"+
+    "<frbr>"+
+    "<t>1</t>"+
+    "<k1>$$Kgreene graham 1904 1991$$AA</k1>"+
+    "<k3>$$Kbooktravels with my aunt$$AT</k3>"+
+    "</frbr>"+
+    "<delivery>"+
+    "<institution>NYU</institution>"+
+    "<delcategory>Physical Item</delcategory>"+
+    "</delivery>"+
+    "<enrichment>"+
+    "<classificationlcc>PR6013.R44</classificationlcc>"+
+    "</enrichment>"+
+    "<ranking>"+
+    "<booster1>1</booster1>"+
+    "<booster2>1</booster2>"+
+    "</ranking>"+
+    "<addata>"+
+    "<aulast>Greene</aulast>"+
+    "<aufirst>Graham,</aufirst>"+
+    "<au>Greene, Graham, 1904-1991</au>"+
+    "<btitle>Travels with my aunt</btitle>"+
+    "<seriestitle>Penguin classics</seriestitle>"+
+    "<date>2004</date>"+
+    "<risdate>2004.</risdate>"+
+    "<isbn>0143039008</isbn>"+
+    "<isbn>9780143039006</isbn>"+
+    "<format>book</format>"+
+    "<genre>book</genre>"+
+    "<ristype>BOOK</ristype>"+
+    "<notes>Includes bibliographical references (p. xv-xvi).</notes>"+
+    "<cop>New York</cop>"+
+    "<pub>Penguin Books</pub>"+
+    "<oclcid>56781200</oclcid>"+
+    "<lccn>2004559272</lccn>"+
+    "<lad01>BOBST</lad01>"+
+    "<lad01>Physical Item</lad01>"+
+    "</addata>"+
+    "</record>"
+  end
 end
 

@@ -1,15 +1,20 @@
 module Exlibris
   module Primo
     module Pnx
-      # 
+      #
       # Handle frbr records
-      # 
+      #
       module Frbr
         #
         # Is this a frbr'd record
         #
         def frbr?
-          @frbr ||= (respond_to? :facets_frbrgroupid)
+          if (respond_to? :facets_frbrgroupid) && (facets_frbrtype != "6")
+            @frbr = true
+          else
+            @frbr = false
+          end
+          @frbr
         end
 
         #
