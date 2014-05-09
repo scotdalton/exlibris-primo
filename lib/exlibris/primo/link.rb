@@ -1,8 +1,8 @@
 module Exlibris
   module Primo
-    # 
+    #
     # Abstract class representing a link in Primo.
-    # 
+    #
     class Link
       include Abstract
       include Config::Attributes
@@ -11,7 +11,7 @@ module Exlibris
       self.abstract = true
 
       attr_accessor :institution, :record_id, :original_id,
-        :url, :display, :notes, :subfields
+        :url, :display, :notes, :subfields, :display_code
 
       def initialize *args
         # URLs may have XML escaped ampersands
@@ -21,19 +21,19 @@ module Exlibris
       end
     end
 
-    # 
+    #
     # Primo fulltext link.
-    # 
+    #
     class Fulltext < Link; end
 
-    # 
+    #
     # Primo table of contents link.
-    # 
+    #
     class TableOfContents < Link; end
 
-    # 
+    #
     # Primo related link.
-    # 
+    #
     class RelatedLink < Link; end
   end
 end
