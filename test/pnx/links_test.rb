@@ -15,6 +15,11 @@ module Pnx
       assert_not_nil(record.fulltexts.first.display)
     end
 
+    def test_fulltexs_with_title_in_template_field
+      record = Exlibris::Primo::Record.new(:raw_xml => dedupmgr_record_xml)
+      assert_equal("linktosrc_code", record.fulltexts[1].display_code)
+    end
+
     def test_tables_of_contents
       record = Exlibris::Primo::Record.new(:raw_xml => dedupmgr_record_xml)
       assert_not_nil record.tables_of_contents

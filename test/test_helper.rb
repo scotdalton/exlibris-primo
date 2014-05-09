@@ -144,6 +144,7 @@ class Test::Unit::TestCase
     "<backlink>$$V$$Taleph_backlink$$DMore bibliographic information$$Onyu_aleph000932393</backlink>"+
     "<backlink>$$V$$Taleph_backlink$$DMore bibliographic information$$Onyu_aleph002959842</backlink>"+
     "<linktorsrc>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://proquest.umi.com/pqdweb?RQT=318&amp;VName=PQD&amp;clientid=9269&amp;pmid=7818$$D1995 - Current Access via Proquest$$INYU$$Onyu_aleph000932393</linktorsrc>"+
+    "<linktorsrc>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://proquest.umi.com/pqdweb?RQT=318&amp;VName=PQD&amp;clientid=9269&amp;pmid=7818$$Elinktosrc_code$$INYUAD$$Onyu_aleph000932393</linktorsrc>"+
     "<linktorsrc>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://proquest.umi.com/pqdweb?RQT=318&amp;VName=PQD&amp;clientid=9269&amp;pmid=7818$$D1995 - Current Access via Proquest$$INYUAD$$Onyu_aleph000932393</linktorsrc>"+
     "<linktorsrc>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.nytimes.com/$$DOnline version:$$INYU$$Onyu_aleph002959842</linktorsrc>"+
     "<linktorsrc>$$V$$Uhttps://ezproxy.library.nyu.edu/login?url=http://www.nytimes.com/$$DOnline version:$$INYUAD$$Onyu_aleph002959842</linktorsrc>"+
