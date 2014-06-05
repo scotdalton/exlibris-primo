@@ -37,7 +37,7 @@ class SearchPrimoCentralTest < Test::Unit::TestCase
       assert_not_nil record.fulltexts
       assert_not_nil record.tables_of_contents
       assert_not_nil record.related_links
-      assert_equal "MLA International Bibliography&lt;img src=\"http://exlibris-pub.s3.amazonaws.com/mlalogo_001.jpg\" style=\"vertical-align:middle;margin-left:7px\"&gt;", record.display_source
+      assert_equal "MLA International Bibliography<img src=\"http://exlibris-pub.s3.amazonaws.com/mlalogo_001.jpg\" style=\"vertical-align:middle;margin-left:7px\">", record.display_source
     end
   end
 end

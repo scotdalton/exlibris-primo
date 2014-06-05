@@ -209,7 +209,7 @@ class SearchTest < Test::Unit::TestCase
       assert_not_nil search.records
       assert((not search.records.empty?))
       search.records.each do |record|
-        assert_match(/(&lt;|<)span class="searchword"(&gt;|>)/, record.display_title)
+        assert_match(/<span class="searchword">/, record.display_title)
       end
     end
   end
