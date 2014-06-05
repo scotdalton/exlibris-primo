@@ -1,0 +1,213 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://primo-fe1.library.nd.edu:1701/PrimoWebServices/services/searcher
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://primo-fe1.library.nd.edu:1701/PrimoWebServices/services/searcher"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><wsdl:searchBrief><request><![CDATA[<searchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/wsRequest" xmlns:uic="http://www.exlibris.com/primo/xsd/primoview/uicomponents"><PrimoSearchRequest
+        xmlns="http://www.exlibris.com/primo/xsd/search/request"><QueryTerms><BoolOpeator>AND</BoolOpeator><QueryTerm><IndexField>rid</IndexField><PrecisionOperator>exact</PrecisionOperator><Value>mla2012444463</Value></QueryTerm></QueryTerms><StartIndex>1</StartIndex><BulkSize>5</BulkSize><DidUMeanEnabled>false</DidUMeanEnabled><Locations><uic:Location
+        type="adaptor" value="primo_central_multiple_fe"/></Locations></PrimoSearchRequest><institution>NDU</institution><onCampus>true</onCampus></searchRequest>]]></request></wsdl:searchBrief></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"searchBrief"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '1052'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/xml;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 05 Jun 2014 16:49:32 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><ns1:searchBriefResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://primo-fe1.library.nd.edu:1701/PrimoWebServices/services/searcher"><searchBriefReturn xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">&lt;sear:SEGMENTS xmlns:sear=&quot;http://www.exlibrisgroup.com/xsd/jaguar/search&quot;&gt;&lt;sear:JAGROOT&gt;
+            &lt;sear:RESULT&gt;
+              &lt;sear:QUERYTRANSFORMS/&gt;
+              &lt;sear:FACETLIST ACCURATE_COUNTERS=&quot;true&quot;&gt;
+                &lt;sear:FACET NAME=&quot;creator&quot; COUNT=&quot;2&quot;&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;Taylor, Matthew&quot; VALUE=&quot;1&quot;/&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;Taylor, M.&quot; VALUE=&quot;1&quot;/&gt;
+                &lt;/sear:FACET&gt;
+                &lt;sear:FACET NAME=&quot;lang&quot; COUNT=&quot;1&quot;&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;eng&quot; VALUE=&quot;1&quot;/&gt;
+                &lt;/sear:FACET&gt;
+                &lt;sear:FACET NAME=&quot;rtype&quot; COUNT=&quot;2&quot;&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;articles&quot; VALUE=&quot;1&quot;/&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;text_resources&quot; VALUE=&quot;1&quot;/&gt;
+                &lt;/sear:FACET&gt;
+                &lt;sear:FACET NAME=&quot;topic&quot; COUNT=&quot;6&quot;&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;Dramatic Arts&quot; VALUE=&quot;1&quot;/&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot; Film&quot; VALUE=&quot;1&quot;/&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;Movie Directors&quot; VALUE=&quot;1&quot;/&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot; The Hunt&quot; VALUE=&quot;1&quot;/&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot; Vinterberg, Thomas(1969- )&quot; VALUE=&quot;1&quot;/&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot; Jagten(2012)&quot; VALUE=&quot;1&quot;/&gt;
+                &lt;/sear:FACET&gt;
+                &lt;sear:FACET NAME=&quot;tlevel&quot; COUNT=&quot;1&quot;&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;online_resources&quot; VALUE=&quot;1&quot;/&gt;
+                &lt;/sear:FACET&gt;
+                &lt;sear:FACET NAME=&quot;pfilter&quot; COUNT=&quot;1&quot;&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;articles&quot; VALUE=&quot;1&quot;/&gt;
+                &lt;/sear:FACET&gt;
+                &lt;sear:FACET NAME=&quot;creationdate&quot; COUNT=&quot;1&quot;&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;2012&quot; VALUE=&quot;1&quot;/&gt;
+                &lt;/sear:FACET&gt;
+                &lt;sear:FACET NAME=&quot;domain&quot; COUNT=&quot;2&quot;&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;MLA International Bibliography&quot; VALUE=&quot;1&quot;/&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;OneFile (GALE)&quot; VALUE=&quot;1&quot;/&gt;
+                &lt;/sear:FACET&gt;
+                &lt;sear:FACET NAME=&quot;jtitle&quot; COUNT=&quot;1&quot;&gt;
+                  &lt;sear:FACET_VALUES KEY=&quot;Sight and Sound&quot; VALUE=&quot;1&quot;/&gt;
+                &lt;/sear:FACET&gt;
+              &lt;/sear:FACETLIST&gt;
+              &lt;sear:DOCSET HIT_TIME=&quot;10&quot; TOTALHITS=&quot;1&quot; FIRSTHIT=&quot;1&quot; LASTHIT=&quot;5&quot; TOTAL_TIME=&quot;35&quot;&gt;
+                &lt;sear:DOC ID=&quot;359046088&quot; RANK=&quot;0.07&quot; NO=&quot;1&quot; SEARCH_ENGINE=&quot;PrimoCentralThirdNode&quot; SEARCH_ENGINE_TYPE=&quot;Primo Central Search Engine&quot; LOCAL=&quot;false&quot;&gt;
+                  &lt;PrimoNMBib xmlns=&quot;http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib&quot;&gt;
+                    &lt;record&gt;
+                      &lt;control&gt;
+                        &lt;sourcerecordid&gt;2012444463&lt;/sourcerecordid&gt;
+                        &lt;sourceid&gt;mla&lt;/sourceid&gt;
+                        &lt;recordid&gt;TN_mla2012444463&lt;/recordid&gt;
+                        &lt;sourcesystem&gt;Other&lt;/sourcesystem&gt;
+                      &lt;/control&gt;
+                      &lt;display&gt;
+                        &lt;type&gt;article&lt;/type&gt;
+                        &lt;title&gt;Something Rotten in Denmark&lt;/title&gt;
+                        &lt;creator&gt;Taylor, Matthew&lt;/creator&gt;
+                        &lt;ispartof&gt;Sight and Sound, 2012 Dec, Vol.22(12), p.16&lt;/ispartof&gt;
+                        &lt;identifier&gt;&amp;lt;b&gt;ISSN: &amp;lt;/b&gt;0037-4806&lt;/identifier&gt;
+                        &lt;subject&gt;Dramatic Arts ;  Film ;  Vinterberg, Thomas(1969- ) ;  Jagten(2012) ;  The Hunt&lt;/subject&gt;
+                        &lt;language&gt;English&lt;/language&gt;
+                        &lt;source&gt;MLA International Bibliography&amp;lt;img src=&quot;http://exlibris-pub.s3.amazonaws.com/mlalogo_001.jpg&quot; style=&quot;vertical-align:middle;margin-left:7px&quot;&gt;&lt;/source&gt;
+                        &lt;lds42&gt;english&lt;/lds42&gt;
+                        &lt;version&gt;4&lt;/version&gt;
+                      &lt;/display&gt;
+                      &lt;links&gt;
+                        &lt;openurl&gt;$$Topenurl_article&lt;/openurl&gt;
+                        &lt;thumbnail&gt;$$TPCgoogle_thumb&lt;/thumbnail&gt;
+                        &lt;thumbnail&gt;$$TPCamazon_thumb&lt;/thumbnail&gt;
+                        &lt;openurlfulltext&gt;$$Topenurlfull_article&lt;/openurlfulltext&gt;
+                      &lt;/links&gt;
+                      &lt;search&gt;
+                        &lt;creatorcontrib&gt;Taylor, Matthew&lt;/creatorcontrib&gt;
+                        &lt;title&gt;Something Rotten in Denmark&lt;/title&gt;
+                        &lt;subject&gt;dramatic arts&lt;/subject&gt;
+                        &lt;subject&gt;film&lt;/subject&gt;
+                        &lt;subject&gt;Vinterberg, Thomas&amp;lt;&amp;lt;1969- &gt;&gt;&lt;/subject&gt;
+                        &lt;subject&gt;Jagten&amp;lt;&amp;lt;2012&gt;&gt;&lt;/subject&gt;
+                        &lt;subject&gt;The Hunt&lt;/subject&gt;
+                        &lt;general&gt;English&lt;/general&gt;
+                        &lt;general&gt;2012-8-4672&lt;/general&gt;
+                        &lt;sourceid&gt;mla&lt;/sourceid&gt;
+                        &lt;recordid&gt;mla2012444463&lt;/recordid&gt;
+                        &lt;issn&gt;0037-4806&lt;/issn&gt;
+                        &lt;issn&gt;00374806&lt;/issn&gt;
+                        &lt;rsrctype&gt;article&lt;/rsrctype&gt;
+                        &lt;creationdate&gt;2012&lt;/creationdate&gt;
+                        &lt;addtitle&gt;Sight and Sound&lt;/addtitle&gt;
+                        &lt;searchscope&gt;mla&lt;/searchscope&gt;
+                        &lt;searchscope&gt;mlab_bib&lt;/searchscope&gt;
+                        &lt;searchscope&gt;mlab_gale_lrc_mlaib&lt;/searchscope&gt;
+                        &lt;searchscope&gt;mlab_gale_mlaib&lt;/searchscope&gt;
+                        &lt;searchscope&gt;mlab_ebsco&lt;/searchscope&gt;
+                        &lt;searchscope&gt;mlab_proquest_c_h&lt;/searchscope&gt;
+                        &lt;searchscope&gt;mlab_proquest_lit&lt;/searchscope&gt;
+                        &lt;searchscope&gt;mlab_csa&lt;/searchscope&gt;
+                        &lt;searchscope&gt;mlab&lt;/searchscope&gt;
+                        &lt;scope&gt;mla&lt;/scope&gt;
+                        &lt;scope&gt;mlab_bib&lt;/scope&gt;
+                        &lt;scope&gt;mlab_gale_lrc_mlaib&lt;/scope&gt;
+                        &lt;scope&gt;mlab_gale_mlaib&lt;/scope&gt;
+                        &lt;scope&gt;mlab_ebsco&lt;/scope&gt;
+                        &lt;scope&gt;mlab_proquest_c_h&lt;/scope&gt;
+                        &lt;scope&gt;mlab_proquest_lit&lt;/scope&gt;
+                        &lt;scope&gt;mlab_csa&lt;/scope&gt;
+                        &lt;scope&gt;mlab&lt;/scope&gt;
+                        &lt;lsr40&gt;16&lt;/lsr40&gt;
+                      &lt;/search&gt;
+                      &lt;sort&gt;
+                        &lt;title&gt;Something Rotten in Denmark&lt;/title&gt;
+                        &lt;creationdate&gt;20120000&lt;/creationdate&gt;
+                        &lt;author&gt;Taylor, Matthew&lt;/author&gt;
+                      &lt;/sort&gt;
+                      &lt;facets&gt;
+                        &lt;frbrgroupid&gt;5810529816792308232&lt;/frbrgroupid&gt;
+                        &lt;frbrtype&gt;5&lt;/frbrtype&gt;
+                        &lt;language&gt;eng&lt;/language&gt;
+                        &lt;creationdate&gt;2012&lt;/creationdate&gt;
+                        &lt;topic&gt;Dramatic Arts&lt;/topic&gt;
+                        &lt;topic&gt;Film&lt;/topic&gt;
+                        &lt;topic&gt;Vinterberg, Thomas(1969- )&lt;/topic&gt;
+                        &lt;topic&gt;Jagten(2012)&lt;/topic&gt;
+                        &lt;topic&gt;The Hunt&lt;/topic&gt;
+                        &lt;collection&gt;MLA International Bibliography&lt;/collection&gt;
+                        &lt;prefilter&gt;articles&lt;/prefilter&gt;
+                        &lt;rsrctype&gt;articles&lt;/rsrctype&gt;
+                        &lt;creatorcontrib&gt;Taylor, Matthew&lt;/creatorcontrib&gt;
+                        &lt;jtitle&gt;Sight and Sound&lt;/jtitle&gt;
+                      &lt;/facets&gt;
+                      &lt;frbr&gt;
+                        &lt;t&gt;2&lt;/t&gt;
+                        &lt;k1&gt;2012&lt;/k1&gt;
+                        &lt;k2&gt;00374806&lt;/k2&gt;
+                        &lt;k4&gt;22&lt;/k4&gt;
+                        &lt;k5&gt;12&lt;/k5&gt;
+                        &lt;k6&gt;16&lt;/k6&gt;
+                        &lt;k7&gt;sight sound&lt;/k7&gt;
+                        &lt;k8&gt;something rotten in denmark&lt;/k8&gt;
+                        &lt;k9&gt;somethingrottenindenmark&lt;/k9&gt;
+                        &lt;k15&gt;matthewtaylor&lt;/k15&gt;
+                        &lt;k16&gt;taylormatthew&lt;/k16&gt;
+                      &lt;/frbr&gt;
+                      &lt;delivery&gt;
+                        &lt;delcategory&gt;Remote Search Resource&lt;/delcategory&gt;
+                        &lt;fulltext&gt;fulltext&lt;/fulltext&gt;
+                      &lt;/delivery&gt;
+                      &lt;ranking&gt;
+                        &lt;booster1&gt;1&lt;/booster1&gt;
+                        &lt;booster2&gt;1&lt;/booster2&gt;
+                        &lt;pcg_type&gt;publisher&lt;/pcg_type&gt;
+                      &lt;/ranking&gt;
+                      &lt;addata&gt;
+                        &lt;au&gt;Taylor, Matthew&lt;/au&gt;
+                        &lt;atitle&gt;Something Rotten in Denmark&lt;/atitle&gt;
+                        &lt;jtitle&gt;Sight and Sound&lt;/jtitle&gt;
+                        &lt;date&gt;2012&lt;/date&gt;
+                        &lt;risdate&gt;2012&lt;/risdate&gt;
+                        &lt;volume&gt;22&lt;/volume&gt;
+                        &lt;issue&gt;12&lt;/issue&gt;
+                        &lt;spage&gt;16&lt;/spage&gt;
+                        &lt;issn&gt;0037-4806&lt;/issn&gt;
+                        &lt;format&gt;journal&lt;/format&gt;
+                        &lt;ristype&gt;JOUR&lt;/ristype&gt;
+                      &lt;/addata&gt;
+                    &lt;/record&gt;
+                  &lt;/PrimoNMBib&gt;
+                &lt;sear:GETIT deliveryCategory=&quot;Remote Search Resource&quot; GetIt1=&quot;http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;amp;ctx_enc=info:ofi/enc:UTF-8&amp;amp;ctx_tim=2014-06-05T12%3A49%3A32IST&amp;amp;url_ver=Z39.88-2004&amp;amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-mla&amp;amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;amp;rft.genre=&amp;amp;rft.atitle=Something%20Rotten%20in%20Denmark&amp;amp;rft.jtitle=Sight%20and%20Sound&amp;amp;rft.btitle=&amp;amp;rft.aulast=&amp;amp;rft.auinit=&amp;amp;rft.auinit1=&amp;amp;rft.auinitm=&amp;amp;rft.ausuffix=&amp;amp;rft.au=Taylor%2C%20Matthew&amp;amp;rft.aucorp=&amp;amp;rft.date=2012&amp;amp;rft.volume=22&amp;amp;rft.issue=12&amp;amp;rft.part=&amp;amp;rft.quarter=&amp;amp;rft.ssn=&amp;amp;rft.spage=16&amp;amp;rft.epage=&amp;amp;rft.pages=&amp;amp;rft.artnum=&amp;amp;rft.issn=0037-4806&amp;amp;rft.eissn=&amp;amp;rft.isbn=&amp;amp;rft.sici=&amp;amp;rft.coden=&amp;amp;rft_id=info:doi/&amp;amp;rft.object_id=&amp;amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;amp;svc.fulltext=&amp;amp;rft.eisbn=&amp;amp;rft_dat=&amp;lt;mla&gt;2012444463&amp;lt;/mla&gt;&amp;lt;grp_id&gt;5810529816792308232&amp;lt;/grp_id&gt;&amp;lt;oa&gt;&amp;lt;/oa&gt;&amp;amp;rft_id=info:oai/&amp;amp;template=openurlfull_article&amp;amp;req.language=&quot; GetIt2=&quot;&quot;/&gt;&lt;sear:LINKS&gt;&lt;sear:openurl&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2014-06-05T12%3A49%3A32IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-mla&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=&amp;rft.atitle=Something%20Rotten%20in%20Denmark&amp;rft.jtitle=Sight%20and%20Sound&amp;rft.btitle=&amp;rft.aulast=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Taylor%2C%20Matthew&amp;rft.aucorp=&amp;rft.date=2012&amp;rft.volume=22&amp;rft.issue=12&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=16&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.issn=0037-4806&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;rft.eisbn=&amp;rft_dat=&lt;mla&gt;2012444463&lt;/mla&gt;&lt;grp_id&gt;5810529816792308232&lt;/grp_id&gt;&lt;oa&gt;&lt;/oa&gt;&amp;rft_id=info:oai/&amp;req.language=]]&gt;&lt;/sear:openurl&gt;&lt;sear:thumbnail&gt;http://books.google.com/books?bibkeys=ISBN:,OCLC:,LCCN:&amp;amp;jscmd=viewapi&amp;amp;callback=updateGBSCover&lt;/sear:thumbnail&gt;&lt;sear:thumbnail&gt;http://images.amazon.com/images/P/.01._SSTHUM_.jpg&lt;/sear:thumbnail&gt;&lt;sear:openurlfulltext&gt;&lt;![CDATA[http://findtext.library.nd.edu:8889/ndu_local?ctx_ver=Z39.88-2004&amp;ctx_enc=info:ofi/enc:UTF-8&amp;ctx_tim=2014-06-05T12%3A49%3A32IST&amp;url_ver=Z39.88-2004&amp;url_ctx_fmt=infofi/fmt:kev:mtx:ctx&amp;rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-mla&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:journal&amp;rft.genre=&amp;rft.atitle=Something%20Rotten%20in%20Denmark&amp;rft.jtitle=Sight%20and%20Sound&amp;rft.btitle=&amp;rft.aulast=&amp;rft.auinit=&amp;rft.auinit1=&amp;rft.auinitm=&amp;rft.ausuffix=&amp;rft.au=Taylor%2C%20Matthew&amp;rft.aucorp=&amp;rft.date=2012&amp;rft.volume=22&amp;rft.issue=12&amp;rft.part=&amp;rft.quarter=&amp;rft.ssn=&amp;rft.spage=16&amp;rft.epage=&amp;rft.pages=&amp;rft.artnum=&amp;rft.issn=0037-4806&amp;rft.eissn=&amp;rft.isbn=&amp;rft.sici=&amp;rft.coden=&amp;rft_id=info:doi/&amp;rft.object_id=&amp;svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&amp;svc.fulltext=&amp;rft.eisbn=&amp;rft_dat=&lt;mla&gt;2012444463&lt;/mla&gt;&lt;grp_id&gt;5810529816792308232&lt;/grp_id&gt;&lt;oa&gt;&lt;/oa&gt;&amp;rft_id=info:oai/&amp;template=openurlfull_article&amp;req.language=]]&gt;&lt;/sear:openurlfulltext&gt;&lt;/sear:LINKS&gt;&lt;/sear:DOC&gt;
+              &lt;/sear:DOCSET&gt;
+            &lt;/sear:RESULT&gt;
+            &lt;sear:searchToken&gt;0&lt;/sear:searchToken&gt;
+          &lt;/sear:JAGROOT&gt;&lt;/sear:SEGMENTS&gt;</searchBriefReturn></ns1:searchBriefResponse></soapenv:Body></soapenv:Envelope>
+    http_version: 
+  recorded_at: Thu, 05 Jun 2014 16:49:33 GMT
+recorded_with: VCR 2.5.0
