@@ -1,9 +1,9 @@
 require 'test_helper'
 class SearchPrimoCentralTest < Test::Unit::TestCase
   def setup
-    @base_url = "http://onesearch.library.nd.edu"
-    @search_term = "van gogh"
+    @base_url = "http://primo-fe1.library.nd.edu:1701"
     @institution = "NDU"
+    @search_term = "van gogh"
   end
 
   def test_primo_central
