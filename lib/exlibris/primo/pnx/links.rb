@@ -18,8 +18,8 @@ module Exlibris
         # Parse addlink tags to find related links
         #
         def related_links
-          @fulltexts ||=
-            links("addlink").collect { |link_attributes|
+          @related_links ||= 
+            links("addlink").collect { |link_attributes| 
               Exlibris::Primo::RelatedLink.new link_attributes }
         end
 
