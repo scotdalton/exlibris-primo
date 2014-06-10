@@ -28,5 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "vcr", "~> 2.8.0"
   s.add_development_dependency "webmock", "~> 1.16.0"
   s.add_development_dependency "pry", "~> 0.9.12.2"
-  s.add_development_dependency 'minitest', '~> 5.3.4'
+  s.add_development_dependency 'minitest', '~> 4.7.5'
 end
