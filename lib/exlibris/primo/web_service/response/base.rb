@@ -19,11 +19,8 @@ module Exlibris
             @code = savon_response.http.code
             @body = savon_response.http.body
             @soap_action = soap_action
-            # Primo's XML is unescaped trash that Nokogiri chokes on.
-            # Force & to &amp; and avoid double escaping
-            # This is a complete HACK.
-            @raw_xml = savon_response.body[response_key][return_key].
-              gsub('&amp;', '&').gsub('&', '&amp;')
+
+            @raw_xml = savon_response.body[response_key][return_key]
           end
         end
       end

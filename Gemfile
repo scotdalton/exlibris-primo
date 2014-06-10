@@ -17,6 +17,7 @@ group :test do
   gem "rake", "~> 10.1.0"
   gem "vcr", "~> 2.5.0"
   gem "webmock", "~> 1.13.0"
+  gem "minitest", "4.7.5"
 end
 
 platforms :rbx do

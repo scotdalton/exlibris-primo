@@ -1,9 +1,9 @@
 module Exlibris
   module Primo
     module Pnx
-      # 
+      #
       # Provides access to PNX elements
-      # 
+      #
       module Elements
         #
         # Parses elements from PNX base on the pattern
@@ -44,25 +44,25 @@ module Exlibris
 
         def attr_read method
           if("#{method}".start_with? "all_")
-            (inner_html_all(xpathize(method)) || inner_html_all(controlize(method)))
+            (inner_text_all(xpathize(method)) || inner_text_all(controlize(method)))
           else
-            (inner_html_at(xpathize(method)) || inner_html_at(controlize(method)))
+            (inner_text_at(xpathize(method)) || inner_text_at(controlize(method)))
           end
         end
         private :attr_read
 
-        def inner_html_all xpath
+        def inner_text_all xpath
           xml.root.xpath(xpath).collect do |element|
-            element.inner_html
+            element.inner_text
           end
         end
-        private :inner_html_all
+        private :inner_text_all
 
-        def inner_html_at xpath
+        def inner_text_at xpath
           xml_at = xml.root.at_xpath(xpath)
-          xml_at.inner_html if xml_at
+          xml_at.inner_text if xml_at
         end
-        private :inner_html_at
+        private :inner_text_at
 
         def controlize s
           "control/#{xpathize s.to_s}"
