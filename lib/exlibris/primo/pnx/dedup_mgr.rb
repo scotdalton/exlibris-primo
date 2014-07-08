@@ -1,9 +1,9 @@
 module Exlibris
   module Primo
     module Pnx
-      # 
+      #
       # Handle PNX dedupmgr elements
-      # 
+      #
       module DedupMgr
 
         def self.included(klass)
@@ -55,8 +55,18 @@ module Exlibris
           if(duplicated_control_attributes.include? method)
             control_attribute = method.id2name.singularize
             self.class.send(:define_method, method) do
-              eval("@#{method} ||= (dedupmgr?) ?
-                map_values_to_origins(\"#{control_attribute}\") : {recordid => #{control_attribute}}")
+              variable_name = "@#{method}"
+              if !instance_variable_defined?(variable_name)
+                if dedupmgr?
+                  value = map_values_to_origins(control_attribute)
+                elsif respond_to?(control_attribute)
+                  value = {recordid => send(control_attribute)}
+                else
+                  value = {recordid => nil}
+                end
+                instance_variable_set(variable_name, value)
+              end
+              instance_variable_get(variable_name)
             end
             send method, *args, &block
           else
