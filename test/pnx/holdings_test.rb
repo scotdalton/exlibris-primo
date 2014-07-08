@@ -1,6 +1,20 @@
 module Pnx
   require 'test_helper'
   class HoldingsTest < Test::Unit::TestCase
+    def test_load_other_holdings
+      reset_primo_configuration
+      record = Exlibris::Primo::Record.new(:raw_xml => record_other_source_xml)
+      holdings = record.holdings.collect { | h | }
+      assert record.respond_to? :display_title
+      assert record.respond_to? :recordid
+      assert_not_nil record.holdings
+      holding = record.holdings.first
+      assert_equal("nduspec_eadRBSC-MSNEA0506", holding.record_id)
+      assert_nil(holding.original_source_id)
+      assert_equal("RBSC-MSNEA0506", holding.source_record_id)
+      assert_nil(holding.ils_api_id)
+    end
+
     def test_holdings
       reset_primo_configuration
       record = Exlibris::Primo::Record.new(:raw_xml => record_xml)

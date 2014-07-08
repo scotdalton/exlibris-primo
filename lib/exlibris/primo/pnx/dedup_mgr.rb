@@ -59,8 +59,10 @@ module Exlibris
               if !instance_variable_defined?(variable_name)
                 if dedupmgr?
                   value = map_values_to_origins(control_attribute)
-                else
+                elsif respond_to?(control_attribute)
                   value = {recordid => send(control_attribute)}
+                else
+                  value = {recordid => nil}
                 end
                 instance_variable_set(variable_name, value)
               end

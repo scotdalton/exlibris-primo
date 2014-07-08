@@ -561,6 +561,10 @@ class Test::Unit::TestCase
     "</record>"
   end
 
+  def record_other_source_xml
+    File.read(File.expand_path("../xml/record_other_sourcesystem.xml",  __FILE__))
+  end
+
   def record_invalid_frbr_xml
     "<record>"+
     "<control>"+
