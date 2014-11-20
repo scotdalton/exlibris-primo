@@ -7,11 +7,6 @@ gemspec
 
 gem 'jruby-openssl', "~> 0.9.0", platform: :jruby
 
-group :development do
-  gem "ruby-debug", "~> 0.10.4", platform: :jruby
-  gem "debugger", "~> 1.6.0", platform: :mri
-end
-
 group :test do
   gem "coveralls", "~> 0.7.0", :require => false
 end
