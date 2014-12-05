@@ -1,3 +1,4 @@
+require 'erb'
 module Exlibris
   module Primo
     #
@@ -6,17 +7,17 @@ module Exlibris
     module Config
       class << self
         include WriteAttributes
-        attr_accessor :base_url, :institution, :institutions, :libraries, :availability_statuses, :sources, 
+        attr_accessor :base_url, :institution, :institutions, :libraries, :availability_statuses, :sources,
           :facet_labels, :facet_top_level, :facet_collections, :facet_resource_types, :load_time
 
         def load_yaml file
-          write_attributes YAML.load_file(file)
+          write_attributes YAML.load(ERB.new(File.read(file)).result)
           self.load_time = Time.now
         end
       end
 
       #
-      # These attributes default to the global config settings if not 
+      # These attributes default to the global config settings if not
       # specified locally.
       #
       module Attributes
