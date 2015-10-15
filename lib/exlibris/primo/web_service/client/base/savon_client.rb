@@ -11,9 +11,20 @@ module Exlibris
             # we don't want to make an extra HTTP call.
             # 
             # @client ||= Savon.client(wsdl: wsdl)
-            @client ||= Savon.client(endpoint: endpoint, namespace: endpoint, log: false, log_level: :warn)
+            @client ||= Savon.client(client_options)
           end
           protected :client
+          
+          def client_options
+            {
+              proxy: proxy_url, 
+              endpoint: endpoint, 
+              namespace: endpoint, 
+              log: false, 
+              log_level: :warn
+            }.delete_if { |k, v| v.blank? }
+          end
+          private :client_options
         end
       end
     end
