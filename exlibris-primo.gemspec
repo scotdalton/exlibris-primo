@@ -29,4 +29,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "webmock", "~> 1.20.0"
   s.add_development_dependency "pry", "~> 0.9.12.2"
   s.add_development_dependency 'minitest', '~> 4.7.5'
+  s.add_development_dependency 'test-unit'
 end
