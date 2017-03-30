@@ -100,13 +100,14 @@ module Exlibris
 
       # Return the attribute accessible instance variables as a hash.
       def to_h
-        { :availlibrary => availlibrary, :record_id => record_id, :original_id => original_id, 
+        { 
+          :availlibrary => availlibrary, :record_id => record_id, :original_id => original_id, 
           :title => title, :author => author, :display_type => display_type, :source_id => source_id,
           :original_source_id => original_source_id, :source_record_id => source_record_id,
           :ils_api_id => ils_api_id, :institution_code => institution_code, :library_code => library_code,
           :availability_status_code => availability_status_code, :collection => collection,
           :call_number => call_number, :coverage => coverage, :notes => notes, :subfields => subfields,
-          :source_id => source_id, :source_class => source_class, :source_data => source_data }
+          :source_class => source_class, :source_data => source_data }
       end
     end
   end

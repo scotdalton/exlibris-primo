@@ -66,15 +66,17 @@ class Test::Unit::TestCase
   end
   protected :assert_request
 
-  def yaml_primo_configuration
+  def yaml_primo_configuration(overide_proxy_url = true)
     Exlibris::Primo.configure do |config|
       config.load_yaml File.expand_path("../support/config.yml",  __FILE__)
+      config.proxy_url = nil if overide_proxy_url
     end
   end
 
   def reset_primo_configuration
     Exlibris::Primo.configure do |config|
       config.base_url = nil
+      config.proxy_url = nil
       config.institution = nil
       config.institutions = nil
       config.libraries = nil
