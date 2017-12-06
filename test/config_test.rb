@@ -17,9 +17,10 @@ class ConfigTest < Test::Unit::TestCase
 
   def test_config_from_yaml
     reset_primo_configuration
-    yaml_primo_configuration
+    yaml_primo_configuration(false)
     assert_equal "yaml_url", Exlibris::Primo::Config.base_url
     assert_equal "YAML_INSTITUTION", Exlibris::Primo::Config.institution
+    assert_equal "yaml_proxy_url", Exlibris::Primo::Config.proxy_url
     assert_nil(Exlibris::Primo::Config.institutions)
       assert_equal({ "LIB_CODE1" => "Library Decoded 1", "LIB_CODE2" => "Library Decoded 2",
         "LIB_CODE3" => "Library Decoded 3" }, Exlibris::Primo::Config.libraries)
@@ -44,10 +45,12 @@ class ConfigTest < Test::Unit::TestCase
 
   def test_config_attributes
     reset_primo_configuration
-    yaml_primo_configuration
+    yaml_primo_configuration(false)
     search = Exlibris::Primo::Search.new
     assert_equal "yaml_url", search.base_url
     assert_equal "YAML_INSTITUTION", search.institution
+    assert_equal "yaml_proxy_url", search
+                                     .proxy_url
     assert_equal({}, search.institutions)
     assert_equal({ "LIB_CODE1" => "Library Decoded 1", "LIB_CODE2" => "Library Decoded 2",
       "LIB_CODE3" => "Library Decoded 3" }, search.libraries)
