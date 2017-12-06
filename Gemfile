@@ -7,6 +7,9 @@ gemspec
 
 gem 'jruby-openssl', "~> 0.9.0", platform: :jruby
 
+# TODO: Remove once PR: https://github.com/savonrb/savon/pull/848 has been merged
+gem 'savon', git: 'https://github.com/michael-harrison/savon.git', branch: 'hotfix/nokogiri_vulnerbility_USN-3424-1'
+
 group :test do
   gem "coveralls", "~> 0.7.0", :require => false
 end
